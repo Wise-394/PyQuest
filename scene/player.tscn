@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://d3eijf4ilvq55"]
+
+[ext_resource type="Script" uid="uid://b1mcbl23mdui6" path="res://scene/player.gd" id="1_oh5ij"]
+[ext_resource type="Texture2D" uid="uid://bwskdgcu7p27v" path="res://assets/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="1_s4jxa"]
+[ext_resource type="Texture2D" uid="uid://cq2ca6sfk1enj" path="res://assets/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 02.png" id="2_oh5ij"]
+[ext_resource type="Texture2D" uid="uid://bdglhb5mgx3yg" path="res://assets/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 03.png" id="3_hp4bs"]
+[ext_resource type="Texture2D" uid="uid://cvdmpoovdl5vd" path="res://assets/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 04.png" id="4_g2vtq"]
+[ext_resource type="Texture2D" uid="uid://ddhi2ajtls0h3" path="res://assets/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 05.png" id="5_2fvbb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ml7e8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_s4jxa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_oh5ij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hp4bs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_g2vtq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2fvbb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ihjo1"]
+size = Vector2(20, 25)
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_oh5ij")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ml7e8")
+autoplay = "default"
+frame_progress = 0.275292
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_ihjo1")
