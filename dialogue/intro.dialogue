@@ -1,0 +1,14 @@
+~ start
+System: Welcome to PyQuest!
+System: In this world, you interact by typing Python code. Think of it like a coding adventure!
+System: Do you know python?
+- Yes! It's a snake
+	System: An amusing, but incorrect, assumption.
+- No, what's that?
+- print("Yes im a python pro")
+	System: Access Granted: Python Pro.
+	System: Welcome, Master of the Code. Your journey awaits!
+	=> END
+System: Python is a high-level, general-purpose programming language
+System: It's a language for talking to computers, and in this world, it's your magic!
+System: Don't worry, we'll start with the basics.

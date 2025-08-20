@@ -55,8 +55,8 @@ func _try_jump() -> bool:
 # --- State Functions ---
 # =====================================================
 func _state_idle() -> void:
+	animated_sprite.animation = "idle"
 	velocity.x = 0
-
 	if _try_jump():
 		return
 
@@ -65,8 +65,10 @@ func _state_idle() -> void:
 		current_state = PlayerState.WALK
 	
 func _state_walk() -> void:
+	animated_sprite.animation = "walk"
 	if _try_jump():
 		return
+		
 
 	var input_dir := _apply_horizontal_movement()
 
@@ -74,6 +76,7 @@ func _state_walk() -> void:
 		current_state = PlayerState.IDLE
 
 func _state_jump() -> void:
+	print(animated_sprite.animation) 
 	_apply_horizontal_movement()
 
 	# Check for landing

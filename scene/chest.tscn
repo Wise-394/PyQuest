@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://811uqchrdget"]
+
+[ext_resource type="Texture2D" uid="uid://x1ilpiri6r1n" path="res://assets/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Close 01.png" id="1_c0k1r"]
+[ext_resource type="Script" uid="uid://bfgghp2gnj8hx" path="res://script/chest.gd" id="1_cettl"]
+[ext_resource type="Texture2D" uid="uid://doe2jtqm8yt2u" path="res://assets/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Close 02.png" id="2_cettl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_26vdv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_c0k1r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_cettl")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bgh66"]
+size = Vector2(30, 23)
+
+[node name="chest" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_cettl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_26vdv")
+animation = &"closed"
+frame = 1
+frame_progress = 0.577001
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 5.5)
+shape = SubResource("RectangleShape2D_bgh66")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
