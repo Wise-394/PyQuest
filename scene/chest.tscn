@@ -15,7 +15,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"closed",
-"speed": 5.0
+"speed": 1.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bgh66"]
@@ -28,11 +28,11 @@ script = ExtResource("1_cettl")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_26vdv")
 animation = &"closed"
-frame = 1
-frame_progress = 0.577001
+autoplay = "closed"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 5.5)
 shape = SubResource("RectangleShape2D_bgh66")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

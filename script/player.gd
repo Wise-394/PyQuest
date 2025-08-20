@@ -3,83 +3,127 @@ extends CharacterBody2D
 # =====================================================
 # --- Player ---
 # =====================================================
-enum PlayerState { IDLE, WALK, JUMP }
+enum PlayerState { IDLE, WALK, JUMP, DIALOGUE }
 var current_state: PlayerState = PlayerState.IDLE
 @onready var animated_sprite = $AnimatedSprite2D
+
 # =====================================================
-# --- Movement Settings ---
+# --- variables ---
 # =====================================================
 @export var move_speed: float = 200.0
 @export var jump_force: float = -300.0
 @export var gravity: float = 800.0
 
 # =====================================================
+# --- Ready ---
+# =====================================================
+func _ready() -> void:
+	DialogueManager.dialogue_started.connect(on_dialogue_started)
+	DialogueManager.dialogue_ended.connect(on_dialogue_ended)
+	
+# =====================================================
 # --- Physics Process Loop ---
 # =====================================================
 func _physics_process(delta: float) -> void:
-	_apply_gravity(delta) # Apply gravity once at the start of every frame
-
+	_apply_gravity(delta)
+	# DFA BY SIR JERUM
+	#State machine that manages different player state
 	match current_state:
-		PlayerState.IDLE:  _state_idle()
-		PlayerState.WALK:  _state_walk()
-		PlayerState.JUMP:  _state_jump()
+		PlayerState.IDLE:
+			_handle_idle_state()
+		PlayerState.WALK:
+			_handle_walk_state()
+		PlayerState.JUMP:
+			_handle_jump_state()
+		PlayerState.DIALOGUE:
+			_handle_dialogue_state()
+			
 
-	move_and_slide() # Apply final velocity at the end of every frame
+	move_and_slide()
 
 # =====================================================
-# --- Shared Helpers ---
+# --- State-Specific Handlers ---
+# =====================================================
+func _handle_idle_state() -> void:
+	_handle_input_movement()
+	_handle_input_jump()
+	if velocity.x != 0:
+		_set_state(PlayerState.WALK)
+	elif not is_on_floor():
+		_set_state(PlayerState.JUMP)
+
+func _handle_walk_state() -> void:
+	_handle_input_movement()
+	_handle_input_jump()
+	if velocity.x == 0:
+		_set_state(PlayerState.IDLE)
+	elif not is_on_floor():
+		_set_state(PlayerState.JUMP)
+		
+func _handle_jump_state() -> void:
+	_handle_input_movement()
+	if is_on_floor():
+		if velocity.x == 0:
+			_set_state(PlayerState.IDLE)
+		else:
+			_set_state(PlayerState.WALK)
+
+func _handle_dialogue_state() -> void:
+	velocity = Vector2.ZERO
+
+# =====================================================
+# --- Shared Helpers & State Changer ---
 # =====================================================
 func _apply_gravity(delta: float) -> void:
-	if not is_on_floor(): # Only apply gravity if the player is in the air
+	if not is_on_floor():
 		velocity.y += gravity * delta
 
-func _apply_horizontal_movement() -> float:
+func _handle_input_movement() -> void:
 	var input_dir := Input.get_axis("move_left", "move_right")
 	velocity.x = input_dir * move_speed
-	if velocity.x > 0:
+	if input_dir > 0:
 		animated_sprite.flip_h = false
-	if velocity.x < 0:
+	elif input_dir < 0:
 		animated_sprite.flip_h = true
-	return input_dir
 
-func _try_jump() -> bool:
+func _handle_input_jump() -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_force
-		current_state = PlayerState.JUMP
-		return true
-	return false
 
-	
+func _update_animation() -> void:
+	var target_anim: String
 
-# =====================================================
-# --- State Functions ---
-# =====================================================
-func _state_idle() -> void:
-	animated_sprite.animation = "idle"
-	velocity.x = 0
-	if _try_jump():
-		return
+	match current_state:
+		PlayerState.IDLE:
+			target_anim = "idle"
+		PlayerState.WALK:
+			target_anim = "walk"
+		PlayerState.JUMP:
+			target_anim = "jump"
+		PlayerState.DIALOGUE:
+			target_anim = "idle"
+		_:
+			target_anim = "idle"
 
-	var input_dir := Input.get_axis("move_left", "move_right")
-	if input_dir != 0:
-		current_state = PlayerState.WALK
-	
-func _state_walk() -> void:
-	animated_sprite.animation = "walk"
-	if _try_jump():
-		return
+	if animated_sprite.animation != target_anim:
+		animated_sprite.animation = target_anim
+		animated_sprite.play()
 		
+# A dedicated function to change the state
+func _set_state(new_state: PlayerState) -> void:
+	if current_state == new_state:
+		return
+	current_state = new_state
+	_update_animation()
 
-	var input_dir := _apply_horizontal_movement()
+# =====================================================
+# --- Dialogue Signals ---
+# =====================================================
+func on_dialogue_started(_res):
+	_set_state(PlayerState.DIALOGUE)
 
-	if input_dir == 0:
-		current_state = PlayerState.IDLE
-
-func _state_jump() -> void:
-	print(animated_sprite.animation) 
-	_apply_horizontal_movement()
-
-	# Check for landing
+func on_dialogue_ended(_res):
 	if is_on_floor():
-		var input_dir := Input.get_axis("move_left", "move_right")
-		current_state = PlayerState.WALK if input_dir != 0 else PlayerState.IDLE
+		_set_state(PlayerState.IDLE)
+	else:
+		_set_state(PlayerState.JUMP)
