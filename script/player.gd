@@ -71,10 +71,11 @@ func _handle_jump_state() -> void:
 			_set_state(PlayerState.WALK)
 
 func _handle_dialogue_state() -> void:
-	velocity = Vector2.ZERO
+	velocity.x = 0
+	
 	
 func _handle_console_state() -> void:
-	velocity = Vector2.ZERO
+	velocity.x = 0
 
 # =====================================================
 # --- Shared Helpers & State Changer ---

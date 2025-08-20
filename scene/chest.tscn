@@ -34,5 +34,14 @@ autoplay = "closed"
 position = Vector2(1, 5.5)
 shape = SubResource("RectangleShape2D_bgh66")
 
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -17.0
+offset_top = -40.0
+offset_right = 23.0
+offset_bottom = -17.0
+text = "E"
+horizontal_alignment = 1
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
