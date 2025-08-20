@@ -274,3 +274,6 @@ position = Vector2(188, -16)
 console = NodePath("../Console")
 
 [node name="Console" parent="." instance=ExtResource("5_lquwl")]
+
+[connection signal="console_closed" from="Console" to="player" method="_on_console_console_closed"]
+[connection signal="console_opened" from="Console" to="player" method="_on_console_console_opened"]

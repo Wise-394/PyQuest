@@ -3,7 +3,7 @@ extends CharacterBody2D
 # =====================================================
 # --- Player ---
 # =====================================================
-enum PlayerState { IDLE, WALK, JUMP, DIALOGUE }
+enum PlayerState { IDLE, WALK, JUMP, DIALOGUE, CONSOLE }
 var current_state: PlayerState = PlayerState.IDLE
 @onready var animated_sprite = $AnimatedSprite2D
 
@@ -37,6 +37,8 @@ func _physics_process(delta: float) -> void:
 			_handle_jump_state()
 		PlayerState.DIALOGUE:
 			_handle_dialogue_state()
+		PlayerState.CONSOLE:
+			_handle_console_state()
 			
 
 	move_and_slide()
@@ -69,6 +71,9 @@ func _handle_jump_state() -> void:
 			_set_state(PlayerState.WALK)
 
 func _handle_dialogue_state() -> void:
+	velocity = Vector2.ZERO
+	
+func _handle_console_state() -> void:
 	velocity = Vector2.ZERO
 
 # =====================================================
@@ -117,7 +122,7 @@ func _set_state(new_state: PlayerState) -> void:
 	_update_animation()
 
 # =====================================================
-# --- Dialogue Signals ---
+# --- Signals ---
 # =====================================================
 func on_dialogue_started(_res):
 	_set_state(PlayerState.DIALOGUE)
@@ -127,3 +132,11 @@ func on_dialogue_ended(_res):
 		_set_state(PlayerState.IDLE)
 	else:
 		_set_state(PlayerState.JUMP)
+
+
+func _on_console_console_closed() -> void:
+	_set_state(PlayerState.IDLE)
+
+
+func _on_console_console_opened() -> void:
+	_set_state(PlayerState.DIALOGUE)

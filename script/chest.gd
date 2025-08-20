@@ -6,10 +6,10 @@ func _on_body_entered(body: Node2D) -> void:
 	if not body.name == "player":
 		return
 	
-	console.visible = true
+	console.open_console()
 
 
 func _on_body_exited(body: Node2D) -> void:
 	if not body.name == "player":
 		return
-	console.visible = false
+	console.close_console()
