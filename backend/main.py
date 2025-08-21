@@ -12,7 +12,7 @@ class CodeRequest(BaseModel):
 
 @app.post("/execute_code/")
 async def execute_user_code(request: CodeRequest):
-    start_time = time.time()  # Start timer
+    start_time = time.time()
     old_stdout = sys.stdout
     redirected_output = io.StringIO()
     sys.stdout = redirected_output
@@ -20,17 +20,35 @@ async def execute_user_code(request: CodeRequest):
     try:
         exec(request.code)
         output = redirected_output.getvalue()
-
         end_time = time.time()
-        exec_time = end_time - start_time  # measure execution time
-
+        exec_time = end_time - start_time
         return {
             "status": "success",
             "output": output,
-            "exec_time": f"{exec_time:.6f} seconds"  # <-- return exec time
+            "exec_time": f"{exec_time:.6f} seconds"
         }
     except Exception as e:
-        error_message = f"{e.__class__.__name__}: {e}\n{traceback.format_exc()}"
+        # Get the full traceback
+        exc_type, exc_value, exc_traceback = sys.exc_info()
+        traceback_details = traceback.extract_tb(exc_traceback)
+
+        # Find the frame related to the user's code execution
+        error_line_info = None
+        for frame in traceback_details:
+            # We are interested in the frame where the code was executed
+            if '<string>' in frame.filename:
+                error_line_info = frame
+                break
+
+        # Craft a user-friendly error message
+        if error_line_info:
+            error_message = f"Error on line {error_line_info.lineno}: {exc_type.__name__}: {exc_value}"
+            if error_line_info.line:
+                error_message += f"\nCode: {error_line_info.line.strip()}"
+        else:
+            # Fallback for unexpected errors
+            error_message = f"{exc_type.__name__}: {exc_value}"
+
         return {"status": "error", "message": error_message}
     finally:
         sys.stdout = old_stdout

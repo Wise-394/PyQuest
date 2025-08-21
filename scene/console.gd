@@ -5,15 +5,21 @@ extends CanvasLayer
 # =====================================================
 signal console_opened
 signal console_closed
+signal user_code_correct 
 
-
+# =====================================================
+# --- Variable ---
+# =====================================================
+const defaultText = "print hello world"
+var caller_id: int = 0 # the id of the one opened the console
+#so we can now what opened the console and where to fire the signal
 # =====================================================
 # --- Nodes ---
 # =====================================================
 @onready var code_editor: CodeEdit = $Panel/CodeEdit
 @onready var code_output_label: RichTextLabel = $Panel/code_output_label
 @onready var backend_client: Node = $"../backend"
-
+@onready var guide_label = $Panel/guide_label
 # =====================================================
 # --- Lifecycle ---
 # =====================================================
@@ -29,12 +35,16 @@ func _ready() -> void:
 # =====================================================
 # --- Public API ---
 # =====================================================
-func open_console() -> void:
+func open_console(id: int) -> void:
 	visible = true
+	caller_id = id
 	console_opened.emit()
 
 func close_console() -> void:
 	visible = false
+	code_editor.text = ""
+	code_output_label.text = ""
+	guide_label.text = defaultText
 	console_closed.emit()
 
 # =====================================================
@@ -76,8 +86,19 @@ func _on_backend_request_completed(response_data: Dictionary) -> void:
 		"success":
 			var output: String = response_data.get("output", "")
 			code_output_label.text = output
+			guide_label.text = str(is_user_Code_correct(output, "hello world"))
+			user_code_correct.emit(caller_id) 
 		"error":
 			var message: String = response_data.get("message", "Unknown error")
 			code_output_label.text = message
 		_:
 			code_output_label.text = "An unknown error occurred."
+			
+# =====================================================
+# --- Code Checker ---
+# =====================================================
+
+func is_user_Code_correct(user_output: String, desired_output: String) -> bool:
+	var clean_user = user_output.strip_edges().to_lower()
+	var clean_desired = desired_output.strip_edges().to_lower()
+	return clean_user == clean_desired
