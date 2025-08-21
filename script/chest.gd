@@ -5,7 +5,10 @@ extends Area2D
 
 var player_inside = false
 
-func _process(_delta: float) -> void:
+
+
+
+func _process(_ddelta: float) -> void:
 	if player_inside and Input.is_action_just_pressed("open_console"):
 		console.open_console()
 

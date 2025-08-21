@@ -27,3 +27,39 @@ mono_crash.*.json
 
 # Ignore addon plugins
 3d/sprite3d/addons
+
+#fastapi
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+eggs/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environment
+.env
+venv/
+env/
+.venv/
+.tox/
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Database files
+*.sqlite
+*.db

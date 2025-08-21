@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://v4eyyqvwjn10"]
+[gd_scene load_steps=9 format=4 uid="uid://v4eyyqvwjn10"]
 
 [ext_resource type="Script" uid="uid://cdmtmjyuj23vy" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="Texture2D" uid="uid://bfpah685l1c3h" path="res://assets/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://d3eijf4ilvq55" path="res://scene/player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://811uqchrdget" path="res://scene/chest.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://bqx7qoovu6flg" path="res://scene/console.tscn" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://dg0bluwq6jrx" path="res://scene/backend.tscn" id="6_7mycd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xm2m"]
 texture = ExtResource("1_ig7tw")
@@ -274,6 +275,8 @@ position = Vector2(188, -16)
 console = NodePath("../Console")
 
 [node name="Console" parent="." instance=ExtResource("5_lquwl")]
+
+[node name="backend" parent="." instance=ExtResource("6_7mycd")]
 
 [connection signal="console_closed" from="Console" to="player" method="_on_console_console_closed"]
 [connection signal="console_opened" from="Console" to="player" method="_on_console_console_opened"]
