@@ -70,7 +70,6 @@ func send_code_to_backend() -> void:
 # --- Backend Response Handling ---
 # =====================================================
 func _on_backend_request_completed(response_data: Dictionary) -> void:
-	# Use a more reliable way to get and check the status
 	var status: String = response_data.get("status", "unknown")
 
 	match status:

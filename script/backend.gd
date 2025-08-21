@@ -13,6 +13,7 @@ signal request_completed(response_data)
 const API_URL = "http://127.0.0.1:8000/execute_code/"
 const HEADERS = ["Content-Type: application/json"]
 const REQUEST_METHOD = HTTPClient.METHOD_POST
+const TIMEOUT_SECONDS = 10  # Maximum time to wait for a response in seconds
 
 
 # =====================================================
@@ -25,6 +26,7 @@ const REQUEST_METHOD = HTTPClient.METHOD_POST
 # --- Variables ---
 # =====================================================
 var request_start_time := 0
+var _is_request_active := false
 
 
 # =====================================================
@@ -34,19 +36,31 @@ func _ready() -> void:
 	# Connect HTTPRequest signal
 	http_request.request_completed.connect(_on_request_completed)
 
+func _process(_delta: float) -> void:
+	# Check for timeout only if a request is active
+	if _is_request_active:
+		var elapsed_seconds = (Time.get_ticks_msec() - request_start_time) / 1000.0
+		if elapsed_seconds > TIMEOUT_SECONDS:
+			_abort_request("Timeout: The server did not respond in time.")
+
 
 # =====================================================
 # --- Public API ---
 # =====================================================
 ## Sends user code to the backend for execution.
 func send_code_to_server(user_code: String) -> void:
+	if _is_request_active:
+		print("❌ A request is already in progress. Please wait.")
+		return
+	
+	_is_request_active = true
 	request_start_time = Time.get_ticks_msec()
 	
 	var json_body = JSON.stringify({"code": user_code})
 	var error = http_request.request(API_URL, HEADERS, REQUEST_METHOD, json_body)
 
 	if error != OK:
-		_handle_request_error("Failed to send request.", error)
+		_abort_request("Failed to send request.", error)
 	else:
 		print("✅ Request sent to:", API_URL)
 
@@ -55,6 +69,11 @@ func send_code_to_server(user_code: String) -> void:
 # --- Private: Response Handling ---
 # =====================================================
 func _on_request_completed(result, response_code, headers, body) -> void:
+	if not _is_request_active:
+		# Ignore responses if the request has already been handled (e.g., timed out)
+		return
+
+	_is_request_active = false
 	var elapsed = Time.get_ticks_msec() - request_start_time
 	print("⏱️ Godot roundtrip took:", elapsed, "ms")
 
@@ -83,3 +102,9 @@ func _handle_request_error(message: String, code := -1) -> void:
 		"message": message,
 		"code": code
 	})
+
+func _abort_request(message: String, code := -1) -> void:
+	if _is_request_active:
+		http_request.cancel_request()
+		_is_request_active = false
+		_handle_request_error(message, code)
