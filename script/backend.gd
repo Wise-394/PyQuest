@@ -55,7 +55,7 @@ func send_code_to_server(user_code: String) -> void:
 	if error != OK:
 		_abort_request("Failed to send request.", error)
 	else:
-		print("✅ Request sent to:", EXECUTE_CODE_URL)
+		pass
 
 # New function: get question by ID
 func get_question_from_server(question_id: int) -> void:
@@ -72,18 +72,16 @@ func get_question_from_server(question_id: int) -> void:
 	if error != OK:
 		_abort_request("Failed to send get_question request.", error)
 	else:
-		print("✅ Request sent to:", url)
+		pass
 
 # =====================================================
 # --- Private: Response Handling ---
 # =====================================================
-func _on_request_completed(result, response_code, headers, body) -> void:
+func _on_request_completed(_result, response_code, _headers, body) -> void:
 	if not _is_request_active:
 		return
 
 	_is_request_active = false
-	var elapsed = Time.get_ticks_msec() - request_start_time
-	print("⏱️ Godot roundtrip took:", elapsed, "ms")
 
 	if response_code == 200:
 		_parse_success_response(body)

@@ -147,7 +147,7 @@ func _handle_code_success(response_data: Dictionary) -> void:
 		var explanation: String = current_question_data.get("explanation", "")
 		guide_label.text = "✅ Correct!\nExplanation:\n%s" % explanation
 
-func is_user_code_correct(user_output: String, desired_output: String) -> bool:
+func is_user_code_correct(user_output: String, _desired_output: String) -> bool:
 	var clean_user = user_output.strip_edges().to_lower()
 	var clean_desired = desired_output.strip_edges().to_lower()
 	return clean_user == clean_desired
