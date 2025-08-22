@@ -35,8 +35,8 @@ gutters_draw_line_numbers = true
 layout_mode = 0
 offset_left = 28.0
 offset_top = 461.0
-offset_right = 320.0
-offset_bottom = 501.0
+offset_right = 360.0
+offset_bottom = 557.0
 text = "you must type print(\"hello world\")"
 
 [node name="RichTextLabel2" type="Label" parent="Panel"]

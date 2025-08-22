@@ -14,9 +14,23 @@ with open("questions.json", "r") as f:
 
 class CodeRequest(BaseModel):
     code: str
+    question_id: int  # identify which question to check
+
+def check_code_output(user_output: str, expected_output: str) -> bool:
+    """
+    Checks if the user's output matches the expected output.
+    You can modify this function later to allow for flexible checks,
+    e.g., ignoring whitespace, newlines, capitalization, etc.
+    """
+    return user_output.strip() == expected_output.strip()
 
 @app.post("/execute_code/")
 async def execute_user_code(request: CodeRequest):
+    # Find the question by id
+    question = next((q for q in questions if q["id"] == request.question_id), None)
+    if not question:
+        raise HTTPException(status_code=404, detail="Question not found")
+
     start_time = time.time()
     old_stdout = sys.stdout
     redirected_output = io.StringIO()
@@ -24,14 +38,21 @@ async def execute_user_code(request: CodeRequest):
 
     try:
         exec(request.code)
-        output = redirected_output.getvalue()
+        output = redirected_output.getvalue().strip()
         end_time = time.time()
         exec_time = end_time - start_time
+
+        # Use the checker function
+        is_correct = check_code_output(output, question["desired_output"])
+
         return {
             "status": "success",
             "output": output,
-            "exec_time": f"{exec_time:.6f} seconds"
+            "exec_time": f"{exec_time:.6f} seconds",
+            "correct": is_correct,
+            "expected_output": question["desired_output"]
         }
+
     except Exception as e:
         exc_type, exc_value, exc_traceback = sys.exc_info()
         traceback_details = traceback.extract_tb(exc_traceback)
@@ -58,8 +79,7 @@ async def execute_user_code(request: CodeRequest):
 async def get_question(question_id: int):
     for q in questions:
         if q["id"] == question_id:
-            # Return the whole question dict inside a "status": "question" response
-            response = q.copy()  # copy so we don’t modify the original
+            response = q.copy()
             response["status"] = "question"
             return response
     raise HTTPException(status_code=404, detail="Question not found")

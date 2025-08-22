@@ -11,7 +11,6 @@ signal user_code_correct(caller_id: int)
 # --- Variables ---
 # =====================================================
 var caller_id: int = 0                     # question ID / console owner
-var desired_output: String = ""            # expected output
 var current_question_data: Dictionary = {} # full question info
 var _question_loaded: bool = false         # prevent repeated GET requests
 var _current_question_id: int = -1         # track which question is loaded
@@ -70,7 +69,6 @@ func close_console() -> void:
 	code_editor.text = ""
 	code_output_label.text = ""
 	guide_label.text = ""
-	desired_output = ""
 	current_question_data.clear()
 	_question_loaded = false
 	_current_question_id = -1
@@ -99,7 +97,7 @@ func send_code_to_backend() -> void:
 	code_output_label.text = "Executing code..."
 
 	if is_instance_valid(backend_client):
-		backend_client.send_code_to_server(user_code)
+		backend_client.send_code_to_server(user_code, caller_id)
 	else:
 		code_output_label.text = "Error: Backend client is not valid!"
 		push_error("Cannot send code. BackendClient node invalid.")
@@ -128,26 +126,22 @@ func _on_backend_request_completed(response_data: Dictionary) -> void:
 # =====================================================
 func _load_question(question_data: Dictionary) -> void:
 	current_question_data = question_data
-	desired_output = question_data.get("desired_output", "")
-
 	var question_text: String = question_data.get("question", "Unknown question")
 	guide_label.text = question_text
-
 	_question_loaded = true
 
 func _handle_code_success(response_data: Dictionary) -> void:
 	var output: String = response_data.get("output", "")
 	code_output_label.text = output
 
-	if desired_output != "" and not _answered_correctly and is_user_code_correct(output, desired_output):
+	var correct: bool = response_data.get("correct", false)
+
+	if correct and not _answered_correctly:
 		_answered_correctly = true
 		user_code_correct.emit(caller_id)
 
-		# Overwrite guide label with explanation
 		var explanation: String = current_question_data.get("explanation", "")
 		guide_label.text = "✅ Correct!\nExplanation:\n%s" % explanation
-
-func is_user_code_correct(user_output: String, _desired_output: String) -> bool:
-	var clean_user = user_output.strip_edges().to_lower()
-	var clean_desired = desired_output.strip_edges().to_lower()
-	return clean_user == clean_desired
+	elif not correct:
+		var expected: String = current_question_data.get("desired_output", "")
+		guide_label.text = "❌ Output incorrect.\nExpected: %s" % expected

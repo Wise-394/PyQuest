@@ -41,7 +41,7 @@ func _process(_delta: float) -> void:
 # =====================================================
 # --- Public API ---
 # =====================================================
-func send_code_to_server(user_code: String) -> void:
+func send_code_to_server(user_code: String, question_id: int) -> void:
 	if _is_request_active:
 		print("❌ A request is already in progress. Please wait.")
 		return
@@ -49,14 +49,14 @@ func send_code_to_server(user_code: String) -> void:
 	_is_request_active = true
 	request_start_time = Time.get_ticks_msec()
 
-	var json_body = JSON.stringify({"code": user_code})
+	var json_body = JSON.stringify({
+		"code": user_code,
+		"question_id": question_id  # <- added
+	})
 	var error = http_request.request(EXECUTE_CODE_URL, HEADERS, REQUEST_METHOD_POST, json_body)
 
 	if error != OK:
 		_abort_request("Failed to send request.", error)
-	else:
-		pass
-
 # New function: get question by ID
 func get_question_from_server(question_id: int) -> void:
 	if _is_request_active:
