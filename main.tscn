@@ -284,4 +284,3 @@ caller_id = 2
 
 [connection signal="console_closed" from="Console" to="player" method="_on_console_console_closed"]
 [connection signal="console_opened" from="Console" to="player" method="_on_console_console_opened"]
-[connection signal="user_code_correct" from="Console" to="chest" method="_on_console_user_code_correct"]

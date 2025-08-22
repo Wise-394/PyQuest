@@ -1,8 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://811uqchrdget"]
+[gd_scene load_steps=15 format=3 uid="uid://811uqchrdget"]
 
 [ext_resource type="Texture2D" uid="uid://x1ilpiri6r1n" path="res://assets/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Close 01.png" id="1_c0k1r"]
 [ext_resource type="Script" uid="uid://bfgghp2gnj8hx" path="res://script/chest.gd" id="1_cettl"]
 [ext_resource type="Texture2D" uid="uid://doe2jtqm8yt2u" path="res://assets/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Close 02.png" id="2_cettl"]
+[ext_resource type="Texture2D" uid="uid://bwpo0rgvemseb" path="res://assets/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Close 09.png" id="4_iujxo"]
+[ext_resource type="Texture2D" uid="uid://d3scdkkiitvdy" path="res://assets/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Close 10.png" id="5_isxdh"]
+[ext_resource type="Texture2D" uid="uid://duysvix52jopq" path="res://assets/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Open 01.png" id="6_h6sn0"]
+[ext_resource type="Texture2D" uid="uid://8sbtksvsv8oc" path="res://assets/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Open 02.png" id="7_b80yv"]
+[ext_resource type="Texture2D" uid="uid://de0akfyrkkbw8" path="res://assets/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Open 03.png" id="8_8hxrw"]
+[ext_resource type="Texture2D" uid="uid://beq2ogp8r1p08" path="res://assets/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Open 04.png" id="9_06e2a"]
+[ext_resource type="Texture2D" uid="uid://dtpwnq3an3ccd" path="res://assets/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Open 05.png" id="10_gnfq1"]
+[ext_resource type="Texture2D" uid="uid://dv1jyomoehjnu" path="res://assets/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Open 06.png" id="11_7abm4"]
+[ext_resource type="Texture2D" uid="uid://b5odq6sjcxgrs" path="res://assets/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Open 07.png" id="12_arne1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_26vdv"]
 animations = [{
@@ -16,6 +25,38 @@ animations = [{
 "loop": true,
 "name": &"closed",
 "speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_iujxo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_isxdh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_h6sn0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_b80yv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_8hxrw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_06e2a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_gnfq1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_7abm4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_arne1")
+}],
+"loop": false,
+"name": &"open",
+"speed": 7.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bgh66"]
@@ -27,8 +68,10 @@ script = ExtResource("1_cettl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_26vdv")
-animation = &"closed"
+animation = &"open"
 autoplay = "closed"
+frame = 8
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 5.5)

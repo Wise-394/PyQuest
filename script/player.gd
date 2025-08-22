@@ -135,7 +135,7 @@ func on_dialogue_ended(_res):
 		_set_state(PlayerState.JUMP)
 
 
-func _on_console_console_closed() -> void:
+func _on_console_console_closed(id) -> void:
 	_set_state(PlayerState.IDLE)
 
 
