@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg0bluwq6jrx"]
+
+[ext_resource type="Script" uid="uid://cgid766p0gigl" path="res://script/backend.gd" id="1_ork2p"]
+[ext_resource type="Script" uid="uid://byowpkjh7hbc2" path="res://script/send_code_request.gd" id="2_cse3j"]
+
+[node name="backend" type="Node"]
+script = ExtResource("1_ork2p")
+
+[node name="send_code_request" type="HTTPRequest" parent="."]
+script = ExtResource("2_cse3j")
+
+[node name="get_question_request" type="Node" parent="."]

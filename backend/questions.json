@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "question": "Print hello world",
+    "desired_output": "hello world",
+    "explanation": "wow"
+  },
+  {
+    "id": 2,
+    "question": "Print roel",
+    "desired_output": "roel",
+    "explanation": "roel fortin"
+  }
+]

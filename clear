@@ -1,0 +1,61 @@
+[33mcommit fae7fe128d4ad32c9be0dee8fc091feabdeb4030[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Wise-394 <114738222+Wise-394@users.noreply.github.com>
+Date:   Fri Aug 22 10:07:31 2025 +0800
+
+    added chest opening when code is correct
+
+[33mcommit 01027604880e0cb1383b8cfe05882c383ff92748[m
+Author: Wise-394 <114738222+Wise-394@users.noreply.github.com>
+Date:   Thu Aug 21 15:02:55 2025 +0800
+
+    added signals and id  for chest
+    
+    id is to easily identify who fired the signal to the console and where to send back the result
+
+[33mcommit 6b3681d72d15e78471db5deeffe005a97a2542a9[m
+Author: Wise-394 <114738222+Wise-394@users.noreply.github.com>
+Date:   Thu Aug 21 11:06:38 2025 +0800
+
+    added request timeout when server is offline
+
+[33mcommit 91698292128845bd7dcc64aae9c08966396f03f3[m
+Author: Wise-394 <114738222+Wise-394@users.noreply.github.com>
+Date:   Thu Aug 21 10:58:04 2025 +0800
+
+    added python backend server
+    
+    a localhost python backend server that executes the user python command and sends back the output via fastAPI
+
+[33mcommit c18016fdf2876d743eb48c678a85a6aa35e05232[m
+Author: Wise-394 <114738222+Wise-394@users.noreply.github.com>
+Date:   Wed Aug 20 21:24:52 2025 +0800
+
+    improved logic for automatic console opening
+    
+    console will now only open if the player pressed "e" while near it
+
+[33mcommit 58f727c730c0344babb3e8c05719722816bdad29[m
+Author: Wise-394 <114738222+Wise-394@users.noreply.github.com>
+Date:   Wed Aug 20 21:07:28 2025 +0800
+
+    added console state to player
+    
+    prevents player from having input movement while console is open
+
+[33mcommit 108eac67a7498d9283a495f03b9cfa5e7d7d5f9d[m
+Author: Wise-394 <114738222+Wise-394@users.noreply.github.com>
+Date:   Wed Aug 20 20:55:51 2025 +0800
+
+    added a chest and console
+
+[33mcommit 4ad730b82ec92289907f01d8a12cc318cac56686[m
+Author: Wise-394 <114738222+Wise-394@users.noreply.github.com>
+Date:   Wed Aug 20 19:34:08 2025 +0800
+
+    added chest scene, no script
+
+[33mcommit e3cb87f697d3eb14bfc30c170cef41a8c01d131c[m
+Author: Wise-394 <114738222+Wise-394@users.noreply.github.com>
+Date:   Wed Aug 20 17:09:53 2025 +0800
+
+    gitignore

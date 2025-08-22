@@ -3,24 +3,22 @@ extends Node
 # =====================================================
 # --- Signals ---
 # =====================================================
-## Emitted when the server responds (success or error).
 signal request_completed(response_data)
-
 
 # =====================================================
 # --- Configuration ---
 # =====================================================
-const API_URL = "http://127.0.0.1:8000/execute_code/"
+const EXECUTE_CODE_URL = "http://127.0.0.1:8000/execute_code/"
+const GET_QUESTION_URL = "http://127.0.0.1:8000/get_question/"  # We'll append the ID
 const HEADERS = ["Content-Type: application/json"]
-const REQUEST_METHOD = HTTPClient.METHOD_POST
-const TIMEOUT_SECONDS = 10  # Maximum time to wait for a response in seconds
-
+const REQUEST_METHOD_POST = HTTPClient.METHOD_POST
+const REQUEST_METHOD_GET = HTTPClient.METHOD_GET
+const TIMEOUT_SECONDS = 10
 
 # =====================================================
 # --- Nodes ---
 # =====================================================
 @onready var http_request = $HTTPRequest
-
 
 # =====================================================
 # --- Variables ---
@@ -28,49 +26,59 @@ const TIMEOUT_SECONDS = 10  # Maximum time to wait for a response in seconds
 var request_start_time := 0
 var _is_request_active := false
 
-
 # =====================================================
 # --- Lifecycle ---
 # =====================================================
 func _ready() -> void:
-	# Connect HTTPRequest signal
 	http_request.request_completed.connect(_on_request_completed)
 
 func _process(_delta: float) -> void:
-	# Check for timeout only if a request is active
 	if _is_request_active:
 		var elapsed_seconds = (Time.get_ticks_msec() - request_start_time) / 1000.0
 		if elapsed_seconds > TIMEOUT_SECONDS:
 			_abort_request("Timeout: The server did not respond in time.")
 
-
 # =====================================================
 # --- Public API ---
 # =====================================================
-## Sends user code to the backend for execution.
 func send_code_to_server(user_code: String) -> void:
 	if _is_request_active:
 		print("❌ A request is already in progress. Please wait.")
 		return
-	
+
 	_is_request_active = true
 	request_start_time = Time.get_ticks_msec()
-	
+
 	var json_body = JSON.stringify({"code": user_code})
-	var error = http_request.request(API_URL, HEADERS, REQUEST_METHOD, json_body)
+	var error = http_request.request(EXECUTE_CODE_URL, HEADERS, REQUEST_METHOD_POST, json_body)
 
 	if error != OK:
 		_abort_request("Failed to send request.", error)
 	else:
-		print("✅ Request sent to:", API_URL)
+		print("✅ Request sent to:", EXECUTE_CODE_URL)
 
+# New function: get question by ID
+func get_question_from_server(question_id: int) -> void:
+	if _is_request_active:
+		print("❌ A request is already in progress. Please wait.")
+		return
+
+	_is_request_active = true
+	request_start_time = Time.get_ticks_msec()
+
+	var url = GET_QUESTION_URL + str(question_id)
+	var error = http_request.request(url, HEADERS, REQUEST_METHOD_GET, "")
+
+	if error != OK:
+		_abort_request("Failed to send get_question request.", error)
+	else:
+		print("✅ Request sent to:", url)
 
 # =====================================================
 # --- Private: Response Handling ---
 # =====================================================
 func _on_request_completed(result, response_code, headers, body) -> void:
 	if not _is_request_active:
-		# Ignore responses if the request has already been handled (e.g., timed out)
 		return
 
 	_is_request_active = false
@@ -82,10 +90,6 @@ func _on_request_completed(result, response_code, headers, body) -> void:
 	else:
 		_handle_request_error("Server returned an error. Status code: %d" % response_code)
 
-
-# =====================================================
-# --- Helpers ---
-# =====================================================
 func _parse_success_response(body: PackedByteArray) -> void:
 	var response_text: String = body.get_string_from_utf8()
 	var response_json = JSON.parse_string(response_text)

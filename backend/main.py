@@ -1,11 +1,16 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import io
 import sys
 import traceback
 import time
+import json
 
 app = FastAPI()
+
+# Load questions from questions.json at startup
+with open("questions.json", "r") as f:
+    questions = json.load(f)
 
 class CodeRequest(BaseModel):
     code: str
@@ -28,27 +33,33 @@ async def execute_user_code(request: CodeRequest):
             "exec_time": f"{exec_time:.6f} seconds"
         }
     except Exception as e:
-        # Get the full traceback
         exc_type, exc_value, exc_traceback = sys.exc_info()
         traceback_details = traceback.extract_tb(exc_traceback)
 
-        # Find the frame related to the user's code execution
         error_line_info = None
         for frame in traceback_details:
-            # We are interested in the frame where the code was executed
             if '<string>' in frame.filename:
                 error_line_info = frame
                 break
 
-        # Craft a user-friendly error message
         if error_line_info:
             error_message = f"Error on line {error_line_info.lineno}: {exc_type.__name__}: {exc_value}"
             if error_line_info.line:
                 error_message += f"\nCode: {error_line_info.line.strip()}"
         else:
-            # Fallback for unexpected errors
             error_message = f"{exc_type.__name__}: {exc_value}"
 
         return {"status": "error", "message": error_message}
     finally:
         sys.stdout = old_stdout
+
+
+@app.get("/get_question/{question_id}")
+async def get_question(question_id: int):
+    for q in questions:
+        if q["id"] == question_id:
+            # Return the whole question dict inside a "status": "question" response
+            response = q.copy()  # copy so we don’t modify the original
+            response["status"] = "question"
+            return response
+    raise HTTPException(status_code=404, detail="Question not found")
