@@ -3,7 +3,7 @@ extends CharacterBody2D
 # =====================================================
 # --- Player ---
 # =====================================================
-enum PlayerState { IDLE, WALK, JUMP, DIALOGUE, CONSOLE }
+enum PlayerState { IDLE, WALK, JUMP, DIALOGUE, CONSOLE, DROP }
 var current_state: PlayerState = PlayerState.IDLE
 @onready var animated_sprite = $AnimatedSprite2D
 
@@ -39,6 +39,8 @@ func _physics_process(delta: float) -> void:
 			_handle_dialogue_state()
 		PlayerState.CONSOLE:
 			_handle_console_state()
+		PlayerState.DROP:
+			_handle_drop_state()
 			
 
 	move_and_slide()
@@ -46,17 +48,24 @@ func _physics_process(delta: float) -> void:
 # =====================================================
 # --- State-Specific Handlers ---
 # =====================================================
+
+
+	
+
 func _handle_idle_state() -> void:
 	_handle_input_movement()
 	_handle_input_jump()
+	_handle_input_drop()
 	if velocity.x != 0:
 		_set_state(PlayerState.WALK)
 	elif not is_on_floor():
 		_set_state(PlayerState.JUMP)
+	
 
 func _handle_walk_state() -> void:
 	_handle_input_movement()
 	_handle_input_jump()
+	_handle_input_drop()
 	if velocity.x == 0:
 		_set_state(PlayerState.IDLE)
 	elif not is_on_floor():
@@ -69,6 +78,11 @@ func _handle_jump_state() -> void:
 			_set_state(PlayerState.IDLE)
 		else:
 			_set_state(PlayerState.WALK)
+			
+func _handle_drop_state() -> void:
+	if is_on_floor():
+		position.y += 1
+		_set_state(PlayerState.JUMP)  
 
 func _handle_dialogue_state() -> void:
 	velocity.x = 0
@@ -95,6 +109,11 @@ func _handle_input_movement() -> void:
 func _handle_input_jump() -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_force
+		
+
+func _handle_input_drop() -> void:
+	if Input.is_action_just_pressed("drop"):
+		_set_state(PlayerState.DROP)
 
 func _update_animation() -> void:
 	var target_anim: String
