@@ -10,12 +10,12 @@ signal user_code_correct(caller_id: int)
 # =====================================================
 # --- Variables ---
 # =====================================================
-var caller_id: int = 0                     
-var desired_output: String = ""            
-var current_question_data: Dictionary = {} 
-var _question_loaded: bool = false         
-var _current_question_id: int = -1         
-var _answered_correctly: bool = false      
+var caller_id: int = 0                     # question ID / console owner
+var desired_output: String = ""            # expected output
+var current_question_data: Dictionary = {} # full question info
+var _question_loaded: bool = false         # prevent repeated GET requests
+var _current_question_id: int = -1         # track which question is loaded
+var _answered_correctly: bool = false      # ensure signal only fires once
 
 # =====================================================
 # --- Nodes ---
@@ -38,11 +38,13 @@ func _ready() -> void:
 # --- Public API ---
 # =====================================================
 func open_console(question_id: int) -> void:
+	# Only fetch question if different or not loaded
 	if _current_question_id == question_id and _question_loaded:
 		visible = true
 		console_opened.emit()
 		return
 
+	# Reset console state
 	visible = true
 	caller_id = question_id
 	_current_question_id = question_id
@@ -51,8 +53,11 @@ func open_console(question_id: int) -> void:
 	code_output_label.text = ""
 	guide_label.text = "Loading question..."
 	_question_loaded = false
+	current_question_data.clear()
+
 	console_opened.emit()
 
+	# Request question from backend
 	if is_instance_valid(backend_client):
 		backend_client.get_question_from_server(question_id)
 	else:
@@ -60,6 +65,7 @@ func open_console(question_id: int) -> void:
 		push_error("Cannot fetch question. BackendClient node is not valid.")
 
 func close_console() -> void:
+	# Reset console state
 	visible = false
 	code_editor.text = ""
 	code_output_label.text = ""
@@ -69,6 +75,7 @@ func close_console() -> void:
 	_question_loaded = false
 	_current_question_id = -1
 	_answered_correctly = false
+
 	console_closed.emit(caller_id)
 
 # =====================================================
@@ -105,36 +112,41 @@ func _on_backend_request_completed(response_data: Dictionary) -> void:
 
 	match status:
 		"question":
-			current_question_data = response_data
-			desired_output = response_data.get("desired_output", "")
-
-			var question_text: String = response_data.get("question", "Unknown question")
-			var question_id: int = response_data.get("id", 0)
-			guide_label.text = question_text
-
-			_question_loaded = true
+			_load_question(response_data)
 
 		"success":
-			var output: String = response_data.get("output", "")
-			code_output_label.text = output
-
-			if desired_output != "" and not _answered_correctly and is_user_code_correct(output, desired_output):
-				user_code_correct.emit(caller_id)
-				_answered_correctly = true
-				var explanation: String = current_question_data.get("explanation", "")
-				# overwrite guide label with explanation only
-				guide_label.text = "✅ Correct!\nExplanation:\n%s" % explanation
+			_handle_code_success(response_data)
 
 		"error":
-			var message: String = response_data.get("message", "Unknown error")
-			code_output_label.text = message
+			code_output_label.text = response_data.get("message", "Unknown error")
 
 		_:
 			code_output_label.text = "An unknown error occurred."
 
 # =====================================================
-# --- Code Checker ---
+# --- Helpers ---
 # =====================================================
+func _load_question(question_data: Dictionary) -> void:
+	current_question_data = question_data
+	desired_output = question_data.get("desired_output", "")
+
+	var question_text: String = question_data.get("question", "Unknown question")
+	guide_label.text = question_text
+
+	_question_loaded = true
+
+func _handle_code_success(response_data: Dictionary) -> void:
+	var output: String = response_data.get("output", "")
+	code_output_label.text = output
+
+	if desired_output != "" and not _answered_correctly and is_user_code_correct(output, desired_output):
+		_answered_correctly = true
+		user_code_correct.emit(caller_id)
+
+		# Overwrite guide label with explanation
+		var explanation: String = current_question_data.get("explanation", "")
+		guide_label.text = "✅ Correct!\nExplanation:\n%s" % explanation
+
 func is_user_code_correct(user_output: String, desired_output: String) -> bool:
 	var clean_user = user_output.strip_edges().to_lower()
 	var clean_desired = desired_output.strip_edges().to_lower()
