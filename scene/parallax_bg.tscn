@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://chv6oqvx3a4j8"]
+
+[ext_resource type="Texture2D" uid="uid://k8pjdv4e5tlj" path="res://assets/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/BG Image.png" id="1_0hpbt"]
+
+[node name="parallax_bg" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+position = Vector2(0, -100)
+motion_offset = Vector2(0, 0.775)
+motion_mirroring = Vector2(768, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(0, -265)
+scale = Vector2(1.004, 5.867)
+texture = ExtResource("1_0hpbt")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(384, -265)
+scale = Vector2(1, 5.86719)
+texture = ExtResource("1_0hpbt")
+centered = false

@@ -1,15 +1,14 @@
-[gd_scene load_steps=14 format=4 uid="uid://v4eyyqvwjn10"]
+[gd_scene load_steps=13 format=4 uid="uid://v4eyyqvwjn10"]
 
 [ext_resource type="Script" uid="uid://cdmtmjyuj23vy" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="Texture2D" uid="uid://bfpah685l1c3h" path="res://assets/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://d3eijf4ilvq55" path="res://scene/player.tscn" id="2_0xm2m"]
-[ext_resource type="Texture2D" uid="uid://t50bo3tleol7" path="res://assets/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Front Palm Trees/Front Palm Tree Top 03.png" id="3_272bh"]
 [ext_resource type="PackedScene" uid="uid://811uqchrdget" path="res://scene/chest.tscn" id="4_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://bsu53wrn1rjda" path="res://assets/Treasure Hunters/Treasure Hunters/Pirate Ship/Sprites/Tilesets/Platforms (32x32).png" id="4_5vw27"]
 [ext_resource type="Texture2D" uid="uid://k8pjdv4e5tlj" path="res://assets/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/BG Image.png" id="5_kek77"]
 [ext_resource type="PackedScene" uid="uid://bqx7qoovu6flg" path="res://scene/console.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://dg0bluwq6jrx" path="res://scene/backend.tscn" id="6_7mycd"]
-[ext_resource type="PackedScene" uid="uid://wnijwohpg7wm" path="res://background.tscn" id="6_kek77"]
+[ext_resource type="PackedScene" uid="uid://yi414of3w303" path="res://background.tscn" id="6_kek77"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xm2m"]
 texture = ExtResource("1_ig7tw")
@@ -251,16 +250,6 @@ texture = ExtResource("1_ig7tw")
 33:9/0 = 0
 16:4/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vw27"]
-texture = ExtResource("3_272bh")
-margins = Vector2i(1, 0)
-separation = Vector2i(5, 0)
-texture_region_size = Vector2i(38, 16)
-0:0/0 = 0
-1:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kek77"]
 texture = ExtResource("4_5vw27")
 6:2/0 = 0
@@ -290,7 +279,6 @@ texture = ExtResource("4_5vw27")
 physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_0xm2m")
-sources/3 = SubResource("TileSetAtlasSource_5vw27")
 sources/4 = SubResource("TileSetAtlasSource_kek77")
 
 [node name="main" type="Node"]
