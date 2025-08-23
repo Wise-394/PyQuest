@@ -3,7 +3,7 @@ extends Area2D
 # =====================================================
 # --- Nodes ---
 # =====================================================
-@onready var console: Node = get_parent().get_node("Console")
+@onready var console: Node = get_node("/root/main/gui/Console")
 @onready var label: Label = $Label
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
