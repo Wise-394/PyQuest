@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://v4eyyqvwjn10"]
+[gd_scene load_steps=14 format=4 uid="uid://v4eyyqvwjn10"]
 
 [ext_resource type="Script" uid="uid://cdmtmjyuj23vy" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="Texture2D" uid="uid://bfpah685l1c3h" path="res://assets/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="1_ig7tw"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bsu53wrn1rjda" path="res://assets/Treasure Hunters/Treasure Hunters/Pirate Ship/Sprites/Tilesets/Platforms (32x32).png" id="4_5vw27"]
 [ext_resource type="PackedScene" uid="uid://bqx7qoovu6flg" path="res://scene/console.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://dg0bluwq6jrx" path="res://scene/backend.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://wnijwohpg7wm" path="res://background.tscn" id="6_kek77"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xm2m"]
 texture = ExtResource("1_ig7tw")
@@ -309,6 +310,9 @@ collision_mask = 2
 position = Vector2(-14, 14)
 zoom = Vector2(1.6, 1.6)
 position_smoothing_enabled = true
+
+[node name="Background" parent="player/Camera2D" instance=ExtResource("6_kek77")]
+z_index = -1
 
 [node name="chest" parent="." instance=ExtResource("4_1bvp3")]
 z_index = -1
