@@ -21,7 +21,7 @@ var _answered_correctly: bool = false      # ensure signal only fires once
 # =====================================================
 @onready var code_editor: CodeEdit = $Panel/CodeEdit
 @onready var code_output_label: RichTextLabel = $Panel/code_output_label
-@onready var backend_client: Node = $"../backend"
+@onready var backend_client: Node = $"../../backend"
 @onready var guide_label: RichTextLabel = $Panel/guide_label
 
 # =====================================================

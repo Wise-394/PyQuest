@@ -5,3 +5,4 @@ extends Node
 func _ready() -> void:
 	var resource = load("res://dialogue/intro.dialogue")
 	DialogueManager.show_dialogue_balloon(resource, "start")
+	

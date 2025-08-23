@@ -3,12 +3,12 @@ extends CharacterBody2D
 # =====================================================
 # --- Player ---
 # =====================================================
-enum PlayerState { IDLE, WALK, JUMP, DIALOGUE, CONSOLE, DROP }
+enum PlayerState { IDLE, WALK, JUMP, DIALOGUE, CONSOLE, DROP, SKILLS_TERMINAL }
 var current_state: PlayerState = PlayerState.IDLE
 @onready var animated_sprite = $AnimatedSprite2D
 
 # =====================================================
-# --- variables ---
+# --- variables
 # =====================================================
 @export var move_speed: float = 200.0
 @export var jump_force: float = -300.0
@@ -20,14 +20,13 @@ var current_state: PlayerState = PlayerState.IDLE
 func _ready() -> void:
 	GlobalScript.dialogue_opened.connect(on_dialogue_started)
 	GlobalScript.dialogue_closed.connect(on_dialogue_ended)
-	
+	GlobalScript.skills_terminal_state_changed_global.connect(on_skills_terminal_state_changed)
+
 # =====================================================
 # --- Physics Process Loop ---
 # =====================================================
 func _physics_process(delta: float) -> void:
 	_apply_gravity(delta)
-	# DFA BY SIR JERUM
-	#State machine that manages different player state
 	match current_state:
 		PlayerState.IDLE:
 			_handle_idle_state()
@@ -41,7 +40,9 @@ func _physics_process(delta: float) -> void:
 			_handle_console_state()
 		PlayerState.DROP:
 			_handle_drop_state()
-			
+		PlayerState.SKILLS_TERMINAL:
+			_handle_skills_terminal_state()
+	
 	move_and_slide()
 
 # =====================================================
@@ -64,7 +65,7 @@ func _handle_walk_state() -> void:
 		_set_state(PlayerState.IDLE)
 	elif not is_on_floor():
 		_set_state(PlayerState.JUMP)
-		
+
 func _handle_jump_state() -> void:
 	_handle_input_movement()
 	if is_on_floor():
@@ -72,16 +73,19 @@ func _handle_jump_state() -> void:
 			_set_state(PlayerState.IDLE)
 		else:
 			_set_state(PlayerState.WALK)
-			
+
 func _handle_drop_state() -> void:
 	if is_on_floor():
 		position.y += 1
-		_set_state(PlayerState.JUMP)  
+		_set_state(PlayerState.JUMP)
 
 func _handle_dialogue_state() -> void:
 	velocity.x = 0
-	
+
 func _handle_console_state() -> void:
+	velocity.x = 0
+
+func _handle_skills_terminal_state() -> void:
 	velocity.x = 0
 
 # =====================================================
@@ -121,14 +125,15 @@ func _update_animation() -> void:
 			target_anim = "idle"
 		PlayerState.CONSOLE:
 			target_anim = "idle"
+		PlayerState.SKILLS_TERMINAL:
+			target_anim = "idle"
 		_:
 			target_anim = "idle"
 
 	if animated_sprite.animation != target_anim:
 		animated_sprite.animation = target_anim
 		animated_sprite.play()
-		
-# A dedicated function to change the state
+
 func _set_state(new_state: PlayerState) -> void:
 	if current_state == new_state:
 		return
@@ -152,3 +157,15 @@ func _on_console_console_closed(_id) -> void:
 
 func _on_console_console_opened() -> void:
 	_set_state(PlayerState.DIALOGUE)
+
+# =====================================================
+# --- Skills Terminal Handlers ---
+# =====================================================
+func on_skills_terminal_state_changed(state) -> void:
+	if state == "opened":
+		_set_state(PlayerState.SKILLS_TERMINAL)
+	elif state == "closed":
+		if is_on_floor():
+			_set_state(PlayerState.IDLE)
+		else:
+			_set_state(PlayerState.JUMP)
