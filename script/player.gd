@@ -86,7 +86,6 @@ func _handle_console_state() -> void:
 	velocity.x = 0
 
 func _handle_skills_terminal_state() -> void:
-	print("wow")
 	velocity.x = 0
 
 # =====================================================

@@ -12,10 +12,12 @@ signal skills_terminal_state_changed_global
 var is_dialogue_open: bool = false
 var show_coords: bool = false   
 var is_skills_terminal_open = false
+var is_console_open = false
 # =====================================================
 # --- UI References ---
 # =====================================================
 @onready var coords: CanvasLayer = get_tree().root.get_node("main/gui/coords")
+@onready var console: CanvasLayer = get_tree().root.get_node("main/gui/Console")
 @onready var coords_label: Label = coords.get_node("coordinates")
 @onready var skills_terminal: CanvasLayer = get_tree().root.get_node("main/gui/skills_terminal")
 
@@ -26,10 +28,14 @@ func _ready() -> void:
 	DialogueManager.dialogue_started.connect(_on_dialogue_started)
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 	skills_terminal.skills_terminal_state_changed.connect(_on_skills_terminal_state_changed)
+	console.console_opened.connect(_on_console_opened)
+	console.console_closed.connect(_on_console_closed)
+	
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed("open_coords"):
 		_toggle_show_coords()
-	if event.is_action_pressed("open_one_line_terminal") and not is_dialogue_open:
+	if (event.is_action_pressed("open_one_line_terminal") and not is_dialogue_open
+	and not is_console_open):
 		skills_terminal.toggle_terminal()
 		is_skills_terminal_open = skills_terminal.is_open
 
@@ -67,3 +73,10 @@ func _on_skills_terminal_state_changed(state):
 		skills_terminal_state_changed_global.emit("opened")
 	else:
 		skills_terminal_state_changed_global.emit("closed")
+# =====================================================
+# --- console Helpers ---
+# =====================================================
+func _on_console_opened():
+	is_console_open = true
+func _on_console_closed(_caller_id):
+	is_console_open = false
