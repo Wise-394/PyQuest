@@ -5,8 +5,7 @@ extends Node
 # =====================================================
 signal dialogue_opened
 signal dialogue_closed
-signal skills_terminal_opened_global
-signal skills_terminal_closed_global
+signal skills_terminal_state_changed_global
 # =====================================================
 # --- State Variables ---
 # =====================================================
@@ -26,8 +25,7 @@ var is_skills_terminal_open = false
 func _ready() -> void:
 	DialogueManager.dialogue_started.connect(_on_dialogue_started)
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
-	skills_terminal.skills_terminal_opened.connect(_on_skills_terminal_opened)
-	skills_terminal.skills_terminal_closed.connect(_on_skills_terminal_closed)
+	skills_terminal.skills_terminal_state_changed.connect(_on_skills_terminal_state_changed)
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed("open_coords"):
 		_toggle_show_coords()
@@ -55,7 +53,7 @@ func _on_dialogue_ended(_res) -> void:
 # =====================================================
 func _update_mouse_coordinates() -> void:
 	var mouse_pos: Vector2 = get_viewport().get_mouse_position()
-	coords_label.text = "Mouse: " + str(mouse_pos)
+	coords_label.text = "Coords: " + str(mouse_pos)
 
 func _toggle_show_coords() -> void:
 	show_coords = !show_coords
@@ -64,7 +62,8 @@ func _toggle_show_coords() -> void:
 # =====================================================
 # --- skills terminal Helpers ---
 # =====================================================
-func _on_skills_terminal_opened():
-	skills_terminal_opened_global.emit()
-func _on_skills_terminal_closed():
-	skills_terminal_closed_global.emit()
+func _on_skills_terminal_state_changed(state):
+	if state == "opened":
+		skills_terminal_state_changed_global.emit("opened")
+	else:
+		skills_terminal_state_changed_global.emit("closed")

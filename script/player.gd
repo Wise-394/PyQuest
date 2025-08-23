@@ -20,8 +20,7 @@ var current_state: PlayerState = PlayerState.IDLE
 func _ready() -> void:
 	GlobalScript.dialogue_opened.connect(on_dialogue_started)
 	GlobalScript.dialogue_closed.connect(on_dialogue_ended)
-	GlobalScript.skills_terminal_opened_global.connect(on_skills_terminal_started)
-	GlobalScript.skills_terminal_closed_global.connect(on_skills_terminal_ended)
+	GlobalScript.skills_terminal_state_changed_global.connect(on_skills_terminal_state_changed)
 
 # =====================================================
 # --- Physics Process Loop ---
@@ -163,12 +162,11 @@ func _on_console_console_opened() -> void:
 # =====================================================
 # --- Skills Terminal Handlers ---
 # =====================================================
-func on_skills_terminal_started() -> void:
-	print("nabago state")
-	_set_state(PlayerState.SKILLS_TERMINAL)
-
-func on_skills_terminal_ended() -> void:
-	if is_on_floor():
-		_set_state(PlayerState.IDLE)
-	else:
-		_set_state(PlayerState.JUMP)
+func on_skills_terminal_state_changed(state) -> void:
+	if state == "opened":
+		_set_state(PlayerState.SKILLS_TERMINAL)
+	elif state == "closed":
+		if is_on_floor():
+			_set_state(PlayerState.IDLE)
+		else:
+			_set_state(PlayerState.JUMP)
