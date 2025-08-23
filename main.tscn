@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://v4eyyqvwjn10"]
+[gd_scene load_steps=14 format=4 uid="uid://v4eyyqvwjn10"]
 
 [ext_resource type="Script" uid="uid://cdmtmjyuj23vy" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="Texture2D" uid="uid://bfpah685l1c3h" path="res://assets/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="1_ig7tw"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://chv6oqvx3a4j8" path="res://scene/parallax_bg.tscn" id="5_4c57u"]
 [ext_resource type="PackedScene" uid="uid://bqx7qoovu6flg" path="res://scene/console.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://dg0bluwq6jrx" path="res://scene/backend.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://yi414of3w303" path="res://scene/background.tscn" id="6_kek77"]
+[ext_resource type="PackedScene" uid="uid://eq7fph3s1xni" path="res://scene/ui.tscn" id="10_4c57u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xm2m"]
 texture = ExtResource("1_ig7tw")
@@ -290,6 +292,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAIAAAAAAAI
 tile_set = SubResource("TileSet_h2yge")
 
 [node name="parallax_bg" parent="." instance=ExtResource("5_4c57u")]
+visible = false
 
 [node name="player" parent="." instance=ExtResource("2_0xm2m")]
 z_index = 100
@@ -300,6 +303,11 @@ collision_mask = 2
 position = Vector2(-14, 14)
 zoom = Vector2(1.6, 1.6)
 position_smoothing_enabled = true
+
+[node name="Background" parent="player" instance=ExtResource("6_kek77")]
+visible = false
+z_index = -100
+position = Vector2(-14, 14)
 
 [node name="chest" parent="." instance=ExtResource("4_1bvp3")]
 z_index = 1
@@ -314,6 +322,8 @@ caller_id = 1
 z_index = 1
 position = Vector2(274, -15)
 caller_id = 2
+
+[node name="UI" parent="." instance=ExtResource("10_4c57u")]
 
 [connection signal="console_closed" from="Console" to="player" method="_on_console_console_closed"]
 [connection signal="console_opened" from="Console" to="player" method="_on_console_console_opened"]
