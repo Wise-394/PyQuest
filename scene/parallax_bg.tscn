@@ -5,17 +5,20 @@
 [node name="parallax_bg" type="ParallaxBackground"]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+z_index = -1
 position = Vector2(0, -100)
 motion_offset = Vector2(0, 0.775)
 motion_mirroring = Vector2(768, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+z_index = -1
 position = Vector2(0, -265)
 scale = Vector2(1.004, 5.867)
 texture = ExtResource("1_0hpbt")
 centered = false
 
 [node name="Sprite2D2" type="Sprite2D" parent="ParallaxLayer"]
+z_index = -1
 position = Vector2(384, -265)
 scale = Vector2(1, 5.86719)
 texture = ExtResource("1_0hpbt")
