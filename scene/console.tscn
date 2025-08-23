@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bqx7qoovu6flg"]
 
-[ext_resource type="Script" uid="uid://vtedw2xev027" path="res://scene/console.gd" id="1_mp5hj"]
+[ext_resource type="Script" uid="uid://vtedw2xev027" path="res://script/console.gd" id="1_mp5hj"]
 
 [node name="Console" type="CanvasLayer"]
 visible = false

@@ -18,8 +18,8 @@ var current_state: PlayerState = PlayerState.IDLE
 # --- Ready ---
 # =====================================================
 func _ready() -> void:
-	DialogueManager.dialogue_started.connect(on_dialogue_started)
-	DialogueManager.dialogue_ended.connect(on_dialogue_ended)
+	GlobalScript.dialogue_opened.connect(on_dialogue_started)
+	GlobalScript.dialogue_closed.connect(on_dialogue_ended)
 	
 # =====================================================
 # --- Physics Process Loop ---
@@ -42,16 +42,11 @@ func _physics_process(delta: float) -> void:
 		PlayerState.DROP:
 			_handle_drop_state()
 			
-
 	move_and_slide()
 
 # =====================================================
 # --- State-Specific Handlers ---
 # =====================================================
-
-
-	
-
 func _handle_idle_state() -> void:
 	_handle_input_movement()
 	_handle_input_jump()
@@ -60,7 +55,6 @@ func _handle_idle_state() -> void:
 		_set_state(PlayerState.WALK)
 	elif not is_on_floor():
 		_set_state(PlayerState.JUMP)
-	
 
 func _handle_walk_state() -> void:
 	_handle_input_movement()
@@ -87,7 +81,6 @@ func _handle_drop_state() -> void:
 func _handle_dialogue_state() -> void:
 	velocity.x = 0
 	
-	
 func _handle_console_state() -> void:
 	velocity.x = 0
 
@@ -109,7 +102,6 @@ func _handle_input_movement() -> void:
 func _handle_input_jump() -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_force
-		
 
 func _handle_input_drop() -> void:
 	if Input.is_action_just_pressed("drop"):
@@ -126,6 +118,8 @@ func _update_animation() -> void:
 		PlayerState.JUMP:
 			target_anim = "jump"
 		PlayerState.DIALOGUE:
+			target_anim = "idle"
+		PlayerState.CONSOLE:
 			target_anim = "idle"
 		_:
 			target_anim = "idle"
@@ -144,19 +138,17 @@ func _set_state(new_state: PlayerState) -> void:
 # =====================================================
 # --- Signals ---
 # =====================================================
-func on_dialogue_started(_res):
+func on_dialogue_started() -> void:
 	_set_state(PlayerState.DIALOGUE)
 
-func on_dialogue_ended(_res):
+func on_dialogue_ended() -> void:
 	if is_on_floor():
 		_set_state(PlayerState.IDLE)
 	else:
 		_set_state(PlayerState.JUMP)
 
-
 func _on_console_console_closed(_id) -> void:
 	_set_state(PlayerState.IDLE)
-
 
 func _on_console_console_opened() -> void:
 	_set_state(PlayerState.DIALOGUE)
