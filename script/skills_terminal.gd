@@ -3,7 +3,7 @@ extends CanvasLayer
 signal skills_terminal_state_changed
 
 var is_open: bool = false
-
+@onready var user_code = $Panel/user_code
 func _ready() -> void:
 	visible = false  
 
@@ -26,3 +26,9 @@ func close_terminal() -> void:
 # Called by the close button
 func _on_close_pressed() -> void:
 	close_terminal()
+
+
+func _on_run_pressed() -> void:
+	pass
+#TODO: take user code, check if valid code and what skills, 
+#call global to activate the skills

@@ -80,3 +80,10 @@ func _on_console_opened():
 	is_console_open = true
 func _on_console_closed(_caller_id):
 	is_console_open = false
+	
+# =====================================================
+# --- SKILLS ---
+# =====================================================
+func place_platform(x: int, y:int):
+	pass
+#TODO check if can spawn platform, if true -> spawn platform.tscn
