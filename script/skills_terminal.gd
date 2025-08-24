@@ -19,20 +19,14 @@ var is_open: bool = false
 # =====================================================
 # --- Commands ---
 # =====================================================
-var commands: Dictionary = {}
+var commands: Dictionary = {
+	"place_platform": _cmd_place_platform,
+	"reset_level": _cmd_reset_level,
+}
 
 func _ready() -> void:
 	visible = false  
-	_register_commands()
 
-# -----------------------------------------------------
-# Register available commands
-# -----------------------------------------------------
-func _register_commands() -> void:
-	commands = {
-		"place_platform": _cmd_place_platform,
-		# Add more commands here later
-	}
 
 # =====================================================
 # --- Command Handlers ---
@@ -55,6 +49,8 @@ func _cmd_place_platform(args: Array) -> void:
 		_:
 			_print_to_terminal("❌ place_platform requires 0 args (mouse) or 2 args: x, y")
 
+func _cmd_reset_level(args: Array = []):
+	get_tree().call_deferred("reload_current_scene")
 # -----------------------------------------------------
 # Helper to format success/failure messages
 # -----------------------------------------------------
