@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://chv6oqvx3a4j8"]
+[gd_scene load_steps=8 format=3 uid="uid://chv6oqvx3a4j8"]
 
 [ext_resource type="Texture2D" uid="uid://k8pjdv4e5tlj" path="res://assets/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/BG Image.png" id="1_0hpbt"]
 [ext_resource type="Texture2D" uid="uid://d2pgv1rt4oydg" path="res://assets/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Big Clouds.png" id="2_6n222"]
 [ext_resource type="Texture2D" uid="uid://ct3hfp7nxdtwn" path="res://assets/BG ISLANDS.png" id="3_gjend"]
 [ext_resource type="Texture2D" uid="uid://b2m7f7bww8wfe" path="res://assets/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/BG ISLANDS 2.png" id="4_njq6g"]
+[ext_resource type="Texture2D" uid="uid://bnupftftxqk1x" path="res://assets/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 1.png" id="4_xwyq1"]
+[ext_resource type="Texture2D" uid="uid://d0kk0s5wlvf71" path="res://assets/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 2.png" id="5_b6tuk"]
+[ext_resource type="Texture2D" uid="uid://clx75sa7hmjma" path="res://assets/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 3.png" id="6_a10ld"]
 
 [node name="parallax_bg" type="ParallaxBackground"]
 
@@ -44,15 +47,15 @@ motion_mirroring = Vector2(768, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
 z_index = -1
-position = Vector2(0, 76)
-scale = Vector2(1.14286, 1.53465)
+position = Vector2(0, 169)
+scale = Vector2(1.14286, 1.24752)
 texture = ExtResource("2_6n222")
 centered = false
 
 [node name="Sprite2D2" type="Sprite2D" parent="ParallaxLayer2"]
 z_index = -1
-position = Vector2(447, 133)
-scale = Vector2(0.725446, 0.970297)
+position = Vector2(447, 200)
+scale = Vector2(0.725446, 0.960396)
 texture = ExtResource("2_6n222")
 centered = false
 
@@ -72,9 +75,51 @@ centered = false
 
 [node name="Sprite2D2" type="Sprite2D" parent="ParallaxLayer3"]
 z_index = -1
-position = Vector2(447, 137)
-scale = Vector2(0.725446, 0.930693)
+position = Vector2(447, 203)
+scale = Vector2(0.725446, 0.920792)
 texture = ExtResource("2_6n222")
+centered = false
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="."]
+z_index = -1
+position = Vector2(3, -69)
+motion_scale = Vector2(0.2, 0)
+motion_offset = Vector2(0, 0.775)
+motion_mirroring = Vector2(768, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer6"]
+z_index = -1
+position = Vector2(0, 100)
+scale = Vector2(1.21622, 1.27083)
+texture = ExtResource("4_xwyq1")
+centered = false
+
+[node name="ParallaxLayer7" type="ParallaxLayer" parent="."]
+z_index = -1
+position = Vector2(3, -69)
+motion_scale = Vector2(0.2, 0)
+motion_offset = Vector2(0, 0.775)
+motion_mirroring = Vector2(768, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer7"]
+z_index = -1
+position = Vector2(156, 148)
+scale = Vector2(0.879699, 0.842262)
+texture = ExtResource("5_b6tuk")
+centered = false
+
+[node name="ParallaxLayer8" type="ParallaxLayer" parent="."]
+z_index = -1
+position = Vector2(3, -69)
+motion_scale = Vector2(0.2, 0)
+motion_offset = Vector2(0, 0.775)
+motion_mirroring = Vector2(768, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer8"]
+z_index = -1
+position = Vector2(365, 107)
+scale = Vector2(0.635714, 0.560211)
+texture = ExtResource("6_a10ld")
 centered = false
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
