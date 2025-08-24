@@ -49,7 +49,7 @@ func _cmd_place_platform(args: Array) -> void:
 		_:
 			_print_to_terminal("❌ place_platform requires 0 args (mouse) or 2 args: x, y")
 
-func _cmd_reset_level(args: Array = []):
+func _cmd_reset_level(_args: Array = []):
 	get_tree().call_deferred("reload_current_scene")
 # -----------------------------------------------------
 # Helper to format success/failure messages

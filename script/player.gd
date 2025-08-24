@@ -14,6 +14,10 @@ var current_state: PlayerState = PlayerState.IDLE
 @export var jump_force: float = -300.0
 @export var gravity: float = 800.0
 
+# --- Coyote Time Variables ---
+@export var coyote_time: float = 1
+var coyote_timer: float = 0.0
+
 # =====================================================
 # --- Ready ---
 # =====================================================
@@ -27,6 +31,13 @@ func _ready() -> void:
 # =====================================================
 func _physics_process(delta: float) -> void:
 	_apply_gravity(delta)
+
+	# --- Coyote Time update ---
+	if is_on_floor():
+		coyote_timer = coyote_time
+	else:
+		coyote_timer = max(coyote_timer - delta, 0.0)
+
 	match current_state:
 		PlayerState.IDLE:
 			_handle_idle_state()
@@ -68,12 +79,13 @@ func _handle_walk_state() -> void:
 
 func _handle_jump_state() -> void:
 	_handle_input_movement()
+	_handle_input_jump()  # <-- added so coyote jump works in mid-air
 	if is_on_floor():
 		if velocity.x == 0:
 			_set_state(PlayerState.IDLE)
 		else:
 			_set_state(PlayerState.WALK)
-
+			
 func _handle_drop_state() -> void:
 	if is_on_floor():
 		position.y += 1
@@ -104,8 +116,10 @@ func _handle_input_movement() -> void:
 		animated_sprite.flip_h = true
 
 func _handle_input_jump() -> void:
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	# --- Use coyote timer instead of strict is_on_floor ---
+	if Input.is_action_just_pressed("jump") and coyote_timer > 0.0:
 		velocity.y = jump_force
+		coyote_timer = 0.0   # prevent repeated jumps from coyote time
 
 func _handle_input_drop() -> void:
 	if Input.is_action_just_pressed("drop"):
