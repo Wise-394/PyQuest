@@ -165,5 +165,4 @@ func place_platform(x: int, y: int):
 		get_tree().current_scene.add_child(new_platform)
 		return new_platform
 	else:
-		print("❌ Cannot place platform here, collision detected!")
 		return null

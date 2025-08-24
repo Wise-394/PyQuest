@@ -90,6 +90,7 @@ func open_terminal() -> void:
 func close_terminal() -> void:
 	visible = false
 	is_open = false
+	_clean_terminal()
 	skills_terminal_state_changed.emit("closed")
 
 # Close button handler
@@ -141,6 +142,8 @@ func _parse_arg(value: String) -> Variant:
 	return value
 
 func _print_to_terminal(msg: String) -> void:
-	print(msg) # Debug print
-	if output_label:
-		output_label.text = (output_label.text + msg + "\n").strip_edges()
+		output_label.text = msg.strip_edges()
+		
+func _clean_terminal():
+	user_code.text = ""
+	output_label.text = ""
