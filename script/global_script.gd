@@ -14,6 +14,7 @@ var is_dialogue_open: bool = false
 var show_coords: bool = false   
 var is_skills_terminal_open: bool = false
 var is_console_open: bool = false
+var lock_coords: bool = false  
 
 # =====================================================
 # --- UI References ---
@@ -54,11 +55,17 @@ func _unhandled_key_input(event: InputEvent) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	# Update coordinates label while mouse moves
-	if show_coords and event is InputEventMouseMotion:
+	if show_coords and not lock_coords and event is InputEventMouseMotion:
 		_update_mouse_coordinates()
 
 
+func _unhandled_input(event: InputEvent) -> void:
+	if show_coords and event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		if lock_coords:
+			lock_coords = false
+		else:
+			lock_coords = true
+			_update_mouse_coordinates()
 # =====================================================
 # --- Dialogue Handlers ---
 # =====================================================
@@ -75,16 +82,28 @@ func _on_dialogue_ended(_res) -> void:
 # =====================================================
 # --- Coordinate Display Helpers ---
 # =====================================================
+# =====================================================
+# --- Coordinate Display Helpers ---
+# =====================================================
 func _update_mouse_coordinates() -> void:
 	var camera := get_viewport().get_camera_2d()
 	if camera:
 		var world_mouse_pos: Vector2 = camera.get_global_mouse_position()
-		coords_label.text = "Coords: " + str(world_mouse_pos)
+		var rounded_pos := Vector2(
+			round(world_mouse_pos.x * 100) / 100.0,
+			round(world_mouse_pos.y * 100) / 100.0
+		)
+		coords_label.text = "Coords: " + str(rounded_pos)
 
 
 func _toggle_show_coords() -> void:
 	show_coords = !show_coords
-	if not show_coords:
+	lock_coords = false
+	if show_coords:
+		Input.set_default_cursor_shape(Input.CURSOR_CROSS)
+		_update_mouse_coordinates()
+	else:
+		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 		coords_label.text = ""
 
 

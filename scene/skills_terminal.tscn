@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dce025g344t5h" path="res://script/skills_terminal.gd" id="1_wrqvi"]
 
 [node name="skills_terminal" type="CanvasLayer"]
+visible = false
 script = ExtResource("1_wrqvi")
 
 [node name="Panel" type="Panel" parent="."]
