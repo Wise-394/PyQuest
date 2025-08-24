@@ -76,11 +76,9 @@ func _on_dialogue_ended(_res) -> void:
 # --- Coordinate Display Helpers ---
 # =====================================================
 func _update_mouse_coordinates() -> void:
-	# Convert mouse position from screen → world coords
 	var camera := get_viewport().get_camera_2d()
 	if camera:
-		var mouse_pos: Vector2      = get_viewport().get_mouse_position()
-		var world_mouse_pos: Vector2 = camera.get_screen_transform().affine_inverse() * mouse_pos
+		var world_mouse_pos: Vector2 = camera.get_global_mouse_position()
 		coords_label.text = "Coords: " + str(world_mouse_pos)
 
 
