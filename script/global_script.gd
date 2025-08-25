@@ -17,28 +17,23 @@ var is_console_open: bool = false
 var lock_coords: bool = false  
 
 # =====================================================
-# --- UI References ---
+# --- UI References {set on main}---
 # =====================================================
-@onready var coords: CanvasLayer         = get_tree().root.get_node("main/gui/coords")
-@onready var console: CanvasLayer        = get_tree().root.get_node("main/gui/Console")
-@onready var coords_label: Label         = coords.get_node("coordinates")
-@onready var skills_terminal: CanvasLayer = get_tree().root.get_node("main/gui/skills_terminal")
+var coords: CanvasLayer
+var console: CanvasLayer
+var coords_label: Label
+var skills_terminal: CanvasLayer
 
 # =====================================================
 # --- Scenes / Resources ---
 # =====================================================
-@onready var spawnable_platform = preload("res://scene/spawnable_platform.tscn")
+var spawnable_platform
 
 # =====================================================
 # --- Engine Callbacks ---
 # =====================================================
 func _ready() -> void:
-	# Connect signals from external managers/components
-	DialogueManager.dialogue_started.connect(_on_dialogue_started)
-	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
-	skills_terminal.skills_terminal_state_changed.connect(_on_skills_terminal_state_changed)
-	console.console_opened.connect(_on_console_opened)
-	console.console_closed.connect(_on_console_closed)
+	pass
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
