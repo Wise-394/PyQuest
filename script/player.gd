@@ -15,7 +15,7 @@ var current_state: PlayerState = PlayerState.IDLE
 @export var gravity: float = 800.0
 
 # --- Coyote Time Variables ---
-@export var coyote_time: float = 1
+@export var coyote_time: float = 0.3
 var coyote_timer: float = 0.0
 
 # =====================================================

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://v4eyyqvwjn10"]
+[gd_scene load_steps=15 format=4 uid="uid://v4eyyqvwjn10"]
 
 [ext_resource type="Script" uid="uid://cdmtmjyuj23vy" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="Texture2D" uid="uid://bfpah685l1c3h" path="res://assets/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="1_ig7tw"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://chv6oqvx3a4j8" path="res://scene/parallax_bg.tscn" id="5_4c57u"]
 [ext_resource type="PackedScene" uid="uid://bqx7qoovu6flg" path="res://scene/console.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://dg0bluwq6jrx" path="res://scene/backend.tscn" id="6_7mycd"]
-[ext_resource type="PackedScene" uid="uid://yi414of3w303" path="res://scene/background.tscn" id="6_kek77"]
 [ext_resource type="PackedScene" uid="uid://eq7fph3s1xni" path="res://scene/ui.tscn" id="10_4c57u"]
 [ext_resource type="PackedScene" uid="uid://ch4iocdedtvl0" path="res://scene/skills_terminal.tscn" id="12_dg77c"]
 [ext_resource type="PackedScene" uid="uid://dd3orxfppwo1y" path="res://scene/dead_zone.tscn" id="12_ycdy4"]
@@ -305,11 +304,6 @@ visible = false
 position = Vector2(-14, 14)
 zoom = Vector2(1.6, 1.6)
 position_smoothing_enabled = true
-
-[node name="Background" parent="player" instance=ExtResource("6_kek77")]
-visible = false
-z_index = -100
-position = Vector2(-14, 14)
 
 [node name="backend" parent="." instance=ExtResource("6_7mycd")]
 
