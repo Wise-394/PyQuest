@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buk8cukxq0a2f"
-path="res://.godot/imported/Back Palm Tree Left 02.png-68585e46e82c304d979f48dd1dc009d6.ctex"
+uid="uid://l24mnlx6oq7s"
+path="res://.godot/imported/Brown Crates 1.png-fd74a3d5abad7b9872e69dd7b341484a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Left 02.png"
-dest_files=["res://.godot/imported/Back Palm Tree Left 02.png-68585e46e82c304d979f48dd1dc009d6.ctex"]
+source_file="res://assets/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Brown Crates 1.png"
+dest_files=["res://.godot/imported/Brown Crates 1.png-fd74a3d5abad7b9872e69dd7b341484a.ctex"]
 
 [params]
 

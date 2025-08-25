@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfdf5r4c3c1jq"
-path="res://.godot/imported/Back Palm Tree Left 04.png-0d44721649b3890ae1d7b98e1f6475bd.ctex"
+uid="uid://b5xmhkxaak0w7"
+path="res://.godot/imported/Back Palm Tree Regular 03.png-0df927edf50c40d5442cad598a6bedfb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Left 04.png"
-dest_files=["res://.godot/imported/Back Palm Tree Left 04.png-0d44721649b3890ae1d7b98e1f6475bd.ctex"]
+source_file="res://assets/Treasure Hunters/Treasure Hunters/Merchant Ship/Back Palm Trees/Back Palm Tree Regular 03.png"
+dest_files=["res://.godot/imported/Back Palm Tree Regular 03.png-0df927edf50c40d5442cad598a6bedfb.ctex"]
 
 [params]
 

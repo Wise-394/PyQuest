@@ -28,6 +28,7 @@ var skills_terminal: CanvasLayer
 # --- Scenes / Resources ---
 # =====================================================
 @export var spawnable_platform: PackedScene = preload("res://scene/spawnable_platform.tscn")
+@onready var physics_box_scene = preload("res://scene/spawnable_box.tscn")
 
 # =====================================================
 # --- Engine Callbacks ---
@@ -151,6 +152,22 @@ func can_spawn_new_platform(pos: Vector2) -> bool:
 	# Run collision check
 	var result = space_state.intersect_shape(params)
 	return result.size() == 0
+	
+func can_spawn_new_box(pos: Vector2) -> bool:
+	var space_state = get_viewport().get_world_2d().direct_space_state
+	var shape := _get_box_shape()
+	if shape == null:
+		push_error("No CollisionShape2D found in physics_box.tscn")
+		return false
+	var xform = Transform2D(0, pos)
+	var params := PhysicsShapeQueryParameters2D.new()
+	params.shape = shape
+	params.transform = xform
+	params.collision_mask = 0xFFFFFFFF
+	var result = space_state.intersect_shape(params)
+	print("Box collision check at ", pos, " → result: ", result.size())
+	return result.size() == 0
+
 
 
 func _get_platform_shape() -> Shape2D:
@@ -159,7 +176,16 @@ func _get_platform_shape() -> Shape2D:
 	"""
 	var platform = spawnable_platform.instantiate()
 	for child in platform.get_children():
-		if child is CollisionShape2D:
+		if child is CollisionShape2D and child.shape != null:
+			return child.shape
+	return null
+	
+	
+
+func _get_box_shape() -> Shape2D:
+	var box = physics_box_scene.instantiate()
+	for child in box.get_children():
+		if child is CollisionShape2D and child.shape != null:
 			return child.shape
 	return null
 
@@ -177,4 +203,16 @@ func place_platform(x: int, y: int):
 		get_tree().current_scene.add_child(new_platform)
 		return new_platform
 	else:
+		return null
+
+func place_box(x: int, y: int) -> RigidBody2D:
+	var pos = Vector2(x, y)
+
+	if can_spawn_new_box(pos):
+		var new_box = physics_box_scene.instantiate()
+		new_box.global_position = pos
+		get_tree().current_scene.add_child(new_box)
+		return new_box
+	else:
+		print("could not spawn box at ", pos)
 		return null

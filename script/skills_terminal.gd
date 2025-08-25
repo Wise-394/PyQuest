@@ -22,6 +22,7 @@ var is_open: bool = false
 var commands: Dictionary = {
 	"place_platform": _cmd_place_platform,
 	"reset_level": _cmd_reset_level,
+	"place_box": _cmd_place_box,
 }
 
 func _ready() -> void:
@@ -43,6 +44,19 @@ func _cmd_place_platform(args: Array) -> void:
 
 		_:
 			_print_to_terminal("❌ place_platform requires 2 args: x, y")
+
+func _cmd_place_box(args: Array) -> void:
+	var placed = null
+
+	match args.size():
+		2:
+			var x = float(args[0])
+			var y = float(args[1])
+			placed = GlobalScript.place_box(x, y)
+			_log_spawn_result(placed, Vector2(x, y))
+
+		_:
+			_print_to_terminal("❌ place_box requires 2 args: x, y")
 
 func _cmd_reset_level(_args: Array = []):
 	get_tree().call_deferred("reload_current_scene")
