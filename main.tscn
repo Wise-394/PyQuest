@@ -321,6 +321,7 @@ position_smoothing_enabled = true
 z_index = 1
 position = Vector2(478, -16)
 caller_id = 1
+item_reward = "scroll"
 
 [node name="chest2" parent="items" instance=ExtResource("4_1bvp3")]
 z_index = 1

@@ -11,7 +11,7 @@ extends Area2D
 # --- Exported Variables ---
 # =====================================================
 @export var caller_id: int  # ID of the chest / question
-
+@export var item_reward: String
 # =====================================================
 # --- State Variables ---
 # =====================================================
@@ -52,6 +52,12 @@ func _open_chest() -> void:
 		is_chest_closed = false
 		label.visible = false
 
+func give_reward() -> void:
+	if item_reward == "scroll":
+		var scroll = preload("res://scene/scroll.tscn")
+		var new_scroll = scroll.instantiate()
+		get_parent().add_child(new_scroll)
+		new_scroll.global_position = global_position + Vector2(0, -40)
 # =====================================================
 # --- Player Detection ---
 # =====================================================
@@ -66,3 +72,8 @@ func _on_body_exited(body: Node2D) -> void:
 		return
 	player_inside = false
 	label.visible = false
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if animated_sprite_2d.animation == "open":
+		give_reward()
