@@ -27,7 +27,7 @@ var skills_terminal: CanvasLayer
 # =====================================================
 # --- Scenes / Resources ---
 # =====================================================
-var spawnable_platform
+@export var spawnable_platform: PackedScene = preload("res://scene/spawnable_platform.tscn")
 
 # =====================================================
 # --- Engine Callbacks ---

@@ -41,34 +41,22 @@ func _cmd_place_platform(args: Array) -> void:
 			placed = GlobalScript.place_platform(x, y)
 			_log_spawn_result(placed, Vector2(x, y))
 
-		0:
-			var mouse_pos = get_viewport().get_mouse_position()
-			placed = GlobalScript.place_platform(mouse_pos.x, mouse_pos.y)
-			_log_spawn_result(placed, mouse_pos, true)
-
 		_:
-			_print_to_terminal("❌ place_platform requires 0 args (mouse) or 2 args: x, y")
+			_print_to_terminal("❌ place_platform requires 2 args: x, y")
 
 func _cmd_reset_level(_args: Array = []):
 	get_tree().call_deferred("reload_current_scene")
 # -----------------------------------------------------
 # Helper to format success/failure messages
 # -----------------------------------------------------
-func _log_spawn_result(placed, pos: Vector2, use_mouse: bool=false) -> void:
+func _log_spawn_result(placed, pos: Vector2) -> void:
 	var x_str = str(round(pos.x * 100) / 100.0)
 	var y_str = str(round(pos.y * 100) / 100.0)
 
 	if placed:
-		if use_mouse:
-			_print_to_terminal("✅ Spawned platform at mouse (" + x_str + ", " + y_str + ")")
-		else:
-			_print_to_terminal("✅ Spawned platform at (" + x_str + ", " + y_str + ")")
+		_print_to_terminal("✅ Spawned platform at (" + x_str + ", " + y_str + ")")
 	else:
-		if use_mouse:
-			_print_to_terminal("❌ Failed to spawn platform at mouse (" + x_str + ", " + y_str + ")")
-		else:
-			_print_to_terminal("❌ Failed to spawn platform at (" + x_str + ", " + y_str + ")")
-
+		_print_to_terminal("❌ Failed to spawn platform at (" + x_str + ", " + y_str + ")")
 # =====================================================
 # --- Terminal Visibility ---
 # =====================================================
