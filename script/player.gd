@@ -22,9 +22,10 @@ var coyote_timer: float = 0.0
 # --- Ready ---
 # =====================================================
 func _ready() -> void:
-	GlobalScript.dialogue_opened.connect(on_dialogue_started)
-	GlobalScript.dialogue_closed.connect(on_dialogue_ended)
-	GlobalScript.skills_terminal_state_changed_global.connect(on_skills_terminal_state_changed)
+	var main = get_tree().current_scene
+	main.dialogue_opened.connect(on_dialogue_started)
+	main.dialogue_closed.connect(on_dialogue_ended)
+	main.skills_terminal_state_changed_global.connect(on_skills_terminal_state_changed)
 
 # =====================================================
 # --- Physics Process Loop ---

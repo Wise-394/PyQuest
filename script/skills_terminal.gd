@@ -16,6 +16,7 @@ var is_open: bool = false
 @onready var user_code: TextEdit = $Panel/user_code
 @onready var output_label: Label = $Panel/output_label
 
+@onready var main = get_tree().current_scene
 # =====================================================
 # --- Commands ---
 # =====================================================
@@ -26,6 +27,7 @@ var commands: Dictionary = {
 }
 
 func _ready() -> void:
+
 	visible = false  
 
 
@@ -39,7 +41,7 @@ func _cmd_place_platform(args: Array) -> void:
 		2:
 			var x = float(args[0])
 			var y = float(args[1])
-			placed = GlobalScript.place_platform(x, y)
+			placed = main.place_platform(x, y)
 			_log_spawn_result(placed, Vector2(x, y))
 
 		_:
@@ -52,7 +54,7 @@ func _cmd_place_box(args: Array) -> void:
 		2:
 			var x = float(args[0])
 			var y = float(args[1])
-			placed = GlobalScript.place_box(x, y)
+			placed = main.place_box(x, y)
 			_log_spawn_result(placed, Vector2(x, y))
 
 		_:
