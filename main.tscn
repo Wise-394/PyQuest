@@ -331,7 +331,10 @@ caller_id = 2
 
 [node name="cannon" parent="items" instance=ExtResource("11_dg77c")]
 position = Vector2(686, -11)
-collision_layer = 8
+
+[node name="cannon2" parent="items" instance=ExtResource("11_dg77c")]
+position = Vector2(727, -11)
+direction = "right"
 
 [node name="dead_zone" parent="." instance=ExtResource("12_ycdy4")]
 position = Vector2(42, 346)
