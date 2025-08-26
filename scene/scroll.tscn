@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://efu0kkhutc7j"]
+[gd_scene load_steps=9 format=3 uid="uid://efu0kkhutc7j"]
 
+[ext_resource type="Script" uid="uid://c7h4puykrtobf" path="res://script/scroll.gd" id="1_0hen2"]
 [ext_resource type="Texture2D" uid="uid://byhmu1mhfklwi" path="res://assets/Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Big Map/Unfolding/01.png" id="1_m4f68"]
 [ext_resource type="Texture2D" uid="uid://ckbaqeaalfp23" path="res://assets/Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Big Map/Unfolding/02.png" id="2_0hen2"]
 [ext_resource type="Texture2D" uid="uid://4mxulwf07ujd" path="res://assets/Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Big Map/Unfolding/03.png" id="3_4twmk"]
@@ -32,8 +33,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sxq4k"]
 
 [node name="scroll" type="Area2D"]
+collision_layer = 4
+script = ExtResource("1_0hen2")
 
-[node name="Area2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gwboq")
 autoplay = "default"
 frame = 4
@@ -41,3 +44,5 @@ frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_sxq4k")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

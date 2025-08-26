@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bt3kld8g1sr5k"
+path="res://.godot/imported/unlocked_place_platform.dialogue-5a3608b025eee2f6d2e3c1139261e2a5.tres"
+
+[deps]
+
+source_file="res://dialogue/unlocked_place_platform.dialogue"
+dest_files=["res://.godot/imported/unlocked_place_platform.dialogue-5a3608b025eee2f6d2e3c1139261e2a5.tres"]
+
+[params]
+
+defaults=true

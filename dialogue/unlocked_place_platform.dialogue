@@ -1,0 +1,10 @@
+~ start
+System: You obtained a glowing Scroll of Code!
+System: New Skill Unlocked: place_platform()
+System: You can use your player skills by opening the terminal with pressing the key "T"
+System: You can place platforms anywhere with place_platform(x,y)
+System: Just replace x and y with coordinates of your choice.
+System: Example: place_platform(5, 10)
+System: To see coordinates, press "R" to activate the Coordinates Finder.
+System: Very well, explorer. The Scroll awaits your command.
+=> END
