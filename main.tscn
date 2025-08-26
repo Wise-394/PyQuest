@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://v4eyyqvwjn10"]
+[gd_scene load_steps=16 format=4 uid="uid://v4eyyqvwjn10"]
 
 [ext_resource type="Script" uid="uid://cdmtmjyuj23vy" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="Texture2D" uid="uid://bfpah685l1c3h" path="res://assets/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="1_ig7tw"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bqx7qoovu6flg" path="res://scene/console.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://dg0bluwq6jrx" path="res://scene/backend.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://eq7fph3s1xni" path="res://scene/ui.tscn" id="10_4c57u"]
+[ext_resource type="PackedScene" uid="uid://ci16l37negcj4" path="res://scene/cannon.tscn" id="11_dg77c"]
 [ext_resource type="PackedScene" uid="uid://ch4iocdedtvl0" path="res://scene/skills_terminal.tscn" id="12_dg77c"]
 [ext_resource type="PackedScene" uid="uid://dd3orxfppwo1y" path="res://scene/dead_zone.tscn" id="12_ycdy4"]
 
@@ -297,7 +298,7 @@ tile_set = SubResource("TileSet_h2yge")
 [node name="player" parent="." instance=ExtResource("2_0xm2m")]
 z_index = 100
 position = Vector2(14, -14)
-collision_mask = 2
+collision_mask = 26
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 visible = false
@@ -327,6 +328,10 @@ item_reward = "scroll"
 z_index = 1
 position = Vector2(952, -16)
 caller_id = 2
+
+[node name="cannon" parent="items" instance=ExtResource("11_dg77c")]
+position = Vector2(686, -11)
+collision_layer = 8
 
 [node name="dead_zone" parent="." instance=ExtResource("12_ycdy4")]
 position = Vector2(42, 346)

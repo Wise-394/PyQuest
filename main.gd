@@ -34,8 +34,8 @@ var lock_coords: bool = false
 # --- Engine Callbacks ---
 # =====================================================
 func _ready() -> void:
-	var resource = load("res://dialogue/intro.dialogue")
-	DialogueManager.show_dialogue_balloon(resource, "start")
+	#var resource = load("res://dialogue/intro.dialogue")
+	#DialogueManager.show_dialogue_balloon(resource, "start")
 
 	# --- Signal connections ---
 	if not DialogueManager.dialogue_started.is_connected(_on_dialogue_started):
