@@ -3,14 +3,17 @@
 [ext_resource type="Texture2D" uid="uid://l24mnlx6oq7s" path="res://assets/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Brown Crates 1.png" id="1_xt7cr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b4wqx"]
-size = Vector2(8, 8)
+size = Vector2(30, 19)
 
 [node name="SpawnableBox" type="RigidBody2D"]
-collision_layer = 3
+collision_layer = 2
 collision_mask = 3
+continuous_cd = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8.5)
 shape = SubResource("RectangleShape2D_b4wqx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
 texture = ExtResource("1_xt7cr")
