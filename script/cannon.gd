@@ -12,7 +12,7 @@ func _ready() -> void:
 	_start_cycle()
 
 func _start_cycle() -> void:
-	animated_sprite.play("firing")  # plays once
+	animated_sprite.play("firing")
 
 func _on_animation_finished() -> void:
 	if animated_sprite.animation == "firing":

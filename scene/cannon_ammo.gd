@@ -19,5 +19,5 @@ func _on_animation_finished():
 func _on_despawn_timer_timeout() -> void:
 	queue_free()
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(_body: Node2D) -> void:
 	_explode()
