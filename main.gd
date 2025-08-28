@@ -213,7 +213,7 @@ func _get_player_direction() -> int:
 	return -1 if player.scale.x < 0 else 1
 
 
-func place_box() -> RigidBody2D:
+func place_box():
 	var offset = Vector2(32, -40) * Vector2(_get_player_direction(), 1)
 	var pos = player.global_position + offset
 

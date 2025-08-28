@@ -303,6 +303,7 @@ position = Vector2(42, 346)
 
 [node name="spike" parent="world" instance=ExtResource("6_ycdy4")]
 position = Vector2(274, -15)
+collision_layer = 16
 
 [node name="player" parent="." instance=ExtResource("2_0xm2m")]
 z_index = 100
