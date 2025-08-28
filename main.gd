@@ -24,6 +24,8 @@ var lock_coords: bool = false
 @onready var coords_label: Label = $gui/coords/coordinates
 @onready var skills_terminal: CanvasLayer = $gui/skills_terminal
 
+@onready var player = $player
+
 # =====================================================
 # --- Scenes / Resources ---
 # =====================================================
@@ -173,37 +175,52 @@ func place_platform(x: int, y: int):
 # =====================================================
 # --- Box Spawning Helpers ---
 # =====================================================
+
 func can_spawn_new_box(pos: Vector2) -> bool:
 	var space_state = get_viewport().get_world_2d().direct_space_state
-	var shape: Shape2D = _get_box_shape()
+	var shape := _get_box_shape()
 	if shape == null:
 		push_error("No CollisionShape2D found in spawnable_box.tscn")
 		return false
 	
-	var xform = Transform2D(0, pos)
 	var params := PhysicsShapeQueryParameters2D.new()
 	params.shape = shape
-	params.transform = xform
+	params.transform = Transform2D(0, pos)
 	params.collision_mask = 0xFFFFFFFF
 	
 	var result = space_state.intersect_shape(params)
-	print("Box collision check at ", pos, " → result: ", result.size())
-	return result.size() == 0
+	print("Box collision check at ", pos, " → collisions: ", result.size())
+	return result.is_empty()
+
 
 func _get_box_shape() -> Shape2D:
-	var box = physics_box_scene.instantiate()
-	for child in box.get_children():
+	var temp_box = physics_box_scene.instantiate()
+	for child in temp_box.get_children():
 		if child is CollisionShape2D and child.shape != null:
 			return child.shape
 	return null
 
-func place_box(x: int, y: int) -> RigidBody2D:
-	var pos = Vector2(x, y)
-	if can_spawn_new_box(pos):
-		var new_box = physics_box_scene.instantiate()
-		new_box.global_position = pos
-		get_tree().current_scene.add_child(new_box)
-		return new_box
-	else:
-		print("Could not spawn box at ", pos)
+
+func _get_player_direction() -> int:
+	var sprite := player.get_node_or_null("AnimatedSprite2D") as Sprite2D
+	if sprite:
+		return -1 if sprite.flip_h else 1
+	
+	var anim := player.get_node_or_null("AnimatedSprite2D") as AnimatedSprite2D
+	if anim:
+		return -1 if anim.flip_h else 1
+	
+	return -1 if player.scale.x < 0 else 1
+
+
+func place_box() -> RigidBody2D:
+	var offset = Vector2(32, -40) * Vector2(_get_player_direction(), 1)
+	var pos = player.global_position + offset
+
+	if not can_spawn_new_box(pos):
 		return null
+
+	var new_box = physics_box_scene.instantiate()
+	new_box.global_position = pos
+	get_tree().current_scene.add_child(new_box)
+	return new_box
