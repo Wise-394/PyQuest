@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=3 uid="uid://bnhiv8qcc5ro5"]
+
+[ext_resource type="Script" uid="uid://c5ju0fqtma84j" path="res://script/player.gd" id="1_oh5ij"]
+[ext_resource type="Texture2D" uid="uid://32g2jgj3phuh" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="1_s4jxa"]
+[ext_resource type="Texture2D" uid="uid://c4plro7dwjkqq" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 02.png" id="2_oh5ij"]
+[ext_resource type="Texture2D" uid="uid://dg35gos7dbws1" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 03.png" id="3_hp4bs"]
+[ext_resource type="Texture2D" uid="uid://0qddvjl11lsw" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 04.png" id="4_g2vtq"]
+[ext_resource type="Texture2D" uid="uid://cdwnhyx4nx5ix" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 05.png" id="5_2fvbb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ml7e8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_s4jxa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_oh5ij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hp4bs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_g2vtq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2fvbb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s4jxa"]
+size = Vector2(20, 26)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_oh5ij")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ml7e8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_s4jxa")
