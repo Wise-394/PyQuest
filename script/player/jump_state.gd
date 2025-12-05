@@ -9,12 +9,13 @@ var sprite: AnimatedSprite2D
 func enter():
 	character = state_machine.player
 	sprite = character.player_sprite
-	
-	# Apply jump force if jump button was just pressed
-	if Input.is_action_just_pressed("jump"):
+
+	# If entering JumpState from the ground (jumping)
+	if Input.is_action_just_pressed("jump") and character.is_on_floor():
 		character.velocity.y = -character.jump_strength
+
+	sprite.play("jump")
 	
-	sprite.animation = "jump"       
 
 func physics_update(delta):
 	# Apply gravity

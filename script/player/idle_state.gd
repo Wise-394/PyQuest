@@ -7,7 +7,7 @@ var sprite: AnimatedSprite2D
 func enter():
 	character = state_machine.player
 	sprite = character.player_sprite
-	sprite.animation = "idle"
+	sprite.play("idle")
 
 func physics_update(_delta):
 	if not character.is_on_floor():

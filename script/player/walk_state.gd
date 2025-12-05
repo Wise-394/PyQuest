@@ -10,7 +10,7 @@ var sprite: AnimatedSprite2D
 func enter():
 	character = state_machine.player
 	sprite = character.player_sprite
-	sprite.animation = "walk"       
+	sprite.play("walk")     
 
 func physics_update(_delta):
 	# Get horizontal input: -1 for left, 1 for right, 0 for no input

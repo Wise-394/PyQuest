@@ -1,0 +1,70 @@
+[gd_scene load_steps=12 format=3 uid="uid://b4v1ihuy8lse3"]
+
+[ext_resource type="Texture2D" uid="uid://dhi75hocsjfrh" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 01.png" id="1_qgo6y"]
+[ext_resource type="Script" uid="uid://d3gwoie2qu0i6" path="res://script/starfish/starfish.gd" id="1_xe086"]
+[ext_resource type="Texture2D" uid="uid://bbgdyaxrv1ue5" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 02.png" id="2_xe086"]
+[ext_resource type="Texture2D" uid="uid://bmvgnkxp7btwa" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 03.png" id="3_3s87j"]
+[ext_resource type="Texture2D" uid="uid://b6t2u52pn57lo" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 04.png" id="4_5gojc"]
+[ext_resource type="Texture2D" uid="uid://cndnqjovk10j6" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 05.png" id="5_iiyua"]
+[ext_resource type="Texture2D" uid="uid://devncpetvqt15" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 06.png" id="6_i4bwt"]
+[ext_resource type="Texture2D" uid="uid://b6prsewjtfmfn" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 07.png" id="7_iic68"]
+[ext_resource type="Texture2D" uid="uid://bucxo8d3cq4fn" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 08.png" id="8_j5ga1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0edc5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qgo6y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_xe086")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3s87j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5gojc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_iiyua")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_i4bwt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_iic68")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_j5ga1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_slnkg"]
+size = Vector2(59, 32)
+
+[node name="Starfish" type="Area2D"]
+collision_layer = 4
+script = ExtResource("1_xe086")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0edc5")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 0)
+shape = SubResource("RectangleShape2D_slnkg")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -21.0
+offset_top = -41.0
+offset_right = 19.0
+offset_bottom = -18.0
+text = "E"
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
