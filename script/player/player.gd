@@ -5,3 +5,11 @@ extends CharacterBody2D
 @export var speed: float = 300
 @export var jump_strength = 400
 @export var air_speed = 350
+
+@onready var player_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var state_machine = $StateMachine
+func _ready() -> void:
+	print(player_sprite, "player")
+	
+	if state_machine and state_machine.initial_state:
+		state_machine.change_state(state_machine.initial_state.name.to_lower())

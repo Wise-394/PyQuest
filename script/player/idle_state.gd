@@ -1,9 +1,14 @@
 extends State
 class_name IdleState
 
-func physics_update(_delta: float):
-	var character = state_machine.player 
+var character: CharacterBody2D
 
+func enter():
+	character = state_machine.player
+	var player_sprite = character.player_sprite
+	player_sprite.animation = "idle"
+	
+func physics_update(_delta: float):
 	if not character.is_on_floor():
 		state_machine.change_state("jumpstate")
 		return

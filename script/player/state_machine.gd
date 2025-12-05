@@ -18,9 +18,6 @@ func _ready() -> void:
 			states[child.name.to_lower()] = child
 			child.state_machine = self
 
-	if initial_state:
-		change_state(initial_state.name.to_lower())
-
 
 func _process(delta: float) -> void:
 	if current_state:

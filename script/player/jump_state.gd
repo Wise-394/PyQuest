@@ -3,13 +3,15 @@
 extends State
 class_name JumpState
 
+var character:CharacterBody2D
 func enter():
-	var character = state_machine.player 
+	character = state_machine.player
+	var player_sprite = character.player_sprite
 	if Input.is_action_just_pressed("jump"):
 		character.velocity.y = -character.jump_strength
+		player_sprite.animation = "jump"
 
 func physics_update(delta: float):
-	var character = state_machine.player
 	character.velocity.y += character.gravity * delta
 
 	var direction = Input.get_axis("move_left", "move_right")
