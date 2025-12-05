@@ -1,0 +1,12 @@
+~ start
+starfish: [[Hi|Hello|hey]], welcome to PyQuest.
+starfish: have u heard of Python?
+- Yes! its a snake
+	starfish: nope
+- Yes! its a programming langugae
+	starfish: yes u are correct
+-No, what's that?
+
+starfish: Python is a programming language
+
+=> END
