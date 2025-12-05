@@ -1,5 +1,6 @@
-extends CharacterBody2D
+# Player script for state machine
 
+extends CharacterBody2D
 
 @export var gravity: float = 1000
 @export var speed: float = 300
@@ -8,8 +9,8 @@ extends CharacterBody2D
 
 @onready var player_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_machine = $StateMachine
-func _ready() -> void:
-	print(player_sprite, "player")
-	
+
+func _ready():
+	# Start the state machine at its initial state
 	if state_machine and state_machine.initial_state:
 		state_machine.change_state(state_machine.initial_state.name.to_lower())
