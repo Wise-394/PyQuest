@@ -39,7 +39,11 @@ func change_state(state_name: String):
 	if current_state:
 		current_state.exit()
 
-
 	current_state = states.get(state_name.to_lower()) 
 	if current_state:
 		current_state.enter() 
+
+func exit_dialog():
+	print("dialog exited")
+	change_state("idlestate")
+	return

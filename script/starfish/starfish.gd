@@ -3,7 +3,7 @@ extends Area2D
 @onready var label: Label = $Label
 var _isVisible = false
 var _isDialogActive = false
-
+var player: CharacterBody2D
 func _ready() -> void:
 	DialogueManager.dialogue_ended.connect(_on_dialog_finished)
 func _process(_delta: float) -> void:
@@ -13,6 +13,7 @@ func _process(_delta: float) -> void:
 			
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
+		player = body
 		_change_visibility()
 
 
@@ -33,5 +34,9 @@ func _open_dialog():
 	DialogueManager.show_dialogue_balloon(resource, "start")
 	_isDialogActive = true
 	
+	#put the player into dialog state
+	player.state_machine.change_state("dialogstate")
+	
 func _on_dialog_finished(_resource):
 	_isDialogActive = false
+	player.state_machine.exit_dialog()

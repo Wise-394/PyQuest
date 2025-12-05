@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bnhiv8qcc5ro5"]
+[gd_scene load_steps=23 format=3 uid="uid://bnhiv8qcc5ro5"]
 
 [ext_resource type="Script" uid="uid://c5ju0fqtma84j" path="res://script/player/player.gd" id="1_oh5ij"]
 [ext_resource type="Texture2D" uid="uid://32g2jgj3phuh" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="1_s4jxa"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" uid="uid://6egxn1ugbpkr" path="res://script/player/jump_state.gd" id="10_ml7e8"]
 [ext_resource type="Texture2D" uid="uid://c8sgdpq1dw3n1" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 05.png" id="11_iuf2t"]
 [ext_resource type="Texture2D" uid="uid://drpcyeh7mj3ec" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 06.png" id="12_jrjdb"]
+[ext_resource type="Script" uid="uid://co7tyi7xn76wj" path="res://script/player/dialog_state.gd" id="20_iuf2t"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ml7e8"]
 animations = [{
@@ -40,7 +41,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -77,7 +78,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s4jxa"]
@@ -88,7 +89,7 @@ script = ExtResource("1_oh5ij")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ml7e8")
-animation = &"walk"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -107,3 +108,6 @@ script = ExtResource("9_2fvbb")
 
 [node name="JumpState" type="Node" parent="StateMachine"]
 script = ExtResource("10_ml7e8")
+
+[node name="DialogState" type="Node" parent="StateMachine"]
+script = ExtResource("20_iuf2t")
