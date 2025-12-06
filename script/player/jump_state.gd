@@ -6,7 +6,6 @@ class_name JumpState
 # --- Coyote time - grace period that allows player to jump even not on floor ---
 var coyote_timer := 0.0
 
-
 func enter():
 	init_references()
 	_handle_initial_jump_or_fall()
