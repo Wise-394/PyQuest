@@ -44,6 +44,5 @@ func change_state(state_name: String):
 		current_state.enter() 
 
 func exit_dialog():
-	print("dialog exited")
 	change_state("idlestate")
 	return
