@@ -1,12 +1,8 @@
 extends State
 class_name IdleState
 
-var character: CharacterBody2D
-var sprite: AnimatedSprite2D
-
-
 func enter():
-	_init_references()
+	init_references()
 	sprite.play("idle")
 
 
@@ -25,10 +21,6 @@ func handle_input(_event):
 # ============================
 #     SUB FUNCTIONS
 # ============================
-
-func _init_references():
-	character = state_machine.player
-	sprite = character.player_sprite
 
 
 func _check_floor_state():

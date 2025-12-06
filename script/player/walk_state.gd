@@ -2,12 +2,8 @@
 extends State
 class_name WalkState
 
-var character: CharacterBody2D
-var sprite: AnimatedSprite2D
-
-
 func enter():
-	_init_references()
+	init_references()
 	sprite.play("walk")
 
 
@@ -31,11 +27,6 @@ func handle_input(_event):
 #     SUB FUNCTIONS
 # ============================
 
-func _init_references():
-	character = state_machine.player
-	sprite = character.player_sprite
-
-
 func _play_walk_animation():
 	sprite.play("walk")
 
@@ -54,7 +45,7 @@ func _check_if_stopped_walking_and_change_state(direction):
 
 
 func _update_sprite_direction(direction):
-	change_direction(direction, sprite) 
+	change_direction(direction) 
 
 
 func _apply_walk_speed(direction):

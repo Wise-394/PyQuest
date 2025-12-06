@@ -1,11 +1,8 @@
 extends State
 class_name DialogState
 
-var character: CharacterBody2D
-var sprite: AnimatedSprite2D
-
 func enter():
-	_init_references()
+	init_references()
 	sprite.play("idle")
 
 func update(_delta) -> void:
@@ -16,7 +13,3 @@ func physics_update(_delta):
 
 func handle_input(_event):
 	pass
-
-func _init_references():
-	character = state_machine.player
-	sprite = character.player_sprite

@@ -3,16 +3,12 @@
 extends State
 class_name JumpState
 
-var character: CharacterBody2D
-var sprite: AnimatedSprite2D    
-
 # --- Coyote time - grace period that allows player to jump even not on floor ---
-var coyote_time: float
 var coyote_timer := 0.0
 
 
 func enter():
-	_init_references()
+	init_references()
 	_handle_initial_jump_or_fall()
 	sprite.play("jump")
 
@@ -29,13 +25,6 @@ func physics_update(delta):
 # ============================
 #     SUB FUNCTIONS
 # ============================
-
-func _init_references():
-	character = state_machine.player
-	sprite = character.player_sprite
-	coyote_time = character.cayote_time
-
-
 func _handle_initial_jump_or_fall():
 	# If entering JumpState from the ground (jumping)
 	if Input.is_action_just_pressed("jump") and character.is_on_floor():
