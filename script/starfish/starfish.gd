@@ -1,7 +1,7 @@
 extends Area2D
 
 @onready var label: Label = $Label
-@onready var dialog = $Introduction
+@export var dialog: Node
 var _isVisible = false
 var _isDialogActive = false
 var player: CharacterBody2D
@@ -34,12 +34,11 @@ func _change_visibility():
 		_isVisible = true
 
 func _open_dialog():
-	dialog.open_dialog()
 	_isDialogActive = true
-	
-	#put the player into dialog state
+	dialog.open_dialog()
 	player.state_machine.change_state("dialogstate")
 	
 func _on_dialog_finished():
+	if player:
+		player.state_machine.exit_dialog()
 	_isDialogActive = false
-	player.state_machine.exit_dialog()

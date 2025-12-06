@@ -45,4 +45,3 @@ func change_state(state_name: String):
 
 func exit_dialog():
 	change_state("idlestate")
-	return
