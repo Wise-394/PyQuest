@@ -4,18 +4,21 @@ extends Control
 @onready var close_button = $Panel/MarginContainer/VBoxContainer/Header/Close
 @onready var run_button = $Panel/MarginContainer/VBoxContainer/Run
 @onready var Code_edit = $Panel/MarginContainer/VBoxContainer/CodeContainer/CodeEdit
-
+@onready var question_label = $Panel/MarginContainer/VBoxContainer/QuestionContainer/QuestionLabel
+@onready var output_label = $Panel/MarginContainer/VBoxContainer/OutputContainer/OutputLabel
 var isVisible = false
 
 func _ready() -> void:
-	visible = false
+	#visible = false
+	pass
 
 func _on_reset_pressed() -> void:
 	pass # Replace with function body.
 
 
 func _on_close_pressed() -> void:
-	toggle_visibility()
+	#toggle_visibility()
+	pass
 
 
 func _on_run_pressed() -> void:
