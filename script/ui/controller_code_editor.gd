@@ -1,0 +1,54 @@
+extends Area2D
+
+@onready var label: Label = $Label
+@onready var player: CharacterBody2D = get_tree().current_scene.get_node("Player")
+@onready var code_editor: Control = get_tree().current_scene.get_node("UI/CanvasLayer/CodeEditor")
+
+var is_player_in_range := false
+
+func _ready() -> void:
+	label.visible = false
+	set_process(false)
+
+	code_editor.code_editor_closed.connect(_on_editor_closed)
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("toggle_editor") and is_player_in_range:
+		if not code_editor.is_visible():
+			_open_editor()
+		else:
+			_close_editor()
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		_set_interaction_available(true)
+
+func _on_body_exited(body: Node2D) -> void:
+	if body.name == "Player":
+		_set_interaction_available(false)
+		_close_editor() # auto-close on exit
+
+# -----------------------
+# Helper Functions
+# -----------------------
+
+func _set_interaction_available(value: bool):
+	is_player_in_range = value
+	label.visible = value
+	set_process(value)
+
+func _open_editor():
+	code_editor.open_editor()
+	_set_player_dialog_state(true)
+
+func _close_editor():
+	code_editor.close_editor()
+
+func _on_editor_closed():
+	_set_player_dialog_state(false)
+
+func _set_player_dialog_state(value: bool):
+	if value:
+		player.state_machine.change_state("dialogstate")
+	else:
+		player.state_machine.change_state("idlestate")

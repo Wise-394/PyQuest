@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dtnu4f76mnhu4" path="res://scene/dialog_node/introduction_dialog.tscn" id="7_75gap"]
 [ext_resource type="PackedScene" uid="uid://7am8ralce3gf" path="res://scene/dialog_node/test_dialog.tscn" id="8_f6yxf"]
 [ext_resource type="PackedScene" uid="uid://x3xnto5mnjxa" path="res://scene/ui/code_editor.tscn" id="9_6nwkn"]
-[ext_resource type="PackedScene" uid="uid://nvxql4d8clds" path="res://scene/ui/open_code_editor.tscn" id="10_yo8cd"]
+[ext_resource type="PackedScene" uid="uid://nvxql4d8clds" path="res://scene/ui/controller_code_editor.tscn" id="10_yo8cd"]
 
 [node name="Test" type="Node"]
 

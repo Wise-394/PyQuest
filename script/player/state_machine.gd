@@ -42,5 +42,5 @@ func change_state(state_name: String):
 	if current_state:
 		current_state.enter() 
 
-func exit_dialog():
+func go_idle():
 	change_state("idlestate")

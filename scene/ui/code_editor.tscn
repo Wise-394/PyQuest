@@ -94,6 +94,4 @@ size_flags_horizontal = 3
 text = "output is displayed here"
 autowrap_mode = 3
 
-[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Header/Reset" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Header/Close" to="." method="_on_close_pressed"]
-[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Run" to="." method="_on_run_pressed"]
