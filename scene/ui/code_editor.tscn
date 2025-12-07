@@ -78,6 +78,8 @@ size_flags_vertical = 0
 [node name="CodeEdit" type="CodeEdit" parent="Panel/MarginContainer/VBoxContainer/CodeContainer"]
 custom_minimum_size = Vector2(495, 0)
 layout_mode = 2
+theme_override_colors/selection_color = Color(0.5, 0.5, 0.5, 1)
+caret_blink = true
 
 [node name="Run" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
