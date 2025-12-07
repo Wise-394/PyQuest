@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://x3xnto5mnjxa"]
+[gd_scene load_steps=3 format=3 uid="uid://x3xnto5mnjxa"]
 
+[ext_resource type="Script" uid="uid://dldbcy6wsvwjn" path="res://script/ui/code_editor.gd" id="1_4u8nx"]
 [ext_resource type="Script" uid="uid://x5o0de18q6vy" path="res://script/ui/panel.gd" id="2_gxcp6"]
 
 [node name="CodeEditor" type="Control"]
+visible = false
 layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
@@ -10,6 +12,7 @@ anchor_right = 1.0
 offset_left = -527.0
 offset_bottom = 645.112
 grow_horizontal = 0
+script = ExtResource("1_4u8nx")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -76,6 +79,10 @@ size_flags_vertical = 0
 custom_minimum_size = Vector2(495, 0)
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+[node name="Run" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Run"
+
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Header/Reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Header/Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Run" to="." method="_on_run_pressed"]
