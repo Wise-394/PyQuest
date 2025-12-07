@@ -46,7 +46,11 @@ text = "Code Editor"
 layout_mode = 2
 size_flags_horizontal = 2
 
-[node name="Button" type="Button" parent="Panel/MarginContainer/VBoxContainer/Header"]
+[node name="Reset" type="Button" parent="Panel/MarginContainer/VBoxContainer/Header"]
+layout_mode = 2
+text = "Reset"
+
+[node name="Close" type="Button" parent="Panel/MarginContainer/VBoxContainer/Header"]
 layout_mode = 2
 text = "X"
 
