@@ -1,3 +1,5 @@
+# A sign that Shows or hides a label when the player enters or exits the area
+#specify the label text in inspector
 extends Area2D
 
 @onready var label: Label = $Label

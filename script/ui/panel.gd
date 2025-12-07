@@ -1,3 +1,4 @@
+# Allows the Panel to be dragged with the mouse
 extends Panel
 
 var dragging := false

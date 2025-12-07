@@ -1,3 +1,5 @@
+# controller script to open/close the Code Editor UI when the player is nearby
+#process is manually controlled for optimization
 extends Area2D
 
 @onready var label: Label = $Label
@@ -26,7 +28,7 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
 		_set_interaction_available(false)
-		_close_editor() # auto-close on exit
+		_close_editor()
 
 # -----------------------
 # Helper Functions

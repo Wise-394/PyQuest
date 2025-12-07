@@ -1,7 +1,11 @@
+# This script defines a Parent_Dialog class that manages dialogue interactions.
+# It connects to a global DialogueManager to listen for when a dialogue ends
+# and emits a local signal `dialogue_finished` that other nodes can react to.
+
 extends Node
 class_name Parent_Dialog
 
-signal dialogue_finished
+signal dialogue_finished 
 
 func _ready() -> void:
 	DialogueManager.dialogue_ended.connect(_on_dialog_finished)
