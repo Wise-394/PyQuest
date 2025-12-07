@@ -9,7 +9,7 @@ extends Control
 var isVisible = false
 
 func _ready() -> void:
-	#visible = false
+	visible = false
 	pass
 
 func _on_reset_pressed() -> void:
@@ -17,8 +17,7 @@ func _on_reset_pressed() -> void:
 
 
 func _on_close_pressed() -> void:
-	#toggle_visibility()
-	pass
+	toggle_visibility()
 
 
 func _on_run_pressed() -> void:

@@ -10,7 +10,11 @@ func _ready() -> void:
 	label.visible = false
 	print(player,code_editor, label)
 
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("open_console") and is_label_visible:
+		open_console()
 
+	
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		toggle_visibility()
@@ -28,3 +32,6 @@ func toggle_visibility():
 	else:
 		label.visible = true
 		is_label_visible = true
+	
+func open_console():
+	code_editor.toggle_visibility()

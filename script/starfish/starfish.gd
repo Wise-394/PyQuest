@@ -8,6 +8,7 @@ var player: CharacterBody2D
 
 func _ready() -> void:
 	dialog.dialogue_finished.connect(_on_dialog_finished)
+	_toggle_process()
 	
 
 func _process(_delta: float) -> void:
@@ -17,13 +18,16 @@ func _process(_delta: float) -> void:
 			
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		player = body
 		_change_visibility()
+		_toggle_process()
+		player = body
+
 
 
 func _on_body_exited(body: Node2D) -> void:
 		if body.name == "Player":
 			_change_visibility()
+			_toggle_process()
 
 func _change_visibility():
 	if _isVisible == true:
@@ -32,7 +36,15 @@ func _change_visibility():
 	else:
 		label.visible = true
 		_isVisible = true
-
+		
+		
+func _toggle_process():
+	if _isVisible:
+		set_process(true)
+	else:
+		set_process(false)
+		
+		
 func _open_dialog():
 	_isDialogActive = true
 	dialog.open_dialog()

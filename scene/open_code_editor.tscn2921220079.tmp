@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://nvxql4d8clds"]
+
+[ext_resource type="Script" uid="uid://dn620ht8upmkw" path="res://script/ui/open_code_editor.gd" id="1_mv8d5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wbwxs"]
+size = Vector2(50, 50)
+
+[node name="OpenCodeEditor" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_mv8d5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wbwxs")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -52.0
+offset_right = 20.0
+offset_bottom = -29.0
+text = "C"
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
