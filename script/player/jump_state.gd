@@ -11,7 +11,6 @@ func enter():
 	_handle_initial_jump_or_fall()
 	sprite.play("jump")
 
-
 func physics_update(delta):
 	_update_coyote_time(delta)
 	_try_coyote_jump()
@@ -19,7 +18,6 @@ func physics_update(delta):
 	_apply_air_movement()
 	character.move_and_slide()
 	_check_landing_and_change_state()
-
 
 # ============================
 #     SUB FUNCTIONS

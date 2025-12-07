@@ -11,11 +11,9 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		toggle_label()
 
-
 func _on_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
 		toggle_label()
-
 
 func toggle_label():
 	if is_label_visible:

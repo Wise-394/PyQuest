@@ -31,7 +31,6 @@ func _on_body_exited(body: Node2D) -> void:
 # -----------------------
 # Helper Functions
 # -----------------------
-
 func _set_interaction_available(value: bool):
 	is_player_in_range = value
 	label.visible = value
@@ -49,6 +48,6 @@ func _on_editor_closed():
 
 func _set_player_dialog_state(value: bool):
 	if value:
-		player.state_machine.change_state("dialogstate")
+		player.state_machine.change_state("CodeEditState")
 	else:
 		player.state_machine.change_state("idlestate")

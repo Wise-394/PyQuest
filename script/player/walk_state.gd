@@ -6,7 +6,6 @@ func enter():
 	init_references()
 	sprite.play("walk")
 
-
 func physics_update(_delta):
 	var direction = Input.get_axis("move_left", "move_right")
 
@@ -17,11 +16,9 @@ func physics_update(_delta):
 	_apply_walk_speed(direction)
 	character.move_and_slide()
 
-
 func handle_input(_event):
 	if Input.is_action_just_pressed("jump"):
 		state_machine.change_state("jumpstate")
-
 
 # ============================
 #     SUB FUNCTIONS
@@ -30,12 +27,10 @@ func handle_input(_event):
 func _play_walk_animation():
 	sprite.play("walk")
 
-
 func _check_if_airborne_and_change_state():
 	if not character.is_on_floor():
 		state_machine.change_state("jumpstate")
 		return
-
 
 func _check_if_stopped_walking_and_change_state(direction):
 	# If no horizontal input, switch to IdleState
@@ -43,10 +38,8 @@ func _check_if_stopped_walking_and_change_state(direction):
 		state_machine.change_state("idlestate")
 		return
 
-
 func _update_sprite_direction(direction):
 	change_direction(direction) 
-
 
 func _apply_walk_speed(direction):
 	character.velocity.x = direction * character.speed
