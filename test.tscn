@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://bo4sxd72s2q44"]
+[gd_scene load_steps=10 format=4 uid="uid://bo4sxd72s2q44"]
 
 [ext_resource type="TileSet" uid="uid://d1yxhu13jwkq3" path="res://tileset/island.tres" id="1_vbegm"]
 [ext_resource type="PackedScene" uid="uid://b4v1ihuy8lse3" path="res://scene/starfish.tscn" id="2_vbegm"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dc7ihfcrpl10v" path="res://scene/camera.tscn" id="5_ehkex"]
 [ext_resource type="PackedScene" uid="uid://bnhiv8qcc5ro5" path="res://scene/player.tscn" id="6_77dp3"]
 [ext_resource type="PackedScene" uid="uid://dnpc83w0181ed" path="res://scene/sign.tscn" id="7_vbegm"]
+[ext_resource type="PackedScene" uid="uid://x3xnto5mnjxa" path="res://scene/code_editor.tscn" id="9_xersf"]
 
 [node name="Test" type="Node"]
 
@@ -52,3 +53,10 @@ position = Vector2(169, 39)
 dialog = NodePath("TestDialog")
 
 [node name="TestDialog" parent="Npc/Starfish2" instance=ExtResource("5_00tp4")]
+
+[node name="UI" type="Node" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="UI"]
+
+[node name="CodeEditor" parent="UI/CanvasLayer" instance=ExtResource("9_xersf")]
+visible = true
