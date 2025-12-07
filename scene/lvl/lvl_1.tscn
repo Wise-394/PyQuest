@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=4 uid="uid://8h17yxwjyk2m"]
 
-[ext_resource type="PackedScene" uid="uid://c3r52si75dmo7" path="res://scene/dead_zone.tscn" id="1_iu6a4"]
-[ext_resource type="PackedScene" uid="uid://dnpc83w0181ed" path="res://scene/sign.tscn" id="1_q3h26"]
+[ext_resource type="PackedScene" uid="uid://c3r52si75dmo7" path="res://scene/world/dead_zone.tscn" id="1_iu6a4"]
+[ext_resource type="PackedScene" uid="uid://dnpc83w0181ed" path="res://scene/world/sign.tscn" id="1_q3h26"]
 [ext_resource type="TileSet" uid="uid://d1yxhu13jwkq3" path="res://tileset/island.tres" id="1_uanbu"]
 [ext_resource type="PackedScene" uid="uid://bnhiv8qcc5ro5" path="res://scene/player.tscn" id="2_pcxlr"]
 [ext_resource type="PackedScene" uid="uid://dc7ihfcrpl10v" path="res://scene/camera.tscn" id="3_iu6a4"]
