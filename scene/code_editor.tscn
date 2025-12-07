@@ -1,0 +1,77 @@
+[gd_scene load_steps=2 format=3 uid="uid://x3xnto5mnjxa"]
+
+[ext_resource type="Script" uid="uid://x5o0de18q6vy" path="res://script/ui/panel.gd" id="2_gxcp6"]
+
+[node name="CodeEditor" type="Control"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -527.0
+offset_bottom = 645.112
+grow_horizontal = 0
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_gxcp6")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="Header" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/Header"]
+layout_mode = 2
+text = "Code Editor"
+
+[node name="Spacer" type="Control" parent="Panel/MarginContainer/VBoxContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="Button" type="Button" parent="Panel/MarginContainer/VBoxContainer/Header"]
+layout_mode = 2
+text = "X"
+
+[node name="QuestionContainer" type="ScrollContainer" parent="Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 130)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/QuestionContainer"]
+custom_minimum_size = Vector2(485, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "test  test test test test test test test test test test test test test test test test test test test test test "
+autowrap_mode = 3
+
+[node name="CodeContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="CodeEdit" type="CodeEdit" parent="Panel/MarginContainer/VBoxContainer/CodeContainer"]
+custom_minimum_size = Vector2(495, 0)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Run"
