@@ -2,7 +2,7 @@ extends Area2D
 
 @onready var label: Label = $Label
 @export var label_text: String
-var isLabelVisible = false
+var is_label_visible = false
 
 func _ready() -> void:
 	label.text = label_text
@@ -18,9 +18,9 @@ func _on_body_exited(body: Node2D) -> void:
 
 
 func toggle_label():
-	if isLabelVisible:
+	if is_label_visible:
 		label.visible = false
-		isLabelVisible = false
+		is_label_visible = false
 	else:
 		label.visible = true
-		isLabelVisible = true
+		is_label_visible = true

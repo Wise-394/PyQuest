@@ -1,6 +1,5 @@
 # Simple state machine for controlling player states.
 # Handles switching between states and calling their update, physics, and input functions.
-
 extends Node
 class_name StateMachine
 
