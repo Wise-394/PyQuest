@@ -4,4 +4,4 @@ router = APIRouter()
 
 @router.get("/question/1")
 def q1():
-    return {"message": "This is question 1"}
+    return {"question": "This is question 1"}
