@@ -63,10 +63,6 @@ text = "Code Editor"
 layout_mode = 2
 size_flags_horizontal = 2
 
-[node name="Reset" type="Button" parent="Panel/MarginContainer/VBoxContainer/Header"]
-layout_mode = 2
-text = "Reset"
-
 [node name="Close" type="Button" parent="Panel/MarginContainer/VBoxContainer/Header"]
 layout_mode = 2
 text = "X"
@@ -105,12 +101,17 @@ auto_brace_completion_highlight_matching = true
 layout_mode = 2
 text = "Run"
 
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "output"
+
 [node name="OutputContainer" type="ScrollContainer" parent="Panel/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 
 [node name="OutputLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/OutputContainer"]
-custom_minimum_size = Vector2(0, 100)
+custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "output is displayed here"

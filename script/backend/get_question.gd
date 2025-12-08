@@ -70,3 +70,8 @@ func test_connection_api() -> void:
 func get_question(id: int) -> void:
 	current_request = "get_question"
 	http_request.request(BASE_URL + "question/" + str(id))
+	
+func submit_code(id,code) -> void:
+	current_request = "post_question"
+	
+	
