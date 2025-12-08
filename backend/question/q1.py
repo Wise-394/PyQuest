@@ -38,15 +38,18 @@ def get_question():
 # -----------------------------
 @router.post("/question/1")
 def post_user_code(request: UserCodeRequest):
-    output = execute_user_code(request.user_code)
+    output = execute_user_code(request.user_code).strip()
+    expected_answer = "starfish"
 
-    if output.lower() == "starfish":
-        result = "starfish \nCorrect! It's starfish"
+    is_correct = output.lower() == expected_answer
+    if is_correct:
+        message = f"{expected_answer}\nCorrect! It's {expected_answer}"
     else:
-        result = "Wrong, try again"
+        message = f"{output}\nWrong, try again"
+
 
     return {
         "status": "success",
-        "output": result,
-        "question_id": request.question_id
+        "output": message,
+        "is_correct": is_correct
     }

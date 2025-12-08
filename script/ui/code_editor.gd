@@ -35,6 +35,7 @@ func open_editor(id):
 	_set_editor_visible(true)
 
 func close_editor():
+	question_label.text = ""
 	question_id = 0
 	output_label.text = ""
 	_set_editor_visible(false)
