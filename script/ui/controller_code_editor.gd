@@ -30,7 +30,6 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
 		_set_interaction_available(false)
-		_close_editor()
 
 # -----------------------
 # Helper Functions
@@ -43,12 +42,11 @@ func _set_interaction_available(value: bool):
 func _open_editor():
 	code_editor.open_editor(question_id)
 	_set_player_dialog_state(true)
-	
-func _close_editor():
-	code_editor.close_editor()
 
-func _on_editor_closed():
+func _on_editor_closed(is_answered_and_correct, id):
 	_set_player_dialog_state(false)
+	if(is_answered_and_correct and question_id == id):
+		print("correct 1")
 
 func _set_player_dialog_state(value: bool):
 	if value:

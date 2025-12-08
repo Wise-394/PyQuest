@@ -20,7 +20,7 @@ func _on_request_completed(result, response_code, _headers, body) -> void:
     current_request = current_request.strip_edges()
 
     if result != HTTPRequest.Result.RESULT_SUCCESS:
-        print("❌ Network error or request failed:", result)
+        print(" Network error or request failed:", result)
         current_request = ""
         return
 
@@ -68,7 +68,7 @@ func _handle_post_question(response_code,json):
         print("Failed to submit question | Code:", response_code)
         return
         
-    post_question_completed.emit(json["output"])
+    post_question_completed.emit(json["output"], json["is_correct"])
 # ---------------------------------------------------------------------
 # API METHODS
 # ---------------------------------------------------------------------
