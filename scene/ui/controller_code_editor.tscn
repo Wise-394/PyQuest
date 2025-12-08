@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://nvxql4d8clds"]
+[gd_scene load_steps=3 format=3 uid="uid://nvxql4d8clds"]
 
 [ext_resource type="Script" uid="uid://dn620ht8upmkw" path="res://script/ui/controller_code_editor.gd" id="1_mv8d5"]
-[ext_resource type="Script" uid="uid://c15jh1h6fw4fv" path="res://script/backend/get_test.gd" id="2_7qfr1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wbwxs"]
 size = Vector2(50, 50)
@@ -20,11 +19,6 @@ offset_right = 20.0
 offset_bottom = -29.0
 text = "C"
 horizontal_alignment = 1
-
-[node name="GetTest" type="Node" parent="."]
-script = ExtResource("2_7qfr1")
-
-[node name="HttpRequest" type="HTTPRequest" parent="GetTest"]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

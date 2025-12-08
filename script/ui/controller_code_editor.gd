@@ -5,7 +5,8 @@ extends Area2D
 @onready var label: Label = $Label
 @onready var player: CharacterBody2D = get_tree().current_scene.get_node("Player")
 @onready var code_editor: Control = get_tree().current_scene.get_node("UI/CanvasLayer/CodeEditor")
-@onready var get_test = $GetTest
+@export var question_id: int = 0
+
 var is_player_in_range := false
 
 func _ready() -> void:
@@ -37,9 +38,8 @@ func _set_interaction_available(value: bool):
 	set_process(value)
 
 func _open_editor():
-	code_editor.open_editor()
+	code_editor.open_editor(question_id)
 	_set_player_dialog_state(true)
-	get_test.test_connection_api()
 	
 func _close_editor():
 	code_editor.close_editor()
