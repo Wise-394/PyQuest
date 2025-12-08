@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dn620ht8upmkw" path="res://script/ui/controller_code_editor.gd" id="1_mv8d5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wbwxs"]
-size = Vector2(50, 50)
+size = Vector2(105.75, 50)
 
 [node name="ControllerCodeEditor" type="Area2D"]
 collision_layer = 0
