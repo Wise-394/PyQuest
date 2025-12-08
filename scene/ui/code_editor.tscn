@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://x3xnto5mnjxa"]
+[gd_scene load_steps=6 format=3 uid="uid://x3xnto5mnjxa"]
 
 [ext_resource type="Script" uid="uid://dldbcy6wsvwjn" path="res://script/ui/code_editor.gd" id="1_4u8nx"]
 [ext_resource type="Script" uid="uid://x5o0de18q6vy" path="res://script/ui/panel.gd" id="2_gxcp6"]
@@ -16,6 +16,9 @@ color_regions = {
 "\" \"": Color(0.81960785, 0.6039216, 0.4, 1),
 "' '": Color(1, 0.72156864, 0.42352942, 1)
 }
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s7u5r"]
+bg_color = Color(0.14776778, 0.14776778, 0.14776778, 1)
 
 [node name="CodeEditor" type="Control"]
 layout_mode = 3
@@ -114,6 +117,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_s7u5r")
 text = "output is displayed here"
 autowrap_mode = 3
 
