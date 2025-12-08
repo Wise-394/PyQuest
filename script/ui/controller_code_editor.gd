@@ -10,6 +10,8 @@ extends Area2D
 var is_player_in_range := false
 
 func _ready() -> void:
+	if(question_id == 0):
+		print(name + " error add question id to inspector")
 	label.visible = false
 	set_process(false)
 

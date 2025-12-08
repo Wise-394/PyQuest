@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dldbcy6wsvwjn" path="res://script/ui/code_editor.gd" id="1_4u8nx"]
 [ext_resource type="Script" uid="uid://x5o0de18q6vy" path="res://script/ui/panel.gd" id="2_gxcp6"]
-[ext_resource type="Script" uid="uid://c15jh1h6fw4fv" path="res://script/backend/get_test.gd" id="3_s7u5r"]
+[ext_resource type="Script" uid="uid://c15jh1h6fw4fv" path="res://script/backend/get_question.gd" id="3_s7u5r"]
 
 [sub_resource type="CodeHighlighter" id="CodeHighlighter_tiu1r"]
 number_color = Color(1, 0.72156864, 0.42352942, 1)
