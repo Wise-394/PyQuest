@@ -35,9 +35,11 @@ position = Vector2(-104, 330)
 
 [node name="OpenCodeEditor2" parent="World" instance=ExtResource("10_yo8cd")]
 position = Vector2(570, -21)
+question_id = 2
 
 [node name="OpenCodeEditor" parent="World" instance=ExtResource("10_yo8cd")]
 position = Vector2(445, -22)
+question_id = 1
 
 [node name="Player" parent="." instance=ExtResource("4_ft8cw")]
 z_index = 100

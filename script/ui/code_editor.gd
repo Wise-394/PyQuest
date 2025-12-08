@@ -11,15 +11,19 @@ extends Control
 signal code_editor_closed
 var is_editor_visible := false
 
+# -----------------------
+# Connector/Hooks function
+# -----------------------
 func _ready() -> void:
 	_set_editor_visible(false)
 
 func _on_close_pressed() -> void:
 	close_editor()
 
-func get_question(_id):
-	get_question_request.test_connection_api()
 
+# -----------------------
+# code editor visibility functions`
+# -----------------------
 func open_editor(id):
 	get_question(id)
 	_set_editor_visible(true)
@@ -27,8 +31,12 @@ func open_editor(id):
 func close_editor():
 	_set_editor_visible(false)
 	code_editor_closed.emit()
-
-# Internal helper
 func _set_editor_visible(value: bool):
 	is_editor_visible = value
 	visible = value
+
+# -----------------------
+# backend Functions
+# -----------------------
+func get_question(id):
+	get_question_request.get_question(id)
