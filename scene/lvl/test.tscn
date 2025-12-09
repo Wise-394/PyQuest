@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://bo4sxd72s2q44"]
+[gd_scene load_steps=16 format=4 uid="uid://bo4sxd72s2q44"]
 
 [ext_resource type="TileSet" uid="uid://d1yxhu13jwkq3" path="res://tileset/island.tres" id="1_ro0lh"]
 [ext_resource type="PackedScene" uid="uid://dnpc83w0181ed" path="res://scene/world/sign.tscn" id="2_3yhi0"]
@@ -10,12 +10,25 @@
 [ext_resource type="PackedScene" uid="uid://7am8ralce3gf" path="res://scene/dialog_node/test_dialog.tscn" id="8_f6yxf"]
 [ext_resource type="PackedScene" uid="uid://x3xnto5mnjxa" path="res://scene/ui/code_editor.tscn" id="9_6nwkn"]
 [ext_resource type="PackedScene" uid="uid://nvxql4d8clds" path="res://scene/world/coding_zone.tscn" id="10_yo8cd"]
+[ext_resource type="PackedScene" uid="uid://bwrop6cmmut7u" path="res://scene/world/moving_platform.tscn" id="11_3yhi0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ro0lh"]
 size = Vector2(92, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3yhi0"]
 size = Vector2(260.875, 50)
+
+[sub_resource type="Curve2D" id="Curve2D_3yhi0"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -4, 25, 0, 0, 0, 0, -3, -105)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_w6wcs"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 196, -1)
+}
+point_count = 2
 
 [node name="Test" type="Node"]
 
@@ -61,6 +74,16 @@ offset_top = -53.0
 offset_right = 99.0
 offset_bottom = -30.0
 size_flags_horizontal = 4
+
+[node name="MovingPlatform" parent="World" instance=ExtResource("11_3yhi0")]
+position = Vector2(-35, 17)
+curve = SubResource("Curve2D_3yhi0")
+isActive = true
+
+[node name="MovingPlatform2" parent="World" instance=ExtResource("11_3yhi0")]
+position = Vector2(16, -94)
+curve = SubResource("Curve2D_w6wcs")
+isActive = true
 
 [node name="Player" parent="." instance=ExtResource("4_ft8cw")]
 z_index = 100
