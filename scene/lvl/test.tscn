@@ -78,12 +78,11 @@ size_flags_horizontal = 4
 [node name="MovingPlatform" parent="World" instance=ExtResource("11_3yhi0")]
 position = Vector2(-35, 17)
 curve = SubResource("Curve2D_3yhi0")
-isActive = true
+speed = 20.0
 
 [node name="MovingPlatform2" parent="World" instance=ExtResource("11_3yhi0")]
 position = Vector2(16, -94)
 curve = SubResource("Curve2D_w6wcs")
-isActive = true
 
 [node name="Player" parent="." instance=ExtResource("4_ft8cw")]
 z_index = 100
