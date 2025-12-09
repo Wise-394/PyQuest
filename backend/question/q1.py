@@ -5,14 +5,11 @@ import contextlib
 
 router = APIRouter()
 
-# -----------------------------
-# Request model
-# -----------------------------
 class UserCodeRequest(BaseModel):
     user_code: str
     question_id: int
 
-# -----------------------------
+#-----------------
 # Helper function to execute user code
 # -----------------------------
 def execute_user_code(code: str) -> str:
@@ -31,7 +28,7 @@ def execute_user_code(code: str) -> str:
 # -----------------------------
 @router.get("/question/1")
 def get_question():
-    return {"question": "Print the name of NPC you just talked to!"}
+    return {"question": "Output Hello world by typing print('hello world')"}
 
 # -----------------------------
 # POST route: execute user code
@@ -39,11 +36,12 @@ def get_question():
 @router.post("/question/1")
 def post_user_code(request: UserCodeRequest):
     output = execute_user_code(request.user_code).strip()
-    expected_answer = "starfish"
+    expected_answer = "hello world"
 
-    is_correct = output.lower() == expected_answer
+    is_correct = output.lower() == expected_answer.lower()
     if is_correct:
-        message = f"{expected_answer}\nCorrect! It's {expected_answer}"
+        message = (
+    f"{expected_answer}\nCorrect! The print() function lets you output text or values to the screen.")
     else:
         message = f"{output}\nWrong, try again"
 

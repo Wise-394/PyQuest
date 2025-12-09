@@ -1,12 +1,34 @@
 ~ start
-starfish: [[Hi|Hello|hey]], welcome to PyQuest.
-starfish: have u heard of Python?
-- Yes! its a snake
-	starfish: nope
-- Yes! its a programming langugae
-	starfish: yes u are correct
-- No, what's that?
+you: where I am?
+starfish: [[Hi|Hello|Hey there|Yo!]], welcome to PyQuest! 
+starfish: In this world, you don’t just play… you program the world around you!
+starfish: I'm Starfish, one of your mentors in PyQuest.
+starfish: So tell me... have you heard of Python?
+- Yes! It's a snake!
+	starfish: Technically true... but sadly thats not what I meant
+	starfish: I'm talking about Python the programming language! Ever tried it?
+	- Nope, never tried
+		starfish: Then you're in the right place! Stick with me and you'll be coding in no time.
+	- Yeah a little!
+		starfish: Ooh fancy! Let's see how deep your knowledge goes.
 
-starfish: Python is a programming language
+- Yes! It's a programming language!
+	starfish: YES! Gold star for you ⭐
+	starfish: Python is a powerful language that developers use to create program. It’s flexible, readable, and easy to learn
+	- Why is it beginner-friendly?
+		starfish: Because Python reads almost like English! If you can read this, you can code it.
+	- What can I do with Python?
+		starfish: AI, apps, Game,  automating boring stuff… and many more!
 
+- No, what’s that?
+	starfish: Python is a powerful language that developers use to create program. It’s flexible, readable, and easy to learn
+	starfish: And good news—PyQuest will teach you step by step.
+starfish: Ready to start your PyQuest adventure Pyrate? 
+you: Yes! im ready
+
+starfish: Great! Let's start with something simple.
+starfish: In Python, you can make the computer talk using the "print" command.
+starfish: Try typing this exactly at the glowing zone:
+
+starfish: `print("Hello World")`
 => END

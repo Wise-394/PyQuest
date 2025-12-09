@@ -69,7 +69,7 @@ func _on_editor_closed(is_answered_and_correct: bool, id: int) -> void:
 	_set_player_dialog_state(false)
 
 	if is_answered_and_correct and question_id == id:
-		print("Correct answer!")
+		print("fire signal, controller_code_editor")
 
 
 func _set_player_dialog_state(active: bool) -> void:
