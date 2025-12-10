@@ -28,6 +28,7 @@ func _ready() -> void:
 	question_api.get_question_completed.connect(_on_get_question_completed)
 	question_api.post_question_completed.connect(_on_post_question_completed)
 
+	# Initially hide editor
 	_set_editor_visible(false)
 
 # -----------------------
@@ -37,27 +38,21 @@ func _on_close_pressed() -> void:
 	_reset_editor()
 	_close_editor()
 
-
 func _on_run_pressed() -> void:
 	var code = code_edit.text
 	_submit_code(question_id, code)
 
 # -----------------------
-# Editor Visibility
+# Editor Visibility Methods
 # -----------------------
 func open_editor(id: int) -> void:
 	question_id = id
 	_get_question(id)
 	_set_editor_visible(true)
 
-
 func close_editor() -> void:
 	_close_editor()
 
-
-# -----------------------
-# Internal Functions
-# -----------------------
 func _close_editor() -> void:
 	if not visible:
 		return
@@ -69,23 +64,23 @@ func _close_editor() -> void:
 	question_id = 0
 	is_answered_and_correct = false
 
-
 func _set_editor_visible(value: bool) -> void:
 	is_editor_visible = value
 	visible = value
 
-
+# -----------------------
+# Editor Content Reset
+# -----------------------
 func _reset_editor() -> void:
 	code_edit.text = ""
 	question_label.text = ""
 	output_label.text = ""
 
 # -----------------------
-# Signal Handlers
+# API Signal Handlers
 # -----------------------
 func _on_get_question_completed(question: String) -> void:
 	question_label.text = question
-
 
 func _on_post_question_completed(output: String, is_correct: bool) -> void:
 	is_answered_and_correct = is_correct
@@ -96,7 +91,6 @@ func _on_post_question_completed(output: String, is_correct: bool) -> void:
 # -----------------------
 func _get_question(id: int) -> void:
 	question_api.get_question(id)
-
 
 func _submit_code(id: int, code: String) -> void:
 	question_api.post_question(id, code)
