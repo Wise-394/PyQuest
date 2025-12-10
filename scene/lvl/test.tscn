@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://bo4sxd72s2q44"]
+[gd_scene load_steps=17 format=4 uid="uid://bo4sxd72s2q44"]
 
 [ext_resource type="TileSet" uid="uid://d1yxhu13jwkq3" path="res://tileset/island.tres" id="1_ro0lh"]
 [ext_resource type="PackedScene" uid="uid://dnpc83w0181ed" path="res://scene/world/sign.tscn" id="2_3yhi0"]
@@ -17,6 +17,12 @@ size = Vector2(92, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3yhi0"]
 size = Vector2(260.875, 50)
+
+[sub_resource type="Curve2D" id="Curve2D_ft8cw"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1, 3, 0, 0, 0, 0, -1, -129)
+}
+point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_3yhi0"]
 _data = {
@@ -60,9 +66,10 @@ question_id = 2
 position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ro0lh")
 
-[node name="CodingZone2" parent="World" instance=ExtResource("10_yo8cd")]
+[node name="CodingZone2" parent="World" node_paths=PackedStringArray("child_nodes") instance=ExtResource("10_yo8cd")]
 position = Vector2(425, -22)
 question_id = 1
+child_nodes = [NodePath("MovingPlatform")]
 
 [node name="CollisionShape2D" parent="World/CodingZone2" index="0"]
 position = Vector2(77.5625, 0)
@@ -74,6 +81,11 @@ offset_top = -53.0
 offset_right = 99.0
 offset_bottom = -30.0
 size_flags_horizontal = 4
+
+[node name="MovingPlatform" parent="World/CodingZone2" instance=ExtResource("11_3yhi0")]
+position = Vector2(14, -47)
+curve = SubResource("Curve2D_ft8cw")
+is_active = false
 
 [node name="MovingPlatform" parent="World" instance=ExtResource("11_3yhi0")]
 position = Vector2(-35, 17)

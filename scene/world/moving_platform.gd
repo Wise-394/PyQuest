@@ -23,6 +23,8 @@ func _process(delta: float) -> void:
 		direction = 1  # Forward direction
 		follower.progress_ratio = 0.0 
 
+
+
 func activate_process() -> void:
 	is_active = true
 	set_process(true)

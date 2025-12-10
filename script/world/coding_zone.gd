@@ -8,7 +8,7 @@ extends Area2D
 # Exported Variables
 # -----------------------
 @export var question_id: int = 0
-
+@export var child_nodes: Array[Node]
 # -----------------------
 # Node References
 # -----------------------
@@ -67,9 +67,16 @@ func _open_editor() -> void:
 
 func _on_editor_closed(is_answered_and_correct: bool, id: int) -> void:
 	_set_player_dialog_state(false)
-
+	
+	print("line 71")
 	if is_answered_and_correct and question_id == id:
-		print("fire signal, controller_code_editor")
+		print("line 72")
+		if child_nodes:
+			print("line 73")
+			for child in child_nodes:
+				if child and child.has_method("activate_process"):
+					print("line 75")
+					child.activate_process()
 
 
 func _set_player_dialog_state(active: bool) -> void:
