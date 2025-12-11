@@ -1,6 +1,6 @@
 extends Control
 
-signal code_editor_closed(is_correct: bool, question_id: int)
+signal code_editor_closed(is_correct: bool)
 
 @onready var code_edit: TextEdit = $Panel/MarginContainer/VBoxContainer/CodeContainer/CodeEdit
 @onready var question_label: Label = $Panel/MarginContainer/VBoxContainer/QuestionContainer/QuestionLabel
@@ -29,7 +29,7 @@ func _on_close_pressed() -> void:
 
 func close_editor() -> void:
 	visible = false
-	code_editor_closed.emit(answered_correct, question_id)
+	code_editor_closed.emit(answered_correct)
 
 	# Reset local state
 	code_edit.text = ""

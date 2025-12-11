@@ -7,6 +7,7 @@ extends Area2D
 @onready var player: CharacterBody2D = get_tree().current_scene.get_node("Player")
 
 var editor_instance: Control = null
+var explanation_instance: Control = null
 var is_player_in_range := false
 
 func _ready() -> void:
@@ -19,7 +20,6 @@ func _process(_delta: float) -> void:
 			_open_editor()
 		else:
 			push_warning("CodingZone: Please assign a question ID.")
-			
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
@@ -40,7 +40,6 @@ func _open_editor() -> void:
 	var editor_scene = preload("res://scene/ui/code_editor.tscn")
 	editor_instance = editor_scene.instantiate()
 
-	# ⬅ Add to CanvasLayer instead of world
 	var canvas_layer = get_tree().current_scene.get_node("UI/CanvasLayer")
 	canvas_layer.add_child(editor_instance)
 
@@ -49,16 +48,47 @@ func _open_editor() -> void:
 
 	player.state_machine.change_state("CodeEditState")
 
+# -------------------------------
+# When code editor is closed
+# -------------------------------
+func _on_editor_closed(is_correct: bool) -> void:
+	# Only show explanation UI if the answer is correct
+	if is_correct:
+		var explanation_scene = preload("res://scene/ui/explanation.tscn")
+		explanation_instance = explanation_scene.instantiate()
 
-func _on_editor_closed(is_correct: bool, id: int) -> void:
+		var canvas_layer = get_tree().current_scene.get_node("UI/CanvasLayer")
+		canvas_layer.add_child(explanation_instance)
+
+		explanation_instance.explanation_closed.connect(_on_explanation_close)
+
+	else:
+		# If incorrect, immediately activate children (or do nothing if needed)
+		_activate_children(is_correct)
+
+	# Cleanup editor
+	if editor_instance:
+		editor_instance.queue_free()
+		editor_instance = null
+
+# -------------------------------
+# When explanation is closed
+# -------------------------------
+func _on_explanation_close() -> void:
+	# Activate child nodes only after explanation closes
+	_activate_children(true)
+
+	# Cleanup explanation
+	if explanation_instance:
+		explanation_instance.call_deferred("free")
+		explanation_instance = null
+
+# -------------------------------
+# Helper: activate child nodes
+# -------------------------------
+func _activate_children(is_correct: bool) -> void:
 	player.state_machine.change_state("idlestate")
-
 	if is_correct:
 		for child in child_nodes:
 			if child and child.has_method("activate_process"):
 				child.activate_process()
-
-	# Cleanup
-	if editor_instance:
-		editor_instance.queue_free()
-		editor_instance = null
