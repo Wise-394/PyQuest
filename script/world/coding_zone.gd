@@ -47,7 +47,7 @@ extends Area2D
 var is_player_in_range := false
 var editor_instance: Control = null
 var explanation_instance: Control = null
-
+var is_completed:bool = false
 # ============================================================================
 # LIFECYCLE
 # ============================================================================
@@ -82,7 +82,7 @@ func _try_open_editor() -> void:
 # PLAYER DETECTION
 # ============================================================================
 func _on_body_entered(body: Node2D) -> void:
-	if body.name == "Player":
+	if body.name == "Player" and not is_completed:
 		_set_player_in_range(true)
 
 func _on_body_exited(body: Node2D) -> void:
@@ -152,10 +152,14 @@ func _cleanup_explanation() -> void:
 # FINALIZATION
 # ============================================================================
 func _finalize_interaction(is_correct: bool) -> void:
+	
 	_set_player_state("idlestate")
 	
 	if is_correct:
 		_activate_child_nodes()
+		is_completed = true
+		_set_player_in_range(false)
+		
 
 func _activate_child_nodes() -> void:
 	for child in child_nodes:
@@ -164,3 +168,5 @@ func _activate_child_nodes() -> void:
 
 func _set_player_state(state_name: String) -> void:
 	player.state_machine.change_state(state_name)
+
+	
