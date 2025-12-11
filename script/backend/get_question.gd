@@ -68,7 +68,7 @@ func _handle_post_question(response_code,json):
 		print("Failed to submit question | Code:", response_code)
 		return
 		
-	post_question_completed.emit(json["output"], json["is_correct"])
+	post_question_completed.emit(json["output"], json["is_correct"], json["explanation"])
 # ---------------------------------------------------------------------
 # API METHODS
 # ---------------------------------------------------------------------

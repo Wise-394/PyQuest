@@ -9,7 +9,7 @@ signal code_editor_closed(is_correct: bool)
 
 var question_id: int = 0
 var answered_correct: bool = false
-
+var explanation_text: String = ""
 
 func _ready() -> void:
 	question_api.get_question_completed.connect(_on_get_question_completed)
@@ -29,7 +29,7 @@ func _on_close_pressed() -> void:
 
 func close_editor() -> void:
 	visible = false
-	code_editor_closed.emit(answered_correct)
+	code_editor_closed.emit(answered_correct, explanation_text)
 
 	# Reset local state
 	code_edit.text = ""
@@ -47,6 +47,7 @@ func _on_get_question_completed(question: String) -> void:
 	question_label.text = question
 
 
-func _on_post_question_completed(output: String, is_correct: bool) -> void:
+func _on_post_question_completed(output: String, is_correct: bool, explanation) -> void:
 	answered_correct = is_correct
 	output_label.text = output
+	explanation_text = explanation

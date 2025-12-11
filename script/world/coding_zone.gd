@@ -2,7 +2,7 @@ extends Area2D
 
 @export var question_id: int = 0
 @export var child_nodes: Array[Node]
-
+@export var is_explanation:bool
 @onready var label: Label = $Label
 @onready var player: CharacterBody2D = get_tree().current_scene.get_node("Player")
 
@@ -51,7 +51,7 @@ func _open_editor() -> void:
 # -------------------------------
 # When code editor is closed
 # -------------------------------
-func _on_editor_closed(is_correct: bool) -> void:
+func _on_editor_closed(is_correct: bool, explanation) -> void:
 	# Only show explanation UI if the answer is correct
 	if is_correct:
 		var explanation_scene = preload("res://scene/ui/explanation.tscn")
@@ -59,7 +59,8 @@ func _on_editor_closed(is_correct: bool) -> void:
 
 		var canvas_layer = get_tree().current_scene.get_node("UI/CanvasLayer")
 		canvas_layer.add_child(explanation_instance)
-
+		
+		explanation_instance.initialize(explanation)
 		explanation_instance.explanation_closed.connect(_on_explanation_close)
 
 	else:

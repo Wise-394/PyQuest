@@ -33,6 +33,7 @@ point_count = 2
 position = Vector2(422, 11)
 question_id = 1
 child_nodes = [NodePath("MovingPlatform")]
+is_explanation = true
 
 [node name="MovingPlatform" parent="World/CodingZone" instance=ExtResource("1_1k0hc")]
 visible = true

@@ -35,6 +35,15 @@ def get_question():
 # -----------------------------
 @router.post("/question/1")
 def post_user_code(request: UserCodeRequest):
+    explanation = (
+    "[color=green][b]Correct![/b][/color]\n\n"
+    "[b]print()[/b] is a built-in Python function that shows text or values on the screen.\n\n"
+    "When you write:\n"
+    "[code]print('Hello')[/code]\n"
+    "Python displays:\n"
+    "[code]Hello[/code]\n\n"
+    "You can use [b]print()[/b] to show messages, debug values, or give feedback to the player."
+)
     output = execute_user_code(request.user_code).strip()
     expected_answer = "hello world"
 
@@ -49,5 +58,6 @@ def post_user_code(request: UserCodeRequest):
     return {
         "status": "success",
         "output": message,
-        "is_correct": is_correct
+        "is_correct": is_correct,
+        "explanation": explanation
     }
