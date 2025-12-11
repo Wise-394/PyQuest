@@ -39,9 +39,9 @@ def post_user_code(request: UserCodeRequest):
     "[color=green][b]Correct![/b][/color]\n\n"
     "[b]print()[/b] is a built-in Python function that shows text or values on the screen.\n\n"
     "When you write:\n"
-    "[code]print('Hello')[/code]\n"
+    "[color=#CCCCCC]print('Hello')[/font][/color]\n"
     "Python displays:\n"
-    "[code]Hello[/code]\n\n"
+    "[color=#CCCCCC]Hello[/font][/color]\n\n"
     "You can use [b]print()[/b] to show messages, debug values, or give feedback to the player."
 )
     output = execute_user_code(request.user_code).strip()
