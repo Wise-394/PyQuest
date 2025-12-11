@@ -53,7 +53,7 @@ func _open_editor() -> void:
 # -------------------------------
 func _on_editor_closed(is_correct: bool, explanation) -> void:
 	# Only show explanation UI if the answer is correct
-	if is_correct:
+	if is_correct and is_explanation:
 		var explanation_scene = preload("res://scene/ui/explanation.tscn")
 		explanation_instance = explanation_scene.instantiate()
 

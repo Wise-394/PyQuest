@@ -51,5 +51,6 @@ def post_user_code(request: UserCodeRequest):
     return {
         "status": "success",
         "output": message,
-        "is_correct": is_correct
+        "is_correct": is_correct,
+        "explanation": ""
     }

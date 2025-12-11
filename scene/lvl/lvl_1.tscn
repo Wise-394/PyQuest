@@ -21,7 +21,7 @@ size = Vector2(277, 54)
 
 [sub_resource type="Curve2D" id="Curve2D_iboel"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1, -1, 0, 0, 0, 0, 1, 214)
+"points": PackedVector2Array(0, 0, 0, 0, 1, -1, 0, 0, 0, 0, 1, 235)
 }
 point_count = 2
 
