@@ -29,21 +29,18 @@ point_count = 2
 
 [node name="World" type="Node" parent="."]
 
-[node name="CodingZone" parent="World" node_paths=PackedStringArray("child_nodes") instance=ExtResource("8_8we42")]
+[node name="CodingZone" parent="World" instance=ExtResource("8_8we42")]
 position = Vector2(422, 11)
 question_id = 1
-child_nodes = [NodePath("MovingPlatform")]
 
 [node name="MovingPlatform" parent="World/CodingZone" instance=ExtResource("1_1k0hc")]
-visible = true
 position = Vector2(68, 38)
 curve = SubResource("Curve2D_1k0hc")
 is_active = false
 
-[node name="ControllerCodeEditor" parent="World" node_paths=PackedStringArray("child_nodes") instance=ExtResource("8_8we42")]
+[node name="ControllerCodeEditor" parent="World" instance=ExtResource("8_8we42")]
 position = Vector2(1600, 3)
 question_id = 2
-child_nodes = [NodePath("MovingPlatform4")]
 
 [node name="CollisionShape2D" parent="World/ControllerCodeEditor" index="0"]
 position = Vector2(31.5, 2)
@@ -56,7 +53,6 @@ offset_right = 50.0
 offset_bottom = -28.0
 
 [node name="MovingPlatform4" parent="World/ControllerCodeEditor" instance=ExtResource("1_1k0hc")]
-visible = true
 position = Vector2(21, -240)
 curve = SubResource("Curve2D_iboel")
 is_active = false
@@ -87,17 +83,14 @@ dialog = NodePath("IntroductionDialog")
 [node name="IntroductionDialog" parent="World/NPC/Starfish" instance=ExtResource("5_fijcl")]
 
 [node name="MovingPlatform2" parent="World" instance=ExtResource("1_1k0hc")]
-visible = true
 position = Vector2(1000, 40)
 is_active = false
 
 [node name="MovingPlatform3" parent="World" instance=ExtResource("1_1k0hc")]
-visible = true
 position = Vector2(1200, 40)
 is_active = false
 
 [node name="MovingPlatform" parent="World" instance=ExtResource("1_1k0hc")]
-visible = true
 position = Vector2(1400, 40)
 is_active = false
 
