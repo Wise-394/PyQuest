@@ -7,6 +7,7 @@ extends CharacterBody2D
 @export var jump_strength = 400
 @export var air_speed = 350
 @export var cayote_time = 0.2
+var coyote_timer := 0.0
 @onready var player_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_machine = $StateMachine
 

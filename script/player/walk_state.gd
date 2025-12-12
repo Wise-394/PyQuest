@@ -29,7 +29,7 @@ func _play_walk_animation():
 
 func _check_if_airborne_and_change_state():
 	if not character.is_on_floor():
-		state_machine.change_state("jumpstate")
+		state_machine.change_state("fallingstate")
 		return
 
 func _check_if_stopped_walking_and_change_state(direction):

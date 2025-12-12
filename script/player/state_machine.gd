@@ -4,9 +4,9 @@ extends Node
 class_name StateMachine
 
 @export var initial_state: State  
-
 var player: CharacterBody2D      
 var current_state: State         
+var previous_state: String = "" 
 var states: Dictionary = {}      
 
 func _ready():
@@ -37,7 +37,8 @@ func _input(event):
 func change_state(state_name: String):
 	if current_state:
 		current_state.exit()
-
+		previous_state = current_state.name.to_lower()
+	
 	current_state = states.get(state_name.to_lower()) 
 	if current_state:
 		current_state.enter() 

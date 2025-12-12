@@ -1,0 +1,62 @@
+[gd_scene load_steps=12 format=3 uid="uid://dwv1bc5r8s2a8"]
+
+[ext_resource type="Texture2D" uid="uid://sd8m3fqme5q5" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 01.png" id="1_iufgx"]
+[ext_resource type="Texture2D" uid="uid://d0pwhuvpm1mc6" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 02.png" id="2_0vbcb"]
+[ext_resource type="Texture2D" uid="uid://byeoch06l41yr" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 03.png" id="3_hu740"]
+[ext_resource type="Texture2D" uid="uid://b8mm5da3dqqen" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 04.png" id="4_4m0bg"]
+[ext_resource type="Texture2D" uid="uid://xkjxflomlbfa" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 05.png" id="5_27u0b"]
+[ext_resource type="Texture2D" uid="uid://bjdur85gc36g8" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 06.png" id="6_m72gx"]
+[ext_resource type="Texture2D" uid="uid://53uh5jkmru1p" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 07.png" id="7_j1fi6"]
+[ext_resource type="Texture2D" uid="uid://dedihby0of71t" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 08.png" id="8_jegry"]
+[ext_resource type="Texture2D" uid="uid://dvhygqn3rkr4f" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 09.png" id="9_x8vi8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jkv55"]
+size = Vector2(35, 91)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_25hx8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_iufgx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0vbcb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hu740")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4m0bg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_27u0b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_m72gx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_j1fi6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jegry")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_x8vi8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[node name="Flag" type="Area2D"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_jkv55")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_25hx8")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.75772476

@@ -17,16 +17,16 @@ func handle_input(_event):
 	if Input.is_action_just_pressed("jump"):
 		state_machine.change_state("jumpstate")
 	if Input.is_action_just_pressed("move_down") and character.is_on_floor():
-		state_machine.change_state("movedownstate")
+		character.position.y += 1
+		state_machine.change_state("fallingstate")
 
 # ============================
 #     SUB FUNCTIONS
 # ============================
 
-
 func _check_floor_state():
 	if not character.is_on_floor():
-		state_machine.change_state("jumpstate")
+		state_machine.change_state("fallingstate")
 		return
 
 
