@@ -16,7 +16,8 @@ func physics_update(_delta):
 func handle_input(_event):
 	if Input.is_action_just_pressed("jump"):
 		state_machine.change_state("jumpstate")
-
+	if Input.is_action_just_pressed("move_down") and character.is_on_floor():
+		state_machine.change_state("movedownstate")
 
 # ============================
 #     SUB FUNCTIONS
@@ -35,6 +36,8 @@ func _handle_movement_input():
 	if direction != 0:
 		state_machine.change_state("walkstate")
 		return
+	
+
 
 
 func _apply_idle_friction():
