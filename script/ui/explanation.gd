@@ -7,6 +7,6 @@ func _on_close_pressed() -> void:
 	call_deferred("free")
 
 func initialize(text):
-	label.bbcode_enabled = true   # <- Enable BBCode
-	label.bbcode_text = text      # <- Use bbcode_text instead of text
+	label.bbcode_enabled = true
+	label.bbcode_text = text
 	label.bbcode_text = text
