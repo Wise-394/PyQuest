@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" load_steps=5 format=3 uid="uid://d1yxhu13jwkq3"]
 
 [ext_resource type="Texture2D" uid="uid://dw34scssv3vi5" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="1_l6swf"]
-[ext_resource type="Texture2D" uid="uid://df2vb1ss5l133" path="res://assets/custom/glow.png" id="2_jvhjo"]
+[ext_resource type="Texture2D" uid="uid://dged5cvv6jt5x" path="res://assets/custom/one_way_platform.png" id="2_jvhjo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bp0px"]
 texture = ExtResource("1_l6swf")
@@ -382,21 +382,24 @@ texture = ExtResource("1_l6swf")
 33:9/0 = 0
 33:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jvhjo"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jcdtr"]
 texture = ExtResource("2_jvhjo")
-0:1/animation_columns = 6
-0:1/animation_speed = 10.0
-0:1/animation_mode = 1
-0:1/animation_frame_0/duration = 1.0
-0:1/animation_frame_1/duration = 1.0
-0:1/animation_frame_2/duration = 1.0
-0:1/animation_frame_3/duration = 1.0
-0:1/animation_frame_4/duration = 1.0
-0:1/animation_frame_5/duration = 1.0
-0:1/0 = 0
+texture_region_size = Vector2i(32, 9)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.961133, -2.4628458, 16.008495, -2.4628458, 15.961132, 1.6576843, -16.055859, 1.6576843)
+0:0/0/physics_layer_0/polygon_0/one_way = true
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.961133, -2.4628458, 16.008495, -2.4628458, 15.961132, 1.6576843, -16.055859, 1.6576843)
+1:0/0/physics_layer_0/polygon_0/one_way = true
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.961133, -2.4628458, 16.008495, -2.4628458, 15.961132, 1.6576843, -16.055859, 1.6576843)
+2:0/0/physics_layer_0/polygon_0/one_way = true
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.961133, -2.4628458, 16.008495, -2.4628458, 15.961132, 1.6576843, -16.055859, 1.6576843)
+3:0/0/physics_layer_0/polygon_0/one_way = true
 
 [resource]
 physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_bp0px")
-sources/2 = SubResource("TileSetAtlasSource_jvhjo")
+sources/1 = SubResource("TileSetAtlasSource_jcdtr")
