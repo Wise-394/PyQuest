@@ -17,7 +17,7 @@ _data = {
 point_count = 4
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1k0hc"]
-size = Vector2(280, 54)
+size = Vector2(172, 54)
 
 [sub_resource type="Curve2D" id="Curve2D_iboel"]
 _data = {
@@ -47,14 +47,17 @@ question_id = 2
 child_nodes = [NodePath("MovingPlatform4")]
 
 [node name="CollisionShape2D" parent="World/ControllerCodeEditor" index="0"]
-position = Vector2(33, 2)
+position = Vector2(-21, 2)
 shape = SubResource("RectangleShape2D_1k0hc")
 
 [node name="Label" parent="World/ControllerCodeEditor" index="1"]
-offset_left = 10.0
+offset_left = -39.0
 offset_top = -51.0
-offset_right = 50.0
+offset_right = 1.0
 offset_bottom = -28.0
+
+[node name="CPUParticles2D" parent="World/ControllerCodeEditor" index="2"]
+position = Vector2(-18, 25)
 
 [node name="MovingPlatform4" parent="World/ControllerCodeEditor" instance=ExtResource("1_1k0hc")]
 visible = true
