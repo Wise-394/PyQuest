@@ -150,6 +150,7 @@ func _finalize(is_correct: bool) -> void:
 		is_completed = true
 		_activate_children()
 		_set_zone_active(false)
+		particles.disable()
 
 
 func _activate_children() -> void:

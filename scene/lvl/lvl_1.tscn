@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://8h17yxwjyk2m"]
+[gd_scene load_steps=15 format=4 uid="uid://8h17yxwjyk2m"]
 
 [ext_resource type="PackedScene" uid="uid://bwrop6cmmut7u" path="res://scene/world/moving_platform.tscn" id="1_1k0hc"]
 [ext_resource type="PackedScene" uid="uid://c3r52si75dmo7" path="res://scene/world/dead_zone.tscn" id="1_iu6a4"]
@@ -25,6 +25,12 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 1, -1, 0, 0, 0, 0, 1, 235)
 }
 point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_7ol8c"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1, -2, 0, 0, 0, 0, -2, 108, 0, 0, 0, 0, -2, -114)
+}
+point_count = 3
 
 [node name="Lvl1" type="Node"]
 
@@ -99,15 +105,17 @@ is_active = false
 [node name="MovingPlatform3" parent="World" instance=ExtResource("1_1k0hc")]
 visible = true
 position = Vector2(1200, 40)
-is_active = false
+curve = SubResource("Curve2D_7ol8c")
 
 [node name="MovingPlatform" parent="World" instance=ExtResource("1_1k0hc")]
 visible = true
 position = Vector2(1400, 40)
 is_active = false
 
-[node name="Flag" parent="World" instance=ExtResource("8_1k0hc")]
+[node name="Flag" parent="World" node_paths=PackedStringArray("children") instance=ExtResource("8_1k0hc")]
+visible = true
 position = Vector2(1742, -286)
+children = [NodePath("../ControllerCodeEditor"), NodePath("../CodingZone")]
 
 [node name="Player" parent="." instance=ExtResource("2_pcxlr")]
 position = Vector2(-77, 4)

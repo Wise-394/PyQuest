@@ -10,3 +10,7 @@ func _process(_delta):
 		emitting = true
 	else:
 		emitting = false
+
+func disable():
+	set_process(false)
+	emitting = false

@@ -19,6 +19,9 @@ func physics_update(_delta):
 func handle_input(_event):
 	if Input.is_action_just_pressed("jump"):
 		state_machine.change_state("jumpstate")
+	if Input.is_action_just_pressed("move_down") and character.is_on_floor():
+		character.position.y += 1
+		state_machine.change_state("fallingstate")
 
 # ============================
 #     SUB FUNCTIONS
