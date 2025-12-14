@@ -57,8 +57,8 @@ label_text = "Press Space to Jump"
 position = Vector2(312, 42)
 label_text = "This is a test sign"
 
-[node name="DeadZone" parent="World" instance=ExtResource("3_w6wcs")]
-position = Vector2(-104, 330)
+[node name="DeadZone2" parent="World" instance=ExtResource("3_w6wcs")]
+position = Vector2(-207, 660)
 
 [node name="CodingZone" parent="World" node_paths=PackedStringArray("child_nodes") instance=ExtResource("10_yo8cd")]
 position = Vector2(713, -22)
@@ -104,7 +104,6 @@ position = Vector2(16, -94)
 curve = SubResource("Curve2D_w6wcs")
 
 [node name="Flag" parent="World" instance=ExtResource("6_w6wcs")]
-visible = true
 position = Vector2(0, -180)
 
 [node name="Player" parent="." instance=ExtResource("4_ft8cw")]

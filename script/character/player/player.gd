@@ -19,9 +19,8 @@ func _ready():
 	if state_machine and state_machine.initial_state:
 		state_machine.change_state(state_machine.initial_state.name.to_lower())
 
-
-
 func character_damaged(damage: int):
+	state_machine.change_state("damagedstate")
 	current_health -= damage
 	update_health()
 	if current_health <= 0:

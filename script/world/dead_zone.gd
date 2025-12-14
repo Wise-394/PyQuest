@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var damage := 30
-@export var damage_interval := 0.3
+@export var damage_interval := 0.4
 
 var player: Node2D = null
 var damage_elapsed := 0.0

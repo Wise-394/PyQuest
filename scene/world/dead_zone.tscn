@@ -12,3 +12,4 @@ script = ExtResource("1_iuicd")
 shape = SubResource("WorldBoundaryShape2D_xvrwe")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

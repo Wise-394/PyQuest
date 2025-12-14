@@ -1,12 +1,16 @@
-[gd_scene load_steps=26 format=3 uid="uid://bnhiv8qcc5ro5"]
+[gd_scene load_steps=31 format=3 uid="uid://bnhiv8qcc5ro5"]
 
 [ext_resource type="Script" uid="uid://c5ju0fqtma84j" path="res://script/character/player/player.gd" id="1_oh5ij"]
 [ext_resource type="Texture2D" uid="uid://32g2jgj3phuh" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="1_s4jxa"]
 [ext_resource type="Texture2D" uid="uid://c4plro7dwjkqq" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 02.png" id="2_oh5ij"]
+[ext_resource type="Texture2D" uid="uid://sc15fvs2j80c" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/06-Hit/Hit 01.png" id="2_ufmvj"]
 [ext_resource type="Texture2D" uid="uid://6y5pyw0roffi" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/04-Fall/Fall 01.png" id="2_wt23p"]
+[ext_resource type="Texture2D" uid="uid://pr6xukdblmh8" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/06-Hit/Hit 02.png" id="3_du2bl"]
 [ext_resource type="Texture2D" uid="uid://dg35gos7dbws1" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 03.png" id="3_hp4bs"]
+[ext_resource type="Texture2D" uid="uid://cpeldffcmpxca" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/06-Hit/Hit 03.png" id="4_dbbxw"]
 [ext_resource type="Texture2D" uid="uid://0qddvjl11lsw" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 04.png" id="4_g2vtq"]
 [ext_resource type="Texture2D" uid="uid://cdwnhyx4nx5ix" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 05.png" id="5_2fvbb"]
+[ext_resource type="Texture2D" uid="uid://5obggclm3270" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/06-Hit/Hit 04.png" id="5_r5eyx"]
 [ext_resource type="Texture2D" uid="uid://y5ksasi3uscy" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/03-Jump/Jump 01.png" id="7_42h83"]
 [ext_resource type="Texture2D" uid="uid://4mj67m1vh7u1" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 01.png" id="7_bup7g"]
 [ext_resource type="Script" uid="uid://dwbl7tap1c6fd" path="res://script/character/player/state_machine.gd" id="7_hp4bs"]
@@ -23,9 +27,27 @@
 [ext_resource type="Script" uid="uid://co7tyi7xn76wj" path="res://script/character/player/dialog_state.gd" id="20_iuf2t"]
 [ext_resource type="Script" uid="uid://blgo7w5dv3e6b" path="res://script/character/player/code_edit_state.gd" id="21_jrjdb"]
 [ext_resource type="Script" uid="uid://b1bmmbgi7o24b" path="res://script/character/player/falling_state.gd" id="24_k8m7u"]
+[ext_resource type="Script" uid="uid://bjktsqrbbs65u" path="res://script/character/player/damaged_state.gd" id="24_ov0iu"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ml7e8"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ufmvj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_du2bl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_dbbxw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_r5eyx")
+}],
+"loop": false,
+"name": &"damaged",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_wt23p")
@@ -100,8 +122,10 @@ script = ExtResource("1_oh5ij")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ml7e8")
-animation = &"fall"
+animation = &"damaged"
 autoplay = "idle"
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)
@@ -128,3 +152,6 @@ script = ExtResource("21_jrjdb")
 
 [node name="FallingState" type="Node" parent="StateMachine"]
 script = ExtResource("24_k8m7u")
+
+[node name="DamagedState" type="Node" parent="StateMachine"]
+script = ExtResource("24_ov0iu")
