@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cph6r2e6nk7rx"]
-
-[ext_resource type="Script" uid="uid://bgajkt8fcxjfb" path="res://scene/post_question_controller.gd" id="1_1l7g2"]
-
-[node name="PostQuestionController" type="Node"]
-script = ExtResource("1_1l7g2")

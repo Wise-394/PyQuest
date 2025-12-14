@@ -1,16 +1,17 @@
-[gd_scene load_steps=16 format=4 uid="uid://8h17yxwjyk2m"]
+[gd_scene load_steps=17 format=4 uid="uid://8h17yxwjyk2m"]
 
 [ext_resource type="PackedScene" uid="uid://bwrop6cmmut7u" path="res://scene/world/moving_platform.tscn" id="1_1k0hc"]
 [ext_resource type="PackedScene" uid="uid://c3r52si75dmo7" path="res://scene/world/dead_zone.tscn" id="1_iu6a4"]
 [ext_resource type="PackedScene" uid="uid://dnpc83w0181ed" path="res://scene/world/sign.tscn" id="1_q3h26"]
 [ext_resource type="TileSet" uid="uid://d1yxhu13jwkq3" path="res://tileset/island.tres" id="1_uanbu"]
-[ext_resource type="PackedScene" uid="uid://bnhiv8qcc5ro5" path="res://scene/player.tscn" id="2_pcxlr"]
-[ext_resource type="PackedScene" uid="uid://b4v1ihuy8lse3" path="res://scene/starfish.tscn" id="3_5oo8r"]
-[ext_resource type="PackedScene" uid="uid://dc7ihfcrpl10v" path="res://scene/camera.tscn" id="3_iu6a4"]
+[ext_resource type="PackedScene" uid="uid://bnhiv8qcc5ro5" path="res://scene/character/player.tscn" id="2_pcxlr"]
+[ext_resource type="PackedScene" uid="uid://b4v1ihuy8lse3" path="res://scene/character/starfish.tscn" id="3_5oo8r"]
+[ext_resource type="PackedScene" uid="uid://dc7ihfcrpl10v" path="res://scene/world/camera.tscn" id="3_iu6a4"]
 [ext_resource type="PackedScene" uid="uid://dtnu4f76mnhu4" path="res://scene/dialog_node/introduction_dialog.tscn" id="5_fijcl"]
 [ext_resource type="PackedScene" uid="uid://dwv1bc5r8s2a8" path="res://scene/world/flag.tscn" id="8_1k0hc"]
 [ext_resource type="PackedScene" uid="uid://nvxql4d8clds" path="res://scene/world/coding_zone.tscn" id="8_8we42"]
 [ext_resource type="PackedScene" uid="uid://c8mm1rrfpibeu" path="res://scene/ui/zone_remaining.tscn" id="11_iboel"]
+[ext_resource type="PackedScene" uid="uid://44hfsfdoy30p" path="res://scene/character/healthbar.tscn" id="12_7ol8c"]
 
 [sub_resource type="Curve2D" id="Curve2D_1k0hc"]
 _data = {
@@ -74,7 +75,7 @@ curve = SubResource("Curve2D_iboel")
 is_active = false
 
 [node name="DeadZone" parent="World" instance=ExtResource("1_iu6a4")]
-position = Vector2(-188, 393)
+position = Vector2(-194, 235)
 
 [node name="Sign" type="Node" parent="World"]
 
@@ -129,6 +130,16 @@ position = Vector2(80, -21)
 [node name="CanvasLayer" type="CanvasLayer" parent="UI"]
 
 [node name="ZoneRemaining" parent="UI/CanvasLayer" node_paths=PackedStringArray("children") instance=ExtResource("11_iboel")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_right = 0.0
+offset_bottom = 42.0
+grow_horizontal = 0
 children = [NodePath("../../../World/CodingZone"), NodePath("../../../World/ControllerCodeEditor")]
+
+[node name="HealthBar" parent="UI/CanvasLayer" node_paths=PackedStringArray("character") instance=ExtResource("12_7ol8c")]
+character = NodePath("../../../Player")
 
 [editable path="World/ControllerCodeEditor"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c8mm1rrfpibeu"]
 
-[ext_resource type="Script" uid="uid://c6au7hcebds5n" path="res://zone_remaining.gd" id="1_ylt1w"]
+[ext_resource type="Script" uid="uid://c6au7hcebds5n" path="res://script/ui/zone_remaining.gd" id="1_ylt1w"]
 
 [node name="ZoneRemaining" type="Label"]
 offset_right = 40.0

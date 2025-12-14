@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://dwv1bc5r8s2a8"]
 
-[ext_resource type="Script" uid="uid://df8lik406i5gb" path="res://scene/world/flag.gd" id="1_0vbcb"]
+[ext_resource type="Script" uid="uid://df8lik406i5gb" path="res://script/world/flag.gd" id="1_0vbcb"]
 [ext_resource type="Texture2D" uid="uid://sd8m3fqme5q5" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 01.png" id="1_iufgx"]
 [ext_resource type="Texture2D" uid="uid://d0pwhuvpm1mc6" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 02.png" id="2_0vbcb"]
 [ext_resource type="Texture2D" uid="uid://byeoch06l41yr" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 03.png" id="3_hu740"]
@@ -50,7 +50,6 @@ animations = [{
 }]
 
 [node name="Flag" type="Area2D"]
-visible = false
 collision_layer = 0
 script = ExtResource("1_0vbcb")
 
@@ -63,5 +62,9 @@ sprite_frames = SubResource("SpriteFrames_25hx8")
 animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.75772476
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

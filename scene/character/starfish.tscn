@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://b4v1ihuy8lse3"]
 
 [ext_resource type="Texture2D" uid="uid://dhi75hocsjfrh" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 01.png" id="1_qgo6y"]
-[ext_resource type="Script" uid="uid://d3gwoie2qu0i6" path="res://script/starfish/starfish.gd" id="1_xe086"]
+[ext_resource type="Script" uid="uid://d3gwoie2qu0i6" path="res://script/character/starfish/starfish.gd" id="1_xe086"]
 [ext_resource type="Texture2D" uid="uid://bbgdyaxrv1ue5" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 02.png" id="2_xe086"]
 [ext_resource type="Texture2D" uid="uid://bmvgnkxp7btwa" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 03.png" id="3_3s87j"]
 [ext_resource type="Texture2D" uid="uid://b6t2u52pn57lo" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 04.png" id="4_5gojc"]

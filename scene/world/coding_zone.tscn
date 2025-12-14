@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dn620ht8upmkw" path="res://script/world/coding_zone.gd" id="1_mv8d5"]
 [ext_resource type="Texture2D" uid="uid://g8oa5ffnlyfe" path="res://assets/custom/particles.png" id="2_hmw3s"]
-[ext_resource type="Script" uid="uid://b14spvc3x8l8t" path="res://scene/world/particles.gd" id="3_0qamm"]
+[ext_resource type="Script" uid="uid://b14spvc3x8l8t" path="res://script/world/zone_particles.gd" id="3_0qamm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wbwxs"]
 size = Vector2(105.75, 50)
