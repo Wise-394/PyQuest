@@ -9,9 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://dwv1bc5r8s2a8" path="res://scene/world/flag.tscn" id="6_w6wcs"]
 [ext_resource type="PackedScene" uid="uid://dtnu4f76mnhu4" path="res://scene/dialog_node/introduction_dialog.tscn" id="7_75gap"]
 [ext_resource type="PackedScene" uid="uid://7am8ralce3gf" path="res://scene/dialog_node/test_dialog.tscn" id="8_f6yxf"]
-[ext_resource type="PackedScene" uid="uid://x3xnto5mnjxa" path="res://scene/ui/code_editor.tscn" id="9_6nwkn"]
 [ext_resource type="PackedScene" uid="uid://nvxql4d8clds" path="res://scene/world/coding_zone.tscn" id="10_yo8cd"]
 [ext_resource type="PackedScene" uid="uid://bwrop6cmmut7u" path="res://scene/world/moving_platform.tscn" id="11_3yhi0"]
+[ext_resource type="PackedScene" uid="uid://c8mm1rrfpibeu" path="res://scene/ui/zone_remaining.tscn" id="13_ft8cw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ro0lh"]
 size = Vector2(92, 50)
@@ -102,10 +102,9 @@ visible = true
 position = Vector2(16, -94)
 curve = SubResource("Curve2D_w6wcs")
 
-[node name="Flag" parent="World" node_paths=PackedStringArray("children") instance=ExtResource("6_w6wcs")]
+[node name="Flag" parent="World" instance=ExtResource("6_w6wcs")]
 visible = true
 position = Vector2(0, -180)
-children = [NodePath("../CodingZone"), NodePath("../CodingZone2")]
 
 [node name="Player" parent="." instance=ExtResource("4_ft8cw")]
 z_index = 100
@@ -133,8 +132,16 @@ dialog = NodePath("TestDialog")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="UI"]
 
-[node name="CodeEditor" parent="UI/CanvasLayer" instance=ExtResource("9_6nwkn")]
-visible = false
+[node name="ZoneRemaining" parent="UI/CanvasLayer" node_paths=PackedStringArray("children") instance=ExtResource("13_ft8cw")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_right = 0.0
+offset_bottom = 42.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 40
+children = [NodePath("../../../World/CodingZone"), NodePath("../../../World/CodingZone2")]
 
 [editable path="World/CodingZone"]
 [editable path="World/CodingZone2"]

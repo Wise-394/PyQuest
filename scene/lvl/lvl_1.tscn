@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://8h17yxwjyk2m"]
+[gd_scene load_steps=16 format=4 uid="uid://8h17yxwjyk2m"]
 
 [ext_resource type="PackedScene" uid="uid://bwrop6cmmut7u" path="res://scene/world/moving_platform.tscn" id="1_1k0hc"]
 [ext_resource type="PackedScene" uid="uid://c3r52si75dmo7" path="res://scene/world/dead_zone.tscn" id="1_iu6a4"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dtnu4f76mnhu4" path="res://scene/dialog_node/introduction_dialog.tscn" id="5_fijcl"]
 [ext_resource type="PackedScene" uid="uid://dwv1bc5r8s2a8" path="res://scene/world/flag.tscn" id="8_1k0hc"]
 [ext_resource type="PackedScene" uid="uid://nvxql4d8clds" path="res://scene/world/coding_zone.tscn" id="8_8we42"]
+[ext_resource type="PackedScene" uid="uid://c8mm1rrfpibeu" path="res://scene/ui/zone_remaining.tscn" id="11_iboel"]
 
 [sub_resource type="Curve2D" id="Curve2D_1k0hc"]
 _data = {
@@ -112,10 +113,9 @@ visible = true
 position = Vector2(1400, 40)
 is_active = false
 
-[node name="Flag" parent="World" node_paths=PackedStringArray("children") instance=ExtResource("8_1k0hc")]
+[node name="Flag" parent="World" instance=ExtResource("8_1k0hc")]
 visible = true
 position = Vector2(1742, -286)
-children = [NodePath("../ControllerCodeEditor"), NodePath("../CodingZone")]
 
 [node name="Player" parent="." instance=ExtResource("2_pcxlr")]
 position = Vector2(-77, 4)
@@ -127,5 +127,8 @@ position = Vector2(80, -21)
 [node name="UI" type="Node" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="UI"]
+
+[node name="ZoneRemaining" parent="UI/CanvasLayer" node_paths=PackedStringArray("children") instance=ExtResource("11_iboel")]
+children = [NodePath("../../../World/CodingZone"), NodePath("../../../World/ControllerCodeEditor")]
 
 [editable path="World/ControllerCodeEditor"]

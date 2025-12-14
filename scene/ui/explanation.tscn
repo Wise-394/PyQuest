@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://d6n20iphuyra"]
+[gd_scene load_steps=3 format=3 uid="uid://d6n20iphuyra"]
 
 [ext_resource type="Script" uid="uid://d3e4whbg1thum" path="res://script/ui/explanation.gd" id="1_5auh7"]
+[ext_resource type="Script" uid="uid://x5o0de18q6vy" path="res://script/ui/panel.gd" id="2_gxfk5"]
 
 [node name="explanation" type="Control"]
 layout_mode = 3
@@ -24,6 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_gxfk5")
 
 [node name="title" type="Label" parent="Panel"]
 layout_mode = 1
@@ -52,10 +54,10 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 24.5
+offset_left = 34.5
 offset_top = -220.25
-offset_right = -13.0
-offset_bottom = 257.75
+offset_right = -35.0
+offset_bottom = 250.75
 grow_horizontal = 2
 grow_vertical = 2
 

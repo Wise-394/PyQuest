@@ -9,7 +9,7 @@
 # please increase this counter as a
 # warning for the next programming attempting this script:
 
-#total_hours_wasted_here = 48
+#total_hours_wasted_here = 36
 
 # FLOW VISUALIZATION (for easy modifaction, GOODLUCK!!!)
 # ============================================================
@@ -48,6 +48,7 @@ extends Area2D
 @onready var label: Label = $Label
 @onready var player: CharacterBody2D = get_tree().current_scene.get_node("Player")
 @onready var canvas_layer: CanvasLayer = get_tree().current_scene.get_node("UI/CanvasLayer")
+@onready var zone_remaining: Label = get_tree().current_scene.get_node("UI/CanvasLayer/ZoneRemaining")
 @onready var particles: CPUParticles2D = $CPUParticles2D
 @onready var collision: CollisionShape2D = $CollisionShape2D
 var is_player_in_range := false
@@ -151,6 +152,7 @@ func _finalize(is_correct: bool) -> void:
 		_activate_children()
 		_set_zone_active(false)
 		particles.disable()
+		zone_remaining.update_count()
 
 
 func _activate_children() -> void:
