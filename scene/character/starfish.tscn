@@ -63,6 +63,7 @@ offset_left = -21.0
 offset_top = -41.0
 offset_right = 19.0
 offset_bottom = -18.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "E"
 horizontal_alignment = 1
 

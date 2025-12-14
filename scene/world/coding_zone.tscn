@@ -30,9 +30,11 @@ shape = SubResource("RectangleShape2D_wbwxs")
 
 [node name="Label" type="Label" parent="."]
 offset_left = -20.0
-offset_top = -52.0
+offset_top = -65.0
 offset_right = 20.0
-offset_bottom = -29.0
+offset_bottom = -42.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
 text = "C"
 horizontal_alignment = 1
 
@@ -49,8 +51,7 @@ gravity = Vector2(0, -1)
 initial_velocity_min = 30.0
 initial_velocity_max = 50.0
 damping_max = 45.364
-scale_amount_min = 0.4
-scale_amount_max = 0.7
+scale_amount_min = 0.7
 scale_amount_curve = SubResource("Curve_hmw3s")
 color_ramp = SubResource("Gradient_4uqks")
 anim_offset_max = 1.0

@@ -13,4 +13,4 @@ offset_right = 0.0
 offset_bottom = 42.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 40
-children = [null, null]
+children = [NodePath(""), NodePath("")]
