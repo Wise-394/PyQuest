@@ -18,8 +18,8 @@ _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.38667905), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_4uqks"]
-offsets = PackedFloat32Array(0, 0.575)
-colors = PackedColorArray(1, 0, 0.18431373, 1, 0.7764706, 0.33333334, 0, 1)
+offsets = PackedFloat32Array(0.6092715, 0.93818986)
+colors = PackedColorArray(1, 0.23137255, 0.23137255, 1, 0.8784314, 0.65882355, 0, 1)
 
 [node name="ControllerCodeEditor" type="Area2D"]
 collision_layer = 0
@@ -41,7 +41,7 @@ horizontal_alignment = 1
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_0qamm")
 position = Vector2(0, 17)
-amount = 16
+amount = 32
 texture = ExtResource("2_hmw3s")
 emission_shape = 3
 emission_rect_extents = Vector2(60, -10)
@@ -51,7 +51,8 @@ gravity = Vector2(0, -1)
 initial_velocity_min = 30.0
 initial_velocity_max = 50.0
 damping_max = 45.364
-scale_amount_min = 0.7
+scale_amount_min = 0.5
+scale_amount_max = 0.5
 scale_amount_curve = SubResource("Curve_hmw3s")
 color_ramp = SubResource("Gradient_4uqks")
 anim_offset_max = 1.0

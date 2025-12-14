@@ -95,7 +95,7 @@ centered = false
 
 [node name="ParallaxLayer7" type="ParallaxLayer" parent="."]
 z_index = -1
-position = Vector2(3, -69)
+position = Vector2(4, -69)
 motion_scale = Vector2(0.2, 0)
 motion_offset = Vector2(0, 0.775)
 motion_mirroring = Vector2(768, 0)

@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8xl8vq78hcou"]
+
+[ext_resource type="Texture2D" uid="uid://bmufs71xxkoib" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Regular 01.png" id="1_7kx8x"]
+[ext_resource type="Texture2D" uid="uid://bo78vpac32xvb" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Regular 02.png" id="2_7djep"]
+[ext_resource type="Texture2D" uid="uid://cbc65r5qlc6yu" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Regular 03.png" id="3_uwvyh"]
+[ext_resource type="Texture2D" uid="uid://d1ognrmauu141" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Regular 04.png" id="4_2lhol"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gfvps"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7kx8x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7djep")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uwvyh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2lhol")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BackStandingTree" type="AnimatedSprite2D"]
+z_index = -1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_gfvps")
+autoplay = "default"
+frame_progress = 0.6759417

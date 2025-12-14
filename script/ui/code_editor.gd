@@ -4,9 +4,9 @@ extends Control
 signal code_editor_closed(is_correct: bool, explanation: String)
 
 # REFERENCES
-@onready var code_edit: TextEdit = $Panel/MarginContainer/VBoxContainer/CodeContainer/CodeEdit
-@onready var question_label: Label = $Panel/MarginContainer/VBoxContainer/QuestionContainer/QuestionLabel
-@onready var output_label: Label = $Panel/MarginContainer/VBoxContainer/OutputContainer/OutputLabel
+@onready var code_edit: TextEdit = $Panel/CodeEdit
+@onready var question_label: Label = $Panel/QuestionLabel
+@onready var output_label: Label = $Panel/ScrollContainer/OutputLabel
 @onready var question_api = $QuestionApi
 
 # STATE
