@@ -134,6 +134,7 @@ is_active = false
 
 [node name="Flag" parent="World" instance=ExtResource("8_1k0hc")]
 position = Vector2(1742, -286)
+level_to_go = "uid://dhrg0cifbv2jt"
 
 [node name="Player" parent="." instance=ExtResource("2_pcxlr")]
 position = Vector2(-77, 4)
