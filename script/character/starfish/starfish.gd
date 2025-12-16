@@ -19,7 +19,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	# Listen for dialog input
-	if Input.is_action_just_pressed("open_dialog") \
+	if Input.is_action_just_pressed("interact") \
 	and _is_label_visible and not _is_dialog_active:
 		_open_dialog()
 

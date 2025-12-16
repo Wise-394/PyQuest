@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://dhrg0cifbv2jt"]
+[gd_scene load_steps=16 format=4 uid="uid://dhrg0cifbv2jt"]
 
 [ext_resource type="PackedScene" uid="uid://c8xl8vq78hcou" path="res://scene/world/decoration/front_regular_tree.tscn" id="1_p8jx7"]
 [ext_resource type="PackedScene" uid="uid://c3r52si75dmo7" path="res://scene/world/dead_zone.tscn" id="4_o8xar"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://nvxql4d8clds" path="res://scene/world/coding_zone.tscn" id="5_4xgpj"]
 [ext_resource type="PackedScene" uid="uid://dwv1bc5r8s2a8" path="res://scene/world/flag.tscn" id="6_4xgpj"]
 [ext_resource type="TileSet" uid="uid://d1yxhu13jwkq3" path="res://tileset/island.tres" id="6_8kumq"]
+[ext_resource type="PackedScene" uid="uid://d00fronllv71j" path="res://scene/world/coin.tscn" id="7_clj8q"]
+[ext_resource type="PackedScene" uid="uid://dqmhjufmdngui" path="res://scene/world/chest.tscn" id="8_keq6n"]
 [ext_resource type="PackedScene" uid="uid://bnhiv8qcc5ro5" path="res://scene/character/player.tscn" id="10_81uea"]
 [ext_resource type="PackedScene" uid="uid://dc7ihfcrpl10v" path="res://scene/world/camera.tscn" id="11_dnrde"]
 [ext_resource type="PackedScene" uid="uid://c8mm1rrfpibeu" path="res://scene/ui/zone_remaining.tscn" id="12_8bmi6"]
@@ -67,6 +69,71 @@ visible = true
 position = Vector2(-588, 261)
 curve = SubResource("Curve2D_4xgpj")
 speed = 70.0
+
+[node name="Coins" type="Node" parent="World"]
+
+[node name="Coin" parent="World/Coins" instance=ExtResource("7_clj8q")]
+position = Vector2(-476, 248)
+
+[node name="Coin2" parent="World/Coins" instance=ExtResource("7_clj8q")]
+position = Vector2(-461, 248)
+
+[node name="Coin3" parent="World/Coins" instance=ExtResource("7_clj8q")]
+position = Vector2(-447, 248)
+
+[node name="Coin4" parent="World/Coins" instance=ExtResource("7_clj8q")]
+position = Vector2(-329, 244)
+
+[node name="Coin5" parent="World/Coins" instance=ExtResource("7_clj8q")]
+position = Vector2(-316, 234)
+
+[node name="Coin6" parent="World/Coins" instance=ExtResource("7_clj8q")]
+position = Vector2(-301, 241)
+
+[node name="Coin7" parent="World/Coins" instance=ExtResource("7_clj8q")]
+position = Vector2(-289, 251)
+
+[node name="Coin8" parent="World/Coins" instance=ExtResource("7_clj8q")]
+position = Vector2(-278, 263)
+
+[node name="Coin9" parent="World/Coins" instance=ExtResource("7_clj8q")]
+position = Vector2(336, 86)
+
+[node name="Coin12" parent="World/Coins" instance=ExtResource("7_clj8q")]
+position = Vector2(336, 71)
+
+[node name="Coin13" parent="World/Coins" instance=ExtResource("7_clj8q")]
+position = Vector2(432, 56)
+
+[node name="Coin14" parent="World/Coins" instance=ExtResource("7_clj8q")]
+position = Vector2(432, 42)
+
+[node name="Coin15" parent="World/Coins" instance=ExtResource("7_clj8q")]
+position = Vector2(542, 87)
+
+[node name="Coin16" parent="World/Coins" instance=ExtResource("7_clj8q")]
+position = Vector2(542, 72)
+
+[node name="Coin17" parent="World/Coins" instance=ExtResource("7_clj8q")]
+position = Vector2(655, 56)
+
+[node name="Coin18" parent="World/Coins" instance=ExtResource("7_clj8q")]
+position = Vector2(655, 42)
+
+[node name="Coin10" parent="World/Coins" instance=ExtResource("7_clj8q")]
+position = Vector2(63, 57)
+
+[node name="Coin11" parent="World/Coins" instance=ExtResource("7_clj8q")]
+position = Vector2(63, 73)
+
+[node name="Coin19" parent="World/Coins" instance=ExtResource("7_clj8q")]
+position = Vector2(63, 88)
+
+[node name="Coin20" parent="World/Coins" instance=ExtResource("7_clj8q")]
+position = Vector2(63, 103)
+
+[node name="Chest" parent="World" instance=ExtResource("8_keq6n")]
+position = Vector2(-225, 256)
 
 [node name="Player" parent="." instance=ExtResource("10_81uea")]
 position = Vector2(-296, -44)
