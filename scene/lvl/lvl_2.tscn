@@ -134,6 +134,7 @@ position = Vector2(63, 103)
 
 [node name="Chest" parent="World" instance=ExtResource("8_keq6n")]
 position = Vector2(-225, 256)
+question = "In Python, which built-in function is used to display text or output values to the console?"
 
 [node name="Player" parent="." instance=ExtResource("10_81uea")]
 position = Vector2(-296, -44)

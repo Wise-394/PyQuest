@@ -20,6 +20,7 @@ func _on_body_entered(body: Node2D) -> void:
 		
 func open_chest():
 	chest_ui = preload("res://scene/ui/chest_ui.tscn").instantiate()
+	chest_ui.open_question(question)
 	canvas_layer.add_child(chest_ui)
 
 
