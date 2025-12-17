@@ -97,3 +97,4 @@ grow_vertical = 0
 text = "Submit"
 
 [connection signal="pressed" from="Panel/close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="Panel/submit" to="." method="_on_submit_pressed"]

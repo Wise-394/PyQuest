@@ -123,7 +123,11 @@ position = Vector2(-145, -141)
 [node name="Chest" parent="World" instance=ExtResource("8_75gap")]
 position = Vector2(-276, 4)
 question = "chest is working"
-answer = ""
+answer = Array[String](["1"])
+
+[node name="Chest2" parent="World" instance=ExtResource("8_75gap")]
+position = Vector2(-71, -150)
+answer = Array[String](["2"])
 
 [node name="Player" parent="." instance=ExtResource("4_ft8cw")]
 z_index = 100

@@ -82,19 +82,19 @@ position = Vector2(-461, 248)
 position = Vector2(-447, 248)
 
 [node name="Coin4" parent="World/Coins" instance=ExtResource("7_clj8q")]
-position = Vector2(-329, 244)
+position = Vector2(-232, 264)
 
 [node name="Coin5" parent="World/Coins" instance=ExtResource("7_clj8q")]
-position = Vector2(-316, 234)
+position = Vector2(-232, 248)
 
 [node name="Coin6" parent="World/Coins" instance=ExtResource("7_clj8q")]
-position = Vector2(-301, 241)
+position = Vector2(-217, 233)
 
 [node name="Coin7" parent="World/Coins" instance=ExtResource("7_clj8q")]
-position = Vector2(-289, 251)
+position = Vector2(-217, 264)
 
 [node name="Coin8" parent="World/Coins" instance=ExtResource("7_clj8q")]
-position = Vector2(-278, 263)
+position = Vector2(-217, 248)
 
 [node name="Coin9" parent="World/Coins" instance=ExtResource("7_clj8q")]
 position = Vector2(336, 86)
@@ -133,8 +133,9 @@ position = Vector2(63, 88)
 position = Vector2(63, 103)
 
 [node name="Chest" parent="World" instance=ExtResource("8_keq6n")]
-position = Vector2(-225, 256)
+position = Vector2(-277, 256)
 question = "In Python, which built-in function is used to display text or output values to the console?"
+answer = Array[String](["print", "print()"])
 
 [node name="Player" parent="." instance=ExtResource("10_81uea")]
 position = Vector2(-296, -44)
