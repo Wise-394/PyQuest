@@ -45,7 +45,7 @@ func _open_dialog() -> void:
 	_is_dialog_active = true
 	dialog.open_dialog()
 	if player:
-		player.state_machine.change_state("dialogstate")
+		player.state_machine.change_state("pausestate")
 
 func _on_dialog_finished() -> void:
 	if player:

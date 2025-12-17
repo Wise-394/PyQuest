@@ -9,7 +9,7 @@
 # please increase this counter as a
 # warning for the next programming attempting this script:
 
-#total_hours_wasted_here = 36
+#total_hours_wasted_here = 40
 
 # FLOW VISUALIZATION (for easy modifaction, GOODLUCK!!!)
 # ============================================================
@@ -113,7 +113,7 @@ func _open_editor() -> void:
 	editor_instance.code_editor_closed.connect(_on_editor_closed)
 	editor_instance.open_editor(question_id)
 
-	player.state_machine.change_state("CodeEditState")
+	player.state_machine.change_state("pausestate")
 
 
 func _on_editor_closed(is_correct: bool, explanation: String) -> void:

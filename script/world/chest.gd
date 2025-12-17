@@ -41,5 +41,5 @@ func _set_interaction_available(value: bool) -> void:
 func _finalize(is_correct):
 	if not is_correct:
 		_is_ui_visible = false
-		player.state_machine.change_state("idlestate")
+		player.state_machine.go_idle()
 	
