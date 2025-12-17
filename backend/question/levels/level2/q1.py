@@ -8,18 +8,19 @@ class UserCodeRequest(BaseModel):
     user_code: str
     question_id: int
 
-@router.get("/level/1/question/2")
+@router.get("/level/2/question/1")
 def get_question():
-    return {"question": "Print the name of NPC you just talked to!", "code" : "print("")"}
+    code = "variable = 'hello! Im a variable'"
+    return {"question": "How do u print the variable?", "code": code}
 
-@router.post("/level/1/question/2")
+@router.post("/level/2/question/1")
 def post_user_code(request: UserCodeRequest):
     output = execute_user_code(request.user_code).strip()
-    expected_answer = "starfish"
+    expected_answer = "hello! im a variable"
     is_correct = output.lower() == expected_answer
     
     message = (
-        f"{expected_answer}\nCorrect! It's {expected_answer}"
+        f"{output}\nCorrect!"
         if is_correct
         else f"{output}\nWrong, try again"
     )

@@ -49,6 +49,8 @@ tile_set = ExtResource("6_8kumq")
 
 [node name="ControllerCodeEditor" parent="World" instance=ExtResource("5_4xgpj")]
 position = Vector2(-44, 184)
+level = 2
+question_id = 1
 
 [node name="MovingPlatform" parent="World/ControllerCodeEditor" instance=ExtResource("4_quxhs")]
 visible = true
@@ -57,9 +59,13 @@ curve = SubResource("Curve2D_quxhs")
 
 [node name="ControllerCodeEditor2" parent="World" instance=ExtResource("5_4xgpj")]
 position = Vector2(222, 71)
+level = 2
+question_id = 2
 
 [node name="ControllerCodeEditor3" parent="World" instance=ExtResource("5_4xgpj")]
 position = Vector2(826, 24)
+level = 2
+question_id = 3
 
 [node name="Flag" parent="World" instance=ExtResource("6_4xgpj")]
 position = Vector2(-461, -78)
@@ -134,8 +140,11 @@ position = Vector2(63, 103)
 
 [node name="Chest" parent="World" instance=ExtResource("8_keq6n")]
 position = Vector2(-277, 256)
-question = "In Python, which built-in function is used to display text or output values to the console?"
-answer = Array[String](["print", "print()"])
+question = "how do u open this chest? 
+python code that is locking the chest:
+
+chest_is_locked = true"
+answer = Array[String](["chest_is_locked = false", "chest_is_locked=false"])
 
 [node name="Player" parent="." instance=ExtResource("10_81uea")]
 position = Vector2(-296, -44)

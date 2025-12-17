@@ -34,8 +34,9 @@ func open_editor(level: int, question_id: int) -> void:
 # ----------------------------------------------------------
 # QUESTION LOADED
 # ----------------------------------------------------------
-func _on_question_loaded(question_text: String) -> void:
+func _on_question_loaded(question_text: String,code: String) -> void:
 	question_label.text = question_text
+	code_edit.text = code
 
 
 # ----------------------------------------------------------

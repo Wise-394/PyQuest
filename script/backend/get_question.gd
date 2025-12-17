@@ -59,7 +59,7 @@ func _handle_get_question(code: int, json) -> void:
 		return
 
 	if json is Dictionary and json.has("question"):
-		get_question_completed.emit(json["question"])
+		get_question_completed.emit(json["question"], json["code"])
 	else:
 		print("nvalid JSON or missing 'question'.")
 
