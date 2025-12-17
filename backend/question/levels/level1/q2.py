@@ -5,11 +5,14 @@ import contextlib
 
 router = APIRouter()
 
+# -----------------------------
+# Request model
+# -----------------------------
 class UserCodeRequest(BaseModel):
     user_code: str
     question_id: int
 
-#-----------------
+# -----------------------------
 # Helper function to execute user code
 # -----------------------------
 def execute_user_code(code: str) -> str:
@@ -26,31 +29,21 @@ def execute_user_code(code: str) -> str:
 # -----------------------------
 # GET route: example question
 # -----------------------------
-@router.get("/question/1")
+@router.get("/level/1/question/2")
 def get_question():
-    return {"question": "Output Hello world by typing print('hello world')"}
+    return {"question": "Print the name of NPC you just talked to!"}
 
 # -----------------------------
 # POST route: execute user code
 # -----------------------------
-@router.post("/question/1")
+@router.post("/level/1/question/2")
 def post_user_code(request: UserCodeRequest):
-    explanation = (
-    "[color=green][b]Correct![/b][/color]\n\n"
-    "[b]print()[/b] is a built-in Python function that shows text or values on the screen.\n\n"
-    "When you write:\n"
-    "[color=#CCCCCC]print('Hello')[/font][/color]\n"
-    "Python displays:\n"
-    "[color=#CCCCCC]Hello[/font][/color]\n\n"
-    "You can use [b]print()[/b] to show messages, debug values, or give feedback to the player."
-)
     output = execute_user_code(request.user_code).strip()
-    expected_answer = "hello world"
+    expected_answer = "starfish"
 
-    is_correct = output.lower() == expected_answer.lower()
+    is_correct = output.lower() == expected_answer
     if is_correct:
-        message = (
-    f"{expected_answer}\nCorrect! The print() function lets you output text or values to the screen.")
+        message = f"{expected_answer}\nCorrect! It's {expected_answer}"
     else:
         message = f"{output}\nWrong, try again"
 
@@ -59,5 +52,5 @@ def post_user_code(request: UserCodeRequest):
         "status": "success",
         "output": message,
         "is_correct": is_correct,
-        "explanation": explanation
+        "explanation": ""
     }

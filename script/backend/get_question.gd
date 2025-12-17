@@ -76,15 +76,15 @@ func test_connection_api() -> void:
 	current_request = "test_connection"
 	http_request.request(BASE_URL)
 
-func get_question(id: int) -> void:
-	var url = BASE_URL + "question/" + str(id)
+func get_question(level:int, id: int) -> void:
+	var url = BASE_URL+"level/"+str(level)+"/question/"+str(id)
 	current_request = "get_question"
 	http_request.request(url)
 	
-func post_question(id: int, code: String) -> void:
+func post_question(level: int, id: int, code: String) -> void:
 	current_request = "post_question"
 
-	var url = BASE_URL + "question/" + str(id)
+	var url = BASE_URL+"level/"+str(level)+"/question/"+str(id)
 	var data = {
 		"user_code": code, 
 		"question_id": id

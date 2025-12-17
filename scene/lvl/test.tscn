@@ -65,6 +65,7 @@ position = Vector2(-207, 660)
 
 [node name="CodingZone" parent="World" node_paths=PackedStringArray("child_nodes") instance=ExtResource("10_yo8cd")]
 position = Vector2(713, -22)
+level = 1
 question_id = 2
 child_nodes = [NodePath("."), NodePath("../CodingZone2")]
 
@@ -74,6 +75,7 @@ shape = SubResource("RectangleShape2D_ro0lh")
 
 [node name="CodingZone2" parent="World" node_paths=PackedStringArray("child_nodes") instance=ExtResource("10_yo8cd")]
 position = Vector2(425, -22)
+level = 1
 question_id = 1
 child_nodes = [NodePath("MovingPlatform")]
 is_explanation = true

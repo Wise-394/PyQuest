@@ -40,7 +40,7 @@
 # ============================================================
 
 extends Area2D
-
+@export var level = 0
 @export var question_id: int = 0
 @export var child_nodes: Array[Node]
 @export var is_explanation: bool = false
@@ -111,7 +111,7 @@ func _open_editor() -> void:
 	canvas_layer.add_child(editor_instance)
 
 	editor_instance.code_editor_closed.connect(_on_editor_closed)
-	editor_instance.open_editor(question_id)
+	editor_instance.open_editor(level, question_id)
 
 	player.state_machine.change_state("pausestate")
 
