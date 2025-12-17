@@ -1,0 +1,32 @@
+~ start
+starfish: [center] Before you proceed, you must understand one of the basic but powerful concept in python: Variables.[/center]
+- What's a Variable? => explanation
+- I already know this. => end_dialog
+~ explanation
+starfish: Imagine a [b]Variable[/b] is just a box. 
+starfish: Every box needs two things: a Name and a Value.
+starfish: The [b]Name[/b] is a label stuck on the outside so you know which box is which. 
+starfish: The [b]Value[/b] is whatever item you decide to throw inside!
+- Give me an example. => example
+- Why are they useful? => usefulness
+~ example
+starfish: Look at your health bar. In Python, we'd write it like this:
+starfish: [i]player_health = 100[/i]
+starfish: [b]player_health[/b] is the label on the box. [b]100[/b] is the number currently sitting inside it.
+starfish: If a monster hits you, we just reach into the box and swap the [b]100[/b] for an [b]80[/b].
+- I think I get it. => end_dialog
+- Can I name them anything? => naming_rules
+~ naming_rules
+starfish: Almost! But the Code-Gods are picky.
+starfish: 1. No spaces! Use [b]underscores_like_this[/b].
+starfish: 2. Don't start with a number.
+starfish: 3. Keep it descriptive. [i]x = 10[/i] is boring. [i]gold_coins = 10[/i] is much better!
+=> end_dialog
+~ usefulness
+starfish: Without variables, the game would have total amnesia! 
+starfish: It wouldn't remember how much gold you have, what your name is, or if you've already opened that chest.
+starfish: Variables are how you store value into something.
+=> end_dialog
+~ end_dialog
+starfish: GoodBye!
+=> END

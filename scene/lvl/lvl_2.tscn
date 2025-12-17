@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://dhrg0cifbv2jt"]
+[gd_scene load_steps=18 format=4 uid="uid://dhrg0cifbv2jt"]
 
 [ext_resource type="PackedScene" uid="uid://c8xl8vq78hcou" path="res://scene/world/decoration/front_regular_tree.tscn" id="1_p8jx7"]
 [ext_resource type="PackedScene" uid="uid://c3r52si75dmo7" path="res://scene/world/dead_zone.tscn" id="4_o8xar"]
@@ -8,7 +8,9 @@
 [ext_resource type="TileSet" uid="uid://d1yxhu13jwkq3" path="res://tileset/island.tres" id="6_8kumq"]
 [ext_resource type="PackedScene" uid="uid://d00fronllv71j" path="res://scene/world/coin.tscn" id="7_clj8q"]
 [ext_resource type="PackedScene" uid="uid://dqmhjufmdngui" path="res://scene/world/chest.tscn" id="8_keq6n"]
+[ext_resource type="PackedScene" uid="uid://b4v1ihuy8lse3" path="res://scene/character/starfish.tscn" id="9_p8jx7"]
 [ext_resource type="PackedScene" uid="uid://bnhiv8qcc5ro5" path="res://scene/character/player.tscn" id="10_81uea"]
+[ext_resource type="PackedScene" uid="uid://b3mp472376p0j" path="res://scene/dialog_node/variable_dialog.tscn" id="10_jyv6o"]
 [ext_resource type="PackedScene" uid="uid://dc7ihfcrpl10v" path="res://scene/world/camera.tscn" id="11_dnrde"]
 [ext_resource type="PackedScene" uid="uid://c8mm1rrfpibeu" path="res://scene/ui/zone_remaining.tscn" id="12_8bmi6"]
 [ext_resource type="PackedScene" uid="uid://44hfsfdoy30p" path="res://scene/character/healthbar.tscn" id="13_3eq2u"]
@@ -149,6 +151,12 @@ python code that is locking the chest:
 
 chest_is_locked = true"
 answer = Array[String](["chest_is_locked = false", "chest_is_locked=false"])
+
+[node name="Starfish" parent="World" node_paths=PackedStringArray("dialog") instance=ExtResource("9_p8jx7")]
+position = Vector2(-40, 19)
+dialog = NodePath("VariableDialog")
+
+[node name="VariableDialog" parent="World/Starfish" instance=ExtResource("10_jyv6o")]
 
 [node name="Player" parent="." instance=ExtResource("10_81uea")]
 position = Vector2(-296, -44)
