@@ -6,7 +6,7 @@ extends Area2D
 @export var answer: String
 @onready var canvas_layer: CanvasLayer = get_tree().current_scene.get_node("UI/CanvasLayer")
 @onready var chest = preload("res://scene/ui/chest_ui.tscn")
-
+var player: CharacterBody2D
 var _is_ui_visible = false
 var _is_label_visible = false
 func _ready() -> void:
@@ -18,10 +18,12 @@ func _input(event: InputEvent) -> void:
 		
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
+		player = body
 		_set_interaction_available(true)
 		
 func open_chest():
 	_is_ui_visible = true
+	player.state_machine.change_state("pausestate")
 	var chest_instance = chest.instantiate()
 	chest_instance.chest_closed.connect(_finalize)
 	canvas_layer.add_child(chest_instance)
@@ -39,3 +41,5 @@ func _set_interaction_available(value: bool) -> void:
 func _finalize(is_correct):
 	if not is_correct:
 		_is_ui_visible = false
+		player.state_machine.change_state("idlestate")
+	
