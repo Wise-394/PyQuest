@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://nvxql4d8clds"]
+[gd_scene load_steps=9 format=3 uid="uid://nvxql4d8clds"]
 
 [ext_resource type="Script" uid="uid://dn620ht8upmkw" path="res://script/world/coding_zone.gd" id="1_mv8d5"]
 [ext_resource type="Texture2D" uid="uid://g8oa5ffnlyfe" path="res://assets/custom/particles.png" id="2_hmw3s"]
@@ -6,6 +6,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wbwxs"]
 size = Vector2(105.75, 50)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0qamm"]
+bg_color = Color(0, 0, 0, 0.3529412)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0qamm"]
 particles_animation = true
@@ -29,12 +32,14 @@ script = ExtResource("1_mv8d5")
 shape = SubResource("RectangleShape2D_wbwxs")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = -20.0
 offset_top = -65.0
 offset_right = 20.0
 offset_bottom = -42.0
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_0qamm")
 text = "C"
 horizontal_alignment = 1
 

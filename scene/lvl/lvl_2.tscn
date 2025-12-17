@@ -47,15 +47,18 @@ tile_set = ExtResource("6_8kumq")
 
 [node name="NPC" type="Node" parent="World"]
 
-[node name="ControllerCodeEditor" parent="World" instance=ExtResource("5_4xgpj")]
+[node name="ControllerCodeEditor" parent="World" node_paths=PackedStringArray("child_nodes") instance=ExtResource("5_4xgpj")]
 position = Vector2(-44, 184)
 level = 2
 question_id = 1
+child_nodes = [NodePath("MovingPlatform")]
+is_explanation = true
 
 [node name="MovingPlatform" parent="World/ControllerCodeEditor" instance=ExtResource("4_quxhs")]
 visible = true
 position = Vector2(107, -145)
 curve = SubResource("Curve2D_quxhs")
+is_active = false
 
 [node name="ControllerCodeEditor2" parent="World" instance=ExtResource("5_4xgpj")]
 position = Vector2(222, 71)
@@ -66,6 +69,7 @@ question_id = 2
 position = Vector2(826, 24)
 level = 2
 question_id = 3
+is_explanation = true
 
 [node name="Flag" parent="World" instance=ExtResource("6_4xgpj")]
 position = Vector2(-461, -78)

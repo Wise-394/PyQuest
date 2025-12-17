@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b4v1ihuy8lse3"]
+[gd_scene load_steps=13 format=3 uid="uid://b4v1ihuy8lse3"]
 
 [ext_resource type="Texture2D" uid="uid://dhi75hocsjfrh" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 01.png" id="1_qgo6y"]
 [ext_resource type="Script" uid="uid://d3gwoie2qu0i6" path="res://script/character/starfish/starfish.gd" id="1_xe086"]
@@ -45,6 +45,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_slnkg"]
 size = Vector2(59, 32)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5lsnr"]
+bg_color = Color(0, 0, 0, 0.3529412)
+
 [node name="Starfish" type="Area2D"]
 collision_layer = 4
 script = ExtResource("1_xe086")
@@ -63,7 +66,8 @@ offset_left = -21.0
 offset_top = -41.0
 offset_right = 19.0
 offset_bottom = -18.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_5lsnr")
 text = "E"
 horizontal_alignment = 1
 

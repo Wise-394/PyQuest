@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnpc83w0181ed"]
+[gd_scene load_steps=5 format=3 uid="uid://dnpc83w0181ed"]
 
 [ext_resource type="Script" uid="uid://cbq0mxsndolp6" path="res://script/world/sign.gd" id="1_ms1ol"]
 [ext_resource type="Texture2D" uid="uid://dojxkn7i2w07q" path="res://assets/custom/sign.png" id="1_yg7xj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ms1ol"]
 size = Vector2(50, 50)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cxq3t"]
+bg_color = Color(0, 0, 0, 0.3529412)
 
 [node name="Sign" type="Area2D"]
 collision_layer = 0
@@ -20,12 +23,13 @@ shape = SubResource("RectangleShape2D_ms1ol")
 
 [node name="Label" type="Label" parent="."]
 visible = false
-offset_left = -78.0
+offset_left = -25.0
 offset_top = -44.0
-offset_right = 77.0
+offset_right = 26.0
 offset_bottom = -21.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_cxq3t")
 horizontal_alignment = 1
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
