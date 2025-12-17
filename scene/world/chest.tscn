@@ -65,6 +65,8 @@ size = Vector2(70, 43)
 [node name="Chest" type="Area2D"]
 collision_layer = 0
 script = ExtResource("1_x0vu8")
+question = null
+answer = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1657s")

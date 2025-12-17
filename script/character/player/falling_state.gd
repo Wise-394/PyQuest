@@ -48,7 +48,9 @@ func _handle_jump_input():
 		coyote_timer = 0.0
 		sprite.play("jump")
 		state_machine.change_state("JumpState")
-
+func handle_fall_faster():
+	if Input.is_action_just_pressed("move_down"):
+		character.gravity = character.gravity * 2
 func _apply_gravity(delta):
 	character.velocity.y += character.gravity * delta
 
