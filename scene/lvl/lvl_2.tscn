@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://c8mm1rrfpibeu" path="res://scene/ui/zone_remaining.tscn" id="12_8bmi6"]
 [ext_resource type="PackedScene" uid="uid://44hfsfdoy30p" path="res://scene/character/healthbar.tscn" id="13_3eq2u"]
 [ext_resource type="PackedScene" uid="uid://chv6oqvx3a4j8" path="res://scene/world/parallax_bg.tscn" id="14_o8p85"]
-[ext_resource type="PackedScene" uid="uid://dl7srt6thlc11" path="res://scene/ui/coin_label.tscn" id="15_uy5nd"]
+[ext_resource type="PackedScene" uid="uid://dl7srt6thlc11" path="res://scene/ui/coin_container.tscn" id="15_uy5nd"]
 
 [sub_resource type="Curve2D" id="Curve2D_quxhs"]
 _data = {

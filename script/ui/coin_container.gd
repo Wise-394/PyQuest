@@ -1,6 +1,6 @@
-extends Label
+extends Panel
 
-
+@onready var coin_label = $CoinLabel
 var coins_amount = 0
 func _ready() -> void:
 	coins_amount = SaveLoad.contents.coins
@@ -11,4 +11,4 @@ func picked_up_coins():
 	update_display()
 
 func update_display():
-	text = str(coins_amount)
+	coin_label.text = str(coins_amount)

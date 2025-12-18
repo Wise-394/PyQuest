@@ -5,6 +5,6 @@ func _on_body_entered(body: Node2D) -> void:
 		call_deferred("picked_up")
 
 func picked_up():
-	var coin_label = get_tree().current_scene.get_node("UI/CanvasLayer/CoinLabel")
+	var coin_label = get_tree().current_scene.get_node("UI/CanvasLayer/CoinContainer")
 	coin_label.picked_up_coins() 
 	queue_free()
