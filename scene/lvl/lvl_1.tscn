@@ -219,7 +219,11 @@ children = [NodePath("../../../World/CodingZone"), NodePath("../../../World/Cont
 [node name="HealthBar" parent="UI/CanvasLayer" node_paths=PackedStringArray("character") instance=ExtResource("12_7ol8c")]
 character = NodePath("../../../Player")
 
-[node name="CoinLabel" parent="UI/CanvasLayer" instance=ExtResource("15_jsdnc")]
+[node name="CoinContainer" parent="UI/CanvasLayer" instance=ExtResource("15_jsdnc")]
+offset_left = 22.0
+offset_top = 75.0
+offset_right = 147.0
+offset_bottom = 112.0
 
 [node name="parallax_bg" parent="." instance=ExtResource("13_lcuqg")]
 

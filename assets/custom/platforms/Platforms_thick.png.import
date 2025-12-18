@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://df2vb1ss5l133"
-path="res://.godot/imported/glow.png-d3526ce514001e6eee960f36d2d8731d.ctex"
+uid="uid://elfs3yswy0os"
+path="res://.godot/imported/Platforms_thick.png-95abda3df7c2f94f59846128ecabaf6c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/custom/glow.png"
-dest_files=["res://.godot/imported/glow.png-d3526ce514001e6eee960f36d2d8731d.ctex"]
+source_file="res://assets/custom/platforms/Platforms_thick.png"
+dest_files=["res://.godot/imported/Platforms_thick.png-95abda3df7c2f94f59846128ecabaf6c.ctex"]
 
 [params]
 

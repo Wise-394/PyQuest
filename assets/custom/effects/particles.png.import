@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://elfs3yswy0os"
-path="res://.godot/imported/Platforms_thick.png-1ffa1c156aacb654950d1248b2cf07d1.ctex"
+uid="uid://g8oa5ffnlyfe"
+path="res://.godot/imported/particles.png-485fb4a545fa05041780b1264c0920cb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/custom/Platforms_thick.png"
-dest_files=["res://.godot/imported/Platforms_thick.png-1ffa1c156aacb654950d1248b2cf07d1.ctex"]
+source_file="res://assets/custom/effects/particles.png"
+dest_files=["res://.godot/imported/particles.png-485fb4a545fa05041780b1264c0920cb.ctex"]
 
 [params]
 
