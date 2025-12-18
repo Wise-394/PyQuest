@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://8h17yxwjyk2m"]
+[gd_scene load_steps=21 format=4 uid="uid://8h17yxwjyk2m"]
 
 [ext_resource type="PackedScene" uid="uid://bwrop6cmmut7u" path="res://scene/world/moving_platform.tscn" id="1_1k0hc"]
 [ext_resource type="PackedScene" uid="uid://c3r52si75dmo7" path="res://scene/world/dead_zone.tscn" id="1_iu6a4"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://44hfsfdoy30p" path="res://scene/character/healthbar.tscn" id="12_7ol8c"]
 [ext_resource type="PackedScene" uid="uid://c8xl8vq78hcou" path="res://scene/world/decoration/front_regular_tree.tscn" id="13_6rxhn"]
 [ext_resource type="PackedScene" uid="uid://chv6oqvx3a4j8" path="res://scene/world/parallax_bg.tscn" id="13_lcuqg"]
+[ext_resource type="PackedScene" uid="uid://dl7srt6thlc11" path="res://scene/ui/coin_label.tscn" id="15_jsdnc"]
 
 [sub_resource type="Curve2D" id="Curve2D_1k0hc"]
 _data = {
@@ -60,6 +61,7 @@ position = Vector2(1710, -22)
 
 [node name="CodingZone" parent="World" node_paths=PackedStringArray("child_nodes") instance=ExtResource("8_8we42")]
 position = Vector2(422, 11)
+level = 1
 question_id = 1
 child_nodes = [NodePath("MovingPlatform")]
 
@@ -71,6 +73,7 @@ is_active = false
 
 [node name="ControllerCodeEditor" parent="World" node_paths=PackedStringArray("child_nodes") instance=ExtResource("8_8we42")]
 position = Vector2(1600, 3)
+level = 1
 question_id = 2
 child_nodes = [NodePath("MovingPlatform4")]
 
@@ -215,6 +218,8 @@ children = [NodePath("../../../World/CodingZone"), NodePath("../../../World/Cont
 
 [node name="HealthBar" parent="UI/CanvasLayer" node_paths=PackedStringArray("character") instance=ExtResource("12_7ol8c")]
 character = NodePath("../../../Player")
+
+[node name="CoinLabel" parent="UI/CanvasLayer" instance=ExtResource("15_jsdnc")]
 
 [node name="parallax_bg" parent="." instance=ExtResource("13_lcuqg")]
 

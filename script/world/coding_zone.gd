@@ -69,14 +69,15 @@ func _ready() -> void:
 		particles.local_coords = true
 
 	label.visible = false
-	set_process(false)
+	set_process_unhandled_input(false)
 
 # ----------------------------------------------------------
 # PLAYER INPUT
 # ----------------------------------------------------------
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("toggle_editor") and is_player_in_range:
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("toggle_editor") and is_player_in_range:
 		_open_editor()
+		get_viewport().set_input_as_handled()
 
 
 # ----------------------------------------------------------
@@ -93,7 +94,7 @@ func _on_body_exited(body: Node2D) -> void:
 func _set_zone_active(active: bool) -> void:
 	is_player_in_range = active
 	label.visible = active
-	set_process(active)
+	set_process_unhandled_input(active)
 
 
 # ----------------------------------------------------------

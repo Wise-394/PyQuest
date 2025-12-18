@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://bo4sxd72s2q44"]
+[gd_scene load_steps=23 format=4 uid="uid://bo4sxd72s2q44"]
 
 [ext_resource type="TileSet" uid="uid://d1yxhu13jwkq3" path="res://tileset/island.tres" id="1_ro0lh"]
 [ext_resource type="PackedScene" uid="uid://dnpc83w0181ed" path="res://scene/world/sign.tscn" id="2_3yhi0"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://c8mm1rrfpibeu" path="res://scene/ui/zone_remaining.tscn" id="13_ft8cw"]
 [ext_resource type="PackedScene" uid="uid://44hfsfdoy30p" path="res://scene/character/healthbar.tscn" id="13_y6j7t"]
 [ext_resource type="PackedScene" uid="uid://chv6oqvx3a4j8" path="res://scene/world/parallax_bg.tscn" id="14_y6j7t"]
+[ext_resource type="PackedScene" uid="uid://dl7srt6thlc11" path="res://scene/ui/coin_label.tscn" id="16_f6yxf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ro0lh"]
 size = Vector2(92, 50)
@@ -168,6 +169,8 @@ children = [NodePath("../../../World/CodingZone"), NodePath("../../../World/Codi
 
 [node name="HealthBar" parent="UI/CanvasLayer" node_paths=PackedStringArray("character") instance=ExtResource("13_y6j7t")]
 character = NodePath("../../../Player")
+
+[node name="CoinLabel" parent="UI/CanvasLayer" instance=ExtResource("16_f6yxf")]
 
 [node name="parallax_bg" parent="." instance=ExtResource("14_y6j7t")]
 offset = Vector2(0, 50)

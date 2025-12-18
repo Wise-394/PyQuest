@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://dhrg0cifbv2jt"]
+[gd_scene load_steps=19 format=4 uid="uid://dhrg0cifbv2jt"]
 
 [ext_resource type="PackedScene" uid="uid://c8xl8vq78hcou" path="res://scene/world/decoration/front_regular_tree.tscn" id="1_p8jx7"]
 [ext_resource type="PackedScene" uid="uid://c3r52si75dmo7" path="res://scene/world/dead_zone.tscn" id="4_o8xar"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://c8mm1rrfpibeu" path="res://scene/ui/zone_remaining.tscn" id="12_8bmi6"]
 [ext_resource type="PackedScene" uid="uid://44hfsfdoy30p" path="res://scene/character/healthbar.tscn" id="13_3eq2u"]
 [ext_resource type="PackedScene" uid="uid://chv6oqvx3a4j8" path="res://scene/world/parallax_bg.tscn" id="14_o8p85"]
+[ext_resource type="PackedScene" uid="uid://dl7srt6thlc11" path="res://scene/ui/coin_label.tscn" id="15_uy5nd"]
 
 [sub_resource type="Curve2D" id="Curve2D_quxhs"]
 _data = {
@@ -181,5 +182,7 @@ children = [NodePath("../../../World/ControllerCodeEditor"), NodePath("../../../
 
 [node name="HealthBar" parent="UI/CanvasLayer" node_paths=PackedStringArray("character") instance=ExtResource("13_3eq2u")]
 character = NodePath("../../../Player")
+
+[node name="CoinLabel" parent="UI/CanvasLayer" instance=ExtResource("15_uy5nd")]
 
 [node name="parallax_bg" parent="." instance=ExtResource("14_o8p85")]
