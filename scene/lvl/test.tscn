@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://bo4sxd72s2q44"]
+[gd_scene load_steps=24 format=4 uid="uid://bo4sxd72s2q44"]
 
 [ext_resource type="TileSet" uid="uid://d1yxhu13jwkq3" path="res://tileset/island.tres" id="1_ro0lh"]
 [ext_resource type="PackedScene" uid="uid://dnpc83w0181ed" path="res://scene/world/sign.tscn" id="2_3yhi0"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://44hfsfdoy30p" path="res://scene/character/healthbar.tscn" id="13_y6j7t"]
 [ext_resource type="PackedScene" uid="uid://chv6oqvx3a4j8" path="res://scene/world/parallax_bg.tscn" id="14_y6j7t"]
 [ext_resource type="PackedScene" uid="uid://dl7srt6thlc11" path="res://scene/ui/coin_container.tscn" id="16_f6yxf"]
+[ext_resource type="PackedScene" uid="uid://lg4gs88e7o62" path="res://scene/ui/pause_button.tscn" id="17_6nwkn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ro0lh"]
 size = Vector2(92, 50)
@@ -168,13 +169,23 @@ theme_override_font_sizes/font_size = 40
 children = [NodePath("../../../World/CodingZone"), NodePath("../../../World/CodingZone2")]
 
 [node name="HealthBar" parent="UI/CanvasLayer" node_paths=PackedStringArray("character") instance=ExtResource("13_y6j7t")]
+offset_left = 83.0
+offset_top = -10.0
+offset_right = 363.0
+offset_bottom = 100.0
 character = NodePath("../../../Player")
 
 [node name="CoinContainer" parent="UI/CanvasLayer" instance=ExtResource("16_f6yxf")]
-offset_left = 19.0
+offset_left = 7.0
 offset_top = 74.0
-offset_right = 144.0
+offset_right = 132.0
 offset_bottom = 111.0
+
+[node name="PauseButton" parent="UI/CanvasLayer" instance=ExtResource("17_6nwkn")]
+offset_left = 10.0
+offset_top = 11.0
+offset_right = 60.0
+offset_bottom = 61.0
 
 [node name="parallax_bg" parent="." instance=ExtResource("14_y6j7t")]
 offset = Vector2(0, 50)

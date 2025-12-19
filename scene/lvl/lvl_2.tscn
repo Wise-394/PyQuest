@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://dhrg0cifbv2jt"]
+[gd_scene load_steps=20 format=4 uid="uid://dhrg0cifbv2jt"]
 
 [ext_resource type="PackedScene" uid="uid://c8xl8vq78hcou" path="res://scene/world/decoration/front_regular_tree.tscn" id="1_p8jx7"]
 [ext_resource type="PackedScene" uid="uid://c3r52si75dmo7" path="res://scene/world/dead_zone.tscn" id="4_o8xar"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://44hfsfdoy30p" path="res://scene/character/healthbar.tscn" id="13_3eq2u"]
 [ext_resource type="PackedScene" uid="uid://chv6oqvx3a4j8" path="res://scene/world/parallax_bg.tscn" id="14_o8p85"]
 [ext_resource type="PackedScene" uid="uid://dl7srt6thlc11" path="res://scene/ui/coin_container.tscn" id="15_uy5nd"]
+[ext_resource type="PackedScene" uid="uid://lg4gs88e7o62" path="res://scene/ui/pause_button.tscn" id="16_o8xar"]
 
 [sub_resource type="Curve2D" id="Curve2D_quxhs"]
 _data = {
@@ -181,12 +182,22 @@ grow_horizontal = 0
 children = [NodePath("../../../World/ControllerCodeEditor"), NodePath("../../../World/ControllerCodeEditor2")]
 
 [node name="HealthBar" parent="UI/CanvasLayer" node_paths=PackedStringArray("character") instance=ExtResource("13_3eq2u")]
+offset_left = 63.0
+offset_top = -6.0
+offset_right = 343.0
+offset_bottom = 104.0
 character = NodePath("../../../Player")
 
 [node name="CoinContainer" parent="UI/CanvasLayer" instance=ExtResource("15_uy5nd")]
-offset_left = 23.0
-offset_top = 76.0
-offset_right = 148.0
-offset_bottom = 113.0
+offset_left = 10.0
+offset_top = 80.0
+offset_right = 135.0
+offset_bottom = 117.0
+
+[node name="PauseButton" parent="UI/CanvasLayer" instance=ExtResource("16_o8xar")]
+offset_left = 10.0
+offset_top = 19.0
+offset_right = 60.0
+offset_bottom = 69.0
 
 [node name="parallax_bg" parent="." instance=ExtResource("14_o8p85")]

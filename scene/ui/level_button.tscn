@@ -20,3 +20,5 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_au35g")
 theme_override_styles/hover = SubResource("StyleBoxTexture_ubboj")
 script = ExtResource("2_cl5cr")
 level = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
