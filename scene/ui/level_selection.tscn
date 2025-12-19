@@ -1,0 +1,97 @@
+[gd_scene load_steps=8 format=3 uid="uid://3b40f0aoueby"]
+
+[ext_resource type="Texture2D" uid="uid://ci8w2oc47q458" path="res://assets/custom/lvel_menu/level_panel.png" id="1_gu58t"]
+[ext_resource type="Script" uid="uid://drs7giktrx7it" path="res://script/ui/level_selection.gd" id="1_ubboj"]
+[ext_resource type="PackedScene" uid="uid://daco4ljgy6n54" path="res://scene/ui/level_button.tscn" id="2_au35g"]
+[ext_resource type="Texture2D" uid="uid://3agspp35pyt2" path="res://assets/custom/lvel_menu/back_button.png" id="3_au35g"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jhkib"]
+texture = ExtResource("1_gu58t")
+region_rect = Rect2(0, 0, 90, 90)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ubboj"]
+texture = ExtResource("3_au35g")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_au35g"]
+texture = ExtResource("3_au35g")
+
+[node name="LevelSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -30.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ubboj")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.375
+offset_top = -216.0
+offset_right = 220.375
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_jhkib")
+
+[node name="LevelButton" parent="Panel" instance=ExtResource("2_au35g")]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 47.0
+offset_right = 110.0
+offset_bottom = 107.0
+text = "1"
+
+[node name="LevelButton2" parent="Panel" instance=ExtResource("2_au35g")]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 47.0
+offset_right = 180.0
+offset_bottom = 107.0
+text = "2"
+level = 2
+
+[node name="LevelButton3" parent="Panel" instance=ExtResource("2_au35g")]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 47.0
+offset_right = 250.0
+offset_bottom = 107.0
+text = "3"
+level = 3
+
+[node name="LevelButton4" parent="Panel" instance=ExtResource("2_au35g")]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 47.0
+offset_right = 320.0
+offset_bottom = 107.0
+text = "4"
+level = 4
+
+[node name="LevelButton5" parent="Panel" instance=ExtResource("2_au35g")]
+layout_mode = 0
+offset_left = 330.0
+offset_top = 47.0
+offset_right = 390.0
+offset_bottom = 107.0
+text = "5"
+level = 5
+
+[node name="BackButton" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = -13.625
+offset_top = -19.0
+offset_right = 46.375
+offset_bottom = 41.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_ubboj")
+theme_override_styles/hover = SubResource("StyleBoxTexture_au35g")
+
+[connection signal="pressed" from="Panel/BackButton" to="." method="_on_back_button_pressed"]

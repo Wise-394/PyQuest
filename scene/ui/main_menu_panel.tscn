@@ -1,6 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://8kp72dbgspmq"]
+[gd_scene load_steps=21 format=3 uid="uid://8kp72dbgspmq"]
 
 [ext_resource type="Texture2D" uid="uid://hgdvc13hajif" path="res://assets/custom/panels/menu_panel.png" id="1_2mm2l"]
+[ext_resource type="Script" uid="uid://dlc2oii871v2w" path="res://script/ui/main_menu_panel.gd" id="1_8l62b"]
 [ext_resource type="Texture2D" uid="uid://n25l2nfxj8te" path="res://assets/custom/panels/panel_wide.png" id="2_8l62b"]
 [ext_resource type="Texture2D" uid="uid://bxmdsvikwhdwb" path="res://assets/custom/main_menu/play_button.png" id="3_n8vtd"]
 [ext_resource type="Texture2D" uid="uid://bgu3ltqq7j3ih" path="res://assets/custom/main_menu/play_button_pressed.png" id="4_fyiab"]
@@ -57,8 +58,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_top = 1.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_8l62b")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -86,13 +90,13 @@ offset_right = 131.875
 offset_bottom = 170.5
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxTexture_k3dtv")
 text = "PyQuest"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="Panel"]
+[node name="PlayButton" type="Button" parent="Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -110,20 +114,22 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_k75cp")
 
 [node name="Button2" type="Button" parent="Panel"]
 layout_mode = 0
-offset_left = 290.0
-offset_top = 272.75
-offset_right = 397.0
-offset_bottom = 337.75
+offset_left = 241.125
+offset_top = 259.75
+offset_right = 348.125
+offset_bottom = 324.75
 theme_override_styles/normal = SubResource("StyleBoxTexture_xk1tq")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_85mgp")
 theme_override_styles/hover = SubResource("StyleBoxTexture_du31s")
 
 [node name="Button3" type="Button" parent="Panel"]
 layout_mode = 0
-offset_left = 397.0
-offset_top = 286.75
-offset_right = 504.0
-offset_bottom = 351.75
+offset_left = 348.125
+offset_top = 273.75
+offset_right = 455.125
+offset_bottom = 338.75
 theme_override_styles/normal = SubResource("StyleBoxTexture_v5jny")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_61h51")
 theme_override_styles/hover = SubResource("StyleBoxTexture_d073j")
+
+[connection signal="pressed" from="Panel/PlayButton" to="." method="_on_play_button_pressed"]
