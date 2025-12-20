@@ -48,7 +48,6 @@ offset_top = 47.0
 offset_right = 110.0
 offset_bottom = 107.0
 text = "1"
-level_to_go = "uid://8h17yxwjyk2m"
 
 [node name="LevelButton2" parent="Panel" instance=ExtResource("2_au35g")]
 layout_mode = 0
@@ -58,7 +57,6 @@ offset_right = 180.0
 offset_bottom = 107.0
 text = "2"
 level = 2
-level_to_go = "uid://dhrg0cifbv2jt"
 
 [node name="LevelButton3" parent="Panel" instance=ExtResource("2_au35g")]
 layout_mode = 0

@@ -1,5 +1,6 @@
 extends Node
 const save_location = "user://SaveFile.json"
+var current_level = 0
 var contents: Dictionary = {
 	"coins": 0 
 }
