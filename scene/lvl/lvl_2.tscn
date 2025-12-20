@@ -161,7 +161,7 @@ dialog = NodePath("VariableDialog")
 [node name="VariableDialog" parent="World/Starfish" instance=ExtResource("10_jyv6o")]
 
 [node name="Player" parent="." instance=ExtResource("10_81uea")]
-position = Vector2(-296, -44)
+position = Vector2(-299, -144)
 collision_mask = 2
 
 [node name="Camera2D" parent="Player" instance=ExtResource("11_dnrde")]

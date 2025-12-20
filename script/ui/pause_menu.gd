@@ -10,5 +10,6 @@ func _on_resume_button_pressed() -> void:
 
 
 func _on_exit_button_pressed() -> void:
-	get_tree().paused = false  
-	get_tree().change_scene_to_file("res://scene/lvl/main_menu.tscn")
+	get_tree().paused = false
+	SaveLoad.current_level = 0
+	get_tree().change_scene_to_file("res://scene/save/loading_screen.tscn")
