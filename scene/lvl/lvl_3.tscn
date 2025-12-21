@@ -220,7 +220,7 @@ max_distance = 450.0
 position = Vector2(123, 8)
 collision_layer = 0
 script = ExtResource("7_4pmkc")
-level = 1
+level = 3
 question_id = 1
 child_nodes = [NodePath("../../trap/active_spike"), NodePath("../../trap/active_spike2"), NodePath("../../trap/active_spike3"), NodePath("../../trap/active_spike4"), NodePath("../../trap/active_spike5"), NodePath("../../trap/active_spike6"), NodePath("../../trap/active_spike7")]
 
@@ -229,6 +229,7 @@ position = Vector2(-24.4375, 0)
 shape = SubResource("RectangleShape2D_4pmkc")
 
 [node name="Label" type="Label" parent="World/CodingZone/Q1"]
+visible = false
 offset_left = -43.0
 offset_top = -38.0
 offset_right = -3.0
