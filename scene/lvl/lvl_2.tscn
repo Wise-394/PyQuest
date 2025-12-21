@@ -77,6 +77,7 @@ is_explanation = true
 
 [node name="Flag" parent="World" instance=ExtResource("6_4xgpj")]
 position = Vector2(-461, -78)
+level_to_go = "uid://8h17yxwjyk2m"
 
 [node name="MovingPlatform" parent="World" instance=ExtResource("4_quxhs")]
 visible = true
@@ -151,7 +152,7 @@ position = Vector2(-277, 256)
 question = "how do u open this chest? 
 python code that is locking the chest:
 
-chest_is_locked = true"
+chest_is_locked = True"
 answer = Array[String](["chest_is_locked = false", "chest_is_locked=false"])
 
 [node name="Starfish" parent="World" node_paths=PackedStringArray("dialog") instance=ExtResource("9_p8jx7")]

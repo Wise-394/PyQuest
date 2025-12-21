@@ -16,18 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://lg4gs88e7o62" path="res://scene/ui/pause_button.tscn" id="16_ya6mw"]
 [ext_resource type="PackedScene" uid="uid://chv6oqvx3a4j8" path="res://scene/world/parallax_bg.tscn" id="17_ufp02"]
 
-[sub_resource type="Curve2D" id="Curve2D_1vxlm"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 29, -5, 0, 0, 0, 0, -406, -2, 0, 0, 0, 0, 427, -2)
-}
-point_count = 3
-
-[sub_resource type="Curve2D" id="Curve2D_gp8i3"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 2, -1, 0, 0, 0, 0, 4, 161)
-}
-point_count = 2
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wbwxs"]
 size = Vector2(91, 50)
 
@@ -47,6 +35,18 @@ point_count = 2
 [sub_resource type="Gradient" id="Gradient_4uqks"]
 offsets = PackedFloat32Array(0.6092715, 0.93818986)
 colors = PackedColorArray(1, 0.23137255, 0.23137255, 1, 0.8784314, 0.65882355, 0, 1)
+
+[sub_resource type="Curve2D" id="Curve2D_gp8i3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2, -1, 0, 0, 0, 0, 4, 161)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_1vxlm"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 29, -5, 0, 0, 0, 0, -406, -2, 0, 0, 0, 0, 427, -2)
+}
+point_count = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4pmkc"]
 size = Vector2(56.875, 50)
@@ -108,19 +108,6 @@ position = Vector2(291, -49)
 [node name="Spike4" parent="World/trap" instance=ExtResource("4_5pgjp")]
 position = Vector2(560, -32)
 
-[node name="Platforms" type="Node" parent="World"]
-
-[node name="MovingPlatform" parent="World/Platforms" instance=ExtResource("8_6tj53")]
-visible = true
-position = Vector2(48, -219)
-curve = SubResource("Curve2D_1vxlm")
-speed = 150.0
-
-[node name="MovingPlatform2" parent="World/Platforms" instance=ExtResource("8_6tj53")]
-visible = true
-position = Vector2(831, -11)
-curve = SubResource("Curve2D_gp8i3")
-
 [node name="Flag" parent="World" instance=ExtResource("7_g5cxh")]
 position = Vector2(732, 146)
 
@@ -130,10 +117,12 @@ position = Vector2(732, 146)
 [node name="CodingZone" type="Node" parent="World"]
 
 [node name="Q3" type="Area2D" parent="World/CodingZone"]
-position = Vector2(733, -42)
+position = Vector2(-432, -212)
 collision_layer = 0
 script = ExtResource("7_4pmkc")
 level = 3
+question_id = 3
+is_explanation = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/CodingZone/Q3"]
 position = Vector2(-13.5, 0)
@@ -172,12 +161,73 @@ anim_offset_max = 1.0
 script = ExtResource("9_jlho3")
 max_distance = 450.0
 
+[node name="Q4" type="Area2D" parent="World/CodingZone" node_paths=PackedStringArray("child_nodes")]
+position = Vector2(733, -38)
+collision_layer = 0
+script = ExtResource("7_4pmkc")
+level = 3
+question_id = 4
+child_nodes = [NodePath("MovingPlatform2")]
+is_explanation = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/CodingZone/Q4"]
+position = Vector2(-13.5, 0)
+shape = SubResource("RectangleShape2D_wbwxs")
+
+[node name="Label" type="Label" parent="World/CodingZone/Q4"]
+visible = false
+offset_left = -20.0
+offset_top = -65.0
+offset_right = 20.0
+offset_bottom = -42.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_0qamm")
+text = "C"
+horizontal_alignment = 1
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="World/CodingZone/Q4"]
+material = SubResource("CanvasItemMaterial_0qamm")
+position = Vector2(-15, 20)
+amount = 32
+texture = ExtResource("8_oci04")
+emission_shape = 3
+emission_rect_extents = Vector2(60, -10)
+direction = Vector2(0, -1)
+spread = 9.21
+gravity = Vector2(0, -1)
+initial_velocity_min = 30.0
+initial_velocity_max = 50.0
+damping_max = 45.364
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_hmw3s")
+color_ramp = SubResource("Gradient_4uqks")
+anim_offset_max = 1.0
+script = ExtResource("9_jlho3")
+max_distance = 450.0
+
+[node name="MovingPlatform2" parent="World/CodingZone/Q4" instance=ExtResource("8_6tj53")]
+visible = true
+position = Vector2(98, 27)
+curve = SubResource("Curve2D_gp8i3")
+is_active = false
+
 [node name="Q2" type="Area2D" parent="World/CodingZone" node_paths=PackedStringArray("child_nodes")]
 position = Vector2(42, -155)
 collision_layer = 0
 script = ExtResource("7_4pmkc")
 level = 3
-child_nodes = [NodePath("../../Platforms/MovingPlatform2")]
+question_id = 2
+child_nodes = [NodePath("MovingPlatform")]
+is_explanation = true
+
+[node name="MovingPlatform" parent="World/CodingZone/Q2" instance=ExtResource("8_6tj53")]
+visible = true
+position = Vector2(6, -64)
+curve = SubResource("Curve2D_1vxlm")
+speed = 150.0
+is_active = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/CodingZone/Q2"]
 position = Vector2(-25.0625, 0)
@@ -223,6 +273,7 @@ script = ExtResource("7_4pmkc")
 level = 3
 question_id = 1
 child_nodes = [NodePath("../../trap/active_spike"), NodePath("../../trap/active_spike2"), NodePath("../../trap/active_spike3"), NodePath("../../trap/active_spike4"), NodePath("../../trap/active_spike5"), NodePath("../../trap/active_spike6"), NodePath("../../trap/active_spike7")]
+is_explanation = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/CodingZone/Q1"]
 position = Vector2(-24.4375, 0)
@@ -305,6 +356,8 @@ offset_bottom = 56.0
 
 [connection signal="body_entered" from="World/CodingZone/Q3" to="World/CodingZone/Q3" method="_on_body_entered"]
 [connection signal="body_exited" from="World/CodingZone/Q3" to="World/CodingZone/Q3" method="_on_body_exited"]
+[connection signal="body_entered" from="World/CodingZone/Q4" to="World/CodingZone/Q4" method="_on_body_entered"]
+[connection signal="body_exited" from="World/CodingZone/Q4" to="World/CodingZone/Q4" method="_on_body_exited"]
 [connection signal="body_entered" from="World/CodingZone/Q2" to="World/CodingZone/Q2" method="_on_body_entered"]
 [connection signal="body_exited" from="World/CodingZone/Q2" to="World/CodingZone/Q2" method="_on_body_exited"]
 [connection signal="body_entered" from="World/CodingZone/Q1" to="World/CodingZone/Q1" method="_on_body_entered"]

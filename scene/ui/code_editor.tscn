@@ -15,6 +15,8 @@ symbol_color = Color(0.67058825, 0.69803923, 0.7490196, 1)
 function_color = Color(0.8980392, 0.7529412, 0.48235294, 1)
 member_variable_color = Color(0.38039216, 0.6862745, 0.9372549, 1)
 keyword_colors = {
+"False": Color(0.8980392, 0.7529412, 0.48235294, 1),
+"True": Color(0.8980392, 0.7529412, 0.48235294, 1),
 "if": Color(0.7764706, 0.47058824, 0.8666667, 1)
 }
 color_regions = {
@@ -85,6 +87,7 @@ offset_bottom = 460.0
 theme_override_colors/selection_color = Color(0.5, 0.5, 0.5, 1)
 caret_blink = true
 syntax_highlighter = SubResource("CodeHighlighter_tiu1r")
+highlight_all_occurrences = true
 highlight_current_line = true
 draw_tabs = true
 gutters_draw_line_numbers = true

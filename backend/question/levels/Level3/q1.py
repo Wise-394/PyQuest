@@ -47,7 +47,7 @@ def post_user_code(request: UserCodeRequest):
             "status": "error",
             "output": f"Error executing code: {str(e)}",
             "is_correct": False,
-            "explanation": "There was an error running your code"
+            "explanation": ""
         }
     
     # Check if output exists
@@ -56,7 +56,7 @@ def post_user_code(request: UserCodeRequest):
             "status": "error",
             "output": "No output detected",
             "is_correct": False,
-            "explanation": "Make sure to print the 'even' variable to the console"
+            "explanation": ""
         }
     
     # Check if the output matches the even value
@@ -67,7 +67,7 @@ def post_user_code(request: UserCodeRequest):
             "status": "error",
             "output": f"{output}\nOutput is not a valid number",
             "is_correct": False,
-            "explanation": "The output should be the value of the 'even' variable"
+            "explanation": ""
         }
     
     # Check if the printed value matches the 'even' variable value
@@ -76,14 +76,27 @@ def post_user_code(request: UserCodeRequest):
             "status": "error",
             "output": f"{output}\nYou printed {printed_value}, but the 'even' variable has value {even_value}",
             "is_correct": False,
-            "explanation": "Make sure to print the 'even' variable itself (e.g., print(even))"
+            "explanation": ""
         }
     
+    explanation = (
+    "[b]Data Types[/b] tell Python what kind of value a variable is storing.\n\n"
+    "In this example:\n"
+    "[color=red]even = 4[/color]\n"
+    "The value [b]4[/b] is a whole number, so its data type is an [b]integer (int)[/b].\n\n"
+    "Integers are used to store whole numbers, both positive and negative, without decimals.\n"
+    "Examples of integers are: 1, 10, -3, 42.\n\n"
+    "An [b]even number[/b] is an integer that can be divided by 2 with no remainder.\n\n"
+    "When you write:\n"
+    "[color=red]print(even)[/color]\n"
+    "Python reads the value stored in the variable [b]even[/b] and outputs it to the console.\n\n"
+    "You correctly used an [b]int[/b] data type, stored it in a variable, and printed it."
+)
     # All checks passed
     message = f"{output}\nCorrect! {even_value} is an even number and was properly printed"
     return {
         "status": "success",
         "output": message,
         "is_correct": True,
-        "explanation": ""
+        "explanation": explanation
     }
