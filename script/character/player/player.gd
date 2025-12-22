@@ -31,7 +31,6 @@ func character_damaged(damage: int, attacker: Node2D) -> void:
 	
 	_calculate_hit_direction(attacker)
 	_apply_damage(damage)
-	
 	if _is_dead():
 		character_dead()
 

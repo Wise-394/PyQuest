@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://dhrg0cifbv2jt"]
+[gd_scene load_steps=21 format=4 uid="uid://dhrg0cifbv2jt"]
 
 [ext_resource type="PackedScene" uid="uid://c8xl8vq78hcou" path="res://scene/world/decoration/front_regular_tree.tscn" id="1_p8jx7"]
 [ext_resource type="PackedScene" uid="uid://c3r52si75dmo7" path="res://scene/world/dead_zone.tscn" id="4_o8xar"]
@@ -23,6 +23,9 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 1, -70, 0, 0, 0, 0, 0, 90, 0, 0, 0, 0, -86, 90)
 }
 point_count = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8xar"]
+size = Vector2(91, 50)
 
 [sub_resource type="Curve2D" id="Curve2D_4xgpj"]
 _data = {
@@ -59,15 +62,17 @@ child_nodes = [NodePath("MovingPlatform")]
 is_explanation = true
 
 [node name="MovingPlatform" parent="World/ControllerCodeEditor" instance=ExtResource("4_quxhs")]
-visible = true
 position = Vector2(107, -145)
 curve = SubResource("Curve2D_quxhs")
-is_active = false
 
 [node name="ControllerCodeEditor2" parent="World" instance=ExtResource("5_4xgpj")]
 position = Vector2(222, 71)
 level = 2
 question_id = 2
+
+[node name="CollisionShape2D" parent="World/ControllerCodeEditor2" index="0"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_o8xar")
 
 [node name="ControllerCodeEditor3" parent="World" instance=ExtResource("5_4xgpj")]
 position = Vector2(826, 24)
@@ -80,7 +85,6 @@ position = Vector2(-461, -78)
 level_to_go = "uid://8h17yxwjyk2m"
 
 [node name="MovingPlatform" parent="World" instance=ExtResource("4_quxhs")]
-visible = true
 position = Vector2(-588, 261)
 curve = SubResource("Curve2D_4xgpj")
 speed = 70.0
@@ -202,3 +206,5 @@ offset_right = 60.0
 offset_bottom = 69.0
 
 [node name="parallax_bg" parent="." instance=ExtResource("14_o8p85")]
+
+[editable path="World/ControllerCodeEditor2"]

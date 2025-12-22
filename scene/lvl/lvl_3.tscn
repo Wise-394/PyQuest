@@ -113,6 +113,7 @@ position = Vector2(732, 146)
 
 [node name="Flag2" parent="World" instance=ExtResource("4_v0urs")]
 position = Vector2(732, 146)
+level_to_go = "uid://8h17yxwjyk2m"
 
 [node name="CodingZone" type="Node" parent="World"]
 
@@ -208,10 +209,8 @@ script = ExtResource("7_wjjb1")
 max_distance = 450.0
 
 [node name="MovingPlatform2" parent="World/CodingZone/Q4" instance=ExtResource("8_1d5kq")]
-visible = true
 position = Vector2(98, 27)
 curve = SubResource("Curve2D_gp8i3")
-is_active = false
 
 [node name="Q2" type="Area2D" parent="World/CodingZone" node_paths=PackedStringArray("child_nodes")]
 position = Vector2(42, -155)
@@ -223,11 +222,9 @@ child_nodes = [NodePath("MovingPlatform")]
 is_explanation = true
 
 [node name="MovingPlatform" parent="World/CodingZone/Q2" instance=ExtResource("8_1d5kq")]
-visible = true
 position = Vector2(6, -64)
 curve = SubResource("Curve2D_1vxlm")
 speed = 150.0
-is_active = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/CodingZone/Q2"]
 position = Vector2(-25.0625, 0)

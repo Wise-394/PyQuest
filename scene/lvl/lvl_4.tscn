@@ -1,15 +1,27 @@
-[gd_scene load_steps=11 format=4 uid="uid://8h17yxwjyk2m"]
+[gd_scene load_steps=17 format=4 uid="uid://8h17yxwjyk2m"]
 
 [ext_resource type="PackedScene" uid="uid://c3r52si75dmo7" path="res://scene/world/dead_zone.tscn" id="1_4c0oi"]
 [ext_resource type="TileSet" uid="uid://d1yxhu13jwkq3" path="res://tileset/island.tres" id="2_ngoiu"]
+[ext_resource type="PackedScene" uid="uid://c7kxpnns5fv8p" path="res://scene/world/cannon.tscn" id="4_um0bb"]
+[ext_resource type="PackedScene" uid="uid://dwv1bc5r8s2a8" path="res://scene/world/flag.tscn" id="5_4c0oi"]
 [ext_resource type="PackedScene" uid="uid://bwrop6cmmut7u" path="res://scene/world/moving_platform.tscn" id="8_1d5kq"]
 [ext_resource type="PackedScene" uid="uid://bnhiv8qcc5ro5" path="res://scene/character/player.tscn" id="9_mdo62"]
+[ext_resource type="PackedScene" uid="uid://nvxql4d8clds" path="res://scene/world/coding_zone.tscn" id="9_ngoiu"]
 [ext_resource type="PackedScene" uid="uid://dc7ihfcrpl10v" path="res://scene/world/camera.tscn" id="10_isk03"]
 [ext_resource type="PackedScene" uid="uid://c8mm1rrfpibeu" path="res://scene/ui/zone_remaining.tscn" id="11_5ufl4"]
 [ext_resource type="PackedScene" uid="uid://44hfsfdoy30p" path="res://scene/character/healthbar.tscn" id="12_1j3qy"]
 [ext_resource type="PackedScene" uid="uid://dl7srt6thlc11" path="res://scene/ui/coin_container.tscn" id="13_nm0q4"]
 [ext_resource type="PackedScene" uid="uid://lg4gs88e7o62" path="res://scene/ui/pause_button.tscn" id="14_tfqug"]
 [ext_resource type="PackedScene" uid="uid://chv6oqvx3a4j8" path="res://scene/world/parallax_bg.tscn" id="15_4rreb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ll6f"]
+size = Vector2(47.5, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4c0oi"]
+size = Vector2(90.5, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mdbna"]
+size = Vector2(48.5, 50)
 
 [node name="Lvl4" type="Node"]
 
@@ -27,6 +39,82 @@ position = Vector2(283, -52)
 
 [node name="MovingPlatform2" parent="World" instance=ExtResource("8_1d5kq")]
 position = Vector2(586, -52)
+
+[node name="Cannon" type="Node" parent="World"]
+
+[node name="cannon" parent="World/Cannon" instance=ExtResource("4_um0bb")]
+position = Vector2(720, -140)
+
+[node name="cannon2" parent="World/Cannon" instance=ExtResource("4_um0bb")]
+position = Vector2(720, -252)
+
+[node name="cannon3" parent="World/Cannon" instance=ExtResource("4_um0bb")]
+position = Vector2(112, -173)
+direction = "right"
+
+[node name="Flag" parent="World" instance=ExtResource("5_4c0oi")]
+position = Vector2(417, -493)
+
+[node name="CodingZone" type="Node" parent="."]
+
+[node name="CodingZone" parent="CodingZone" instance=ExtResource("9_ngoiu")]
+position = Vector2(222, -89)
+
+[node name="CollisionShape2D" parent="CodingZone/CodingZone" index="0"]
+position = Vector2(-21.75, 0)
+shape = SubResource("RectangleShape2D_2ll6f")
+
+[node name="Label" parent="CodingZone/CodingZone" index="1"]
+offset_left = -40.0
+offset_top = -48.0
+offset_right = 0.0
+offset_bottom = -25.0
+
+[node name="CodingZone3" parent="CodingZone" instance=ExtResource("9_ngoiu")]
+position = Vector2(-273, -343)
+
+[node name="CollisionShape2D" parent="CodingZone/CodingZone3" index="0"]
+position = Vector2(-0.25, 0)
+shape = SubResource("RectangleShape2D_4c0oi")
+
+[node name="Label" parent="CodingZone/CodingZone3" index="1"]
+offset_top = -48.0
+offset_bottom = -25.0
+
+[node name="CodingZone4" parent="CodingZone" instance=ExtResource("9_ngoiu")]
+position = Vector2(608, -457)
+
+[node name="CollisionShape2D" parent="CodingZone/CodingZone4" index="0"]
+position = Vector2(-0.25, 0)
+shape = SubResource("RectangleShape2D_4c0oi")
+
+[node name="Label" parent="CodingZone/CodingZone4" index="1"]
+offset_top = -48.0
+offset_bottom = -25.0
+
+[node name="CodingZone5" parent="CodingZone" instance=ExtResource("9_ngoiu")]
+position = Vector2(177, -345)
+
+[node name="CollisionShape2D" parent="CodingZone/CodingZone5" index="0"]
+position = Vector2(-0.25, 0)
+shape = SubResource("RectangleShape2D_4c0oi")
+
+[node name="Label" parent="CodingZone/CodingZone5" index="1"]
+offset_top = -48.0
+offset_bottom = -25.0
+
+[node name="CodingZone2" parent="CodingZone" instance=ExtResource("9_ngoiu")]
+position = Vector2(686, -90)
+
+[node name="CollisionShape2D" parent="CodingZone/CodingZone2" index="0"]
+position = Vector2(-21, 0)
+shape = SubResource("RectangleShape2D_mdbna")
+
+[node name="Label" parent="CodingZone/CodingZone2" index="1"]
+offset_left = -40.0
+offset_top = -47.0
+offset_right = 0.0
+offset_bottom = -24.0
 
 [node name="Player" parent="." instance=ExtResource("9_mdo62")]
 position = Vector2(443, -271)
@@ -69,3 +157,9 @@ offset_right = 53.0
 offset_bottom = 56.0
 
 [node name="parallax_bg" parent="." instance=ExtResource("15_4rreb")]
+
+[editable path="CodingZone/CodingZone"]
+[editable path="CodingZone/CodingZone3"]
+[editable path="CodingZone/CodingZone4"]
+[editable path="CodingZone/CodingZone5"]
+[editable path="CodingZone/CodingZone2"]

@@ -62,4 +62,10 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_r5ws7")
 
+[node name="DespawnTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://44hfsfdoy30p"]
+[gd_scene load_steps=5 format=3 uid="uid://44hfsfdoy30p"]
 
 [ext_resource type="Texture2D" uid="uid://cp72sv4ntgr5t" path="res://assets/custom/healthbar_under.png" id="1_s3u8d"]
 [ext_resource type="Texture2D" uid="uid://dyguuhk3mi5pm" path="res://assets/custom/healthbar_progress.png" id="2_7k1sc"]
 [ext_resource type="Script" uid="uid://ddy6d58a5ysw" path="res://script/character/player/healthbar.gd" id="3_7k1sc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7k1sc"]
+atlas = ExtResource("2_7k1sc")
+region = Rect2(0, 0, 96, 32)
 
 [node name="HealthBar" type="TextureProgressBar"]
 offset_left = 13.0
@@ -12,6 +16,6 @@ offset_bottom = 98.0
 value = 100.0
 nine_patch_stretch = true
 texture_under = ExtResource("1_s3u8d")
-texture_progress = ExtResource("2_7k1sc")
-texture_progress_offset = Vector2(0, -7.065)
+texture_progress = SubResource("AtlasTexture_7k1sc")
+texture_progress_offset = Vector2(-0.62, 0)
 script = ExtResource("3_7k1sc")

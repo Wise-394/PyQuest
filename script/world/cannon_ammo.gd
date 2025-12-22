@@ -12,15 +12,16 @@ func _physics_process(delta: float) -> void:
 
 func _explode():
 	animated_sprite.animation = "destroyed"
-
-func _on_animation_finished():
-	if animated_sprite.animation == "destroyed":
-		queue_free()
-
+	
 func _on_despawn_timer_timeout() -> void:
-	queue_free()
+	_explode()
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.name == "Player":
-		_explode()
+	if body.name == "Player" and animated_sprite.animation == "default":
 		body.character_damaged(damage,self)
+	_explode()
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if animated_sprite.animation == "destroyed":
+		queue_free()
