@@ -1,0 +1,65 @@
+[gd_scene load_steps=12 format=3 uid="uid://x2or8fp5fanp"]
+
+[ext_resource type="Script" uid="uid://cm2tgnpcwbec3" path="res://script/world/cannon_ammo.gd" id="1_7ywt5"]
+[ext_resource type="Texture2D" uid="uid://c4jjvnetp3pq" path="res://assets/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Ball Idle/1.png" id="1_r5ws7"]
+[ext_resource type="Texture2D" uid="uid://b23dbx1uob53r" path="res://assets/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Ball Explosion/1.png" id="3_0vayp"]
+[ext_resource type="Texture2D" uid="uid://dojqcss7afp0j" path="res://assets/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Ball Explosion/2.png" id="4_trrf6"]
+[ext_resource type="Texture2D" uid="uid://bdroylwubjr1n" path="res://assets/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Ball Explosion/3.png" id="5_7gqt4"]
+[ext_resource type="Texture2D" uid="uid://bsi7hucomwx53" path="res://assets/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Ball Explosion/4.png" id="6_me5is"]
+[ext_resource type="Texture2D" uid="uid://rrj17i6wqgem" path="res://assets/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Ball Explosion/5.png" id="7_m0cow"]
+[ext_resource type="Texture2D" uid="uid://1dt40a7ylm36" path="res://assets/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Ball Explosion/6.png" id="8_vb6q4"]
+[ext_resource type="Texture2D" uid="uid://dky61b4tyhgty" path="res://assets/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Ball Explosion/7.png" id="9_y6lg6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ywt5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_r5ws7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_0vayp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_trrf6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7gqt4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_me5is")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_m0cow")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_vb6q4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_y6lg6")
+}],
+"loop": false,
+"name": &"destroyed",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r5ws7"]
+radius = 7.0
+
+[node name="CannonAmmo" type="Area2D"]
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_7ywt5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7ywt5")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_r5ws7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

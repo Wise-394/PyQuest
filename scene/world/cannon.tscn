@@ -1,0 +1,64 @@
+[gd_scene load_steps=11 format=3 uid="uid://c7kxpnns5fv8p"]
+
+[ext_resource type="Script" uid="uid://cxn8andld11m6" path="res://script/world/cannon.gd" id="1_3xhw0"]
+[ext_resource type="Texture2D" uid="uid://7iv1xulj1x4p" path="res://assets/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Fire/1.png" id="1_teh1t"]
+[ext_resource type="Texture2D" uid="uid://jn1fdxlikco5" path="res://assets/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Fire/2.png" id="2_3xhw0"]
+[ext_resource type="Texture2D" uid="uid://comxhf7uc4m44" path="res://assets/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Fire/3.png" id="3_22o6k"]
+[ext_resource type="Texture2D" uid="uid://qbxucdnaa2gv" path="res://assets/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Fire/4.png" id="4_aabm7"]
+[ext_resource type="Texture2D" uid="uid://dkksak43ug2rf" path="res://assets/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Fire/5.png" id="5_t5stk"]
+[ext_resource type="Texture2D" uid="uid://xb1a5eh6v0f7" path="res://assets/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Fire/6.png" id="6_lllwb"]
+[ext_resource type="Texture2D" uid="uid://dcq63iucga8tx" path="res://assets/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Idle/1.png" id="7_83wq7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_57i6j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_teh1t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3xhw0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_22o6k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_aabm7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_t5stk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_lllwb")
+}],
+"loop": false,
+"name": &"fire",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_83wq7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xhw0"]
+size = Vector2(29, 23)
+
+[node name="cannon" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_3xhw0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_57i6j")
+animation = &"fire"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1.5)
+shape = SubResource("RectangleShape2D_3xhw0")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-20, 0)

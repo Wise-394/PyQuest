@@ -1,5 +1,6 @@
-[gd_scene load_steps=25 format=4 uid="uid://bo4sxd72s2q44"]
+[gd_scene load_steps=26 format=4 uid="uid://bo4sxd72s2q44"]
 
+[ext_resource type="PackedScene" uid="uid://c7kxpnns5fv8p" path="res://scene/world/cannon.tscn" id="1_h80a8"]
 [ext_resource type="TileSet" uid="uid://d1yxhu13jwkq3" path="res://tileset/island.tres" id="1_ro0lh"]
 [ext_resource type="PackedScene" uid="uid://dnpc83w0181ed" path="res://scene/world/sign.tscn" id="2_3yhi0"]
 [ext_resource type="PackedScene" uid="uid://c3r52si75dmo7" path="res://scene/world/dead_zone.tscn" id="3_w6wcs"]
@@ -47,6 +48,9 @@ point_count = 2
 [node name="Test" type="Node"]
 
 [node name="World" type="Node" parent="."]
+
+[node name="cannon" parent="World" instance=ExtResource("1_h80a8")]
+position = Vector2(-140, -18)
 
 [node name="Tile" type="TileMapLayer" parent="World"]
 position = Vector2(10, 68)
@@ -97,7 +101,6 @@ size_flags_horizontal = 4
 [node name="MovingPlatform" parent="World/CodingZone2" instance=ExtResource("11_3yhi0")]
 position = Vector2(14, -47)
 curve = SubResource("Curve2D_ft8cw")
-is_active = false
 
 [node name="MovingPlatform" parent="World" instance=ExtResource("11_3yhi0")]
 position = Vector2(-35, 17)
