@@ -158,5 +158,5 @@ func _finalize(is_correct: bool) -> void:
 
 func _activate_children() -> void:
 	for child in child_nodes:
-		if child and child.has_method("activate_process"):
-			child.activate_process()
+		if child and child.has_method("activate_node"):
+			child.activate_node()

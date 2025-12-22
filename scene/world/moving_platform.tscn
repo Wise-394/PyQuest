@@ -7,7 +7,6 @@
 size = Vector2(95, 10)
 
 [node name="MovingPlatform" type="Path2D"]
-visible = false
 script = ExtResource("1_guqbt")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]

@@ -6,7 +6,7 @@ extends Area2D
 
 @export_multiline var question: String = "question"
 @export var answer: Array[String]
-
+@export_file("*.tscn") var reward: String
 const CHEST_UI = preload("res://scene/ui/chest_ui.tscn")
 
 var is_locked = true
@@ -43,12 +43,17 @@ func _on_chest_closed(is_correct: bool) -> void:
 	if is_correct:
 		is_locked = false
 		_set_interaction_available(false)
-		print("do something")
+		give_reward()
 		animated_sprite.play("open")
 	
 	is_ui_visible = false
 	player.state_machine.go_idle()
 
+func give_reward():
+	var reward_instance = load(reward).instantiate()
+	reward_instance.position = Vector2(0, -25)
+	add_child(reward_instance)
+	
 func _set_interaction_available(value: bool) -> void:
 	is_label_visible = value
 	label.visible = value

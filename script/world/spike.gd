@@ -24,7 +24,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	if _is_player(body) and body == player_in_area:
 		_stop_damaging()
 
-func activate_process() -> void:
+func activate_node() -> void:
 	queue_free()
 
 func _is_player(body: Node2D) -> bool:

@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 
 
 
-func activate_process() -> void:
+func activate_node() -> void:
 	is_active = true
 	set_process(true)
 

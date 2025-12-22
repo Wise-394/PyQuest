@@ -95,19 +95,16 @@ offset_bottom = -30.0
 size_flags_horizontal = 4
 
 [node name="MovingPlatform" parent="World/CodingZone2" instance=ExtResource("11_3yhi0")]
-visible = true
 position = Vector2(14, -47)
 curve = SubResource("Curve2D_ft8cw")
 is_active = false
 
 [node name="MovingPlatform" parent="World" instance=ExtResource("11_3yhi0")]
-visible = true
 position = Vector2(-35, 17)
 curve = SubResource("Curve2D_3yhi0")
 speed = 20.0
 
 [node name="MovingPlatform2" parent="World" instance=ExtResource("11_3yhi0")]
-visible = true
 position = Vector2(16, -94)
 curve = SubResource("Curve2D_w6wcs")
 
@@ -128,6 +125,8 @@ position = Vector2(-145, -141)
 [node name="Chest" parent="World" instance=ExtResource("8_75gap")]
 position = Vector2(-276, 4)
 question = "chest is working"
+answer = Array[String](["1"])
+reward = "uid://d00fronllv71j"
 
 [node name="Chest2" parent="World" instance=ExtResource("8_75gap")]
 position = Vector2(-71, -150)
