@@ -1,44 +1,36 @@
 extends State
 class_name FallingState
 
-# -----------------------------
-#        VARIABLES
-# -----------------------------
 var coyote_timer := 0.0      
 var came_from_ground := false
+var max_fall_speed := 500.0  # Add a cap for fall speed
 
-# -----------------------------
-#        ENTER STATE
-# -----------------------------
 func enter():
 	init_references()
 	sprite.play("fall")
 	
-	# Only grant coyote time if coming from a grounded state
+	# Cap vertical velocity if coming from damaged state
 	var previous_state = state_machine.previous_state
-	if previous_state in ["idlestate", "walkstate"]:
+	if previous_state == "damagedstate":
+		character.velocity.y = clamp(character.velocity.y, -character.jump_strength, max_fall_speed)
+		coyote_timer = 0.0
+		came_from_ground = false
+	elif previous_state in ["idlestate", "walkstate"]:
 		coyote_timer = character.cayote_time
 		came_from_ground = true
 	else:
 		coyote_timer = 0.0
 		came_from_ground = false
 
-# -----------------------------
-#      PHYSICS UPDATE
-# -----------------------------
 func physics_update(delta):
-	_update_coyote_timer(delta)  # Update coyote timer each frame
-	_handle_jump_input()         # Check for jump input and perform coyote jump
-	_apply_gravity(delta)        # Apply gravity to vertical velocity
-	_apply_air_movement()        # Apply horizontal movement while in air
-	character.move_and_slide()    # Move the character using current velocity
-	_check_landing()             # Check if character landed to change state
+	_update_coyote_timer(delta)
+	_handle_jump_input()
+	_apply_gravity(delta)
+	_apply_air_movement()
+	character.move_and_slide()
+	_check_landing()
 
-# -----------------------------
-#       INTERNAL FUNCTIONS
-# -----------------------------
 func _update_coyote_timer(delta):
-	# Reduce coyote timer over time
 	if coyote_timer > 0.0:
 		coyote_timer -= delta
 
@@ -48,11 +40,10 @@ func _handle_jump_input():
 		coyote_timer = 0.0
 		sprite.play("jump")
 		state_machine.change_state("JumpState")
-func handle_fall_faster():
-	if Input.is_action_just_pressed("move_down"):
-		character.gravity = character.gravity * 2
+
 func _apply_gravity(delta):
 	character.velocity.y += character.gravity * delta
+	character.velocity.y = min(character.velocity.y, max_fall_speed)  # Cap fall speed
 
 func _apply_air_movement():
 	var direction = Input.get_axis("move_left", "move_right")
