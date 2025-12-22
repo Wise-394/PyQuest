@@ -1,7 +1,7 @@
 extends Path2D
 
 @export var speed: float = 100.0  
-@export var is_active: bool = true
+@export var is_active: bool = false
 @onready var follower: PathFollow2D = $PathFollow2D
 
 var direction: int = 1  # 1 for forward, -1 for backward
