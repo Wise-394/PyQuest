@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://cy6piaava8a3j"]
+[gd_scene load_steps=30 format=4 uid="uid://cy6piaava8a3j"]
 
 [ext_resource type="PackedScene" uid="uid://c3r52si75dmo7" path="res://scene/world/dead_zone.tscn" id="1_4c0oi"]
 [ext_resource type="TileSet" uid="uid://d1yxhu13jwkq3" path="res://tileset/island.tres" id="2_ngoiu"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://dl7srt6thlc11" path="res://scene/ui/coin_container.tscn" id="13_nm0q4"]
 [ext_resource type="PackedScene" uid="uid://lg4gs88e7o62" path="res://scene/ui/pause_button.tscn" id="14_tfqug"]
 [ext_resource type="PackedScene" uid="uid://chv6oqvx3a4j8" path="res://scene/world/parallax_bg.tscn" id="15_4rreb"]
+[ext_resource type="PackedScene" uid="uid://b4v1ihuy8lse3" path="res://scene/character/starfish.tscn" id="16_4pmkc"]
+[ext_resource type="PackedScene" uid="uid://jmwlddst81f2" path="res://scene/dialog_node/data_type_dialog.tscn" id="17_oci04"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wbwxs"]
 size = Vector2(91, 50)
@@ -350,6 +352,12 @@ offset_right = 53.0
 offset_bottom = 56.0
 
 [node name="parallax_bg" parent="." instance=ExtResource("15_4rreb")]
+
+[node name="Starfish" parent="." node_paths=PackedStringArray("dialog") instance=ExtResource("16_4pmkc")]
+position = Vector2(409, -61)
+dialog = NodePath("DataTypeDialog")
+
+[node name="DataTypeDialog" parent="Starfish" instance=ExtResource("17_oci04")]
 
 [connection signal="body_entered" from="World/CodingZone/Q3" to="World/CodingZone/Q3" method="_on_body_entered"]
 [connection signal="body_exited" from="World/CodingZone/Q3" to="World/CodingZone/Q3" method="_on_body_exited"]

@@ -1,0 +1,29 @@
+~ start
+starfish: [center]Now that you know variables, let’s see what they can store.[/center]
+starfish: In Python, these are called [b]Data Types[/b].
+- What are Data Types? => explanation
+- I already know this. => end_dialog
+
+~ explanation
+starfish: A [b]Data Type[/b] tells Python what kind of value is inside a variable.
+starfish: Think of it as the type of item inside a box.
+- Show me the common types. => types_list
+
+~ types_list
+starfish: There are four common data types in Python.
+starfish: [b]int[/b] is for whole numbers like 1, 5, or 100.
+starfish: [b]float[/b] is for numbers with decimals like 2.5.
+starfish: [b]string[/b] is for text like names or words.
+starfish: [b]bool[/b] is for True or False answers.
+- Why are these important? => importance
+- I understand. => end_dialog
+
+~ importance
+starfish: Data types help Python understand how a value should be used.
+starfish: You can’t mix numbers and words unless Python knows their types.
+starfish: This prevents errors and keeps your code working properly.
+=> end_dialog
+
+~ end_dialog
+starfish: Well done, adventurer!
+=> END

@@ -59,6 +59,9 @@ position = Vector2(417, -493)
 
 [node name="CodingZone" parent="CodingZone" instance=ExtResource("9_ngoiu")]
 position = Vector2(222, -89)
+level = 4
+question_id = 1
+is_explanation = true
 
 [node name="CollisionShape2D" parent="CodingZone/CodingZone" index="0"]
 position = Vector2(-21.75, 0)
@@ -135,7 +138,7 @@ offset_left = -40.0
 offset_right = 0.0
 offset_bottom = 42.0
 grow_horizontal = 0
-children = [null, null, null]
+children = [NodePath("../../../CodingZone/CodingZone"), NodePath("../../../CodingZone/CodingZone3"), NodePath("../../../CodingZone/CodingZone4"), NodePath("../../../CodingZone/CodingZone5"), NodePath("../../../CodingZone/CodingZone2")]
 
 [node name="HealthBar" parent="UI/CanvasLayer" node_paths=PackedStringArray("character") instance=ExtResource("12_1j3qy")]
 offset_left = 53.0

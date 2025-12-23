@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cp6otowp24tui"
+path="res://.godot/imported/data_types.dialogue-9c7b64f685c38e0f25d9a8bea1a79e6f.tres"
+
+[deps]
+
+source_file="res://dialog/data_types.dialogue"
+dest_files=["res://.godot/imported/data_types.dialogue-9c7b64f685c38e0f25d9a8bea1a79e6f.tres"]
+
+[params]
+
+defaults=true
