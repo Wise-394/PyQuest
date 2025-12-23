@@ -10,7 +10,7 @@ class UserCodeRequest(BaseModel):
 
 @router.get("/level/4/question/1")
 def get_question():
-    return {"question": "how can u increase the value of the coin variable by using the + operator. Print the output to the console", "code" : "coin = 10 \n"}
+    return {"question": "how can u increase the value of the coin variable by 1 using the + operator. Print the output to the console", "code" : "coin = 10 \n"}
 
 @router.post("/level/4/question/1")
 def post_user_code(request: UserCodeRequest):
