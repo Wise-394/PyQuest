@@ -1,6 +1,5 @@
 extends State
 class_name FallingState
-
 var coyote_timer := 0.0      
 var came_from_ground := false
 var max_fall_speed := 500.0  # Add a cap for fall speed
@@ -56,7 +55,7 @@ func _apply_air_movement():
 	var direction = Input.get_axis("move_left", "move_right")
 	if direction != 0:
 		character.velocity.x = direction * character.speed
-		sprite.flip_h = direction < 0
+		change_direction(direction)  # Use parent function
 	else:
 		character.velocity.x = lerp(character.velocity.x, 0.0, 0.2)
 

@@ -1,6 +1,5 @@
 extends State
 class_name JumpState
-
 # ============================
 #        ENTER STATE
 # ============================
@@ -11,6 +10,7 @@ func enter():
 
 func update(_delta: float):
 	_handle_attack()
+
 # ============================
 #      PHYSICS UPDATE
 # ============================
@@ -38,7 +38,7 @@ func _apply_air_movement():
 	var direction = Input.get_axis("move_left", "move_right")
 	if direction != 0:
 		character.velocity.x = direction * character.speed
-		sprite.flip_h = direction < 0
+		change_direction(direction) 
 	else:
 		character.velocity.x = lerp(character.velocity.x, 0.0, 0.2)
 

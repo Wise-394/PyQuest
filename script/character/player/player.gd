@@ -15,7 +15,7 @@ extends CharacterBody2D
 @onready var current_health: int = max_health
 @onready var player_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_machine = $StateMachine
-
+@onready var hitbox = $HitBox
 var coyote_timer := 0.0
 var hit_direction := 1
 var is_invulnerable := false
@@ -24,6 +24,7 @@ signal health_changed
 
 func _ready() -> void:
 	_initialize_state_machine()
+	hitbox.monitoring = false
 
 func character_damaged(damage: int, attacker: Node2D) -> void:
 	if is_invulnerable:

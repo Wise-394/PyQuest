@@ -3,13 +3,13 @@ class_name JumpAttackingState
 
 func enter():
 	init_references()
+	hitbox.monitoring = true
 	if not sprite.animation_finished.is_connected(_finished_attacking):
 		sprite.animation_finished.connect(_finished_attacking)	
 	sprite.play("jump_attacking")
 
 func exit():
-	if sprite.animation_finished.is_connected(_finished_attacking):
-		sprite.animation_finished.disconnect(_finished_attacking)
+	hitbox.monitoring = false
 	
 func physics_update(_delta: float):
 	_apply_gravity(_delta)
