@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byy258y3seo5r"
-path="res://.godot/imported/char_blue_1.png-d53c03300ef2600be4106273595b832c.ctex"
+uid="uid://bl5v3tt5q6b78"
+path="res://.godot/imported/HURT.png-d7bf11e2f00cec352c319b4db7e7f5a0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/generic_char_v0.2/generic_char_v0.2/png/blue/char_blue_1.png"
-dest_files=["res://.godot/imported/char_blue_1.png-d53c03300ef2600be4106273595b832c.ctex"]
+source_file="res://assets/Knight 2D Pixel Art/Knight 2D Pixel Art/Sprites/with_outline/HURT.png"
+dest_files=["res://.godot/imported/HURT.png-d7bf11e2f00cec352c319b4db7e7f5a0.ctex"]
 
 [params]
 

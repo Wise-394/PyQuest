@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mslkwie7luga"
-path="res://.godot/imported/guide.png-7e176e797d881be776bdb30e348b2a0e.ctex"
+uid="uid://b6tvlpiq6b4wo"
+path="res://.godot/imported/IDLE.png-26c6cf7e89925714ac60e4da152df7ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/generic_char_v0.2/generic_char_v0.2/guide.png"
-dest_files=["res://.godot/imported/guide.png-7e176e797d881be776bdb30e348b2a0e.ctex"]
+source_file="res://assets/Knight 2D Pixel Art/Knight 2D Pixel Art/Sprites/with_outline/IDLE.png"
+dest_files=["res://.godot/imported/IDLE.png-26c6cf7e89925714ac60e4da152df7ab.ctex"]
 
 [params]
 

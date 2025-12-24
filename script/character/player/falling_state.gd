@@ -21,8 +21,6 @@ func enter():
 		coyote_timer = 0.0
 		came_from_ground = false
 		
-func update(_delta: float):
-	_handle_attack()
 	
 func physics_update(delta):
 	_update_coyote_timer(delta)
@@ -36,9 +34,7 @@ func _update_coyote_timer(delta):
 	if coyote_timer > 0.0:
 		coyote_timer -= delta
 
-func _handle_attack():
-	if Input.is_action_just_pressed("attack"):
-		state_machine.change_state("jumpattackingstate")
+
 
 func _handle_jump_input():
 	if Input.is_action_just_pressed("jump") and coyote_timer > 0.0:

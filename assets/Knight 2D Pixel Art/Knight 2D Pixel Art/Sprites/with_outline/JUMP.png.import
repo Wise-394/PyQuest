@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://coig5l01gjeuj"
-path="res://.godot/imported/char_purple_2.png-22c5457e733df2a483358ada13a5869e.ctex"
+uid="uid://dnqlto5lhwf44"
+path="res://.godot/imported/JUMP.png-fab9742d3a1fb3a71dc4c373ff201418.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/generic_char_v0.2/generic_char_v0.2/png/purple/char_purple_2.png"
-dest_files=["res://.godot/imported/char_purple_2.png-22c5457e733df2a483358ada13a5869e.ctex"]
+source_file="res://assets/Knight 2D Pixel Art/Knight 2D Pixel Art/Sprites/with_outline/JUMP.png"
+dest_files=["res://.godot/imported/JUMP.png-fab9742d3a1fb3a71dc4c373ff201418.ctex"]
 
 [params]
 

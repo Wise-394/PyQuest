@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmuuguy17wios"
-path="res://.godot/imported/char_blue_2.png-7f19c6c9fcfccf3edd3d5b71fd4dff6f.ctex"
+uid="uid://jhuexfg7u0t2"
+path="res://.godot/imported/RUN.png-7ceb3b4716bbf2ae54886313d7c56079.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/generic_char_v0.2/generic_char_v0.2/png/blue/char_blue_2.png"
-dest_files=["res://.godot/imported/char_blue_2.png-7f19c6c9fcfccf3edd3d5b71fd4dff6f.ctex"]
+source_file="res://assets/Knight 2D Pixel Art/Knight 2D Pixel Art/Sprites/with_outline/RUN.png"
+dest_files=["res://.godot/imported/RUN.png-7ceb3b4716bbf2ae54886313d7c56079.ctex"]
 
 [params]
 

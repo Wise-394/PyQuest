@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://g4dd7xtr4k8v"
-path="res://.godot/imported/char_purple_1.png-99ae8404382b278f98378905e0893453.ctex"
+uid="uid://cqc4nrhk4vdt6"
+path="res://.godot/imported/ATTACK 1.png-512f884a173006e0a53d750ad9f6c00f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/generic_char_v0.2/generic_char_v0.2/png/purple/char_purple_1.png"
-dest_files=["res://.godot/imported/char_purple_1.png-99ae8404382b278f98378905e0893453.ctex"]
+source_file="res://assets/Knight 2D Pixel Art/Knight 2D Pixel Art/Sprites/with_outline/ATTACK 1.png"
+dest_files=["res://.godot/imported/ATTACK 1.png-512f884a173006e0a53d750ad9f6c00f.ctex"]
 
 [params]
 
