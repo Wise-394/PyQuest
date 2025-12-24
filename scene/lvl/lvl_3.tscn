@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://cy6piaava8a3j"]
+[gd_scene load_steps=31 format=4 uid="uid://cy6piaava8a3j"]
 
 [ext_resource type="PackedScene" uid="uid://c3r52si75dmo7" path="res://scene/world/dead_zone.tscn" id="1_4c0oi"]
 [ext_resource type="TileSet" uid="uid://d1yxhu13jwkq3" path="res://tileset/island.tres" id="2_ngoiu"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://g8oa5ffnlyfe" path="res://assets/custom/effects/particles.png" id="6_gpoof"]
 [ext_resource type="Script" uid="uid://b14spvc3x8l8t" path="res://script/world/zone_particles.gd" id="7_wjjb1"]
 [ext_resource type="PackedScene" uid="uid://bwrop6cmmut7u" path="res://scene/world/moving_platform.tscn" id="8_1d5kq"]
+[ext_resource type="PackedScene" uid="uid://d00fronllv71j" path="res://scene/world/coin.tscn" id="9_jlho3"]
 [ext_resource type="PackedScene" uid="uid://bnhiv8qcc5ro5" path="res://scene/character/player.tscn" id="9_mdo62"]
 [ext_resource type="PackedScene" uid="uid://dc7ihfcrpl10v" path="res://scene/world/camera.tscn" id="10_isk03"]
 [ext_resource type="PackedScene" uid="uid://c8mm1rrfpibeu" path="res://scene/ui/zone_remaining.tscn" id="11_5ufl4"]
@@ -310,6 +311,56 @@ color_ramp = SubResource("Gradient_40815")
 anim_offset_max = 1.0
 script = ExtResource("7_wjjb1")
 max_distance = 450.0
+
+[node name="Coins" type="Node" parent="World"]
+
+[node name="Coin" parent="World/Coins" instance=ExtResource("9_jlho3")]
+position = Vector2(66, 3)
+
+[node name="Coin11" parent="World/Coins" instance=ExtResource("9_jlho3")]
+position = Vector2(490, -26)
+
+[node name="Coin12" parent="World/Coins" instance=ExtResource("9_jlho3")]
+position = Vector2(505, -26)
+
+[node name="Coin13" parent="World/Coins" instance=ExtResource("9_jlho3")]
+position = Vector2(521, -26)
+
+[node name="Coin14" parent="World/Coins" instance=ExtResource("9_jlho3")]
+position = Vector2(503, -185)
+
+[node name="Coin15" parent="World/Coins" instance=ExtResource("9_jlho3")]
+position = Vector2(521, -185)
+
+[node name="Coin16" parent="World/Coins" instance=ExtResource("9_jlho3")]
+position = Vector2(538, -185)
+
+[node name="Coin2" parent="World/Coins" instance=ExtResource("9_jlho3")]
+position = Vector2(53, 3)
+
+[node name="Coin3" parent="World/Coins" instance=ExtResource("9_jlho3")]
+position = Vector2(39, 3)
+
+[node name="Coin4" parent="World/Coins" instance=ExtResource("9_jlho3")]
+position = Vector2(26, 3)
+
+[node name="Coin5" parent="World/Coins" instance=ExtResource("9_jlho3")]
+position = Vector2(13, 3)
+
+[node name="Coin6" parent="World/Coins" instance=ExtResource("9_jlho3")]
+position = Vector2(0, 3)
+
+[node name="Coin7" parent="World/Coins" instance=ExtResource("9_jlho3")]
+position = Vector2(-180, -24)
+
+[node name="Coin8" parent="World/Coins" instance=ExtResource("9_jlho3")]
+position = Vector2(-180, -39)
+
+[node name="Coin9" parent="World/Coins" instance=ExtResource("9_jlho3")]
+position = Vector2(-180, -53)
+
+[node name="Coin10" parent="World/Coins" instance=ExtResource("9_jlho3")]
+position = Vector2(-180, -83)
 
 [node name="Player" parent="." instance=ExtResource("9_mdo62")]
 position = Vector2(449, -135)

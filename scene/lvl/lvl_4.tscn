@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=4 uid="uid://8h17yxwjyk2m"]
+[gd_scene load_steps=20 format=4 uid="uid://8h17yxwjyk2m"]
 
 [ext_resource type="PackedScene" uid="uid://c3r52si75dmo7" path="res://scene/world/dead_zone.tscn" id="1_4c0oi"]
 [ext_resource type="TileSet" uid="uid://d1yxhu13jwkq3" path="res://tileset/island.tres" id="2_ngoiu"]
 [ext_resource type="PackedScene" uid="uid://c7kxpnns5fv8p" path="res://scene/world/cannon.tscn" id="4_um0bb"]
 [ext_resource type="PackedScene" uid="uid://dwv1bc5r8s2a8" path="res://scene/world/flag.tscn" id="5_4c0oi"]
+[ext_resource type="PackedScene" uid="uid://d00fronllv71j" path="res://scene/world/coin.tscn" id="5_mdbna"]
 [ext_resource type="PackedScene" uid="uid://bwrop6cmmut7u" path="res://scene/world/moving_platform.tscn" id="8_1d5kq"]
 [ext_resource type="PackedScene" uid="uid://bnhiv8qcc5ro5" path="res://scene/character/player.tscn" id="9_mdo62"]
 [ext_resource type="PackedScene" uid="uid://nvxql4d8clds" path="res://scene/world/coding_zone.tscn" id="9_ngoiu"]
@@ -64,6 +65,68 @@ direction = "right"
 
 [node name="Flag" parent="World" instance=ExtResource("5_4c0oi")]
 position = Vector2(417, -493)
+
+[node name="Coins" type="Node" parent="World"]
+
+[node name="Coin" parent="World/Coins" instance=ExtResource("5_mdbna")]
+position = Vector2(285, -72)
+
+[node name="Coin13" parent="World/Coins" instance=ExtResource("5_mdbna")]
+position = Vector2(42, -234)
+
+[node name="Coin14" parent="World/Coins" instance=ExtResource("5_mdbna")]
+position = Vector2(26, -234)
+
+[node name="Coin15" parent="World/Coins" instance=ExtResource("5_mdbna")]
+position = Vector2(8, -234)
+
+[node name="Coin16" parent="World/Coins" instance=ExtResource("5_mdbna")]
+position = Vector2(-12, -234)
+
+[node name="Coin17" parent="World/Coins" instance=ExtResource("5_mdbna")]
+position = Vector2(-32, -234)
+
+[node name="Coin18" parent="World/Coins" instance=ExtResource("5_mdbna")]
+position = Vector2(-52, -234)
+
+[node name="Coin19" parent="World/Coins" instance=ExtResource("5_mdbna")]
+position = Vector2(-72, -234)
+
+[node name="Coin20" parent="World/Coins" instance=ExtResource("5_mdbna")]
+position = Vector2(-91, -234)
+
+[node name="Coin5" parent="World/Coins" instance=ExtResource("5_mdbna")]
+position = Vector2(588, -72)
+
+[node name="Coin6" parent="World/Coins" instance=ExtResource("5_mdbna")]
+position = Vector2(588, -89)
+
+[node name="Coin7" parent="World/Coins" instance=ExtResource("5_mdbna")]
+position = Vector2(588, -105)
+
+[node name="Coin8" parent="World/Coins" instance=ExtResource("5_mdbna")]
+position = Vector2(588, -123)
+
+[node name="Coin2" parent="World/Coins" instance=ExtResource("5_mdbna")]
+position = Vector2(285, -89)
+
+[node name="Coin3" parent="World/Coins" instance=ExtResource("5_mdbna")]
+position = Vector2(285, -105)
+
+[node name="Coin4" parent="World/Coins" instance=ExtResource("5_mdbna")]
+position = Vector2(285, -123)
+
+[node name="Coin9" parent="World/Coins" instance=ExtResource("5_mdbna")]
+position = Vector2(726, -311)
+
+[node name="Coin10" parent="World/Coins" instance=ExtResource("5_mdbna")]
+position = Vector2(726, -356)
+
+[node name="Coin11" parent="World/Coins" instance=ExtResource("5_mdbna")]
+position = Vector2(726, -403)
+
+[node name="Coin12" parent="World/Coins" instance=ExtResource("5_mdbna")]
+position = Vector2(726, -454)
 
 [node name="CodingZone" type="Node" parent="."]
 

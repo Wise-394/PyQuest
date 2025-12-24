@@ -9,6 +9,8 @@ func enter():
 	_handle_initial_jump()
 	sprite.play("jump")
 
+func update(_delta: float):
+	_handle_attack()
 # ============================
 #      PHYSICS UPDATE
 # ============================
@@ -25,6 +27,9 @@ func _handle_initial_jump():
 	if Input.is_action_just_pressed("jump") and character.is_on_floor():
 		character.velocity.y = -character.jump_strength
 
+func _handle_attack():
+	if Input.is_action_just_pressed("attack"):
+		state_machine.change_state("jumpattackingstate")
 
 func _apply_gravity(delta):
 	character.velocity.y += character.gravity * delta

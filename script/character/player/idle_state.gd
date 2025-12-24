@@ -19,10 +19,13 @@ func handle_input(_event):
 	if Input.is_action_just_pressed("move_down") and character.is_on_floor():
 		character.position.y += 1
 		state_machine.change_state("fallingstate")
+	if Input.is_action_just_pressed("attack"):
+		state_machine.change_state("attackingstate")
 
 # ============================
 #     SUB FUNCTIONS
 # ============================
+
 
 func _check_floor_state():
 	if not character.is_on_floor():
