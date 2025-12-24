@@ -164,8 +164,6 @@ shape = SubResource("RectangleShape2D_q48bb")
 sprite_frames = SubResource("SpriteFrames_ml7e8")
 animation = &"attacking"
 autoplay = "idle"
-frame = 2
-frame_progress = 1.0
 
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 8
