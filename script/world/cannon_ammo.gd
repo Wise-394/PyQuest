@@ -10,6 +10,12 @@ func _physics_process(delta: float) -> void:
 	elif direction == "right" and not animated_sprite.animation == "destroyed":
 		position.x += speed * delta
 
+func damaged():
+	if direction == "left":
+		direction = "right"
+	else:
+		direction = "left"
+
 func _explode():
 	animated_sprite.animation = "destroyed"
 	

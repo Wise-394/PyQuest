@@ -50,8 +50,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_r5ws7"]
 radius = 7.0
 
-[node name="CannonAmmo" type="Area2D"]
-collision_layer = 0
+[node name="CannonAmmo" type="Area2D" groups=["enemy"]]
+collision_layer = 16
 collision_mask = 3
 script = ExtResource("1_7ywt5")
 

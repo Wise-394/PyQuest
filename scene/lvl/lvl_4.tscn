@@ -258,6 +258,9 @@ offset_right = 53.0
 offset_bottom = 56.0
 
 [node name="parallax_bg" parent="." instance=ExtResource("15_4rreb")]
+visible = false
+
+[node name="Node" type="Node" parent="."]
 
 [editable path="CodingZone/CodingZone"]
 [editable path="CodingZone/CodingZone3"]

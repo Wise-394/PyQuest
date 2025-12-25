@@ -1,0 +1,64 @@
+[gd_scene load_steps=12 format=3 uid="uid://cadnmruyc4o86"]
+
+[ext_resource type="Texture2D" uid="uid://c2db7bkwl23xx" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword Effects/24-Attack 1/Attack 1 01.png" id="1_diuds"]
+[ext_resource type="Texture2D" uid="uid://inqtibno7f3r" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword Effects/24-Attack 1/Attack 1 02.png" id="2_ohppw"]
+[ext_resource type="Texture2D" uid="uid://dob8qlmvfkoyq" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword Effects/24-Attack 1/Attack 1 03.png" id="3_a6nl6"]
+[ext_resource type="Texture2D" uid="uid://gcscim8bg32y" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword Effects/25-Attack 2/Attack 2 01.png" id="4_d4l1q"]
+[ext_resource type="Texture2D" uid="uid://cyq5jt7ckb6vn" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword Effects/25-Attack 2/Attack 2 02.png" id="5_85sii"]
+[ext_resource type="Texture2D" uid="uid://4x41jabflxr6" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword Effects/25-Attack 2/Attack 2 03.png" id="6_fypu4"]
+[ext_resource type="Texture2D" uid="uid://51au31l1w1fu" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword Effects/26-Attack 3/Attack 3 01.png" id="7_ivvks"]
+[ext_resource type="Texture2D" uid="uid://br7w5t0l1jwi1" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword Effects/26-Attack 3/Attack 3 02.png" id="8_kbfwk"]
+[ext_resource type="Texture2D" uid="uid://ety84tbnmxaj" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword Effects/26-Attack 3/Attack 3 03.png" id="9_et7b5"]
+[ext_resource type="Script" uid="uid://c2rafkblqgkw6" path="res://script/character/player/sword_effect.gd" id="10_ohppw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8ng8c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_diuds")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ohppw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_a6nl6")
+}],
+"loop": false,
+"name": &"attacking1",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_d4l1q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_85sii")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fypu4")
+}],
+"loop": false,
+"name": &"attacking2",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ivvks")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_kbfwk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_et7b5")
+}],
+"loop": false,
+"name": &"attacking3",
+"speed": 10.0
+}]
+
+[node name="SwordEffect" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_8ng8c")
+animation = &"attacking2"
+script = ExtResource("10_ohppw")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
