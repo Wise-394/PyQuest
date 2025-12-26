@@ -1,5 +1,5 @@
-extends State
-class_name JumpState
+extends PlayerState
+class_name PlayerJumpState
 # ============================
 #        ENTER STATE
 # ============================

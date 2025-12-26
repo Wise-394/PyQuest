@@ -1,5 +1,5 @@
-extends State
-class_name AttackingState
+extends PlayerState
+class_name PlayerAttackingState
 
 # -----------------------------
 # VARIABLES
