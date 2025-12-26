@@ -211,6 +211,8 @@ script = ExtResource("24_k8m7u")
 
 [node name="DamagedState" type="Node" parent="StateMachine"]
 script = ExtResource("24_ov0iu")
+knockback_strength = null
+invulnerable_duration = null
 
 [node name="PauseState" type="Node" parent="StateMachine"]
 script = ExtResource("29_du2bl")

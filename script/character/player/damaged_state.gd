@@ -1,4 +1,4 @@
-extends PlayerState
+extends State
 @export var knockback_strength := Vector2(50, 100)
 @export var invulnerable_duration := 0.5
 

@@ -1,5 +1,5 @@
 # WalkState handles the player's walking behavior.
-extends PlayerState
+extends State
 
 func enter():
 	init_references()

@@ -50,5 +50,5 @@ func _open_dialog() -> void:
 
 func _on_dialog_finished() -> void:
 	if player:
-		player.state_machine.go_idle()
+		player.state_machine.change_state("idlestate")
 	_is_dialog_active = false

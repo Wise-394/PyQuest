@@ -1,6 +1,5 @@
-extends Node
-
-class_name PlayerState
+extends State
+class_name  crab_state
 
 var state_machine: StateMachine
 var character: CharacterBody2D

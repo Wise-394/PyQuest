@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cx2ljcqbkehra"]
+[gd_scene load_steps=21 format=3 uid="uid://cx2ljcqbkehra"]
 
 [ext_resource type="Texture2D" uid="uid://dk7ynn0tos83i" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 01.png" id="1_27us2"]
 [ext_resource type="Script" uid="uid://rnig7bxkab7d" path="res://script/character/crab/crab.gd" id="1_admx7"]
@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://vgrh0dqpdb4" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/02-Run/Run 04.png" id="13_gctqi"]
 [ext_resource type="Texture2D" uid="uid://8xr3iv0y5glr" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/02-Run/Run 05.png" id="14_mlx33"]
 [ext_resource type="Texture2D" uid="uid://rm85dl0ufnyf" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/02-Run/Run 06.png" id="15_6m2du"]
+[ext_resource type="Script" uid="uid://dwbl7tap1c6fd" path="res://script/character/state_machine.gd" id="17_f3puh"]
+[ext_resource type="Script" uid="uid://ddecdfo2cun6a" path="res://script/character/crab/idle_state.gd" id="18_d6g0r"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_maayw"]
 animations = [{
@@ -86,8 +88,12 @@ sprite_frames = SubResource("SpriteFrames_maayw")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="HurtBox" type="CollisionShape2D" parent="."]
 position = Vector2(1, 1.5)
 shape = SubResource("RectangleShape2D_sueps")
 
 [node name="StateMachine" type="Node" parent="."]
+script = ExtResource("17_f3puh")
+
+[node name="IdleState" type="Node" parent="."]
+script = ExtResource("18_d6g0r")

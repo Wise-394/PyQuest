@@ -1,4 +1,4 @@
-extends PlayerState
+extends State
 
 # -----------------------------
 # VARIABLES
