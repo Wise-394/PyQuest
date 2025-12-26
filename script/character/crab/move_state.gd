@@ -1,35 +1,39 @@
 extends State
 
+@onready var timer: Timer = $Timer
+
 func enter():
 	init_references()
+	timer.start()
 	sprite.play("walk")
-	_randomize_facing_direction()
+	_randomize_direction()
 	character.update_direction()
 
-func physics_update(_delta: float):
-	character.velocity.x = character.speed * character.direction
+	
+func physics_update(delta: float):
+	# Apply gravity
+	character.velocity.y += character.gravity * delta
+
+	# Only move horizontally if not invulnerable (preserve knockback)
+	if not character.is_invulnerable:
+		character.velocity.x = character.speed * character.direction
+
 	character.move_and_slide()
-	check_edge_detection()
+	_check_edges()
 
-func _randomize_facing_direction():
-	var rand = randf()
-	if rand > 0.5:
-		character.direction =  1
-	else:
+# --- Helpers ---
+func _randomize_direction() -> void:
+	character.direction = 1 if randf() > 0.5 else -1
+
+func _check_edges() -> void:
+	if character.direction < 0 and not character.raycast_left.is_colliding() and character.is_on_floor():
+		character.direction = 1
+	elif character.direction > 0 and not character.raycast_right.is_colliding() and character.is_on_floor():
 		character.direction = -1
-		 
-func check_edge_detection() -> void:
-	if character.direction < 0:
-		if not character.raycast_left.is_colliding():
-			character.direction = 1
-			character.update_direction()
-	else:
-		if not character.raycast_right.is_colliding():
-			character.direction = -1
-			character.update_direction()
-
+	character.update_direction()
 
 func _on_timer_timeout() -> void:
-	var rand = randf()
-	if rand > 0.5:
+	if not character.is_alive:
+		return
+	if randf() > 0.5:
 		state_machine.change_state("idlestate")

@@ -173,7 +173,7 @@ animations = [{
 size = Vector2(30, 25)
 
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 3
+collision_mask = 18
 script = ExtResource("1_oh5ij")
 
 [node name="HurtBox" type="CollisionShape2D" parent="."]
@@ -219,5 +219,6 @@ script = ExtResource("29_du2bl")
 [node name="AttackingState" type="Node" parent="StateMachine"]
 script = ExtResource("31_r5eyx")
 
+[connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/DamagedState" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="HitBox" to="HitBox" method="_on_area_entered"]
 [connection signal="body_entered" from="HitBox" to="HitBox" method="_on_body_entered"]

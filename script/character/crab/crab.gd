@@ -1,17 +1,26 @@
 extends CharacterBody2D
-@onready var sprite = $AnimatedSprite2D
-@onready var hurtbox = $HurtBox
-@onready var hitbox = $HitBox
-@onready var state_machine = $StateMachine
+
+# --- Nodes ---
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var hurtbox: CollisionShape2D = $HurtBox
+@onready var hitbox: Area2D = $HitBox
+@onready var state_machine: Node = $StateMachine
+@onready var raycast_left: RayCast2D = $RaycastLeft
+@onready var raycast_right: RayCast2D = $RaycastRight
 @onready var cayote_time = 0
-@onready var raycast_left = $RaycastLeft
-@onready var raycast_right= $RaycastRight
+# --- Exports ---
+@export var direction := -1  # -1 = left, 1 = right
+@export var speed := 100
+@export var gravity := 1000
+@export var health := 100
 
-@export var direction = -1  # -1 = left, 1 = right
-@export var speed = 100
-@export var gravity: float = 1000
-@export var health: float = 100
+# --- State ---
+var is_alive := true
+var can_change_direction := true
+var is_invulnerable := false
+var hit_direction := 1
 
+# --- Initialization ---
 func _ready() -> void:
 	_initialize_state_machine()
 	update_direction()
@@ -20,17 +29,32 @@ func _initialize_state_machine() -> void:
 	if state_machine and state_machine.initial_state:
 		state_machine.change_state(state_machine.initial_state.name.to_lower())
 
-func damaged(damage_to_reduce):
-	health -= damage_to_reduce
+# --- Damage / Knockback ---
+func damaged(damage_amount: int, attacker: Node2D) -> void:
+	if not is_alive:
+		return
+
+	_calculate_hit_direction(attacker)
+	health -= damage_amount
+
 	if health <= 0:
 		death()
-
-func death():
-	queue_free()
-func update_direction() -> void:
-	if direction > 0: 
-		sprite.flip_h = true 
-		hitbox.scale.x = 1
 	else:
-		sprite.flip_h = false
-		hitbox.scale.x = -1
+		state_machine.change_state("damagedstate")
+
+func _calculate_hit_direction(attacker: Node2D) -> void:
+	hit_direction = sign(global_position.x - attacker.global_position.x)
+	if hit_direction == 0:
+		hit_direction = 1
+
+func death() -> void:
+	is_alive = false
+	state_machine.change_state("damagedstate")
+
+# --- Direction Handling ---
+func update_direction() -> void:
+	if not can_change_direction:
+		return
+
+	sprite.flip_h = direction > 0
+	hitbox.scale.x = 1 if direction > 0 else -1

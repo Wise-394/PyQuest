@@ -1,32 +1,24 @@
-[gd_scene load_steps=42 format=3 uid="uid://cx2ljcqbkehra"]
+[gd_scene load_steps=33 format=3 uid="uid://cx2ljcqbkehra"]
 
 [ext_resource type="Texture2D" uid="uid://dk7ynn0tos83i" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 01.png" id="1_27us2"]
 [ext_resource type="Script" uid="uid://rnig7bxkab7d" path="res://script/character/crab/crab.gd" id="1_admx7"]
 [ext_resource type="Texture2D" uid="uid://dqbydspl4s1fp" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 02.png" id="2_admx7"]
-[ext_resource type="Texture2D" uid="uid://sas3707htltr" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/06-Anticipation/Anticipation 01.png" id="2_nieqb"]
 [ext_resource type="Texture2D" uid="uid://d2qrfs4r6vu0m" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/08-Hit/Hit 01.png" id="2_oxgc6"]
 [ext_resource type="Texture2D" uid="uid://sgjpv2dy1bo2" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 03.png" id="3_8jhn6"]
 [ext_resource type="Texture2D" uid="uid://bish4232lgbwe" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/08-Hit/Hit 02.png" id="3_pajt7"]
-[ext_resource type="Texture2D" uid="uid://0jkhs51mf41g" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/06-Anticipation/Anticipation 02.png" id="3_ud2wr"]
 [ext_resource type="Texture2D" uid="uid://chhxgt0cuardg" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 04.png" id="4_f3puh"]
-[ext_resource type="Texture2D" uid="uid://dfqv4yu8pcs5q" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/06-Anticipation/Anticipation 03.png" id="4_l68qe"]
 [ext_resource type="Texture2D" uid="uid://5i22brg0hgxk" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/08-Hit/Hit 03.png" id="4_pudux"]
 [ext_resource type="Texture2D" uid="uid://cnfwa63hsv1rb" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 05.png" id="5_d6g0r"]
 [ext_resource type="Texture2D" uid="uid://c4v62ld6avnin" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/08-Hit/Hit 04.png" id="5_gctqi"]
-[ext_resource type="Texture2D" uid="uid://b8nb032mq7qt7" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/07-Attack/Attack 01.png" id="5_ijmw0"]
 [ext_resource type="Texture2D" uid="uid://3u53eh0wmmcj" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/09-Dead Hit/Dead Hit 01.png" id="6_6m2du"]
-[ext_resource type="Texture2D" uid="uid://cj8vxypf01jln" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/07-Attack/Attack 02.png" id="6_10ces"]
 [ext_resource type="Texture2D" uid="uid://c5vofih71f6ah" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 06.png" id="6_86n2j"]
 [ext_resource type="Texture2D" uid="uid://big1is7kn4f7m" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 07.png" id="7_1gotc"]
 [ext_resource type="Texture2D" uid="uid://bntwb6remf2oe" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/09-Dead Hit/Dead Hit 02.png" id="7_maayw"]
-[ext_resource type="Texture2D" uid="uid://c502abjc65n4e" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/07-Attack/Attack 03.png" id="7_u7c0n"]
-[ext_resource type="Texture2D" uid="uid://cbr3vdpfnvwg3" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/07-Attack/Attack 04.png" id="8_0yfew"]
 [ext_resource type="Texture2D" uid="uid://bkgibg2ha33c6" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/09-Dead Hit/Dead Hit 03.png" id="8_sueps"]
 [ext_resource type="Texture2D" uid="uid://dby0v7gnag5b2" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 08.png" id="8_ubkrn"]
 [ext_resource type="Texture2D" uid="uid://dnr3sjrn02oqx" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 09.png" id="9_dub4w"]
 [ext_resource type="Texture2D" uid="uid://bwbak6c2wvq0a" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/09-Dead Hit/Dead Hit 04.png" id="9_wqvsm"]
 [ext_resource type="Texture2D" uid="uid://dobet34hwgbua" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/02-Run/Run 01.png" id="10_oxgc6"]
-[ext_resource type="Texture2D" uid="uid://dyemy863mr37d" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/04-Fall/Fall 01.png" id="10_sueps"]
 [ext_resource type="Texture2D" uid="uid://dewjqt7g3000i" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/02-Run/Run 02.png" id="11_pajt7"]
 [ext_resource type="Texture2D" uid="uid://5wedtdyjcqq5" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/02-Run/Run 03.png" id="12_pudux"]
 [ext_resource type="Texture2D" uid="uid://vgrh0dqpdb4" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/02-Run/Run 04.png" id="13_gctqi"]
@@ -37,41 +29,9 @@
 [ext_resource type="Script" uid="uid://cdktysp5le6qo" path="res://script/character/crab/move_state.gd" id="19_d6g0r"]
 [ext_resource type="Script" uid="uid://cuwrc8c2tuosb" path="res://script/character/crab/damaged_state.gd" id="20_86n2j"]
 [ext_resource type="Script" uid="uid://3qjmwva2v43v" path="res://script/character/crab/dead_state.gd" id="29_7lcgg"]
-[ext_resource type="Script" uid="uid://dewkfqocmwk2i" path="res://script/character/crab/falling_state.gd" id="30_maayw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_maayw"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_nieqb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_ud2wr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_l68qe")
-}],
-"loop": false,
-"name": &"anticipation",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_ijmw0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_10ces")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_u7c0n")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_0yfew")
-}],
-"loop": false,
-"name": &"attack",
-"speed": 10.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_oxgc6")
@@ -104,14 +64,6 @@ animations = [{
 }],
 "loop": false,
 "name": &"dead",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("10_sueps")
-}],
-"loop": false,
-"name": &"fall",
 "speed": 10.0
 }, {
 "frames": [{
@@ -171,26 +123,29 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3puh"]
-size = Vector2(68, 16)
+size = Vector2(42, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sueps"]
 size = Vector2(22, 23)
 
 [node name="Crab" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 16
-collision_mask = 2
+collision_mask = 3
 script = ExtResource("1_admx7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_maayw")
-animation = &"attack"
+animation = &"damaged"
 autoplay = "idle"
+frame = 3
+frame_progress = 1.0
 
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 0
+collision_mask = 2
 
 [node name="Collision" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(2, 5)
+position = Vector2(2, -1)
 shape = SubResource("RectangleShape2D_f3puh")
 
 [node name="HurtBox" type="CollisionShape2D" parent="."]
@@ -206,22 +161,19 @@ script = ExtResource("18_d6g0r")
 
 [node name="Timer" type="Timer" parent="StateMachine/IdleState"]
 wait_time = 0.5
+autostart = true
 
 [node name="MoveState" type="Node" parent="StateMachine"]
 script = ExtResource("19_d6g0r")
 
 [node name="Timer" type="Timer" parent="StateMachine/MoveState"]
+autostart = true
 
 [node name="DamagedState" type="Node" parent="StateMachine"]
 script = ExtResource("20_86n2j")
 
 [node name="DeadState" type="Node" parent="StateMachine"]
 script = ExtResource("29_7lcgg")
-
-[node name="Timer" type="Timer" parent="StateMachine/DeadState"]
-
-[node name="FallingState" type="Node" parent="StateMachine"]
-script = ExtResource("30_maayw")
 
 [node name="RaycastLeft" type="RayCast2D" parent="."]
 position = Vector2(-20, 8)
@@ -235,4 +187,3 @@ collision_mask = 2
 
 [connection signal="timeout" from="StateMachine/IdleState/Timer" to="StateMachine/IdleState" method="_on_timer_timeout"]
 [connection signal="timeout" from="StateMachine/MoveState/Timer" to="StateMachine/MoveState" method="_on_timer_timeout"]
-[connection signal="timeout" from="StateMachine/DeadState/Timer" to="StateMachine/DeadState" method="_on_timer_timeout"]

@@ -52,6 +52,7 @@ point_count = 2
 
 [node name="cannon" parent="World" instance=ExtResource("1_h80a8")]
 position = Vector2(-158, -83)
+direction = "right"
 
 [node name="Tile" type="TileMapLayer" parent="World"]
 position = Vector2(10, 68)

@@ -23,6 +23,7 @@ func _process(delta):
 	# Call the update function of the current state every frame
 	if current_state:
 		current_state.update(delta)
+		
 
 func _physics_process(delta):
 	# Call the physics_update function of the current state every physics frame
