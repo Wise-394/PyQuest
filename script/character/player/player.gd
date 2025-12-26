@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var speed: float = 300
 @export var air_speed: float = 350
 @export var jump_strength: float = 400
+@export var damage: float = 35
 
 @export_group("Physics")
 @export var gravity: float = 1000
@@ -27,12 +28,12 @@ func _ready() -> void:
 	_initialize_state_machine()
 	hitbox.monitoring = false
 
-func character_damaged(damage: int, attacker: Node2D) -> void:
+func character_damaged(damage_to_reduce: int, attacker: Node2D) -> void:
 	if is_invulnerable:
 		return
 	
 	_calculate_hit_direction(attacker)
-	_apply_damage(damage)
+	_apply_damage(damage_to_reduce)
 	if _is_dead():
 		character_dead()
 
@@ -48,9 +49,9 @@ func _calculate_hit_direction(attacker: Node2D) -> void:
 	if hit_direction == 0:
 		hit_direction = 1
 
-func _apply_damage(damage: int) -> void:
+func _apply_damage(damage_to_reduce: int) -> void:
 	state_machine.change_state("damagedstate")
-	current_health -= damage
+	current_health -= damage_to_reduce
 	health_changed.emit()
 
 func _is_dead() -> bool:

@@ -173,6 +173,7 @@ animations = [{
 size = Vector2(30, 25)
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 3
 script = ExtResource("1_oh5ij")
 
 [node name="HurtBox" type="CollisionShape2D" parent="."]
@@ -184,7 +185,7 @@ sprite_frames = SubResource("SpriteFrames_ml7e8")
 animation = &"attacking1"
 autoplay = "idle"
 
-[node name="HitBox" type="Area2D" parent="."]
+[node name="HitBox" type="Area2D" parent="." groups=["enemy"]]
 collision_layer = 8
 collision_mask = 16
 script = ExtResource("30_dspxq")
@@ -219,3 +220,4 @@ script = ExtResource("29_du2bl")
 script = ExtResource("31_r5eyx")
 
 [connection signal="area_entered" from="HitBox" to="HitBox" method="_on_area_entered"]
+[connection signal="body_entered" from="HitBox" to="HitBox" method="_on_body_entered"]
