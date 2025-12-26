@@ -32,7 +32,7 @@ func change_direction(direction: float) -> void:
 		
 func init_references():
 	character = state_machine.character
-	sprite = character.character_sprite
+	sprite = character.sprite
 	coyote_time = character.cayote_time
 	hitbox = character.hitbox
 	hurtbox = character.hurtbox

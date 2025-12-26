@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cx2ljcqbkehra"]
+[gd_scene load_steps=22 format=3 uid="uid://cx2ljcqbkehra"]
 
 [ext_resource type="Texture2D" uid="uid://dk7ynn0tos83i" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 01.png" id="1_27us2"]
 [ext_resource type="Script" uid="uid://rnig7bxkab7d" path="res://script/character/crab/crab.gd" id="1_admx7"]
@@ -77,6 +77,9 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3puh"]
+size = Vector2(42, 16)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sueps"]
 size = Vector2(22, 23)
 
@@ -88,12 +91,19 @@ sprite_frames = SubResource("SpriteFrames_maayw")
 animation = &"idle"
 autoplay = "idle"
 
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(2, -1)
+shape = SubResource("RectangleShape2D_f3puh")
+
 [node name="HurtBox" type="CollisionShape2D" parent="."]
 position = Vector2(1, 1.5)
 shape = SubResource("RectangleShape2D_sueps")
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("17_f3puh")
+initial_state = NodePath("IdleState")
 
-[node name="IdleState" type="Node" parent="."]
+[node name="IdleState" type="Node" parent="StateMachine"]
 script = ExtResource("18_d6g0r")

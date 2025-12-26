@@ -13,7 +13,7 @@ extends CharacterBody2D
 @export var max_health: int = 100
 
 @onready var current_health: int = max_health
-@onready var character_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_machine = $StateMachine
 @onready var hitbox = $HitBox
 @onready var hurtbox = $HurtBox
