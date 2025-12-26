@@ -2,7 +2,7 @@ extends Node
 
 class_name PlayerState
 
-var state_machine: PlayerStateMachine
+var state_machine: StateMachine
 var character: CharacterBody2D
 var sprite: AnimatedSprite2D
 var hitbox: Area2D

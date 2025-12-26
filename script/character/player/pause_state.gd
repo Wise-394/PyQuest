@@ -1,5 +1,4 @@
 extends PlayerState
-class_name PlayerPauseState
 
 func enter():
 	init_references()

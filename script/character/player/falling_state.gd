@@ -1,5 +1,4 @@
 extends PlayerState
-class_name PlayerFallState
 var coyote_timer := 0.0      
 var came_from_ground := false
 var max_fall_speed := 500.0  # Add a cap for fall speed

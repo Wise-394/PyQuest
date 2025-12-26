@@ -1,7 +1,7 @@
 # Simple state machine for controlling player states.
 # Handles switching between states and calling their update, physics, and input functions.
 extends Node
-class_name PlayerStateMachine
+class_name StateMachine
 
 @export var initial_state: PlayerState  
 var player: CharacterBody2D      
@@ -42,6 +42,3 @@ func change_state(state_name: String):
 	current_state = states.get(state_name.to_lower()) 
 	if current_state:
 		current_state.enter() 
-
-func go_idle():
-	change_state("idlestate")

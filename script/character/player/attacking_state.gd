@@ -1,5 +1,4 @@
 extends PlayerState
-class_name PlayerAttackingState
 
 # -----------------------------
 # VARIABLES

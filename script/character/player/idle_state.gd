@@ -1,5 +1,4 @@
 extends PlayerState
-class_name PlayerIdleState
 func enter():
 	init_references()
 	sprite.play("idle")
