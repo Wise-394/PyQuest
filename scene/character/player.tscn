@@ -170,7 +170,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s4jxa"]
-size = Vector2(30, 25)
+size = Vector2(26, 25)
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 18
@@ -191,7 +191,7 @@ collision_mask = 16
 script = ExtResource("30_dspxq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(25, -0.5)
+position = Vector2(23, -0.5)
 shape = SubResource("RectangleShape2D_s4jxa")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://cx2ljcqbkehra"]
+[gd_scene load_steps=49 format=3 uid="uid://cx2ljcqbkehra"]
 
 [ext_resource type="Texture2D" uid="uid://dk7ynn0tos83i" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 01.png" id="1_27us2"]
 [ext_resource type="Script" uid="uid://rnig7bxkab7d" path="res://script/character/crab/crab.gd" id="1_admx7"]
@@ -43,8 +43,6 @@
 [ext_resource type="Script" uid="uid://jrgqi4ruv5cw" path="res://script/character/crab/vision.gd" id="40_u7c0n"]
 [ext_resource type="Texture2D" uid="uid://dufmokhen46lk" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Dialogue/Exclamation/Exclamation Out 01.png" id="41_6vqjw"]
 [ext_resource type="Texture2D" uid="uid://gfxs2fbkq0bb" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Dialogue/Exclamation/Exclamation Out 02.png" id="42_s25gi"]
-[ext_resource type="Script" uid="uid://c7qbj0nmxclk" path="res://script/character/crab/attack_state.gd" id="43_6vqjw"]
-[ext_resource type="Script" uid="uid://dseiko8wix5ai" path="res://script/character/crab/anticipation_state.gd" id="44_s25gi"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_maayw"]
 animations = [{
@@ -181,19 +179,19 @@ animations = [{
 size = Vector2(68, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sueps"]
-size = Vector2(41, 23)
+size = Vector2(22, 23)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q2o5a"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("42_s25gi")
+"texture": ExtResource("40_0de0m")
 }, {
 "duration": 1.0,
 "texture": ExtResource("41_6vqjw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("40_0de0m")
+"texture": ExtResource("42_s25gi")
 }],
 "loop": false,
 "name": &"default",
@@ -210,7 +208,7 @@ script = ExtResource("1_admx7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_maayw")
-animation = &"anticipation"
+animation = &"attack"
 autoplay = "idle"
 
 [node name="HitBox" type="Area2D" parent="."]
@@ -221,12 +219,12 @@ position = Vector2(2, 5)
 shape = SubResource("RectangleShape2D_f3puh")
 
 [node name="HurtBox" type="CollisionShape2D" parent="."]
-position = Vector2(1.5, 1.5)
+position = Vector2(1, 1.5)
 shape = SubResource("RectangleShape2D_sueps")
 
 [node name="Exclamation" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(1, -16)
+position = Vector2(-1, -16)
 sprite_frames = SubResource("SpriteFrames_q2o5a")
 frame = 1
 frame_progress = 0.216586
@@ -259,12 +257,6 @@ script = ExtResource("30_maayw")
 
 [node name="AggroState" type="Node" parent="StateMachine"]
 script = ExtResource("39_10ces")
-
-[node name="AttackState" type="Node" parent="StateMachine"]
-script = ExtResource("43_6vqjw")
-
-[node name="AnticipationState" type="Node" parent="StateMachine"]
-script = ExtResource("44_s25gi")
 
 [node name="RaycastLeft" type="RayCast2D" parent="."]
 position = Vector2(-20, 8)

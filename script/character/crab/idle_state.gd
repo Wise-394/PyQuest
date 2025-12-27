@@ -7,6 +7,8 @@ func enter():
 	timer.start()
 	sprite.play("idle")
 	
+func exit():
+	timer.stop()	
 	
 func physics_update(delta: float):
 

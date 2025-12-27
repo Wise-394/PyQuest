@@ -14,12 +14,14 @@ extends CharacterBody2D
 @export var gravity := 1000
 @export var health := 100
 
+#signal
+signal direction_changed
 # --- State ---
 var is_alive := true
 var can_change_direction := true
 var is_invulnerable := false
 var hit_direction := 1
-
+var player: CharacterBody2D
 # --- Initialization ---
 func _ready() -> void:
 	_initialize_state_machine()
@@ -55,6 +57,7 @@ func death() -> void:
 func update_direction() -> void:
 	if not can_change_direction:
 		return
-
 	sprite.flip_h = direction > 0
 	hitbox.scale.x = 1 if direction > 0 else -1
+	direction_changed.emit(direction)
+	

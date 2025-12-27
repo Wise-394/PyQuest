@@ -47,4 +47,4 @@ func _on_animation_finished() -> void:
 	if not character.is_alive:
 		state_machine.change_state("deadstate")
 	elif character.is_on_floor():
-		state_machine.change_state("movestate")
+		state_machine.change_state("aggrostate")

@@ -19,6 +19,8 @@ func _ready():
 			states[child.name.to_lower()] = child
 			child.state_machine = self  # Let each state know which state machine controls it
 
+
+
 func _process(delta):
 	# Call the update function of the current state every frame
 	if current_state:
