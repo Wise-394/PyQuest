@@ -92,19 +92,14 @@ level_to_go = "uid://dhrg0cifbv2jt"
 [node name="Platforms" type="Node" parent="World"]
 
 [node name="MovingPlatform2" parent="World/Platforms" instance=ExtResource("1_1k0hc")]
-visible = true
 position = Vector2(1000, 40)
-is_active = false
 
 [node name="MovingPlatform3" parent="World/Platforms" instance=ExtResource("1_1k0hc")]
-visible = true
 position = Vector2(1200, 40)
 curve = SubResource("Curve2D_7ol8c")
 
 [node name="MovingPlatform" parent="World/Platforms" instance=ExtResource("1_1k0hc")]
-visible = true
 position = Vector2(1400, 40)
-is_active = false
 
 [node name="Coins" type="Node" parent="World"]
 
@@ -168,10 +163,8 @@ question_id = 1
 child_nodes = [NodePath("MovingPlatform")]
 
 [node name="MovingPlatform" parent="World/CodingZone/CodingZone" instance=ExtResource("1_1k0hc")]
-visible = true
 position = Vector2(68, 38)
 curve = SubResource("Curve2D_1k0hc")
-is_active = false
 
 [node name="ControllerCodeEditor" parent="World/CodingZone" node_paths=PackedStringArray("child_nodes") instance=ExtResource("8_8we42")]
 position = Vector2(1600, 3)
@@ -193,10 +186,8 @@ offset_bottom = -28.0
 position = Vector2(-18, 25)
 
 [node name="MovingPlatform4" parent="World/CodingZone/ControllerCodeEditor" instance=ExtResource("1_1k0hc")]
-visible = true
 position = Vector2(21, -240)
 curve = SubResource("Curve2D_iboel")
-is_active = false
 
 [node name="Player" parent="." instance=ExtResource("2_pcxlr")]
 position = Vector2(-74, -73)

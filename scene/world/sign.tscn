@@ -23,9 +23,9 @@ shape = SubResource("RectangleShape2D_ms1ol")
 
 [node name="Label" type="Label" parent="."]
 visible = false
-offset_left = -25.0
+offset_left = -62.0
 offset_top = -44.0
-offset_right = 26.0
+offset_right = 61.0
 offset_bottom = -21.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 10
