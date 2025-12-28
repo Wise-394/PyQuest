@@ -1,12 +1,12 @@
 extends State
 
 # --- Configuration ---
-const HORIZONTAL_TOLERANCE := 8
-const EXCLAMATION_DURATION := 1.0
-const ATTACK_RANGE := 42
-const ATTACK_COOLDOWN := 1.0
-const MAX_CHASE_DISTANCE := 200
-const MAX_VERTICAL_DISTANCE := 100
+@export var horizontal_tolerance: int = 8
+@export var exclamation_duration: float = 1.0
+@export var attack_range: int = 42
+@export var attack_cooldown: float = 1.0
+@export var max_chase_distance: int = 250
+@export var max_vertical_distance: int = 150
 
 # --- Node references ---
 @onready var exclamation_sprite: AnimatedSprite2D = $"../../Exclamation"
@@ -52,7 +52,7 @@ func exit():
 # --- Exclamation ---
 func _setup_exclamation_timer() -> void:
 	exclamation_timer = Timer.new()
-	exclamation_timer.wait_time = EXCLAMATION_DURATION
+	exclamation_timer.wait_time = exclamation_duration
 	exclamation_timer.one_shot = true
 	exclamation_timer.timeout.connect(_hide_exclamation)
 	add_child(exclamation_timer)
@@ -67,39 +67,39 @@ func _hide_exclamation() -> void:
 
 # --- De-Aggro Logic ---
 func _should_de_aggro() -> bool:
-	if not character.player:
-		return false
+	# De-aggro if player is missing
+	if character.player == null:
+		return true
 	
 	var horizontal_distance = abs(character.player.global_position.x - character.global_position.x)
 	var vertical_distance = abs(character.player.global_position.y - character.global_position.y)
 	
-	return (
-		horizontal_distance > MAX_CHASE_DISTANCE or
-		vertical_distance > MAX_VERTICAL_DISTANCE or
-		_is_at_edge()
-	)
+	# De-aggro if too far, too high/low, or at edge
+	return horizontal_distance > max_chase_distance \
+		or vertical_distance > max_vertical_distance \
+		or _is_at_edge()
 
 func _is_at_edge() -> bool:
 	if not character.is_on_floor():
 		return false
 	
-	# Raycasts should point DOWN to detect floor edges
-	# Left raycast checks left edge, right raycast checks right edge
 	var moving_left = character.direction < 0
 	var moving_right = character.direction > 0
 	
-	# If moving left and left raycast doesn't detect ground = edge
 	if moving_left and not character.raycast_left.is_colliding():
 		return true
-	
-	# If moving right and right raycast doesn't detect ground = edge
 	if moving_right and not character.raycast_right.is_colliding():
 		return true
 	
 	return false
 
 func _de_aggro() -> void:
+	# Stop moving
 	character.velocity.x = 0
+	_stop_moving()
+	# Clear player target
+	character.player = null
+	# Return to idle
 	character.state_machine.change_state("idlestate")
 
 # --- Attack Logic ---
@@ -107,23 +107,26 @@ func _try_attack() -> bool:
 	if attack_cooldown_timer > 0:
 		return false
 	
+	if character.player == null:
+		return false
+	
 	var distance = character.global_position.distance_to(character.player.global_position)
 	
-	if distance <= ATTACK_RANGE:
+	if distance <= attack_range:
 		character.state_machine.change_state("anticipationstate")
-		attack_cooldown_timer = ATTACK_COOLDOWN
+		attack_cooldown_timer = attack_cooldown
 		return true
 	
 	return false
 
 # --- Chase Logic ---
 func _chase_player() -> void:
-	if not character.player:
+	if character.player == null:
 		return
 	
 	var x_diff = character.player.global_position.x - character.global_position.x
 	
-	if abs(x_diff) > HORIZONTAL_TOLERANCE:
+	if abs(x_diff) > horizontal_tolerance:
 		_move_towards_player(x_diff)
 	else:
 		_stop_moving()

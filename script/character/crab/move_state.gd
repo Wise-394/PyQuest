@@ -21,7 +21,8 @@ func physics_update(delta: float):
 
 	character.move_and_slide()
 	_check_edges()
-
+	if not character.player == null:
+		state_machine.change_state("aggrostate")
 # --- Helpers ---
 
 func _set_random_direction() -> void:

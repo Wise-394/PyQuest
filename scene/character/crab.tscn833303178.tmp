@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://cx2ljcqbkehra"]
+[gd_scene load_steps=51 format=3 uid="uid://cx2ljcqbkehra"]
 
 [ext_resource type="Texture2D" uid="uid://dk7ynn0tos83i" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 01.png" id="1_27us2"]
 [ext_resource type="Script" uid="uid://rnig7bxkab7d" path="res://script/character/crab/crab.gd" id="1_admx7"]
@@ -38,7 +38,6 @@
 [ext_resource type="Script" uid="uid://cuwrc8c2tuosb" path="res://script/character/crab/damaged_state.gd" id="20_86n2j"]
 [ext_resource type="Script" uid="uid://3qjmwva2v43v" path="res://script/character/crab/dead_state.gd" id="29_7lcgg"]
 [ext_resource type="Script" uid="uid://dewkfqocmwk2i" path="res://script/character/crab/falling_state.gd" id="30_maayw"]
-[ext_resource type="Script" uid="uid://pyc687e8m2je" path="res://script/character/crab/hit_box.gd" id="33_q2o5a"]
 [ext_resource type="Script" uid="uid://bgftrrtyqnwp2" path="res://script/character/crab/aggro_state.gd" id="39_10ces"]
 [ext_resource type="Texture2D" uid="uid://dly38viokf7bn" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Dialogue/Exclamation/Exclamation In 03.png" id="40_0de0m"]
 [ext_resource type="Script" uid="uid://jrgqi4ruv5cw" path="res://script/character/crab/vision.gd" id="40_u7c0n"]
@@ -179,7 +178,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3puh"]
-size = Vector2(114, 16)
+size = Vector2(68, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sueps"]
 size = Vector2(41, 23)
@@ -216,7 +215,6 @@ autoplay = "idle"
 
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 0
-script = ExtResource("33_q2o5a")
 
 [node name="Collision" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(2, 5)
@@ -261,7 +259,6 @@ script = ExtResource("30_maayw")
 
 [node name="AggroState" type="Node" parent="StateMachine"]
 script = ExtResource("39_10ces")
-attack_range = 64
 
 [node name="AttackState" type="Node" parent="StateMachine"]
 script = ExtResource("43_6vqjw")
@@ -270,12 +267,12 @@ script = ExtResource("43_6vqjw")
 script = ExtResource("44_s25gi")
 
 [node name="RaycastLeft" type="RayCast2D" parent="."]
-position = Vector2(-17, 8)
+position = Vector2(-20, 8)
 target_position = Vector2(0, 7)
 collision_mask = 2
 
 [node name="RaycastRight" type="RayCast2D" parent="."]
-position = Vector2(20, 8)
+position = Vector2(24, 8)
 target_position = Vector2(0, 7)
 collision_mask = 2
 
@@ -287,7 +284,6 @@ script = ExtResource("40_u7c0n")
 position = Vector2(-109.5, -12.5)
 shape = SubResource("RectangleShape2D_10ces")
 
-[connection signal="body_entered" from="HitBox" to="HitBox" method="_on_body_entered"]
 [connection signal="timeout" from="StateMachine/IdleState/Timer" to="StateMachine/IdleState" method="_on_timer_timeout"]
 [connection signal="timeout" from="StateMachine/MoveState/Timer" to="StateMachine/MoveState" method="_on_timer_timeout"]
 [connection signal="timeout" from="StateMachine/DeadState/Timer" to="StateMachine/DeadState" method="_on_timer_timeout"]

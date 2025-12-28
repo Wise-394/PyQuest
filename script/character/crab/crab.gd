@@ -13,7 +13,7 @@ extends CharacterBody2D
 @export var speed := 100
 @export var gravity := 1000
 @export var health := 100
-
+@export var damage = 25
 #signal
 signal direction_changed
 # --- State ---
@@ -26,6 +26,7 @@ var player: CharacterBody2D
 func _ready() -> void:
 	_initialize_state_machine()
 	update_direction()
+	hitbox.monitoring = false
 
 func _initialize_state_machine() -> void:
 	if state_machine and state_machine.initial_state:
@@ -42,6 +43,7 @@ func damaged(damage_amount: int, attacker: Node2D) -> void:
 	if health <= 0:
 		death()
 	else:
+		player = attacker
 		state_machine.change_state("damagedstate")
 
 func _calculate_hit_direction(attacker: Node2D) -> void:
