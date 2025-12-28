@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjv2dsnjvb4np"]
+
+[ext_resource type="Script" uid="uid://dd6alsoslp75s" path="res://script/character/enemy_health_bar.gd" id="1_78ss7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fudj8"]
+bg_color = Color(0.6, 0.6, 0.6, 0.3372549)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_78ss7"]
+bg_color = Color(0.91743, 0.3875733, 0.35369453, 1)
+
+[node name="EnemyHealthBar" type="ProgressBar"]
+offset_right = 62.0
+offset_bottom = 11.0
+theme_override_styles/background = SubResource("StyleBoxFlat_fudj8")
+theme_override_styles/fill = SubResource("StyleBoxFlat_78ss7")
+value = 0.65
+show_percentage = false
+script = ExtResource("1_78ss7")

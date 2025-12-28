@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://cx2ljcqbkehra"]
+[gd_scene load_steps=53 format=3 uid="uid://cx2ljcqbkehra"]
 
 [ext_resource type="Texture2D" uid="uid://dk7ynn0tos83i" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 01.png" id="1_27us2"]
 [ext_resource type="Script" uid="uid://rnig7bxkab7d" path="res://script/character/crab/crab.gd" id="1_admx7"]
@@ -46,6 +46,7 @@
 [ext_resource type="Texture2D" uid="uid://gfxs2fbkq0bb" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Dialogue/Exclamation/Exclamation Out 02.png" id="42_s25gi"]
 [ext_resource type="Script" uid="uid://c7qbj0nmxclk" path="res://script/character/crab/attack_state.gd" id="43_6vqjw"]
 [ext_resource type="Script" uid="uid://dseiko8wix5ai" path="res://script/character/crab/anticipation_state.gd" id="44_s25gi"]
+[ext_resource type="PackedScene" uid="uid://bjv2dsnjvb4np" path="res://scene/character/enemy_health_bar.tscn" id="47_cmos6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_maayw"]
 animations = [{
@@ -228,7 +229,7 @@ shape = SubResource("RectangleShape2D_sueps")
 
 [node name="Exclamation" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(1, -16)
+position = Vector2(2, -24)
 sprite_frames = SubResource("SpriteFrames_q2o5a")
 frame = 1
 frame_progress = 0.216586
@@ -286,6 +287,13 @@ script = ExtResource("40_u7c0n")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vision"]
 position = Vector2(-109.5, -12.5)
 shape = SubResource("RectangleShape2D_10ces")
+
+[node name="EnemyHealthBar" parent="." instance=ExtResource("47_cmos6")]
+visible = false
+offset_left = -15.0
+offset_top = -17.0
+offset_right = 19.0
+offset_bottom = -12.0
 
 [connection signal="body_entered" from="HitBox" to="HitBox" method="_on_body_entered"]
 [connection signal="timeout" from="StateMachine/IdleState/Timer" to="StateMachine/IdleState" method="_on_timer_timeout"]

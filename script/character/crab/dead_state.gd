@@ -9,7 +9,8 @@ func enter():
 	character.velocity = Vector2(0, -100)
 	character.gravity = 400 
 	hurtbox.disabled = true
-
+	character.health_bar.visible = false 
+	
 	if not sprite.animation_finished.is_connected(_on_animation_finished):
 		sprite.animation_finished.connect(_on_animation_finished)
 	sprite.play("dead")
