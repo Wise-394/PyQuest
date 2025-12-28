@@ -1,5 +1,5 @@
 extends State
-@export var knockback_strength := Vector2(50, 100)
+@export var knockback_strength := Vector2(150, 150)
 @export var invulnerable_duration := 0.5
 
 var is_finished := false
