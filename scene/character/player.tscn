@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bnhiv8qcc5ro5"]
+[gd_scene load_steps=47 format=3 uid="uid://bnhiv8qcc5ro5"]
 
 [ext_resource type="Script" uid="uid://c5ju0fqtma84j" path="res://script/character/player/player.gd" id="1_oh5ij"]
 [ext_resource type="Texture2D" uid="uid://d3iabltfl48bw" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/15-Attack 1/Attack 1 01.png" id="2_2k1ob"]
@@ -19,8 +19,12 @@
 [ext_resource type="Texture2D" uid="uid://cpeldffcmpxca" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/06-Hit/Hit 03.png" id="13_6ecoa"]
 [ext_resource type="Texture2D" uid="uid://5obggclm3270" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/06-Hit/Hit 04.png" id="14_q48bb"]
 [ext_resource type="Texture2D" uid="uid://6y5pyw0roffi" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/04-Fall/Fall 01.png" id="15_jkvft"]
+[ext_resource type="Texture2D" uid="uid://be16juhpevjl6" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/08-Dead Ground/Dead Ground 01.png" id="15_my3qa"]
 [ext_resource type="Texture2D" uid="uid://32g2jgj3phuh" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="16_8jj7p"]
+[ext_resource type="Texture2D" uid="uid://b8usbi3wysrhw" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/08-Dead Ground/Dead Ground 02.png" id="16_qe7ey"]
 [ext_resource type="Texture2D" uid="uid://c4plro7dwjkqq" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 02.png" id="17_dspxq"]
+[ext_resource type="Texture2D" uid="uid://bmjo51u4ityxp" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/08-Dead Ground/Dead Ground 03.png" id="17_m2nv4"]
+[ext_resource type="Texture2D" uid="uid://bdpxbn6qwkckn" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/08-Dead Ground/Dead Ground 04.png" id="18_8b5fv"]
 [ext_resource type="Texture2D" uid="uid://dg35gos7dbws1" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 03.png" id="18_mes5m"]
 [ext_resource type="Texture2D" uid="uid://0qddvjl11lsw" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 04.png" id="19_8bjn4"]
 [ext_resource type="Texture2D" uid="uid://cdwnhyx4nx5ix" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 05.png" id="20_8onqo"]
@@ -38,6 +42,7 @@
 [ext_resource type="Texture2D" uid="uid://drpcyeh7mj3ec" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 06.png" id="29_my3qa"]
 [ext_resource type="Script" uid="uid://bxt2uug3lcixy" path="res://scene/character/hit_box.gd" id="30_dspxq"]
 [ext_resource type="Script" uid="uid://dlgrkpgwlookw" path="res://script/character/player/attacking_state.gd" id="31_r5eyx"]
+[ext_resource type="Script" uid="uid://b7ps7d3m653fo" path="res://script/character/player/dead_state.gd" id="43_qe7ey"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q48bb"]
 size = Vector2(21, 28)
@@ -101,6 +106,23 @@ animations = [{
 }],
 "loop": false,
 "name": &"damaged",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_my3qa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_qe7ey")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_m2nv4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_8b5fv")
+}],
+"loop": false,
+"name": &"dead",
 "speed": 10.0
 }, {
 "frames": [{
@@ -184,8 +206,10 @@ shape = SubResource("RectangleShape2D_q48bb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ml7e8")
-animation = &"attacking1"
+animation = &"dead"
 autoplay = "idle"
+frame = 3
+frame_progress = 1.0
 
 [node name="HitBox" type="Area2D" parent="." groups=["enemy"]]
 collision_layer = 8
@@ -221,6 +245,12 @@ script = ExtResource("29_du2bl")
 [node name="AttackingState" type="Node" parent="StateMachine"]
 script = ExtResource("31_r5eyx")
 
+[node name="DeadState" type="Node" parent="StateMachine"]
+script = ExtResource("43_qe7ey")
+
+[node name="Timer" type="Timer" parent="StateMachine/DeadState"]
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/DamagedState" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="HitBox" to="HitBox" method="_on_area_entered"]
 [connection signal="body_entered" from="HitBox" to="HitBox" method="_on_body_entered"]
+[connection signal="timeout" from="StateMachine/DeadState/Timer" to="StateMachine/DeadState" method="_on_timer_timeout"]

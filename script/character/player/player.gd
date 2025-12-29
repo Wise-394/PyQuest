@@ -21,7 +21,7 @@ extends CharacterBody2D
 var coyote_timer := 0.0
 var hit_direction := 1
 var is_invulnerable := false
-
+var is_alive = true
 signal health_changed
 
 func _ready() -> void:
@@ -34,11 +34,6 @@ func character_damaged(damage_to_reduce: int, attacker: Node2D) -> void:
 	
 	_calculate_hit_direction(attacker)
 	_apply_damage(damage_to_reduce)
-	if _is_dead():
-		character_dead()
-
-func character_dead() -> void:
-	get_tree().call_deferred("reload_current_scene")
 
 func _initialize_state_machine() -> void:
 	if state_machine and state_machine.initial_state:
@@ -50,9 +45,7 @@ func _calculate_hit_direction(attacker: Node2D) -> void:
 		hit_direction = 1
 
 func _apply_damage(damage_to_reduce: int) -> void:
-	state_machine.change_state("damagedstate")
 	current_health -= damage_to_reduce
 	health_changed.emit()
-
-func _is_dead() -> bool:
-	return current_health <= 0
+	
+	state_machine.change_state("damagedstate")

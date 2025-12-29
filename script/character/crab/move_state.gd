@@ -50,3 +50,9 @@ func _on_timer_timeout() -> void:
 
 	if randf() > 0.5:
 		state_machine.change_state("idlestate")
+	else:
+		if randf() > 0.5:
+			var new_dir = -character.direction
+			_set_direction(new_dir)
+		else:
+			pass
