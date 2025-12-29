@@ -7,7 +7,8 @@ extends Node
 	1: "res://scene/lvl/lvl_1.tscn",
 	2: "res://scene/lvl/lvl_2.tscn",
 	3: "res://scene/lvl/lvl_3.tscn",
-	4: "res://scene/lvl/lvl_4.tscn"
+	4: "res://scene/lvl/lvl_4.tscn",
+	5: "res://scene/lvl/lvl_5.tscn"
 }
 func _ready() -> void:
 	color_rect.color = Color.TRANSPARENT

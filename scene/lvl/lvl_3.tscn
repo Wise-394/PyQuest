@@ -113,9 +113,6 @@ position = Vector2(560, -32)
 
 [node name="Flag" parent="World" instance=ExtResource("4_v0urs")]
 position = Vector2(732, 146)
-
-[node name="Flag2" parent="World" instance=ExtResource("4_v0urs")]
-position = Vector2(732, 146)
 level_to_go = "uid://8h17yxwjyk2m"
 
 [node name="CodingZone" type="Node" parent="World"]

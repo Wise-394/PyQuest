@@ -65,6 +65,7 @@ direction = "right"
 
 [node name="Flag" parent="World" instance=ExtResource("5_4c0oi")]
 position = Vector2(417, -493)
+level_to_go = "uid://b78n04ccquc71"
 
 [node name="Coins" type="Node" parent="World"]
 

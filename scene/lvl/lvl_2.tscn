@@ -82,7 +82,7 @@ is_explanation = true
 
 [node name="Flag" parent="World" instance=ExtResource("6_4xgpj")]
 position = Vector2(-461, -78)
-level_to_go = "uid://8h17yxwjyk2m"
+level_to_go = "uid://cy6piaava8a3j"
 
 [node name="MovingPlatform" parent="World" instance=ExtResource("4_quxhs")]
 position = Vector2(-588, 261)
