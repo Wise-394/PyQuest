@@ -15,3 +15,7 @@ func hide_menu():
 	visible = false
 func show_menu():
 	visible = true
+
+
+func _on_exit_button_pressed() -> void:
+	get_tree().quit()

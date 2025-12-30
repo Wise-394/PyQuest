@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b03u3kqbj2i16"]
-
-[ext_resource type="Script" uid="uid://jidu6eciw0f5" path="res://script/dialog/arithmetic_dialog.gd" id="1_myep6"]
-
-[node name="ArithmeticDialog" type="Node"]
-script = ExtResource("1_myep6")

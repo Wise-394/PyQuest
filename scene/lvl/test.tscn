@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://bo4sxd72s2q44"]
+[gd_scene load_steps=28 format=4 uid="uid://bo4sxd72s2q44"]
 
 [ext_resource type="PackedScene" uid="uid://c7kxpnns5fv8p" path="res://scene/world/cannon.tscn" id="1_h80a8"]
 [ext_resource type="TileSet" uid="uid://d1yxhu13jwkq3" path="res://tileset/island.tres" id="1_ro0lh"]
@@ -8,10 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://dc7ihfcrpl10v" path="res://scene/world/camera.tscn" id="5_y6j7t"]
 [ext_resource type="PackedScene" uid="uid://b4v1ihuy8lse3" path="res://scene/character/starfish.tscn" id="6_u88mq"]
 [ext_resource type="PackedScene" uid="uid://dwv1bc5r8s2a8" path="res://scene/world/flag.tscn" id="6_w6wcs"]
-[ext_resource type="PackedScene" uid="uid://dtnu4f76mnhu4" path="res://scene/dialog_node/introduction_dialog.tscn" id="7_75gap"]
 [ext_resource type="PackedScene" uid="uid://d00fronllv71j" path="res://scene/world/coin.tscn" id="7_u88mq"]
 [ext_resource type="PackedScene" uid="uid://dqmhjufmdngui" path="res://scene/world/chest.tscn" id="8_75gap"]
-[ext_resource type="PackedScene" uid="uid://7am8ralce3gf" path="res://scene/dialog_node/test_dialog.tscn" id="8_f6yxf"]
+[ext_resource type="PackedScene" uid="uid://7am8ralce3gf" path="res://scene/dialog_node/dialog.tscn" id="8_f6yxf"]
 [ext_resource type="PackedScene" uid="uid://dmpjs602qhkf4" path="res://scene/world/spike.tscn" id="9_yo8cd"]
 [ext_resource type="PackedScene" uid="uid://nvxql4d8clds" path="res://scene/world/coding_zone.tscn" id="10_yo8cd"]
 [ext_resource type="PackedScene" uid="uid://bwrop6cmmut7u" path="res://scene/world/moving_platform.tscn" id="11_3yhi0"]
@@ -19,8 +18,10 @@
 [ext_resource type="PackedScene" uid="uid://c8mm1rrfpibeu" path="res://scene/ui/zone_remaining.tscn" id="13_ft8cw"]
 [ext_resource type="PackedScene" uid="uid://44hfsfdoy30p" path="res://scene/character/healthbar.tscn" id="13_y6j7t"]
 [ext_resource type="PackedScene" uid="uid://chv6oqvx3a4j8" path="res://scene/world/parallax_bg.tscn" id="14_y6j7t"]
+[ext_resource type="Resource" uid="uid://b2nn16xj5slqe" path="res://dialog/test.dialogue" id="16_8205d"]
 [ext_resource type="PackedScene" uid="uid://dl7srt6thlc11" path="res://scene/ui/coin_container.tscn" id="16_f6yxf"]
 [ext_resource type="PackedScene" uid="uid://lg4gs88e7o62" path="res://scene/ui/pause_button.tscn" id="17_6nwkn"]
+[ext_resource type="Resource" uid="uid://dferoe7tt45b2" path="res://dialog/variable.dialogue" id="17_cih2f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ro0lh"]
 size = Vector2(92, 50)
@@ -156,15 +157,17 @@ position = Vector2(118, -15)
 
 [node name="Starfish" parent="Npc" node_paths=PackedStringArray("dialog") instance=ExtResource("6_u88mq")]
 position = Vector2(54, 39)
-dialog = NodePath("Introduction")
+dialog = NodePath("DialogScene")
 
-[node name="Introduction" parent="Npc/Starfish" instance=ExtResource("7_75gap")]
+[node name="DialogScene" parent="Npc/Starfish" instance=ExtResource("8_f6yxf")]
+dialog = ExtResource("16_8205d")
 
 [node name="Starfish2" parent="Npc" node_paths=PackedStringArray("dialog") instance=ExtResource("6_u88mq")]
 position = Vector2(169, 39)
-dialog = NodePath("TestDialog")
+dialog = NodePath("DialogScene")
 
-[node name="TestDialog" parent="Npc/Starfish2" instance=ExtResource("8_f6yxf")]
+[node name="DialogScene" parent="Npc/Starfish2" instance=ExtResource("8_f6yxf")]
+dialog = ExtResource("17_cih2f")
 
 [node name="UI" type="Node" parent="."]
 

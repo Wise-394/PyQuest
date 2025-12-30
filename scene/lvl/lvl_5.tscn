@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://b78n04ccquc71"]
+[gd_scene load_steps=22 format=4 uid="uid://b78n04ccquc71"]
 
 [ext_resource type="PackedScene" uid="uid://c3r52si75dmo7" path="res://scene/world/dead_zone.tscn" id="1_8j1a6"]
 [ext_resource type="TileSet" uid="uid://d1yxhu13jwkq3" path="res://tileset/island.tres" id="2_d2st7"]
@@ -14,7 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://lg4gs88e7o62" path="res://scene/ui/pause_button.tscn" id="7_fx6fq"]
 [ext_resource type="PackedScene" uid="uid://chv6oqvx3a4j8" path="res://scene/world/parallax_bg.tscn" id="8_c6bl2"]
 [ext_resource type="PackedScene" uid="uid://b4v1ihuy8lse3" path="res://scene/character/starfish.tscn" id="8_lscxi"]
-[ext_resource type="PackedScene" uid="uid://cv8vov1ntt2q2" path="res://script/dialog/comparison_dialog.tscn" id="9_foko4"]
+[ext_resource type="PackedScene" uid="uid://7am8ralce3gf" path="res://scene/dialog_node/dialog.tscn" id="9_f2e2h"]
+[ext_resource type="Resource" uid="uid://cntg4gctwbn2r" path="res://dialog/comparison_operator.dialogue" id="10_u0ewx"]
 [ext_resource type="PackedScene" uid="uid://nvxql4d8clds" path="res://scene/world/coding_zone.tscn" id="13_fx6fq"]
 [ext_resource type="PackedScene" uid="uid://bwrop6cmmut7u" path="res://scene/world/moving_platform.tscn" id="14_c6bl2"]
 [ext_resource type="PackedScene" uid="uid://dwv1bc5r8s2a8" path="res://scene/world/flag.tscn" id="15_c6bl2"]
@@ -135,10 +136,11 @@ position = Vector2(82, -94)
 position = Vector2(82, -110)
 
 [node name="Starfish" parent="World" node_paths=PackedStringArray("dialog") instance=ExtResource("8_lscxi")]
-position = Vector2(-116, 3)
-dialog = NodePath("ComparisonDialog")
+position = Vector2(-116, 2)
+dialog = NodePath("DialogScene")
 
-[node name="ComparisonDialog" parent="World/Starfish" instance=ExtResource("9_foko4")]
+[node name="DialogScene" parent="World/Starfish" instance=ExtResource("9_f2e2h")]
+dialog = ExtResource("10_u0ewx")
 
 [node name="Player" parent="." instance=ExtResource("2_j0w7k")]
 position = Vector2(-181, -55)

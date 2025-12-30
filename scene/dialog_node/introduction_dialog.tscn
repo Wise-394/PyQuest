@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtnu4f76mnhu4"]
-
-[ext_resource type="Script" uid="uid://bprbdhl2vmxgs" path="res://script/dialog/introduction_dialog.gd" id="1_f7a3d"]
-
-[node name="IntroductionDialog" type="Node"]
-script = ExtResource("1_f7a3d")

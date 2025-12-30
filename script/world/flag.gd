@@ -1,7 +1,7 @@
 extends Area2D
 
 @onready var zone_remaining: Label = get_tree().current_scene.get_node("UI/CanvasLayer/ZoneRemaining")
-@onready var coin_label = get_tree().current_scene.get_node("UI/CanvasLayer/CoinContainer")
+@onready var coin_label = get_tree().current_scene.get_node("UI/CanvasLayer/CoinContainer/CoinLabel")
 @export_file("*.tscn") var level_to_go: String
 
 func _on_body_entered(body: Node2D) -> void:
