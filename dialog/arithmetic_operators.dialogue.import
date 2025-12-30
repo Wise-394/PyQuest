@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bng43kqxt2awu"
+path="res://.godot/imported/arithmetic_operators.dialogue-a7d5d5618bb32768409f16d06b343d5c.tres"
+
+[deps]
+
+source_file="res://dialog/arithmetic_operators.dialogue"
+dest_files=["res://.godot/imported/arithmetic_operators.dialogue-a7d5d5618bb32768409f16d06b343d5c.tres"]
+
+[params]
+
+defaults=true

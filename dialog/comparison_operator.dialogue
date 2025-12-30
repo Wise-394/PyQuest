@@ -1,0 +1,49 @@
+~ start
+starfish: [center]Adventurer, I have a challenge for you.[/center]
+starfish: Two treasure chests lie before us.
+starfish: One has 10 gold. The other has 15 gold.
+starfish: How do we know which is better?
+- Compare them. => compare_intro
+- I already know this. => end_dialog
+
+~ compare_intro
+starfish: Exactly!
+starfish: In Python, we compare values using [b]Comparison Operators[/b].
+starfish: These operators don’t give numbers…
+starfish: They give answers.
+starfish: Only [b]True[/b] or [b]False[/b].
+=> example_one
+
+~ example_one
+starfish: If Python checks:
+starfish: [b]15 > 10[/b]
+starfish: The answer is [b]True[/b].
+starfish: That symbol [b]>[/b] means “greater than”.
+=> more_examples
+
+~ more_examples
+starfish: Let’s look at a few more.
+starfish: [b]==[/b] asks: “Are these the same?”
+starfish: [b]!=[/b] asks: “Are these different?”
+starfish: [b]<[/b] asks: “Is the left smaller?”
+starfish: Python reads these like questions.
+=> decision_time
+
+~ decision_time
+starfish: Imagine a game checking your score.
+starfish: Is your score high enough?
+starfish: Is your health too low?
+starfish: Comparison operators help Python decide what happens next.
+=> final_tip
+
+~ final_tip
+starfish: Remember this well.
+starfish: Numbers are compared.
+starfish: Answers are returned.
+starfish: And those answers guide your program’s choices.
+=> end_dialog
+
+~ end_dialog
+starfish: Well done, adventurer.
+starfish: The code now listens to your decisions.
+=> END

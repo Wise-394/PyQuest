@@ -1,0 +1,33 @@
+~ start
+starfish: [center]Now that you know data types, let's learn how to work with numbers.[/center]
+starfish: In Python, we use [b]Arithmetic Operators[/b] to do math.
+- What are arithmetic operators? => explanation
+- I already know this. => end_dialog
+
+~ explanation
+starfish: [b]Arithmetic Operators[/b] are symbols that tell Python to perform math operations.
+starfish: They let you add, subtract, multiply, and more.
+- Show me the operators. => operators_list
+
+~ operators_list
+starfish: These are the common arithmetic operators in Python.
+starfish: [b]+[/b] Addition — adds numbers together.
+starfish: [b]-[/b] Subtraction — subtracts one number from another.
+starfish: [b]*[/b] Multiplication — multiplies numbers.
+starfish: [b]/[/b] Division — divides numbers and gives a decimal result.
+starfish: [b]%[/b] Modulus — gives the remainder after division.
+starfish: [b]**[/b] Exponent — raises a number to a power.
+starfish: [b]//[/b] Floor Division — divides and removes the decimal part.
+- Why should I learn these? => importance
+- I understand. => end_dialog
+
+~ importance
+starfish: Arithmetic operators allow your programs to calculate scores, health, money, and more.
+starfish: Games, apps, and systems all rely on math operations.
+starfish: Without them, programs wouldn’t be very useful!
+=> end_dialog
+
+~ end_dialog
+starfish: Great job, adventurer!
+starfish: You are one step closer to mastering Python.
+=> END

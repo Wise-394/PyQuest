@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cntg4gctwbn2r"
+path="res://.godot/imported/comparison_operator.dialogue-5e0febee27641bb25485ca5f5ef9c16c.tres"
+
+[deps]
+
+source_file="res://dialog/comparison_operator.dialogue"
+dest_files=["res://.godot/imported/comparison_operator.dialogue-5e0febee27641bb25485ca5f5ef9c16c.tres"]
+
+[params]
+
+defaults=true

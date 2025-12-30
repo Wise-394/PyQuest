@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cv8vov1ntt2q2"]
+
+[ext_resource type="Script" uid="uid://d3swoc5t86uet" path="res://script/dialog/comparison_dialog.gd" id="1_wxe05"]
+
+[node name="ComparisonDialog" type="Node"]
+script = ExtResource("1_wxe05")
