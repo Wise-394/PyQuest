@@ -1,0 +1,83 @@
+~ start
+starfish: [center]Traveler, let’s talk about logic in Python.[/center]
+starfish: A single rule is not always enough.
+starfish: Sometimes, conditions must work together.
+starfish: Which logical operator would you like to learn first?
+- AND => and_intro
+- OR => or_intro
+- NOT => not_intro
+- I already know this. => end_dialog
+
+
+~ and_intro
+starfish: Let’s start with [b]and[/b].
+starfish: This operator is strict.
+starfish: Every condition must be True.
+starfish: If one condition is False, the result is False.
+=> and_example
+
+
+~ and_example
+starfish: Python checks:
+starfish: [b]True and True[/b]
+starfish: The result is [b]True[/b].
+starfish: But:
+starfish: [b]True and False[/b]
+starfish: The result is [b]False[/b].
+- Learn another operator. => choose_next
+- I understand AND. => choose_next
+
+
+~ or_intro
+starfish: Now let’s look at [b]or[/b].
+starfish: This operator is more flexible.
+starfish: Only one condition needs to be True.
+=> or_example
+
+
+~ or_example
+starfish: Python checks:
+starfish: [b]False or True[/b]
+starfish: The result is [b]True[/b].
+starfish: The result is False only when both sides are False.
+- Learn another operator. => choose_next
+- I understand OR. => choose_next
+
+
+~ not_intro
+starfish: Finally, we have [b]not[/b].
+starfish: This operator reverses a condition.
+=> not_example
+
+
+~ not_example
+starfish: Python checks:
+starfish: [b]not False[/b]
+starfish: The result is [b]True[/b].
+starfish: And:
+starfish: [b]not True[/b]
+starfish: The result is [b]False[/b].
+- Learn another operator. => choose_next
+- I understand NOT. => choose_next
+
+
+~ choose_next
+starfish: Which operator would you like to learn next?
+- AND => and_intro
+- OR => or_intro
+- NOT => not_intro
+- I’m ready to move on. => wrap_up
+
+
+~ wrap_up
+starfish: Logical operators do not make decisions by themselves.
+starfish: They help build conditions.
+starfish: Next, you’ll learn how to use them with control statements.
+starfish: but for now, you'll learn how to use logical operators first.
+=> end_dialog
+
+
+~ end_dialog
+starfish: Good work.
+starfish: Let’s continue when you’re ready.
+=> END

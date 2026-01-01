@@ -35,7 +35,7 @@ point_count = 2
 
 [node name="Flag" parent="World" instance=ExtResource("15_c6bl2")]
 position = Vector2(846, -14)
-level_to_go = "uid://di0sgrk2mvdre"
+level_to_go = "uid://c4hv06cbsq7qe"
 
 [node name="DeadZone" parent="World" instance=ExtResource("1_8j1a6")]
 position = Vector2(-213, 266)

@@ -85,6 +85,15 @@ offset_bottom = 107.0
 text = "5"
 level = 5
 
+[node name="LevelButton6" parent="Panel" instance=ExtResource("2_au35g")]
+layout_mode = 0
+offset_left = 50.375
+offset_top = 130.0
+offset_right = 110.375
+offset_bottom = 190.0
+text = "6"
+level = 6
+
 [node name="BackButton" type="Button" parent="Panel"]
 layout_mode = 0
 offset_left = -13.625

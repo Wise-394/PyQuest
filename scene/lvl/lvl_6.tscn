@@ -1,9 +1,15 @@
-[gd_scene load_steps=16 format=4 uid="uid://c4hv06cbsq7qe"]
+[gd_scene load_steps=22 format=4 uid="uid://c4hv06cbsq7qe"]
 
 [ext_resource type="PackedScene" uid="uid://c3r52si75dmo7" path="res://scene/world/dead_zone.tscn" id="2_m5ojh"]
 [ext_resource type="TileSet" uid="uid://d1yxhu13jwkq3" path="res://tileset/island.tres" id="3_c18ah"]
 [ext_resource type="PackedScene" uid="uid://cx2ljcqbkehra" path="res://scene/character/crab.tscn" id="4_st556"]
+[ext_resource type="PackedScene" uid="uid://c7kxpnns5fv8p" path="res://scene/world/cannon.tscn" id="6_51als"]
+[ext_resource type="PackedScene" uid="uid://dwv1bc5r8s2a8" path="res://scene/world/flag.tscn" id="7_m6uro"]
+[ext_resource type="PackedScene" uid="uid://d00fronllv71j" path="res://scene/world/coin.tscn" id="8_jwjcv"]
+[ext_resource type="PackedScene" uid="uid://b4v1ihuy8lse3" path="res://scene/character/starfish.tscn" id="9_frtk8"]
+[ext_resource type="PackedScene" uid="uid://7am8ralce3gf" path="res://scene/dialog_node/dialog.tscn" id="10_lbshv"]
 [ext_resource type="PackedScene" uid="uid://bnhiv8qcc5ro5" path="res://scene/character/player.tscn" id="11_4xjbp"]
+[ext_resource type="Resource" uid="uid://du46xv67uiy1c" path="res://dialog/logical_operator.dialogue" id="11_47sae"]
 [ext_resource type="PackedScene" uid="uid://dc7ihfcrpl10v" path="res://scene/world/camera.tscn" id="12_0lftp"]
 [ext_resource type="PackedScene" uid="uid://chv6oqvx3a4j8" path="res://scene/world/parallax_bg.tscn" id="13_fjpvl"]
 [ext_resource type="PackedScene" uid="uid://nvxql4d8clds" path="res://scene/world/coding_zone.tscn" id="14_tdtjm"]
@@ -44,14 +50,37 @@ tile_set = ExtResource("3_c18ah")
 
 [node name="CodingZone" type="Node" parent="World"]
 
-[node name="CodingZone" parent="World/CodingZone" instance=ExtResource("14_tdtjm")]
+[node name="CodingZone" parent="World/CodingZone" node_paths=PackedStringArray("child_nodes") instance=ExtResource("14_tdtjm")]
 position = Vector2(115, -122)
+level = 6
+question_id = 1
+child_nodes = [NodePath("MovingPlatform3")]
+is_explanation = true
 
-[node name="CodingZone2" parent="World/CodingZone" instance=ExtResource("14_tdtjm")]
+[node name="MovingPlatform3" parent="World/CodingZone/CodingZone" instance=ExtResource("15_pebrh")]
+position = Vector2(163, -100)
+curve = SubResource("Curve2D_sh6gm")
+
+[node name="CodingZone2" parent="World/CodingZone" node_paths=PackedStringArray("child_nodes") instance=ExtResource("14_tdtjm")]
 position = Vector2(792, -42)
+level = 6
+question_id = 2
+child_nodes = [NodePath("MovingPlatform")]
+is_explanation = true
 
-[node name="CodingZone3" parent="World/CodingZone" instance=ExtResource("14_tdtjm")]
+[node name="MovingPlatform" parent="World/CodingZone/CodingZone2" instance=ExtResource("15_pebrh")]
+position = Vector2(268, 63)
+curve = SubResource("Curve2D_51als")
+
+[node name="CodingZone3" parent="World/CodingZone" node_paths=PackedStringArray("child_nodes") instance=ExtResource("14_tdtjm")]
 position = Vector2(1294, -137)
+level = 6
+question_id = 3
+child_nodes = [NodePath("MovingPlatform2")]
+
+[node name="MovingPlatform2" parent="World/CodingZone/CodingZone3" instance=ExtResource("15_pebrh")]
+position = Vector2(-176, -143)
+curve = SubResource("Curve2D_m6uro")
 
 [node name="Enemy" type="Node" parent="World"]
 
@@ -64,20 +93,81 @@ position = Vector2(769, -300)
 [node name="Crab3" parent="World/Enemy" instance=ExtResource("4_st556")]
 position = Vector2(358, -412)
 
-[node name="MovingPlatform3" parent="World" instance=ExtResource("15_pebrh")]
-position = Vector2(278, -222)
-curve = SubResource("Curve2D_sh6gm")
-is_active = true
+[node name="cannon" parent="World" instance=ExtResource("6_51als")]
+position = Vector2(692, -29)
 
-[node name="MovingPlatform" parent="World" instance=ExtResource("15_pebrh")]
-position = Vector2(1060, 21)
-curve = SubResource("Curve2D_51als")
-is_active = true
+[node name="Flag" parent="World" instance=ExtResource("7_m6uro")]
+position = Vector2(542, -606)
+level_to_go = "uid://di0sgrk2mvdre"
 
-[node name="MovingPlatform2" parent="World" instance=ExtResource("15_pebrh")]
-position = Vector2(1118, -280)
-curve = SubResource("Curve2D_m6uro")
-is_active = true
+[node name="coins" type="Node" parent="World"]
+
+[node name="Coin" parent="World/coins" instance=ExtResource("8_jwjcv")]
+position = Vector2(-8, 8)
+
+[node name="Coin2" parent="World/coins" instance=ExtResource("8_jwjcv")]
+position = Vector2(-8, -35)
+
+[node name="Coin3" parent="World/coins" instance=ExtResource("8_jwjcv")]
+position = Vector2(-8, -84)
+
+[node name="Coin4" parent="World/coins" instance=ExtResource("8_jwjcv")]
+position = Vector2(276, -200)
+
+[node name="Coin5" parent="World/coins" instance=ExtResource("8_jwjcv")]
+position = Vector2(276, -184)
+
+[node name="Coin6" parent="World/coins" instance=ExtResource("8_jwjcv")]
+position = Vector2(276, -168)
+
+[node name="Coin7" parent="World/coins" instance=ExtResource("8_jwjcv")]
+position = Vector2(276, -153)
+
+[node name="Coin8" parent="World/coins" instance=ExtResource("8_jwjcv")]
+position = Vector2(276, -139)
+
+[node name="Coin9" parent="World/coins" instance=ExtResource("8_jwjcv")]
+position = Vector2(413, -41)
+
+[node name="Coin10" parent="World/coins" instance=ExtResource("8_jwjcv")]
+position = Vector2(427, -41)
+
+[node name="Coin11" parent="World/coins" instance=ExtResource("8_jwjcv")]
+position = Vector2(442, -41)
+
+[node name="Coin12" parent="World/coins" instance=ExtResource("8_jwjcv")]
+position = Vector2(662, 24)
+
+[node name="Coin13" parent="World/coins" instance=ExtResource("8_jwjcv")]
+position = Vector2(509, 25)
+
+[node name="Coin14" parent="World/coins" instance=ExtResource("8_jwjcv")]
+position = Vector2(588, -26)
+
+[node name="Coin15" parent="World/coins" instance=ExtResource("8_jwjcv")]
+position = Vector2(1152, 2)
+
+[node name="Coin16" parent="World/coins" instance=ExtResource("8_jwjcv")]
+position = Vector2(1219, -60)
+
+[node name="Coin17" parent="World/coins" instance=ExtResource("8_jwjcv")]
+position = Vector2(1152, -17)
+
+[node name="Coin18" parent="World/coins" instance=ExtResource("8_jwjcv")]
+position = Vector2(1218, -76)
+
+[node name="Coin19" parent="World/coins" instance=ExtResource("8_jwjcv")]
+position = Vector2(438, -457)
+
+[node name="Coin20" parent="World/coins" instance=ExtResource("8_jwjcv")]
+position = Vector2(438, -504)
+
+[node name="Starfish" parent="World" node_paths=PackedStringArray("dialog") instance=ExtResource("9_frtk8")]
+position = Vector2(-82, 19)
+dialog = NodePath("DialogScene")
+
+[node name="DialogScene" parent="World/Starfish" instance=ExtResource("10_lbshv")]
+dialog = ExtResource("11_47sae")
 
 [node name="Player" parent="." instance=ExtResource("11_4xjbp")]
 position = Vector2(-181, -55)
@@ -99,7 +189,7 @@ offset_left = -40.0
 offset_right = 0.0
 offset_bottom = 42.0
 grow_horizontal = 0
-children = [NodePath(""), NodePath(""), NodePath("")]
+children = [NodePath("../../../World/CodingZone/CodingZone"), NodePath("../../../World/CodingZone/CodingZone2"), NodePath("../../../World/CodingZone/CodingZone3")]
 metadata/_edit_use_anchors_ = true
 
 [node name="HealthBar" parent="UI/CanvasLayer" node_paths=PackedStringArray("character") instance=ExtResource("17_okjk4")]

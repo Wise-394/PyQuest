@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://du46xv67uiy1c"
+path="res://.godot/imported/logical_operator.dialogue-84d16130943da5a5a2cc1c3669ca557a.tres"
+
+[deps]
+
+source_file="res://dialog/logical_operator.dialogue"
+dest_files=["res://.godot/imported/logical_operator.dialogue-84d16130943da5a5a2cc1c3669ca557a.tres"]
+
+[params]
+
+defaults=true
