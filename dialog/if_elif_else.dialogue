@@ -1,0 +1,62 @@
+~ start
+starfish: Welcome back, coder! ⭐ Today we’re going to teach your code how to [b]make decisions[/b], just like how people decide what to do depending on different situations.
+starfish: In Python, decisions are made using [b]if, elif, and else[/b]. They allow your program to choose which code should run based on whether conditions are True or False.
+starfish: By the end of this lesson, your code will be able to think logically, respond correctly, and handle different outcomes on its own. Ready to see how Python thinks?
+- Yes! Teach me 🧠 => teach_if
+- I already know this. => end_dialog
+
+
+~ teach_if
+starfish: Let’s start with the [b]if statement[/b]. It checks a condition, which is either [b]True[/b] or [b]False[/b], and only runs the code inside if the condition is True. Think of it like a fork in the road: your program only takes the path when the condition allows it.
+starfish: The basic syntax looks like this (each '->' represents one indentation level): [b][br]if condition:[br]-># code runs if condition is True[/b]
+starfish: See how the line with the arrow is shifted to the right? This spacing, called [b]indentation[/b], tells Python which code belongs inside the if statement.
+starfish: Would you like me to explain why indentation is so important?
+- Yes, explain indentation => indentation
+- Continue to elif and else => teach_elif
+
+
+~ indentation
+starfish: In Python, indentation shows which lines of code belong together. Unlike some other languages, you cannot skip it—it’s how Python understands your code.
+starfish: Python uses [b]spaces or tabs[/b] at the beginning of a line to define blocks. If your spacing is wrong, Python might crash or do something completely different than what you expected.
+starfish: For clarity in our examples, I’m using '->' to represent one indentation level. In real Python, you’ll use actual spaces or tabs, but this makes it easier to see which code belongs where.
+starfish: Always keep indentation consistent. Even one missing space or tab can break your program!
+- Got it! Continue ➜ => teach_elif
+
+
+~ teach_elif
+starfish: Sometimes one condition isn’t enough. That’s where [b]elif[/b] and [b]else[/b] come in—they let your program check multiple conditions and pick the correct path.
+starfish: Python evaluates conditions from top to bottom. As soon as it finds one that’s True, it runs that block and ignores the rest. This way, only one path is ever taken.
+starfish: The full structure looks like this:
+starfish: if condition1:[br]-># runs if condition1 is True[br]elif condition2:[br]-># runs if condition1 is False and condition2 is True[br]else:[br]-># runs if all conditions are False. 
+starfish: This makes your code predictable and easy to debug.
+- Show me a real example ➜ => teach_comparisons
+
+
+~ teach_comparisons
+starfish: To create conditions, we use [b]comparison operators[/b]. These compare values and always give True or False, which your program uses to decide what to do.
+starfish: Some common comparison operators are: == (equal to), != (not equal to), > (greater than), < (less than), >= (greater or equal), <= (less or equal).
+starfish: Here’s a real example with if, elif, and else:
+starfish: score = 85[br]if score >= 90:[br]->print('Grade A')[br]elif score >= 75:[br]->print('Grade B')[br]else:[br]->print('Grade C'). 
+starfish: Since the score is 85, the first condition is false, the second is true, so Python prints [b]Grade B[/b].
+- What if I want multiple conditions? => teach_logical
+
+
+~ teach_logical
+starfish: Sometimes a decision depends on more than one condition. Python lets you combine them using [b]logical operators[/b], which makes your rules smarter.
+starfish: The main logical operators are [b]and[/b], [b]or[/b], and [b]not[/b]. 'and' requires all conditions to be True, 'or' requires at least one to be True, and 'not' reverses True to False (or False to True).
+starfish: Here’s an example with multiple conditions
+starfish: temperature = 25[br]is_raining = False[br]if temperature >= 20 and temperature <= 30 and not is_raining:[br]->print('Perfect day!'). 
+- Wow, that’s cool! => summary
+
+
+~ summary
+starfish: Let’s recap: if checks a condition, elif checks condition if the first is False, and else handles every remaining case—so only one block runs.
+starfish: Indentation (shown as arrows in our examples) defines code blocks and must be consistent in real Python.
+starfish: Comparison and logical operators work together to make your program think logically and choose the right path.
+starfish: You now know how to make Python make smart decisions 🧠✨ Are you ready for a challenge?
+- Bring it on! 💪
+- I need to review again => teach_if
+
+
+~ end_dialog
+starfish: Keep practicing, coder. Every smart program begins with a single [b]if[/b]! ⭐

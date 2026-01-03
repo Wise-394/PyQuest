@@ -18,17 +18,51 @@ def get_question():
 @router.post("/level/7/question/1")
 def post_user_code(request: UserCodeRequest):
     explanation = (
-        "[b]if statements[/b] let your code make decisions based on conditions.\n\n"
-        "Syntax:\n"
+        "[b]if statements[/b] allow your program to make decisions.\n"
+        "They check a condition, and if that condition is [b]True[/b], the code inside the if block runs.\n\n"
+
+        "Think of it like a real-life decision:\n"
+        "• If it is raining → bring an umbrella\n"
+        "• If your score is high → you win\n\n"
+
+        "[b]Basic Syntax:[/b]\n"
         "[color=red]if condition:[/color]\n"
-        "[color=red]    # code to run if True[/color]\n\n"
-        "[b]Comparison operators:[/b]\n"
-        "== (equal), != (not equal), > (greater), < (less), >= (greater or equal), <= (less or equal)\n\n"
-        "Example:\n"
+        "[color=red]    # code runs only when the condition is True[/color]\n\n"
+
+        "[b][color=yellow]VERY IMPORTANT: INDENTATION[/color][/b]\n"
+        "Python uses [b]indentation (spaces or tabs at the start of a line)[/b] to know which code belongs inside the if statement.\n"
+        "Indentation is NOT optional in Python.\n\n"
+
+        "You can indent using:\n"
+        "• [b]Spaces[/b] (recommended — usually 4 spaces)\n"
+        "• [b]Tabs[/b]\n\n"
+
+        "[color=yellow]Warning:[/color]\n"
+        "Do NOT mix spaces and tabs in the same block of code.\n"
+        "Mixing them can cause confusing errors or unexpected behavior.\n\n"
+
+        "Rules for indentation:\n"
+        "• All lines in the same block must use the same indentation\n"
+        "• Indented code runs only when the if condition is True\n"
+        "• Code without indentation runs all the time\n\n"
+
+        "[b]Comparison Operators[/b] (used to create conditions):\n"
+        "==  equal to\n"
+        "!=  not equal to\n"
+        ">   greater than\n"
+        "<   less than\n"
+        ">=  greater than or equal to\n"
+        "<=  less than or equal to\n\n"
+
+        "[b]Example:[/b]\n"
+        "[color=red]person_age = 20[/color]\n"
         "[color=red]if person_age >= 18:[/color]\n"
-        "[color=red]    print('Adult')[/color]\n"
+        "[color=red]    print('Adult')[/color]\n\n"
+
+        "The print statement is indented using spaces or a tab, so Python knows it belongs to the if statement.\n"
+        "If it is not indented correctly, Python will show an error or behave incorrectly."
     )
-    
+
     output = execute_user_code(request.user_code).strip()
     expected_answer = "Adult"
     is_correct = output == expected_answer
