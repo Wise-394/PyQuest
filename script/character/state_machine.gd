@@ -4,14 +4,13 @@ extends Node
 class_name StateMachine
 
 @export var initial_state: State  
-var character: CharacterBody2D      
+var character: CharacterBody2D
 var current_state: State         
 var previous_state: String = "" 
 var states: Dictionary = {}      
 
 func _ready():
 	character = get_parent() as CharacterBody2D
-	
 	# Add all child nodes that are states into the dictionary
 	# Uses lowercase names as keys for easy lookup
 	for child in get_children():
