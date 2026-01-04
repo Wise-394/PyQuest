@@ -27,6 +27,8 @@ func physics_update(delta: float) -> void:
 	_apply_horizontal_movement(delta)
 	_move()
 	_handle_edges()
+	if not character.player == null:
+		state_machine.change_state("aggrostate")
 
 # -----------------------------
 # Patrol Control

@@ -23,8 +23,7 @@ func physics_update(delta: float):
 func _on_timer_timeout() -> void:
 	if not character.is_alive:
 		return
-#	if not character.player == null:
-		#pass
-		# state_machine.change_state("aggrostate")
+	if not character.player == null:
+		state_machine.change_state("aggrostate")
 	if randf() > 0.5:
 		state_machine.change_state("movestate")

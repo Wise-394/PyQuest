@@ -1,9 +1,11 @@
-[gd_scene load_steps=29 format=3 uid="uid://cifnh8pm7c8k7"]
+[gd_scene load_steps=32 format=3 uid="uid://cifnh8pm7c8k7"]
 
 [ext_resource type="Script" uid="uid://ddhr10iomdqyw" path="res://script/character/slime/slime.gd" id="1_revoj"]
 [ext_resource type="Texture2D" uid="uid://dt4ngqwvpyc3a" path="res://assets/slime 32x32/Slime_Red.png" id="3_revoj"]
 [ext_resource type="Script" uid="uid://dwbl7tap1c6fd" path="res://script/character/state_machine.gd" id="5_6ytru"]
 [ext_resource type="Script" uid="uid://cdriub74k3d2c" path="res://script/character/slime/idle_state.gd" id="6_lk7ou"]
+[ext_resource type="Script" uid="uid://ddh34u30pl608" path="res://script/character/slime/aggro_state.gd" id="6_revoj"]
+[ext_resource type="Script" uid="uid://bie3k2fhcvvra" path="res://script/character/slime/vision.gd" id="7_revoj"]
 [ext_resource type="Script" uid="uid://dg55cqen0ms7x" path="res://script/character/slime/move_state.gd" id="8_fvuxe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bkhej"]
@@ -180,6 +182,9 @@ size = Vector2(24, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x8rlb"]
 size = Vector2(28, 20.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lk7ou"]
+size = Vector2(190, 48.5)
+
 [node name="slime" type="CharacterBody2D"]
 collision_layer = 16
 collision_mask = 2
@@ -189,7 +194,7 @@ speed = 25
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_68u4i")
 animation = &"walk"
-frame_progress = 0.92879635
+frame_progress = 0.89623564
 
 [node name="HurtBox" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6)
@@ -218,6 +223,9 @@ script = ExtResource("8_fvuxe")
 [node name="Timer" type="Timer" parent="StateMachine/MoveState"]
 wait_time = 2.0
 
+[node name="AggroState" type="Node" parent="StateMachine"]
+script = ExtResource("6_revoj")
+
 [node name="RaycastLeft" type="RayCast2D" parent="."]
 position = Vector2(-15, 10)
 target_position = Vector2(0, 7)
@@ -228,5 +236,14 @@ position = Vector2(15, 10)
 target_position = Vector2(0, 7)
 collision_mask = 2
 
+[node name="Vision" type="Area2D" parent="."]
+collision_layer = 0
+script = ExtResource("7_revoj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vision"]
+position = Vector2(-107, -7.75)
+shape = SubResource("RectangleShape2D_lk7ou")
+
 [connection signal="timeout" from="StateMachine/IdleState/Timer" to="StateMachine/IdleState" method="_on_timer_timeout"]
 [connection signal="timeout" from="StateMachine/MoveState/Timer" to="StateMachine/MoveState" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Vision" to="Vision" method="_on_body_entered"]
