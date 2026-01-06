@@ -32,6 +32,8 @@ func _ready() -> void:
 	hitbox.monitoring = false
 	health_bar.visible = false
 
+
+	
 func _initialize_state_machine() -> void:
 	if state_machine and state_machine.initial_state:
 		state_machine.change_state(state_machine.initial_state.name.to_lower())

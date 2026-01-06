@@ -29,6 +29,10 @@ window/stretch/scale_mode="integer"
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
+[global_group]
+
+enemy=""
+
 [input]
 
 ui_right={

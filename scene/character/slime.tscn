@@ -1,12 +1,76 @@
-[gd_scene load_steps=32 format=3 uid="uid://cifnh8pm7c8k7"]
+[gd_scene load_steps=51 format=3 uid="uid://cifnh8pm7c8k7"]
 
 [ext_resource type="Script" uid="uid://ddhr10iomdqyw" path="res://script/character/slime/slime.gd" id="1_revoj"]
+[ext_resource type="Script" uid="uid://vbelh8wfuawd" path="res://script/character/slime/hitbox.gd" id="3_fvuxe"]
 [ext_resource type="Texture2D" uid="uid://dt4ngqwvpyc3a" path="res://assets/slime 32x32/Slime_Red.png" id="3_revoj"]
 [ext_resource type="Script" uid="uid://dwbl7tap1c6fd" path="res://script/character/state_machine.gd" id="5_6ytru"]
 [ext_resource type="Script" uid="uid://cdriub74k3d2c" path="res://script/character/slime/idle_state.gd" id="6_lk7ou"]
 [ext_resource type="Script" uid="uid://ddh34u30pl608" path="res://script/character/slime/aggro_state.gd" id="6_revoj"]
 [ext_resource type="Script" uid="uid://bie3k2fhcvvra" path="res://script/character/slime/vision.gd" id="7_revoj"]
+[ext_resource type="Script" uid="uid://dfboow4kdudrv" path="res://script/character/slime/damaged_state.gd" id="8_7pm2e"]
 [ext_resource type="Script" uid="uid://dg55cqen0ms7x" path="res://script/character/slime/move_state.gd" id="8_fvuxe"]
+[ext_resource type="Script" uid="uid://wadh5eouynit" path="res://script/character/slime/dead_state.gd" id="9_qavdc"]
+[ext_resource type="PackedScene" uid="uid://bjv2dsnjvb4np" path="res://scene/character/enemy_health_bar.tscn" id="10_vbjdd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxtg1"]
+atlas = ExtResource("3_revoj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tn0np"]
+atlas = ExtResource("3_revoj")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_re75h"]
+atlas = ExtResource("3_revoj")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_704ol"]
+atlas = ExtResource("3_revoj")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kthlq"]
+atlas = ExtResource("3_revoj")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5d7j"]
+atlas = ExtResource("3_revoj")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jk3h"]
+atlas = ExtResource("3_revoj")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nk0at"]
+atlas = ExtResource("3_revoj")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dssoq"]
+atlas = ExtResource("3_revoj")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m87jh"]
+atlas = ExtResource("3_revoj")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsddd"]
+atlas = ExtResource("3_revoj")
+region = Rect2(128, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cogtg"]
+atlas = ExtResource("3_revoj")
+region = Rect2(160, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3d07"]
+atlas = ExtResource("3_revoj")
+region = Rect2(192, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skgvj"]
+atlas = ExtResource("3_revoj")
+region = Rect2(224, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6vcd"]
+atlas = ExtResource("3_revoj")
+region = Rect2(256, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bkhej"]
 atlas = ExtResource("3_revoj")
@@ -90,6 +154,61 @@ region = Rect2(160, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_68u4i"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxtg1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tn0np")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_re75h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_704ol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kthlq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5d7j")
+}],
+"loop": false,
+"name": &"damaged",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6jk3h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nk0at")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dssoq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m87jh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsddd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cogtg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3d07")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_skgvj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6vcd")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bkhej")
@@ -176,36 +295,35 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x8rlb"]
+size = Vector2(30, 22)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ytru"]
 size = Vector2(24, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x8rlb"]
-size = Vector2(28, 20.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lk7ou"]
 size = Vector2(190, 48.5)
 
-[node name="slime" type="CharacterBody2D"]
+[node name="slime" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 16
-collision_mask = 2
+collision_mask = 3
 script = ExtResource("1_revoj")
-speed = 25
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_68u4i")
-animation = &"walk"
-frame_progress = 0.89623564
-
-[node name="HurtBox" type="CollisionShape2D" parent="."]
-position = Vector2(0, 6)
-shape = SubResource("RectangleShape2D_6ytru")
+animation = &"dead"
 
 [node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 0
+script = ExtResource("3_fvuxe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_x8rlb")
-disabled = true
+
+[node name="HurtBox" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_6ytru")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("5_6ytru")
@@ -226,6 +344,12 @@ wait_time = 2.0
 [node name="AggroState" type="Node" parent="StateMachine"]
 script = ExtResource("6_revoj")
 
+[node name="DamagedState" type="Node" parent="StateMachine"]
+script = ExtResource("8_7pm2e")
+
+[node name="DeadState" type="Node" parent="StateMachine"]
+script = ExtResource("9_qavdc")
+
 [node name="RaycastLeft" type="RayCast2D" parent="."]
 position = Vector2(-15, 10)
 target_position = Vector2(0, 7)
@@ -244,6 +368,14 @@ script = ExtResource("7_revoj")
 position = Vector2(-107, -7.75)
 shape = SubResource("RectangleShape2D_lk7ou")
 
+[node name="EnemyHealthBar" parent="." instance=ExtResource("10_vbjdd")]
+visible = false
+offset_left = -15.0
+offset_top = -17.0
+offset_right = 19.0
+offset_bottom = -12.0
+
+[connection signal="body_entered" from="Hitbox" to="Hitbox" method="_on_body_entered"]
 [connection signal="timeout" from="StateMachine/IdleState/Timer" to="StateMachine/IdleState" method="_on_timer_timeout"]
 [connection signal="timeout" from="StateMachine/MoveState/Timer" to="StateMachine/MoveState" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Vision" to="Vision" method="_on_body_entered"]
