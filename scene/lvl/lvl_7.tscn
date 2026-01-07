@@ -148,7 +148,7 @@ position = Vector2(-1792, 205)
 
 [node name="Flag" parent="world" instance=ExtResource("7_gqpc6")]
 position = Vector2(-1066, -845)
-level_to_go = "uid://di0sgrk2mvdre"
+level_to_go = "uid://c7wxt0af2hwff"
 
 [node name="Starfish" parent="world" node_paths=PackedStringArray("dialog") instance=ExtResource("8_uqqdg")]
 dialog = NodePath("DialogScene")
