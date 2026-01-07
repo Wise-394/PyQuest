@@ -27,6 +27,7 @@ func physics_update(delta: float) -> void:
 	_apply_horizontal_movement(delta)
 	_move()
 	_handle_edges()
+	
 	if not character.player == null:
 		state_machine.change_state("aggrostate")
 
@@ -50,14 +51,14 @@ func _apply_gravity(delta: float) -> void:
 func _apply_horizontal_movement(delta: float) -> void:
 	if character.is_invulnerable:
 		return
-
+	
+	# Use target_direction consistently for movement
 	var target_speed: float = float(character.speed) * float(character.target_direction)
 	character.velocity.x = lerp(
 		character.velocity.x,
 		target_speed,
 		character.turn_speed * delta
 	)
-
 
 func _move() -> void:
 	character.move_and_slide()
@@ -68,17 +69,18 @@ func _move() -> void:
 func _handle_edges() -> void:
 	if not character.is_on_floor():
 		return
-
+	
+	# Use target_direction for consistency
 	if _should_turn_left():
 		character.request_direction(1)
 	elif _should_turn_right():
 		character.request_direction(-1)
 
 func _should_turn_left() -> bool:
-	return character.direction < 0 and not character.raycast_left.is_colliding()
+	return character.target_direction < 0 and not character.raycast_left.is_colliding()
 
 func _should_turn_right() -> bool:
-	return character.direction > 0 and not character.raycast_right.is_colliding()
+	return character.target_direction > 0 and not character.raycast_right.is_colliding()
 
 # -----------------------------
 # Direction Helpers
@@ -87,14 +89,13 @@ func _set_random_direction() -> void:
 	var new_direction := 1 if randf() > 0.5 else -1
 	character.request_direction(new_direction)
 
-
 # -----------------------------
 # Timer Callback
 # -----------------------------
 func _on_timer_timeout() -> void:
 	if not character.is_alive:
 		return
-
+	
 	if _should_go_idle():
 		state_machine.change_state("idlestate")
 	else:
@@ -105,4 +106,4 @@ func _should_go_idle() -> bool:
 
 func _try_flip_direction() -> void:
 	if randf() < flip_direction_chance:
-		character.request_direction(-character.direction)
+		character.request_direction(-character.target_direction) 
