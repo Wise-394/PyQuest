@@ -35,6 +35,8 @@ position = Vector2(-97, 457)
 
 [node name="CodingZone" parent="World/CodingZone" instance=ExtResource("3_pqxwk")]
 position = Vector2(630, 151)
+level = 8
+question_id = 1
 
 [node name="CollisionShape2D" parent="World/CodingZone/CodingZone" index="0"]
 position = Vector2(-20.9375, -7)
@@ -48,6 +50,8 @@ offset_bottom = -28.0
 
 [node name="CodingZone2" parent="World/CodingZone" instance=ExtResource("3_pqxwk")]
 position = Vector2(215, -185)
+level = 8
+question_id = 2
 
 [node name="CollisionShape2D" parent="World/CodingZone/CodingZone2" index="0"]
 position = Vector2(58.0625, 0)
@@ -61,6 +65,8 @@ offset_bottom = -28.0
 
 [node name="CodingZone3" parent="World/CodingZone" instance=ExtResource("3_pqxwk")]
 position = Vector2(-260, -265)
+level = 8
+question_id = 3
 
 [node name="Player" parent="." instance=ExtResource("2_8hogw")]
 position = Vector2(8, -92)
