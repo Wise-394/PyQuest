@@ -48,8 +48,12 @@ tile_set = ExtResource("1_qqg2r")
 
 [node name="CodingZone" type="Node" parent="World"]
 
-[node name="CodingZone" parent="World/CodingZone" instance=ExtResource("2_hpi7u")]
+[node name="CodingZone" parent="World/CodingZone" node_paths=PackedStringArray("child_nodes") instance=ExtResource("2_hpi7u")]
 position = Vector2(345, 183)
+level = 9
+question_id = 1
+child_nodes = [NodePath("MovingPlatform")]
+is_explanation = true
 
 [node name="MovingPlatform" parent="World/CodingZone/CodingZone" instance=ExtResource("3_22wlu")]
 position = Vector2(107, -165)
@@ -144,7 +148,7 @@ offset_left = -40.0
 offset_right = 0.0
 offset_bottom = 42.0
 grow_horizontal = 0
-children = [NodePath(""), NodePath(""), NodePath("")]
+children = [NodePath("../../../World/CodingZone/CodingZone"), NodePath("../../../World/CodingZone/CodingZone2"), NodePath("../../../World/CodingZone/CodingZone3")]
 metadata/_edit_use_anchors_ = true
 
 [node name="HealthBar" parent="UI/CanvasLayer" node_paths=PackedStringArray("character") instance=ExtResource("6_u4oeq")]
