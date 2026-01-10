@@ -47,7 +47,7 @@ func _on_chest_closed(is_correct: bool) -> void:
 		animated_sprite.play("open")
 	
 	is_ui_visible = false
-	player.state_machine.go_idle()
+	player.state_machine.change_state("idlestate")
 
 func give_reward():
 	var reward_instance = load(reward).instantiate()

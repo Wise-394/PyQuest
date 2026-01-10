@@ -1,0 +1,41 @@
+~ start
+starfish: Traveler, welcome! Today we will learn about loops in Python.  
+starfish: Loops let your program repeat actions automatically, so you don’t have to write the same code multiple times.  
+starfish: Which type of loop would you like to start with?  
+- WHILE loop => while_intro  
+- FOR loop => for_intro  
+- I already know this. => wrap_up  
+
+~ while_intro
+starfish: The [b]while[/b] loop repeats a block of code as long as a condition is True, and stops when the condition becomes False. Be careful: if the condition never changes, the loop can run forever.  
+=> while_example  
+
+~ while_example
+starfish: Example syntax: [br]counter = 0 [br]while counter <= 5: [br] -> print(counter) [br]counter += 1  
+starfish: This code prints numbers from 0 to 5. The loop stops automatically when the condition is no longer True.  
+- Learn FOR loop next. => for_intro  
+- I understand WHILE. => for_intro  
+
+~ for_intro
+starfish: The [b]for[/b] loop is used when you want to repeat code a fixed number of times. It often works with [b]range()[/b], which generates a sequence of numbers.  
+=> for_example  
+
+~ for_example
+starfish: Example syntax: [br]for i in range(5): [br] -> print(i)  
+starfish: This code prints numbers from 0 to 4.  
+starfish: [b]range()[/b] generates a sequence of numbers. Its main forms are:  
+starfish: 1. [b]range(stop)[/b] – counts from 0 up to stop-1.  
+starfish: 2. [b]range(start, stop)[/b] – counts from start up to stop-1.  
+starfish: 3. [b]range(start, stop, step)[/b] – counts from start to stop-1, increasing by step each time.  
+starfish: Examples: [b]range(5)[/b] → 0,1,2,3,4; [b]range(1,5)[/b] → 1,2,3,4; [b]range(1,10,2)[/b] → 1,3,5,7,9.  
+starfish: Using [b]range()[/b] with a for loop makes it easy to repeat actions a specific number of times without extra code.  
+- Learn WHILE loop next. => while_intro   
+- I understand FOR. => wrap_up  
+
+~ wrap_up
+starfish: Excellent! Loops help you repeat actions without rewriting code. [b]While[/b] loops run while a condition is True, and [b]for[/b] loops run a set number of times using [b]range()[/b].
+=> end_dialog  
+
+~ end_dialog
+starfish: Good work, traveler! Let’s continue when you’re ready.  
+=> END

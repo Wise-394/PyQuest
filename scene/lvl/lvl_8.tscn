@@ -182,7 +182,7 @@ position = Vector2(393, 203)
 
 [node name="Flag" parent="World" instance=ExtResource("7_lycra")]
 position = Vector2(256, 183)
-level_to_go = "uid://di0sgrk2mvdre"
+level_to_go = "uid://bhofw3wm5cgm0"
 
 [node name="Player" parent="." instance=ExtResource("2_8hogw")]
 position = Vector2(8, -92)
