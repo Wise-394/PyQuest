@@ -20,7 +20,10 @@ func enter():
 		coyote_timer = 0.0
 		came_from_ground = false
 		
-	
+func handle_input(event: InputEvent):
+	if event.is_action_pressed("attack"):
+		state_machine.change_state("airattackstate")
+		
 func physics_update(delta):
 	_update_coyote_timer(delta)
 	_handle_jump_input()
@@ -41,6 +44,7 @@ func _handle_jump_input():
 		coyote_timer = 0.0
 		sprite.play("jump")
 		state_machine.change_state("JumpState")
+
 
 func _apply_gravity(delta):
 	character.velocity.y += character.gravity * delta

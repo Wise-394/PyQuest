@@ -1,8 +1,11 @@
-[gd_scene load_steps=47 format=3 uid="uid://bnhiv8qcc5ro5"]
+[gd_scene load_steps=51 format=3 uid="uid://bnhiv8qcc5ro5"]
 
 [ext_resource type="Script" uid="uid://c5ju0fqtma84j" path="res://script/character/player/player.gd" id="1_oh5ij"]
 [ext_resource type="Texture2D" uid="uid://d3iabltfl48bw" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/15-Attack 1/Attack 1 01.png" id="2_2k1ob"]
+[ext_resource type="Texture2D" uid="uid://db0un53s3da2m" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/19-Air Attack 2/Air Attack 2 01.png" id="2_whun7"]
 [ext_resource type="Texture2D" uid="uid://c3c8l6c5rf8m5" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/15-Attack 1/Attack 1 02.png" id="3_lb46i"]
+[ext_resource type="Texture2D" uid="uid://cp0rcsy325i77" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/19-Air Attack 2/Air Attack 2 02.png" id="3_m1pvm"]
+[ext_resource type="Texture2D" uid="uid://d0knnhu84btfw" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/19-Air Attack 2/Air Attack 2 03.png" id="4_8lsri"]
 [ext_resource type="Texture2D" uid="uid://ccabegxctjy5u" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/15-Attack 1/Attack 1 03.png" id="4_ny51y"]
 [ext_resource type="Texture2D" uid="uid://pbv0cm27acfm" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/16-Attack 2/Attack 2 01.png" id="5_j3j4c"]
 [ext_resource type="Texture2D" uid="uid://dpvl3are2ach5" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/16-Attack 2/Attack 2 02.png" id="6_yu8qu"]
@@ -43,12 +46,27 @@
 [ext_resource type="Script" uid="uid://bxt2uug3lcixy" path="res://scene/character/hit_box.gd" id="30_dspxq"]
 [ext_resource type="Script" uid="uid://dlgrkpgwlookw" path="res://script/character/player/attacking_state.gd" id="31_r5eyx"]
 [ext_resource type="Script" uid="uid://b7ps7d3m653fo" path="res://script/character/player/dead_state.gd" id="43_qe7ey"]
+[ext_resource type="Script" uid="uid://dqcm3la8w1hfw" path="res://script/character/player/air_attack_state.gd" id="45_m1pvm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q48bb"]
 size = Vector2(21, 28)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ml7e8"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_whun7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_m1pvm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8lsri")
+}],
+"loop": false,
+"name": &"air_attacking",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_2k1ob")
@@ -194,7 +212,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s4jxa"]
 size = Vector2(26, 25)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 18
 script = ExtResource("1_oh5ij")
 speed = 200.0
@@ -206,9 +224,9 @@ shape = SubResource("RectangleShape2D_q48bb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ml7e8")
-animation = &"dead"
+animation = &"air_attacking"
 autoplay = "idle"
-frame = 3
+frame = 2
 frame_progress = 1.0
 
 [node name="HitBox" type="Area2D" parent="." groups=["enemy"]]
@@ -241,6 +259,9 @@ script = ExtResource("24_ov0iu")
 
 [node name="PauseState" type="Node" parent="StateMachine"]
 script = ExtResource("29_du2bl")
+
+[node name="AirAttackState" type="Node" parent="StateMachine"]
+script = ExtResource("45_m1pvm")
 
 [node name="AttackingState" type="Node" parent="StateMachine"]
 script = ExtResource("31_r5eyx")

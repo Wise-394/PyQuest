@@ -1,6 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://cadnmruyc4o86"]
+[gd_scene load_steps=14 format=3 uid="uid://cadnmruyc4o86"]
 
+[ext_resource type="Texture2D" uid="uid://ccvy65u2o2naf" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword Effects/28-Air Attack 2/Air Attack 2 01.png" id="1_d4l1q"]
 [ext_resource type="Texture2D" uid="uid://c2db7bkwl23xx" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword Effects/24-Attack 1/Attack 1 01.png" id="1_diuds"]
+[ext_resource type="Texture2D" uid="uid://crc0jujjy0k7n" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword Effects/28-Air Attack 2/Air Attack 2 02.png" id="2_85sii"]
 [ext_resource type="Texture2D" uid="uid://inqtibno7f3r" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword Effects/24-Attack 1/Attack 1 02.png" id="2_ohppw"]
 [ext_resource type="Texture2D" uid="uid://dob8qlmvfkoyq" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword Effects/24-Attack 1/Attack 1 03.png" id="3_a6nl6"]
 [ext_resource type="Texture2D" uid="uid://gcscim8bg32y" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword Effects/25-Attack 2/Attack 2 01.png" id="4_d4l1q"]
@@ -13,6 +15,17 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8ng8c"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_d4l1q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_85sii")
+}],
+"loop": false,
+"name": &"air_attacking",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_diuds")
@@ -58,7 +71,7 @@ animations = [{
 
 [node name="SwordEffect" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_8ng8c")
-animation = &"attacking2"
+animation = &"air_attacking"
 script = ExtResource("10_ohppw")
 
 [connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
