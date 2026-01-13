@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://uw751ei4yp7y"]
+[gd_scene load_steps=60 format=3 uid="uid://uw751ei4yp7y"]
 
 [ext_resource type="Texture2D" uid="uid://ds2tsvr1lcx3y" path="res://assets/Mecha-stone Golem 0.1/Mecha-stone Golem 0.1/PNG sheet/Character_sheet.png" id="1_cut4e"]
 [ext_resource type="Script" uid="uid://dqphrfkgoiwtd" path="res://script/character/golem/boss.gd" id="1_lk8l6"]
@@ -6,6 +6,9 @@
 [ext_resource type="Script" uid="uid://b3pmrt2wn44ae" path="res://script/character/golem/idle_state.gd" id="3_t3b5p"]
 [ext_resource type="Script" uid="uid://ba8ncfuuu87qr" path="res://script/character/golem/move_state.gd" id="5_3d6su"]
 [ext_resource type="Script" uid="uid://2n66g2l26bh6" path="res://script/character/golem/attack_state.gd" id="6_bsp0a"]
+[ext_resource type="Script" uid="uid://ck1alu6c1t0xw" path="res://script/character/golem/arrived_side_state.gd" id="7_cjctn"]
+[ext_resource type="Script" uid="uid://crpyrdma0rbsm" path="res://script/character/golem/laser_attack_state.gd" id="8_y7see"]
+[ext_resource type="Script" uid="uid://dsuwvod3rjrju" path="res://script/character/golem/range_attack_state.gd" id="9_gvivl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_se4ko"]
 atlas = ExtResource("1_cut4e")
@@ -377,7 +380,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_j74hn")
 }],
 "loop": false,
-"name": &"range_attack",
+"name": &"range",
 "speed": 10.0
 }]
 
@@ -392,10 +395,8 @@ script = ExtResource("1_lk8l6")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_bsp0a")
-animation = &"melee"
+animation = &"range"
 autoplay = "idle"
-frame = 6
-frame_progress = 1.0
 
 [node name="HurtBox" type="CollisionShape2D" parent="."]
 visible = false
@@ -422,5 +423,14 @@ script = ExtResource("5_3d6su")
 
 [node name="AttackState" type="Node" parent="StateMachine"]
 script = ExtResource("6_bsp0a")
+
+[node name="ArrivedSideState" type="Node" parent="StateMachine"]
+script = ExtResource("7_cjctn")
+
+[node name="LaserAttackState" type="Node" parent="StateMachine"]
+script = ExtResource("8_y7see")
+
+[node name="RangeAttackState" type="Node" parent="StateMachine"]
+script = ExtResource("9_gvivl")
 
 [connection signal="timeout" from="StateMachine/IdleState/Timer" to="StateMachine/IdleState" method="_on_timer_timeout"]

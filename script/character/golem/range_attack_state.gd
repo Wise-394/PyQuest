@@ -2,4 +2,4 @@ extends State
 
 func enter():
 	init_references()
-	sprite.play("melee")
+	sprite.play("range")

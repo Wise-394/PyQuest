@@ -1,12 +1,22 @@
 extends State
 
 # =============================
+#        ARRIVAL TYPES
+# =============================
+enum ArrivalType {
+	LEFT,
+	CENTER,
+	RIGHT,
+	PLAYER
+}
+
+# =============================
 #        STATIC TARGETS
 # =============================
 const STATIC_TARGETS: Array[Vector2] = [
-	Vector2(60, 150),
-	Vector2(460, 57),
-	Vector2(820, 150)
+	Vector2(60, 150),    # LEFT
+	Vector2(460, 57),    # CENTER
+	Vector2(820, 150)    # RIGHT
 ]
 
 # =============================
@@ -26,21 +36,21 @@ const STATIC_TARGETS: Array[Vector2] = [
 @export var bobbing_frequency := 2.5
 
 @export_group("Descent")
-@export var descent_speed_multiplier := 0.5  # slower final vertical move
-@export var pause_before_descent := 0.2      # seconds to pause before descending
+@export var descent_speed_multiplier := 0.5
+@export var pause_before_descent := 0.2
 
 # =============================
 #        STATE DATA
 # =============================
 var target_position: Vector2
-var target_is_player := false
+var arrival_type: ArrivalType
+
 var has_arrived := false
 var bobbing_time := 0.0
 
 var movement_phase := 0
 var intermediate_y := 57.0
-
-var pause_timer := 0.0  # used for short pause
+var pause_timer := 0.0
 
 # =============================
 #        STATE LIFECYCLE
@@ -51,13 +61,13 @@ func enter() -> void:
 	_reset_state()
 	_pick_target()
 
-func physics_update(_delta: float) -> void:
+func physics_update(delta: float) -> void:
 	if has_arrived:
 		_stop()
 		return
 
 	character.face_player()
-	_move_towards_target_stepwise(_delta)
+	_move_towards_target_stepwise(delta)
 
 # =============================
 #        TARGET LOGIC
@@ -68,12 +78,23 @@ func _pick_target() -> void:
 	targets.append(player_target)
 
 	target_position = targets.pick_random()
-	target_is_player = target_position == player_target
+
+	if target_position == player_target:
+		arrival_type = ArrivalType.PLAYER
+	else:
+		arrival_type = _get_static_arrival_type(target_position)
 
 func _get_player_offset_target() -> Vector2:
 	var offset_x := _random_signed(min_horizontal_offset, max_horizontal_offset)
 	var offset_y := -randf_range(min_vertical_offset, max_vertical_offset)
 	return character.player.global_position + Vector2(offset_x, offset_y)
+
+func _get_static_arrival_type(pos: Vector2) -> ArrivalType:
+	match STATIC_TARGETS.find(pos):
+		0: return ArrivalType.LEFT
+		1: return ArrivalType.CENTER
+		2: return ArrivalType.RIGHT
+		_: return ArrivalType.CENTER
 
 func _random_signed(min_value: float, max_value: float) -> float:
 	var value := randf_range(min_value, max_value)
@@ -90,28 +111,26 @@ func _move_towards_target_stepwise(delta: float) -> void:
 
 	match movement_phase:
 		0:
-			# Fly vertically to intermediate_y
 			var dy := intermediate_y - character.global_position.y
 			if abs(dy) <= arrival_threshold:
 				character.global_position.y = intermediate_y
 				movement_phase = 1
 			else:
 				velocity.y = sign(dy) * move_speed
+
 		1:
-			# Move horizontally to target X
 			var dx := target_position.x - character.global_position.x
 			if abs(dx) <= arrival_threshold:
 				character.global_position.x = target_position.x
 				movement_phase = 2
-				pause_timer = 0.0  # start pause before descent
+				pause_timer = 0.0
 			else:
 				velocity.x = sign(dx) * move_speed
+
 		2:
-			# Optional pause before descent
 			if pause_timer < pause_before_descent:
 				pause_timer += delta
 			else:
-				# Move vertically to target Y (slower)
 				var dy := target_position.y - character.global_position.y
 				if abs(dy) <= arrival_threshold:
 					character.global_position.y = target_position.y
@@ -119,21 +138,29 @@ func _move_towards_target_stepwise(delta: float) -> void:
 				else:
 					velocity.y = sign(dy) * move_speed * descent_speed_multiplier
 
-	# Add bobbing to Y
 	velocity.y += bobbing_offset
-
 	character.velocity = velocity
 	character.move_and_slide()
 
 # =============================
-#        ARRIVAL
+#        ARRIVAL → STATE CHOICE
 # =============================
 func _on_arrival() -> void:
 	has_arrived = true
 	_stop()
-	if target_is_player:
-		character.melee_attack = true
-	state_machine.change_state("AttackState")
+
+	match arrival_type:
+		ArrivalType.PLAYER:
+			state_machine.change_state("AttackState")
+
+		ArrivalType.LEFT:
+			state_machine.change_state("ArrivedSideState")
+
+		ArrivalType.CENTER:
+			state_machine.change_state("AttackState")
+
+		ArrivalType.RIGHT:
+			state_machine.change_state("ArrivedSideState")
 
 # =============================
 #        HELPERS
@@ -144,6 +171,6 @@ func _stop() -> void:
 func _reset_state() -> void:
 	has_arrived = false
 	bobbing_time = 0.0
-	target_is_player = false
 	movement_phase = 0
 	pause_timer = 0.0
+	arrival_type = ArrivalType.CENTER
