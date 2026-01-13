@@ -1,9 +1,11 @@
-[gd_scene load_steps=55 format=3 uid="uid://uw751ei4yp7y"]
+[gd_scene load_steps=57 format=3 uid="uid://uw751ei4yp7y"]
 
 [ext_resource type="Texture2D" uid="uid://ds2tsvr1lcx3y" path="res://assets/Mecha-stone Golem 0.1/Mecha-stone Golem 0.1/PNG sheet/Character_sheet.png" id="1_cut4e"]
 [ext_resource type="Script" uid="uid://dqphrfkgoiwtd" path="res://script/character/golem/boss.gd" id="1_lk8l6"]
 [ext_resource type="Script" uid="uid://dwbl7tap1c6fd" path="res://script/character/state_machine.gd" id="2_2nrav"]
 [ext_resource type="Script" uid="uid://b3pmrt2wn44ae" path="res://script/character/golem/idle_state.gd" id="3_t3b5p"]
+[ext_resource type="Script" uid="uid://ba8ncfuuu87qr" path="res://script/character/golem/move_state.gd" id="5_3d6su"]
+[ext_resource type="Script" uid="uid://2n66g2l26bh6" path="res://script/character/golem/attack_state.gd" id="6_bsp0a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_se4ko"]
 atlas = ExtResource("1_cut4e")
@@ -384,13 +386,16 @@ size = Vector2(47, 45)
 
 [node name="boss" type="CharacterBody2D"]
 collision_layer = 16
+collision_mask = 0
 script = ExtResource("1_lk8l6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_bsp0a")
-animation = &"idle"
+animation = &"melee"
 autoplay = "idle"
+frame = 6
+frame_progress = 1.0
 
 [node name="HurtBox" type="CollisionShape2D" parent="."]
 visible = false
@@ -407,3 +412,15 @@ hover_amplitude = 10.0
 hover_speed = 1.5
 side_amplitude = 5.0
 side_speed = 1.0
+
+[node name="Timer" type="Timer" parent="StateMachine/IdleState"]
+wait_time = 2.0
+one_shot = true
+
+[node name="MoveState" type="Node" parent="StateMachine"]
+script = ExtResource("5_3d6su")
+
+[node name="AttackState" type="Node" parent="StateMachine"]
+script = ExtResource("6_bsp0a")
+
+[connection signal="timeout" from="StateMachine/IdleState/Timer" to="StateMachine/IdleState" method="_on_timer_timeout"]

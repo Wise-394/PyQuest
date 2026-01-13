@@ -18,11 +18,11 @@ extends CharacterBody2D
 # ===============================
 @onready var state_machine: StateMachine = $StateMachine
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var hitbox: Area2D = $Hitbox
+@onready var hitbox: Area2D = null
 @onready var hurtbox: CollisionShape2D = $HurtBox
-@onready var raycast_left = $RaycastLeft
-@onready var raycast_right = $RaycastRight
-@onready var health_bar = $EnemyHealthBar
+@onready var raycast_left = null
+@onready var raycast_right =  null
+@onready var health_bar = null
 
 # ===============================
 # STATE
@@ -34,6 +34,7 @@ var hit_direction: int = 1
 var player: CharacterBody2D = null
 var direction = 1
 var cayote_time = 0
+var melee_attack = false
 # ===============================
 # LIFE CYCLE
 # ===============================

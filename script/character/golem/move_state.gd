@@ -1,0 +1,149 @@
+extends State
+
+# =============================
+#        STATIC TARGETS
+# =============================
+const STATIC_TARGETS: Array[Vector2] = [
+	Vector2(60, 150),
+	Vector2(460, 57),
+	Vector2(820, 150)
+]
+
+# =============================
+#        CONFIGURATION
+# =============================
+@export var move_speed := 200.0
+@export var arrival_threshold := 5.0
+
+@export_group("Player Offset")
+@export var min_horizontal_offset := 40.0
+@export var max_horizontal_offset := 80.0
+@export var min_vertical_offset := 30.0
+@export var max_vertical_offset := 60.0
+
+@export_group("Bobbing")
+@export var bobbing_amplitude := 20.0
+@export var bobbing_frequency := 2.5
+
+@export_group("Descent")
+@export var descent_speed_multiplier := 0.5  # slower final vertical move
+@export var pause_before_descent := 0.2      # seconds to pause before descending
+
+# =============================
+#        STATE DATA
+# =============================
+var target_position: Vector2
+var target_is_player := false
+var has_arrived := false
+var bobbing_time := 0.0
+
+var movement_phase := 0
+var intermediate_y := 57.0
+
+var pause_timer := 0.0  # used for short pause
+
+# =============================
+#        STATE LIFECYCLE
+# =============================
+func enter() -> void:
+	init_references()
+	sprite.play("move")
+	_reset_state()
+	_pick_target()
+
+func physics_update(_delta: float) -> void:
+	if has_arrived:
+		_stop()
+		return
+
+	character.face_player()
+	_move_towards_target_stepwise(_delta)
+
+# =============================
+#        TARGET LOGIC
+# =============================
+func _pick_target() -> void:
+	var targets := STATIC_TARGETS.duplicate()
+	var player_target := _get_player_offset_target()
+	targets.append(player_target)
+
+	target_position = targets.pick_random()
+	target_is_player = target_position == player_target
+
+func _get_player_offset_target() -> Vector2:
+	var offset_x := _random_signed(min_horizontal_offset, max_horizontal_offset)
+	var offset_y := -randf_range(min_vertical_offset, max_vertical_offset)
+	return character.player.global_position + Vector2(offset_x, offset_y)
+
+func _random_signed(min_value: float, max_value: float) -> float:
+	var value := randf_range(min_value, max_value)
+	return value if randf() > 0.5 else -value
+
+# =============================
+#        MOVEMENT
+# =============================
+func _move_towards_target_stepwise(delta: float) -> void:
+	bobbing_time += delta
+	var bobbing_offset := sin(bobbing_time * bobbing_frequency) * bobbing_amplitude
+
+	var velocity := Vector2.ZERO
+
+	match movement_phase:
+		0:
+			# Fly vertically to intermediate_y
+			var dy := intermediate_y - character.global_position.y
+			if abs(dy) <= arrival_threshold:
+				character.global_position.y = intermediate_y
+				movement_phase = 1
+			else:
+				velocity.y = sign(dy) * move_speed
+		1:
+			# Move horizontally to target X
+			var dx := target_position.x - character.global_position.x
+			if abs(dx) <= arrival_threshold:
+				character.global_position.x = target_position.x
+				movement_phase = 2
+				pause_timer = 0.0  # start pause before descent
+			else:
+				velocity.x = sign(dx) * move_speed
+		2:
+			# Optional pause before descent
+			if pause_timer < pause_before_descent:
+				pause_timer += delta
+			else:
+				# Move vertically to target Y (slower)
+				var dy := target_position.y - character.global_position.y
+				if abs(dy) <= arrival_threshold:
+					character.global_position.y = target_position.y
+					_on_arrival()
+				else:
+					velocity.y = sign(dy) * move_speed * descent_speed_multiplier
+
+	# Add bobbing to Y
+	velocity.y += bobbing_offset
+
+	character.velocity = velocity
+	character.move_and_slide()
+
+# =============================
+#        ARRIVAL
+# =============================
+func _on_arrival() -> void:
+	has_arrived = true
+	_stop()
+	if target_is_player:
+		character.melee_attack = true
+	state_machine.change_state("AttackState")
+
+# =============================
+#        HELPERS
+# =============================
+func _stop() -> void:
+	character.velocity = Vector2.ZERO
+
+func _reset_state() -> void:
+	has_arrived = false
+	bobbing_time = 0.0
+	target_is_player = false
+	movement_phase = 0
+	pause_timer = 0.0

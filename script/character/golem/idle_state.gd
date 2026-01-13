@@ -12,6 +12,7 @@ extends State
 # ===============================
 # INTERNAL STATE
 # ===============================
+@onready var timer: Timer = $Timer
 var base_position: Vector2                  # initial position when entering state
 var time_elapsed: float = 0.0               # timer for sine calculations
 
@@ -20,6 +21,7 @@ var time_elapsed: float = 0.0               # timer for sine calculations
 # ===============================
 func enter() -> void:
 	init_references()
+	timer.start()
 	sprite.play("idle")
 
 	# Save the starting position for hover calculations
@@ -46,3 +48,7 @@ func physics_update(delta: float) -> void:
 	# Convert target position to velocity for CharacterBody2D movement
 	character.velocity = (target_position - character.global_position) / delta
 	character.move_and_slide()
+
+
+func _on_timer_timeout() -> void:
+	state_machine.change_state("movestate")
