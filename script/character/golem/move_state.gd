@@ -98,7 +98,7 @@ func _get_static_arrival_type(pos: Vector2) -> ArrivalType:
 
 func _random_signed(min_value: float, max_value: float) -> float:
 	var value := randf_range(min_value, max_value)
-	return value if randf() > 0.5 else -value
+	return value if randf() > 0.7 else -value
 
 # =============================
 #        MOVEMENT
