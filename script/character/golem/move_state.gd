@@ -14,9 +14,9 @@ enum ArrivalType {
 #        STATIC TARGETS
 # =============================
 const STATIC_TARGETS: Array[Vector2] = [
-	Vector2(60, 150),    # LEFT
+	Vector2(60, 160),    # LEFT
 	Vector2(460, 57),    # CENTER
-	Vector2(820, 150)    # RIGHT
+	Vector2(820, 160)    # RIGHT
 ]
 
 # =============================
@@ -151,16 +151,16 @@ func _on_arrival() -> void:
 
 	match arrival_type:
 		ArrivalType.PLAYER:
-			state_machine.change_state("AttackState")
+			state_machine.change_state("arrivedsidestate")
 
 		ArrivalType.LEFT:
-			state_machine.change_state("ArrivedSideState")
+			state_machine.change_state("arrivedsidestate")
 
 		ArrivalType.CENTER:
-			state_machine.change_state("AttackState")
+			state_machine.change_state("arrivedsidestate")
 
 		ArrivalType.RIGHT:
-			state_machine.change_state("ArrivedSideState")
+			state_machine.change_state("arrivedsidestate")
 
 # =============================
 #        HELPERS

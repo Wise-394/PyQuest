@@ -430,7 +430,12 @@ script = ExtResource("7_cjctn")
 [node name="LaserAttackState" type="Node" parent="StateMachine"]
 script = ExtResource("8_y7see")
 
+[node name="Timer" type="Timer" parent="StateMachine/LaserAttackState"]
+wait_time = 2.5
+one_shot = true
+
 [node name="RangeAttackState" type="Node" parent="StateMachine"]
 script = ExtResource("9_gvivl")
 
 [connection signal="timeout" from="StateMachine/IdleState/Timer" to="StateMachine/IdleState" method="_on_timer_timeout"]
+[connection signal="timeout" from="StateMachine/LaserAttackState/Timer" to="StateMachine/LaserAttackState" method="_on_timer_timeout"]

@@ -15,10 +15,12 @@ func enter():
 	sprite.play("range")
 	original_position_y = character.position.y
 	bobbing_timer = 0.0
+	
 	# Connect animation finished signal
-	sprite.animation_finished.connect(_on_animation_finished)
+	if not sprite.animation_finished.is_connected(_on_animation_finished):
+		sprite.animation_finished.connect(_on_animation_finished)
 
-func leave():
+func exit():
 	character.position.y = original_position_y
 	if sprite.animation_finished.is_connected(_on_animation_finished):
 		sprite.animation_finished.disconnect(_on_animation_finished)

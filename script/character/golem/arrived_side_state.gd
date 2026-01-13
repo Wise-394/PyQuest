@@ -1,15 +1,9 @@
 extends State
 
-enum AttackType {
-	RANGE,
-	LASER,
-}
-
-var attack_type: AttackType
+enum AttackType { RANGE, LASER }
 
 func enter():
-	attack_type = [AttackType.RANGE, AttackType.LASER].pick_random()
-
+	var attack_type = AttackType.values().pick_random()  # pick one attack
 	match attack_type:
 		AttackType.RANGE:
 			state_machine.change_state("RangeAttackState")
