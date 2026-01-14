@@ -1,8 +1,9 @@
-[gd_scene load_steps=60 format=3 uid="uid://uw751ei4yp7y"]
+[gd_scene load_steps=70 format=3 uid="uid://uw751ei4yp7y"]
 
 [ext_resource type="Texture2D" uid="uid://ds2tsvr1lcx3y" path="res://assets/Mecha-stone Golem 0.1/Mecha-stone Golem 0.1/PNG sheet/Character_sheet.png" id="1_cut4e"]
 [ext_resource type="Script" uid="uid://dqphrfkgoiwtd" path="res://script/character/golem/boss.gd" id="1_lk8l6"]
 [ext_resource type="Script" uid="uid://dwbl7tap1c6fd" path="res://script/character/state_machine.gd" id="2_2nrav"]
+[ext_resource type="Texture2D" uid="uid://c5x3ca1xg3jmr" path="res://assets/Mecha-stone Golem 0.1/Mecha-stone Golem 0.1/weapon PNG/Laser_sheet.png" id="3_pojkb"]
 [ext_resource type="Script" uid="uid://b3pmrt2wn44ae" path="res://script/character/golem/idle_state.gd" id="3_t3b5p"]
 [ext_resource type="Script" uid="uid://ba8ncfuuu87qr" path="res://script/character/golem/move_state.gd" id="5_3d6su"]
 [ext_resource type="Script" uid="uid://2n66g2l26bh6" path="res://script/character/golem/attack_state.gd" id="6_bsp0a"]
@@ -384,10 +385,74 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_12e1a"]
+atlas = ExtResource("3_pojkb")
+region = Rect2(0, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7emx"]
+atlas = ExtResource("3_pojkb")
+region = Rect2(0, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tv8fb"]
+atlas = ExtResource("3_pojkb")
+region = Rect2(0, 300, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mktbo"]
+atlas = ExtResource("3_pojkb")
+region = Rect2(0, 400, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hn41f"]
+atlas = ExtResource("3_pojkb")
+region = Rect2(0, 500, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_msx24"]
+atlas = ExtResource("3_pojkb")
+region = Rect2(0, 600, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1bpw"]
+atlas = ExtResource("3_pojkb")
+region = Rect2(0, 700, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2k0qj"]
+atlas = ExtResource("3_pojkb")
+region = Rect2(0, 800, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5ggbb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12e1a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7emx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tv8fb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mktbo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hn41f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_msx24")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1bpw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2k0qj")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gvivl"]
 size = Vector2(47, 45)
 
-[node name="boss" type="CharacterBody2D"]
+[node name="Golem" type="CharacterBody2D"]
 scale = Vector2(1.5, 1.5)
 collision_layer = 16
 collision_mask = 0
@@ -397,6 +462,15 @@ script = ExtResource("1_lk8l6")
 sprite_frames = SubResource("SpriteFrames_bsp0a")
 animation = &"range"
 autoplay = "idle"
+
+[node name="LaserEffect" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(7.3333335, -4.666667)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_5ggbb")
+frame = 7
+frame_progress = 1.0
 
 [node name="HurtBox" type="CollisionShape2D" parent="."]
 visible = false

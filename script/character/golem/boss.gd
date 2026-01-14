@@ -23,7 +23,7 @@ extends CharacterBody2D
 @onready var raycast_left = null
 @onready var raycast_right =  null
 @onready var health_bar = null
-
+@onready var laser_effect = $LaserEffect
 # ===============================
 # STATE
 # ===============================
@@ -35,6 +35,7 @@ var player: CharacterBody2D = null
 var direction = 1
 var cayote_time = 0
 var melee_attack = false
+var laser_offset_x := 40.0
 # ===============================
 # LIFE CYCLE
 # ===============================
@@ -56,7 +57,7 @@ func face_player() -> void:
 
 	direction = sign(to_player)
 	sprite.flip_h = direction < 0
-
+	laser_effect.position.x = 6 if direction > 0 else -10
 func _get_player() -> void:
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() > 0:

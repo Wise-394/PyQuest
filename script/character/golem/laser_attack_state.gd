@@ -7,13 +7,15 @@ var laser_instance: Node = null
 func enter():
 	init_references()
 	sprite.play("laser")
-
+	character.laser_effect.visible = true
+	character.laser_effect.play("default")
 	if not sprite.animation_finished.is_connected(_on_animation_finished):
 		sprite.animation_finished.connect(_on_animation_finished)
 
 func exit():
 	if sprite.animation_finished.is_connected(_on_animation_finished):
 		sprite.animation_finished.disconnect(_on_animation_finished)
+	character.laser_effect.visible = false
 
 func _on_animation_finished():
 	# Spawn laser

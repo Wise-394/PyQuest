@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bqnrckwi5f0as"]
+[gd_scene load_steps=4 format=3 uid="uid://bqnrckwi5f0as"]
 
 [ext_resource type="Script" uid="uid://dix5yph0f3m1s" path="res://script/character/golem/golem_laser.gd" id="1_qwxtw"]
+[ext_resource type="Texture2D" uid="uid://df7bblxrh3xda" path="res://assets/Mecha-stone Golem 0.1/Mecha-stone Golem 0.1/weapon PNG/Laser.png" id="2_vqvcp"]
+
+[sub_resource type="Gradient" id="Gradient_vqvcp"]
+colors = PackedColorArray(0, 0.792137, 0.88292927, 1, 1, 1, 1, 1)
 
 [node name="GolemLaser" type="RayCast2D"]
 target_position = Vector2(850, 0)
@@ -8,5 +12,22 @@ script = ExtResource("1_qwxtw")
 
 [node name="Line2D" type="Line2D" parent="."]
 points = PackedVector2Array(0, 0, 100, 0)
-width = 5.0
+width = 20.0
+texture = ExtResource("2_vqvcp")
 texture_mode = 2
+
+[node name="HitParticles" type="CPUParticles2D" parent="."]
+position = Vector2(99, 0)
+emitting = false
+amount = 16
+lifetime = 0.22
+local_coords = true
+direction = Vector2(-1, 0)
+spread = 30.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 45.0
+initial_velocity_max = 100.0
+scale_amount_min = 4.0
+scale_amount_max = 4.0
+color = Color(0.650126, 0.869145, 0.99999994, 1)
+color_ramp = SubResource("Gradient_vqvcp")

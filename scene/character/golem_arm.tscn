@@ -63,6 +63,7 @@ script = ExtResource("1_swo24")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fawss")
+autoplay = "default"
 frame = 4
 frame_progress = 0.51407313
 
