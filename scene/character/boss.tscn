@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://uw751ei4yp7y"]
+[gd_scene load_steps=72 format=3 uid="uid://uw751ei4yp7y"]
 
 [ext_resource type="Texture2D" uid="uid://ds2tsvr1lcx3y" path="res://assets/Mecha-stone Golem 0.1/Mecha-stone Golem 0.1/PNG sheet/Character_sheet.png" id="1_cut4e"]
 [ext_resource type="Script" uid="uid://dqphrfkgoiwtd" path="res://script/character/golem/boss.gd" id="1_lk8l6"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" uid="uid://ck1alu6c1t0xw" path="res://script/character/golem/arrived_side_state.gd" id="7_cjctn"]
 [ext_resource type="Script" uid="uid://crpyrdma0rbsm" path="res://script/character/golem/laser_attack_state.gd" id="8_y7see"]
 [ext_resource type="Script" uid="uid://dsuwvod3rjrju" path="res://script/character/golem/range_attack_state.gd" id="9_gvivl"]
+[ext_resource type="Script" uid="uid://bi11ub16f6m43" path="res://script/character/golem/arrived_player_state.gd" id="11_07gqg"]
+[ext_resource type="Script" uid="uid://c5coe3yfye0iq" path="res://script/character/golem/melee_attack_state.gd" id="12_oqwcf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_se4ko"]
 atlas = ExtResource("1_cut4e")
@@ -510,6 +512,16 @@ one_shot = true
 
 [node name="RangeAttackState" type="Node" parent="StateMachine"]
 script = ExtResource("9_gvivl")
+
+[node name="ArrivedPlayerState" type="Node" parent="StateMachine"]
+script = ExtResource("11_07gqg")
+
+[node name="MeleeAttackState" type="Node" parent="StateMachine"]
+script = ExtResource("12_oqwcf")
+
+[node name="AttackTimer" type="Timer" parent="StateMachine/MeleeAttackState"]
+wait_time = 0.5
+one_shot = true
 
 [connection signal="timeout" from="StateMachine/IdleState/Timer" to="StateMachine/IdleState" method="_on_timer_timeout"]
 [connection signal="timeout" from="StateMachine/LaserAttackState/Timer" to="StateMachine/LaserAttackState" method="_on_timer_timeout"]

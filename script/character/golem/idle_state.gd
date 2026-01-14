@@ -49,6 +49,8 @@ func physics_update(delta: float) -> void:
 	character.velocity = (target_position - character.global_position) / delta
 	character.move_and_slide()
 
-
+func exit():
+	timer.stop()
+	
 func _on_timer_timeout() -> void:
 	state_machine.change_state("movestate")

@@ -28,8 +28,8 @@ const STATIC_TARGETS: Array[Vector2] = [
 @export_group("Player Offset")
 @export var min_horizontal_offset := 40.0
 @export var max_horizontal_offset := 80.0
-@export var min_vertical_offset := 30.0
-@export var max_vertical_offset := 60.0
+@export var min_vertical_offset := 10.0
+@export var max_vertical_offset := 40.0
 
 @export_group("Bobbing")
 @export var bobbing_amplitude := 20.0
@@ -73,15 +73,14 @@ func physics_update(delta: float) -> void:
 #        TARGET LOGIC
 # =============================
 func _pick_target() -> void:
-	var targets := STATIC_TARGETS.duplicate()
 	var player_target := _get_player_offset_target()
-	targets.append(player_target)
-
-	target_position = targets.pick_random()
-
-	if target_position == player_target:
+	if randf() < 0.55:
+		# 70% chance → player target
+		target_position = player_target
 		arrival_type = ArrivalType.PLAYER
 	else:
+		# 30% chance → choose a static target randomly
+		target_position = STATIC_TARGETS.pick_random()
 		arrival_type = _get_static_arrival_type(target_position)
 
 func _get_player_offset_target() -> Vector2:
@@ -151,7 +150,7 @@ func _on_arrival() -> void:
 
 	match arrival_type:
 		ArrivalType.PLAYER:
-			state_machine.change_state("arrivedsidestate")
+			state_machine.change_state("arrivedplayerstate")
 
 		ArrivalType.LEFT:
 			state_machine.change_state("arrivedsidestate")
