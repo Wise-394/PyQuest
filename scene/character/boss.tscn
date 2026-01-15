@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c5x3ca1xg3jmr" path="res://assets/Mecha-stone Golem 0.1/Mecha-stone Golem 0.1/weapon PNG/Laser_sheet.png" id="3_pojkb"]
 [ext_resource type="Script" uid="uid://b3pmrt2wn44ae" path="res://script/character/golem/idle_state.gd" id="3_t3b5p"]
 [ext_resource type="Script" uid="uid://ba8ncfuuu87qr" path="res://script/character/golem/move_state.gd" id="5_3d6su"]
-[ext_resource type="Script" uid="uid://2n66g2l26bh6" path="res://script/character/golem/attack_state.gd" id="6_bsp0a"]
+[ext_resource type="Script" uid="uid://2n66g2l26bh6" path="res://script/character/golem/immune.gd" id="6_bsp0a"]
 [ext_resource type="Script" uid="uid://ck1alu6c1t0xw" path="res://script/character/golem/arrived_side_state.gd" id="7_cjctn"]
 [ext_resource type="Script" uid="uid://crpyrdma0rbsm" path="res://script/character/golem/laser_attack_state.gd" id="8_y7see"]
 [ext_resource type="Script" uid="uid://dsuwvod3rjrju" path="res://script/character/golem/range_attack_state.gd" id="9_gvivl"]
@@ -491,13 +491,12 @@ side_amplitude = 5.0
 side_speed = 1.0
 
 [node name="Timer" type="Timer" parent="StateMachine/IdleState"]
-wait_time = 2.0
 one_shot = true
 
 [node name="MoveState" type="Node" parent="StateMachine"]
 script = ExtResource("5_3d6su")
 
-[node name="AttackState" type="Node" parent="StateMachine"]
+[node name="ImmuneState" type="Node" parent="StateMachine"]
 script = ExtResource("6_bsp0a")
 
 [node name="ArrivedSideState" type="Node" parent="StateMachine"]
