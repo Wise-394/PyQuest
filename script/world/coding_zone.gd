@@ -48,7 +48,7 @@ extends Area2D
 @onready var label: Label = $Label
 @onready var player: CharacterBody2D = get_tree().current_scene.get_node("Player")
 @onready var canvas_layer: CanvasLayer = get_tree().current_scene.get_node("UI/CanvasLayer")
-@onready var zone_remaining: Label = get_tree().current_scene.get_node("UI/CanvasLayer/ZoneRemaining")
+@onready var zone_remaining: Label = get_tree().current_scene.get_node_or_null("UI/CanvasLayer/ZoneRemaining")
 @onready var particles: CPUParticles2D = $CPUParticles2D
 @onready var collision: CollisionShape2D = $CollisionShape2D
 var is_player_in_range := false
@@ -56,7 +56,7 @@ var is_completed := false
 
 var editor_instance: Control = null
 var explanation_instance: Control = null
-
+signal completed_signal
 
 # ----------------------------------------------------------
 # SETUP
@@ -153,8 +153,9 @@ func _finalize(is_correct: bool) -> void:
 		_activate_children()
 		_set_zone_active(false)
 		particles.disable()
-		zone_remaining.update_count()
-
+		if zone_remaining:
+			zone_remaining.update_count()
+		completed_signal.emit()
 
 func _activate_children() -> void:
 	for child in child_nodes:
