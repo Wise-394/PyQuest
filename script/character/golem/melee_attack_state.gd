@@ -41,11 +41,14 @@ func _start_attack():
 func _on_animation_finished():
 	if sprite.animation != "melee":
 		return
-	
+
+	# Deal damage at the end of the attack
+	if character.hitbox.player_in_hitbox:
+		character.player.character_damaged(20, character)
+
 	current_attack += 1
-	
+
 	if current_attack < attack_count:
-		# Switch to move animation and start moving forward
 		sprite.play("move")
 		moving_forward = true
 		forward_target_x = character.global_position.x + attack_forward_distance * character.direction
@@ -70,3 +73,6 @@ func physics_update(_delta):
 			moving_forward = false
 	
 	character.move_and_slide()
+	
+	
+	#at the end of attack when character.hitbox.player_in_hitbox is not null then do character.damaged(20,self)

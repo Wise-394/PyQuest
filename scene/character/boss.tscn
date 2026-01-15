@@ -1,10 +1,11 @@
-[gd_scene load_steps=72 format=3 uid="uid://uw751ei4yp7y"]
+[gd_scene load_steps=73 format=3 uid="uid://uw751ei4yp7y"]
 
 [ext_resource type="Texture2D" uid="uid://ds2tsvr1lcx3y" path="res://assets/Mecha-stone Golem 0.1/Mecha-stone Golem 0.1/PNG sheet/Character_sheet.png" id="1_cut4e"]
 [ext_resource type="Script" uid="uid://dqphrfkgoiwtd" path="res://script/character/golem/boss.gd" id="1_lk8l6"]
 [ext_resource type="Script" uid="uid://dwbl7tap1c6fd" path="res://script/character/state_machine.gd" id="2_2nrav"]
 [ext_resource type="Texture2D" uid="uid://c5x3ca1xg3jmr" path="res://assets/Mecha-stone Golem 0.1/Mecha-stone Golem 0.1/weapon PNG/Laser_sheet.png" id="3_pojkb"]
 [ext_resource type="Script" uid="uid://b3pmrt2wn44ae" path="res://script/character/golem/idle_state.gd" id="3_t3b5p"]
+[ext_resource type="Script" uid="uid://ddbn6yxlb6ky1" path="res://script/character/golem/hit_box.gd" id="4_wfbr0"]
 [ext_resource type="Script" uid="uid://ba8ncfuuu87qr" path="res://script/character/golem/move_state.gd" id="5_3d6su"]
 [ext_resource type="Script" uid="uid://2n66g2l26bh6" path="res://script/character/golem/immune.gd" id="6_bsp0a"]
 [ext_resource type="Script" uid="uid://ck1alu6c1t0xw" path="res://script/character/golem/arrived_side_state.gd" id="7_cjctn"]
@@ -462,8 +463,10 @@ script = ExtResource("1_lk8l6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bsp0a")
-animation = &"range"
+animation = &"melee"
 autoplay = "idle"
+frame = 6
+frame_progress = 1.0
 
 [node name="LaserEffect" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -478,6 +481,15 @@ frame_progress = 1.0
 visible = false
 position = Vector2(-1.5, -2.5)
 shape = SubResource("RectangleShape2D_gvivl")
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 0
+script = ExtResource("4_wfbr0")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitBox"]
+position = Vector2(24, -1.3333334)
+scale = Vector2(-1.4532112, 2.067909)
+polygon = PackedVector2Array(2.2937708, -4.1910295, 1.8350163, 11.6059265, -9.175085, 11.928313, -7.340067, 6.4477367, -5.5050507, 5.4805765, -5.046297, 0.6447737, 0.4587536, -4.835803)
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_2nrav")
@@ -522,5 +534,7 @@ script = ExtResource("12_oqwcf")
 wait_time = 0.5
 one_shot = true
 
+[connection signal="body_entered" from="HitBox" to="HitBox" method="_on_body_entered"]
+[connection signal="body_exited" from="HitBox" to="HitBox" method="_on_body_exited"]
 [connection signal="timeout" from="StateMachine/IdleState/Timer" to="StateMachine/IdleState" method="_on_timer_timeout"]
 [connection signal="timeout" from="StateMachine/LaserAttackState/Timer" to="StateMachine/LaserAttackState" method="_on_timer_timeout"]

@@ -43,3 +43,8 @@ func _process(delta: float) -> void:
 func _apply_direction() -> void:
 	# Flips BOTH sprite and collision
 	scale.x = direction
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		body.character_damaged(20,self)

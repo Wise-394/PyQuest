@@ -18,7 +18,7 @@ extends CharacterBody2D
 # ===============================
 @onready var state_machine: StateMachine = $StateMachine
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var hitbox: Area2D = null
+@onready var hitbox: Area2D = $HitBox
 @onready var hurtbox: CollisionShape2D = $HurtBox
 @onready var raycast_left = null
 @onready var raycast_right =  null
@@ -43,7 +43,7 @@ func _ready() -> void:
 	current_health = max_health
 	_get_player()
 	_initialize_state_machine()
-
+	
 # ===============================
 # HELPER FUNCTIONS
 # ===============================
@@ -58,6 +58,9 @@ func face_player() -> void:
 	direction = sign(to_player)
 	sprite.flip_h = direction < 0
 	laser_effect.position.x = 6 if direction > 0 else -10
+	hitbox.scale.x = abs(hitbox.scale.x) * direction
+
+
 func _get_player() -> void:
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() > 0:
