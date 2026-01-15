@@ -24,6 +24,7 @@ extends CharacterBody2D
 @onready var raycast_right =  null
 @onready var health_bar = null
 @onready var laser_effect = $LaserEffect
+@onready var active_hitbox = $ActiveHitBox
 # ===============================
 # STATE
 # ===============================

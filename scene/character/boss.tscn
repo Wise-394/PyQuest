@@ -1,10 +1,11 @@
-[gd_scene load_steps=73 format=3 uid="uid://uw751ei4yp7y"]
+[gd_scene load_steps=74 format=3 uid="uid://uw751ei4yp7y"]
 
 [ext_resource type="Texture2D" uid="uid://ds2tsvr1lcx3y" path="res://assets/Mecha-stone Golem 0.1/Mecha-stone Golem 0.1/PNG sheet/Character_sheet.png" id="1_cut4e"]
 [ext_resource type="Script" uid="uid://dqphrfkgoiwtd" path="res://script/character/golem/boss.gd" id="1_lk8l6"]
 [ext_resource type="Script" uid="uid://dwbl7tap1c6fd" path="res://script/character/state_machine.gd" id="2_2nrav"]
 [ext_resource type="Texture2D" uid="uid://c5x3ca1xg3jmr" path="res://assets/Mecha-stone Golem 0.1/Mecha-stone Golem 0.1/weapon PNG/Laser_sheet.png" id="3_pojkb"]
 [ext_resource type="Script" uid="uid://b3pmrt2wn44ae" path="res://script/character/golem/idle_state.gd" id="3_t3b5p"]
+[ext_resource type="Script" uid="uid://djjow3mhyr2ll" path="res://script/character/golem/active_hit_box.gd" id="4_vc2pi"]
 [ext_resource type="Script" uid="uid://ddbn6yxlb6ky1" path="res://script/character/golem/hit_box.gd" id="4_wfbr0"]
 [ext_resource type="Script" uid="uid://ba8ncfuuu87qr" path="res://script/character/golem/move_state.gd" id="5_3d6su"]
 [ext_resource type="Script" uid="uid://2n66g2l26bh6" path="res://script/character/golem/immune.gd" id="6_bsp0a"]
@@ -463,10 +464,8 @@ script = ExtResource("1_lk8l6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bsp0a")
-animation = &"melee"
+animation = &"move"
 autoplay = "idle"
-frame = 6
-frame_progress = 1.0
 
 [node name="LaserEffect" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -476,6 +475,13 @@ scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_5ggbb")
 frame = 7
 frame_progress = 1.0
+
+[node name="ActiveHitBox" type="Area2D" parent="."]
+collision_layer = 0
+script = ExtResource("4_vc2pi")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ActiveHitBox"]
+polygon = PackedVector2Array(0.6666667, -26.666668, -6, -20.666668, -6, -16.666668, -18, -16, -25.333334, 1.3333334, -26, 16, -20, 18.666668, -13.333334, 15.333334, -12.666667, 21.333334, -2.6666667, 22, 7.3333335, 22, 14, 22, 16, 16.666668, 18.666668, 17.333334, 24.666668, 14, 22.666668, 6, 23.333334, -3.3333335, 19.333334, -16, 12, -17.333334, 8, -14.666667, 7.3333335, -21.333334)
 
 [node name="HurtBox" type="CollisionShape2D" parent="."]
 visible = false
@@ -534,6 +540,7 @@ script = ExtResource("12_oqwcf")
 wait_time = 0.5
 one_shot = true
 
+[connection signal="body_entered" from="ActiveHitBox" to="ActiveHitBox" method="_on_body_entered"]
 [connection signal="body_entered" from="HitBox" to="HitBox" method="_on_body_entered"]
 [connection signal="body_exited" from="HitBox" to="HitBox" method="_on_body_exited"]
 [connection signal="timeout" from="StateMachine/IdleState/Timer" to="StateMachine/IdleState" method="_on_timer_timeout"]

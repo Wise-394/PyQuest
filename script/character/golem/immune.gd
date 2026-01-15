@@ -12,6 +12,7 @@ var bob_time := 0.0
 
 func enter():
 	init_references()
+	character.active_hitbox.monitoring = false
 	sprite.play("immune")
 	_reset_bobbing()
 	_spawn_coding_zone()
@@ -23,6 +24,7 @@ func physics_update(delta):
 func exit():
 	if zone_instance.completed_signal.is_connected(completed_zone):
 		zone_instance.completed_signal.disconnect(completed_zone)
+	character.active_hitbox.monitoring = true
 func _reset_bobbing():
 	bob_time = 0.0
 

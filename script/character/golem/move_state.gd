@@ -153,13 +153,13 @@ func _on_arrival() -> void:
 			state_machine.change_state("ArrivedPlayerState")
 
 		ArrivalType.LEFT:
-			state_machine.change_state("ArrivedPlayerState")
+			state_machine.change_state("ArrivedSideState")
 
 		ArrivalType.CENTER:
-			state_machine.change_state("ArrivedPlayerState")
+			state_machine.change_state("ImmuneState")
 
 		ArrivalType.RIGHT:
-			state_machine.change_state("ArrivedPlayerState")
+			state_machine.change_state("ArrivedSideState")
 
 # =============================
 #        HELPERS
