@@ -22,12 +22,12 @@ const STATIC_TARGETS: Array[Vector2] = [
 # =============================
 #        CONFIGURATION
 # =============================
-@export var move_speed := 200.0
+@export var move_speed := 180.0
 @export var arrival_threshold := 5.0
 
 @export_group("Player Offset")
-@export var min_horizontal_offset := 40.0
-@export var max_horizontal_offset := 80.0
+@export var min_horizontal_offset := 100.0
+@export var max_horizontal_offset := 100.0
 @export var min_vertical_offset := 10.0
 @export var max_vertical_offset := 40.0
 
@@ -74,7 +74,7 @@ func physics_update(delta: float) -> void:
 # =============================
 func _pick_target() -> void:
 	var player_target := _get_player_offset_target()
-	if randf() < 0.55:
+	if randf() < 0.65:
 		# 70% chance → player target
 		target_position = player_target
 		arrival_type = ArrivalType.PLAYER
@@ -110,6 +110,7 @@ func _move_towards_target_stepwise(delta: float) -> void:
 
 	match movement_phase:
 		0:
+			# Step 0 → Move vertically to intermediate Y
 			var dy := intermediate_y - character.global_position.y
 			if abs(dy) <= arrival_threshold:
 				character.global_position.y = intermediate_y
@@ -118,6 +119,7 @@ func _move_towards_target_stepwise(delta: float) -> void:
 				velocity.y = sign(dy) * move_speed
 
 		1:
+			# Step 1 → Move horizontally toward target X
 			var dx := target_position.x - character.global_position.x
 			if abs(dx) <= arrival_threshold:
 				character.global_position.x = target_position.x
@@ -127,16 +129,38 @@ func _move_towards_target_stepwise(delta: float) -> void:
 				velocity.x = sign(dx) * move_speed
 
 		2:
+			# Step 2 → Descent
 			if pause_timer < pause_before_descent:
 				pause_timer += delta
 			else:
-				var dy := target_position.y - character.global_position.y
-				if abs(dy) <= arrival_threshold:
-					character.global_position.y = target_position.y
-					_on_arrival()
-				else:
-					velocity.y = sign(dy) * move_speed * descent_speed_multiplier
+				if arrival_type == ArrivalType.PLAYER:
+					# Move horizontally away from player first
+					var player_pos = character.player.global_position
+					var horizontal_distance = abs(character.global_position.x - player_pos.x)
+					var safe_distance := max_horizontal_offset * 1.5
 
+					if horizontal_distance < safe_distance:
+						# Move horizontally away only
+						velocity.x = (move_speed * 0.5) * sign(character.global_position.x - player_pos.x)
+						velocity.y = 0
+					else:
+						# Safe → descend straight down
+						var dy := target_position.y - character.global_position.y
+						if abs(dy) <= arrival_threshold:
+							character.global_position.y = target_position.y
+							_on_arrival()
+						else:
+							velocity.y = sign(dy) * move_speed * descent_speed_multiplier
+				else:
+					# Normal descent for static targets
+					var dy := target_position.y - character.global_position.y
+					if abs(dy) <= arrival_threshold:
+						character.global_position.y = target_position.y
+						_on_arrival()
+					else:
+						velocity.y = sign(dy) * move_speed * descent_speed_multiplier
+
+	# Apply bobbing offset
 	velocity.y += bobbing_offset
 	character.velocity = velocity
 	character.move_and_slide()
@@ -156,7 +180,7 @@ func _on_arrival() -> void:
 			state_machine.change_state("ArrivedSideState")
 
 		ArrivalType.CENTER:
-			state_machine.change_state("ImmuneState")
+			state_machine.change_state("immunestate")
 
 		ArrivalType.RIGHT:
 			state_machine.change_state("ArrivedSideState")
