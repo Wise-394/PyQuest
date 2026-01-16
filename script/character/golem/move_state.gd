@@ -74,14 +74,18 @@ func physics_update(delta: float) -> void:
 # =============================
 func _pick_target() -> void:
 	var player_target := _get_player_offset_target()
-	if randf() < 0.65:
-		# 70% chance → player target
+	if randf() < 0.4:
 		target_position = player_target
 		arrival_type = ArrivalType.PLAYER
 	else:
-		# 30% chance → choose a static target randomly
-		target_position = STATIC_TARGETS.pick_random()
-		arrival_type = _get_static_arrival_type(target_position)
+		if randf() < 0.4:
+			target_position = STATIC_TARGETS[1]  # CENTER
+			arrival_type = ArrivalType.CENTER
+		else:
+			var side_targets := [STATIC_TARGETS[0], STATIC_TARGETS[2]]
+			target_position = side_targets.pick_random()
+			arrival_type = _get_static_arrival_type(target_position)
+
 
 func _get_player_offset_target() -> Vector2:
 	var offset_x := _random_signed(min_horizontal_offset, max_horizontal_offset)

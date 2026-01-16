@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://uw751ei4yp7y"]
+[gd_scene load_steps=76 format=3 uid="uid://uw751ei4yp7y"]
 
 [ext_resource type="Texture2D" uid="uid://ds2tsvr1lcx3y" path="res://assets/Mecha-stone Golem 0.1/Mecha-stone Golem 0.1/PNG sheet/Character_sheet.png" id="1_cut4e"]
 [ext_resource type="Script" uid="uid://dqphrfkgoiwtd" path="res://script/character/golem/boss.gd" id="1_lk8l6"]
@@ -14,20 +14,25 @@
 [ext_resource type="Script" uid="uid://dsuwvod3rjrju" path="res://script/character/golem/range_attack_state.gd" id="9_gvivl"]
 [ext_resource type="Script" uid="uid://bi11ub16f6m43" path="res://script/character/golem/arrived_player_state.gd" id="11_07gqg"]
 [ext_resource type="Script" uid="uid://c5coe3yfye0iq" path="res://script/character/golem/melee_attack_state.gd" id="12_oqwcf"]
+[ext_resource type="Script" uid="uid://m65oxwtiw56w" path="res://script/character/golem/dead_state.gd" id="15_jyrgw"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_se4ko"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_b42kd"]
+atlas = ExtResource("1_cut4e")
+region = Rect2(700, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqll8"]
 atlas = ExtResource("1_cut4e")
 region = Rect2(0, 800, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xefgk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bx5xr"]
 atlas = ExtResource("1_cut4e")
 region = Rect2(100, 800, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rsvf4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_djxow"]
 atlas = ExtResource("1_cut4e")
 region = Rect2(200, 800, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uh4jv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lup50"]
 atlas = ExtResource("1_cut4e")
 region = Rect2(300, 800, 100, 100)
 
@@ -211,20 +216,23 @@ region = Rect2(800, 200, 100, 100)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_se4ko")
+"texture": SubResource("AtlasTexture_b42kd")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xefgk")
+"texture": SubResource("AtlasTexture_aqll8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rsvf4")
+"texture": SubResource("AtlasTexture_bx5xr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_uh4jv")
+"texture": SubResource("AtlasTexture_djxow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lup50")
 }],
 "loop": false,
 "name": &"death",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -464,8 +472,10 @@ script = ExtResource("1_lk8l6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bsp0a")
-animation = &"move"
+animation = &"death"
 autoplay = "idle"
+frame = 4
+frame_progress = 1.0
 
 [node name="LaserEffect" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -539,6 +549,9 @@ script = ExtResource("12_oqwcf")
 [node name="AttackTimer" type="Timer" parent="StateMachine/MeleeAttackState"]
 wait_time = 0.5
 one_shot = true
+
+[node name="DeadState" type="Node" parent="StateMachine"]
+script = ExtResource("15_jyrgw")
 
 [connection signal="body_entered" from="ActiveHitBox" to="ActiveHitBox" method="_on_body_entered"]
 [connection signal="body_entered" from="HitBox" to="HitBox" method="_on_body_entered"]
