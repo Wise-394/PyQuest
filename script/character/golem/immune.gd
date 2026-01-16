@@ -14,6 +14,7 @@ func enter():
 	init_references()
 	character.active_hitbox.monitoring = false
 	sprite.play("immune")
+	character.hurtbox.disabled = true
 	_reset_bobbing()
 	_spawn_coding_zone()
 
@@ -25,6 +26,7 @@ func exit():
 	if zone_instance.completed_signal.is_connected(completed_zone):
 		zone_instance.completed_signal.disconnect(completed_zone)
 	character.active_hitbox.monitoring = true
+	character.hurtbox.disabled = false
 func _reset_bobbing():
 	bob_time = 0.0
 

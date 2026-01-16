@@ -3,7 +3,7 @@ extends CharacterBody2D
 # ===============================
 # EXPORTS
 # ===============================
-@export var max_health: int = 50
+@export var max_health: int = 1000
 @export var speed: float = 50
 @export var gravity: float = 1000
 @export var damage: int = 30
@@ -12,6 +12,7 @@ extends CharacterBody2D
 
 @export var turn_speed: float = 8.0
 @export var turn_delay: float = 0.12
+
 
 # ===============================
 # NODES
@@ -30,13 +31,14 @@ extends CharacterBody2D
 # ===============================
 var is_invulnerable: bool = false
 var is_alive: bool = true
-var current_health: int
+var current_health: int = 500
 var hit_direction: int = 1
 var player: CharacterBody2D = null
 var direction = 1
 var cayote_time = 0
 var melee_attack = false
 var laser_offset_x := 40.0
+signal health_changed
 # ===============================
 # LIFE CYCLE
 # ===============================
@@ -70,3 +72,11 @@ func _get_player() -> void:
 func _initialize_state_machine() -> void:
 	if state_machine and state_machine.initial_state:
 		state_machine.change_state(state_machine.initial_state.name.to_lower())
+		
+		
+func damaged(damage_amount: int, _attacker: Node2D) -> void:
+	if not is_alive:
+		return
+
+	current_health -= damage_amount
+	health_changed.emit()

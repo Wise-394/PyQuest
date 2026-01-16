@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://txybtigns2hp"]
+
+[ext_resource type="Script" uid="uid://cf6ekuqpgq232" path="res://script/character/golem/boss_hp.gd" id="1_sjsjh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sjsjh"]
+bg_color = Color(0.6, 0.6, 0.6, 0.5882353)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_citli"]
+bg_color = Color(0.68235296, 0.03529412, 0, 0.5882353)
+
+[node name="BossHP" type="ProgressBar"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -455.0
+offset_top = -55.0
+offset_right = 458.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_sjsjh")
+theme_override_styles/fill = SubResource("StyleBoxFlat_citli")
+show_percentage = false
+script = ExtResource("1_sjsjh")
