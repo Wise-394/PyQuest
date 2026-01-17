@@ -44,6 +44,10 @@ func _calculate_hit_direction(attacker: Node2D) -> void:
 	if hit_direction == 0:
 		hit_direction = 1
 
+func heal(amount: int) -> void:
+	current_health = min(current_health + amount, max_health)
+	health_changed.emit()
+	
 func _apply_damage(damage_to_reduce: int) -> void:
 	current_health -= damage_to_reduce
 	health_changed.emit()

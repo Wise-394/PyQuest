@@ -41,10 +41,8 @@ func _spawn_coding_zone():
 	zone_instance = coding_zone.instantiate()
 	var random_x = randf_range(spawn_min_x, spawn_max_x)
 	zone_instance.position = Vector2(random_x, spawn_y)
-	zone_instance.level = 1
-	zone_instance.question_id = 1
-	#zone_instance.level = 10
-	#zone_instance.question_id = randi_range(1,10)
+	zone_instance.level = randi_range(2,9)
+	zone_instance.question_id = randi_range(1,3)
 	
 	if not zone_instance.completed_signal.is_connected(completed_zone):
 		zone_instance.completed_signal.connect(completed_zone)

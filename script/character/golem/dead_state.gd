@@ -36,4 +36,5 @@ func _on_animation_finished():
 
 	# Only free if the finished animation is "death"
 	if sprite.animation == "death":
+		character.finished.emit()
 		character.queue_free()

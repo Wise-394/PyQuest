@@ -1,0 +1,56 @@
+[gd_scene load_steps=11 format=3 uid="uid://bow2mbhwh077u"]
+
+[ext_resource type="Texture2D" uid="uid://0v3p4l7kf6u5" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Red Potion/01.png" id="1_4jx6y"]
+[ext_resource type="Script" uid="uid://d3ohcnyt3n8es" path="res://script/world/health_potion.gd" id="1_obk1l"]
+[ext_resource type="Texture2D" uid="uid://bo3608xf3b8in" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Red Potion/02.png" id="2_obk1l"]
+[ext_resource type="Texture2D" uid="uid://5d1dulxxl8c8" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Red Potion/03.png" id="3_0k2cx"]
+[ext_resource type="Texture2D" uid="uid://bfhipp54r15fx" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Red Potion/04.png" id="4_gi0h5"]
+[ext_resource type="Texture2D" uid="uid://dxt3unblx12dp" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Red Potion/05.png" id="5_h70qh"]
+[ext_resource type="Texture2D" uid="uid://dn06k4ah5m0nt" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Red Potion/06.png" id="6_srjly"]
+[ext_resource type="Texture2D" uid="uid://siap25axbi44" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Red Potion/07.png" id="7_8fyqf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mflfr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4jx6y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_obk1l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0k2cx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gi0h5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_h70qh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_srjly")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_8fyqf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_obk1l"]
+radius = 6.0
+height = 18.0
+
+[node name="HealthPotion" type="Area2D"]
+collision_layer = 32
+script = ExtResource("1_obk1l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mflfr")
+frame_progress = 0.7664633
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_obk1l")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

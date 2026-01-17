@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=4 uid="uid://c2kd6dgh7sbel"]
+[gd_scene load_steps=11 format=4 uid="uid://c2kd6dgh7sbel"]
 
 [ext_resource type="TileSet" uid="uid://d1yxhu13jwkq3" path="res://tileset/island.tres" id="1_e4ck6"]
+[ext_resource type="Script" uid="uid://bshgt457qabow" path="res://script/lvl_manager/lvl_10.gd" id="1_ngqx4"]
 [ext_resource type="PackedScene" uid="uid://bnhiv8qcc5ro5" path="res://scene/character/player.tscn" id="2_swp6o"]
 [ext_resource type="PackedScene" uid="uid://dc7ihfcrpl10v" path="res://scene/world/camera.tscn" id="3_32kyc"]
 [ext_resource type="PackedScene" uid="uid://chv6oqvx3a4j8" path="res://scene/world/parallax_bg.tscn" id="4_ngqx4"]
@@ -10,7 +11,13 @@
 [ext_resource type="PackedScene" uid="uid://lg4gs88e7o62" path="res://scene/ui/pause_button.tscn" id="8_48ef0"]
 [ext_resource type="PackedScene" uid="uid://uw751ei4yp7y" path="res://scene/character/golem.tscn" id="9_swp6o"]
 
-[node name="lvl_10" type="Node"]
+[node name="lvl_10" type="Node" node_paths=PackedStringArray("boss")]
+script = ExtResource("1_ngqx4")
+boss = NodePath("boss")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
 
 [node name="World" type="Node" parent="."]
 
@@ -21,7 +28,7 @@ tile_set = ExtResource("1_e4ck6")
 
 [node name="boss" parent="." instance=ExtResource("9_swp6o")]
 position = Vector2(458, 60)
-max_health = 2000
+max_health = 10
 
 [node name="Player" parent="." instance=ExtResource("2_swp6o")]
 position = Vector2(178, 133)
@@ -37,9 +44,9 @@ position = Vector2(94, -61)
 
 [node name="BossHP" parent="UI/CanvasLayer" node_paths=PackedStringArray("character") instance=ExtResource("6_swp6o")]
 offset_left = -443.0
-offset_top = -517.0
+offset_top = -65.0
 offset_right = 470.0
-offset_bottom = -490.0
+offset_bottom = -38.0
 character = NodePath("../../../boss")
 
 [node name="HealthBar" parent="UI/CanvasLayer" node_paths=PackedStringArray("character") instance=ExtResource("6_pj5wv")]
@@ -63,3 +70,5 @@ offset_top = 6.0
 offset_right = 53.0
 offset_bottom = 56.0
 metadata/_edit_use_anchors_ = true
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

@@ -39,6 +39,7 @@ var cayote_time = 0
 var melee_attack = false
 var laser_offset_x := 40.0
 signal health_changed
+signal finished
 # ===============================
 # LIFE CYCLE
 # ===============================

@@ -24,3 +24,10 @@ theme_override_styles/background = SubResource("StyleBoxFlat_sjsjh")
 theme_override_styles/fill = SubResource("StyleBoxFlat_citli")
 show_percentage = false
 script = ExtResource("1_sjsjh")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = -27.0
+offset_right = 51.0
+offset_bottom = -4.0
+text = "Golem"
