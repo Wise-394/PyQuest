@@ -469,6 +469,7 @@ scale = Vector2(1.5, 1.5)
 collision_layer = 16
 collision_mask = 0
 script = ExtResource("1_lk8l6")
+max_health = 1500
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bsp0a")

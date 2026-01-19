@@ -1,29 +1,48 @@
 extends Node
 
+# ===============================
+#           NODES
+# ===============================
 @onready var animation: AnimationPlayer = $AnimationPlayer
-@onready var color_rect:ColorRect = $ColorRect
-@export var level_scenes: Dictionary = {
-	0: "res://scene/lvl/main_menu.tscn",
-	1: "res://scene/lvl/lvl_1.tscn",
-	2: "res://scene/lvl/lvl_2.tscn",
-	3: "res://scene/lvl/lvl_3.tscn",
-	4: "res://scene/lvl/lvl_4.tscn",
-	5: "res://scene/lvl/lvl_5.tscn",
-	6: "res://scene/lvl/lvl_6.tscn"
-}
+@onready var color_rect: ColorRect = $ColorRect
+
+# ===============================
+#        CONFIGURATION
+# ===============================
+@export var level_folder: String = "res://scene/lvl/"
+@export var menu_scene: String = "main_menu.tscn"
+
+# ===============================
+#           READY
+# ===============================
 func _ready() -> void:
 	color_rect.color = Color.TRANSPARENT
-	
+
+# ===============================
+#         TRANSITION
+# ===============================
 func _on_timer_timeout() -> void:
 	animation.play("fade_in")
 
 func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
 	change_scene()
-	
-func change_scene():
-	var current_level = SaveLoad.current_level
-	
-	if level_scenes.has(current_level):
-		get_tree().change_scene_to_file(level_scenes[current_level])
+
+# ===============================
+#        SCENE LOADING
+# ===============================
+func change_scene() -> void:
+	var current_level: int = SaveLoad.current_level
+	var scene_path: String
+
+	# Main menu
+	if current_level == 0:
+		scene_path = level_folder + menu_scene
 	else:
-		print("Level ", current_level, " not found!")
+		scene_path = "%slvl_%d.tscn" % [level_folder, current_level]
+
+	# Safety check
+	if not ResourceLoader.exists(scene_path):
+		push_error("Level %d not found at path: %s" % [current_level, scene_path])
+		return
+
+	get_tree().change_scene_to_file(scene_path)
