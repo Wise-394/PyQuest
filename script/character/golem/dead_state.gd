@@ -2,39 +2,37 @@ extends State
 
 @export var gravity := 200.0
 
-var landed := false
-
 func enter():
 	init_references()
 
+	sprite.offset.y = -21
 	character.is_alive = false
 	sprite.play("death")
 
-	# Stop horizontal movement
+	# Stop movement
 	character.velocity = Vector2.ZERO
 
-	# Disable hurtbox safely
-	hurtbox.set_deferred("disabled", true)
+	# COLLISION SETUP
+	character.set_deferred("collision_layer", 0) # not detected by anything
+	character.set_deferred("collision_mask", 2)  # only collide with ground
 
-	# Connect animation_finished signal (if not already connected)
+	# Disable hurtbox safely (if used)
+	# hurtbox.set_deferred("disabled", true)
+
+	# Signal
 	if not sprite.animation_finished.is_connected(_on_animation_finished):
 		sprite.animation_finished.connect(_on_animation_finished)
 
 
 func physics_update(delta):
-	# Apply gravity every frame
 	character.velocity.y += gravity * delta
-
-	# Move the character with velocity
 	character.move_and_slide()
 
 
 func _on_animation_finished():
-	# Disconnect to prevent multiple calls
 	if sprite.animation_finished.is_connected(_on_animation_finished):
 		sprite.animation_finished.disconnect(_on_animation_finished)
 
-	# Only free if the finished animation is "death"
 	if sprite.animation == "death":
 		character.finished.emit()
-		character.queue_free()
+		# character.queue_free()

@@ -28,6 +28,7 @@ tile_set = ExtResource("1_e4ck6")
 
 [node name="boss" parent="." instance=ExtResource("9_swp6o")]
 position = Vector2(458, 60)
+max_health = 10
 
 [node name="Player" parent="." instance=ExtResource("2_swp6o")]
 position = Vector2(178, 133)
