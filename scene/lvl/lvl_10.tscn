@@ -13,6 +13,7 @@
 
 [node name="lvl_10" type="Node" node_paths=PackedStringArray("boss")]
 script = ExtResource("1_ngqx4")
+level_to_go = "res://scene/lvl/lvl_11.tscn"
 boss = NodePath("boss")
 
 [node name="SpawnTimer" type="Timer" parent="."]
@@ -28,7 +29,6 @@ tile_set = ExtResource("1_e4ck6")
 
 [node name="boss" parent="." instance=ExtResource("9_swp6o")]
 position = Vector2(458, 60)
-max_health = 10
 
 [node name="Player" parent="." instance=ExtResource("2_swp6o")]
 position = Vector2(178, 133)

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bx7oqlvpn3d78"
+path="res://.godot/imported/listy.dialogue-dcabbad45ec0d4abfca0271dd574ca7a.tres"
+
+[deps]
+
+source_file="res://dialog/listy.dialogue"
+dest_files=["res://.godot/imported/listy.dialogue-dcabbad45ec0d4abfca0271dd574ca7a.tres"]
+
+[params]
+
+defaults=true

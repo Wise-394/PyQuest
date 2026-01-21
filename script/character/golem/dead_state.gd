@@ -16,8 +16,6 @@ func enter():
 	character.set_deferred("collision_layer", 0) # not detected by anything
 	character.set_deferred("collision_mask", 2)  # only collide with ground
 
-	# Disable hurtbox safely (if used)
-	# hurtbox.set_deferred("disabled", true)
 
 	# Signal
 	if not sprite.animation_finished.is_connected(_on_animation_finished):
@@ -35,4 +33,3 @@ func _on_animation_finished():
 
 	if sprite.animation == "death":
 		character.finished.emit()
-		# character.queue_free()
