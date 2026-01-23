@@ -15,11 +15,11 @@ def get_question():
     return {
         "question": (
             "You have a party of heroes:\n"
-            "party = ('Knight', 'Wizard', 'Archer', 'Cleric')\n\n"
+            "party = ('Knight', 'Wizard', 'Archer', 'Cleric')\n"
             "Your quest:\n"
             "1. Use len() to find how many heroes are in the party\n"
             "2. Print: 'Party size: [number]'\n"
-            "3. Use a for loop to print each hero's name\n\n"
+            "3. Use a for loop to print each hero's name\n"
             "Example output:\n"
             "Party size: 4\n"
             "Knight\n"

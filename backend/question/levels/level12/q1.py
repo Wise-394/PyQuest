@@ -19,7 +19,7 @@ def get_question():
             "Then print each item on a separate line using indexing.\n"
             "Remember: tuples use parentheses () and are indexed starting from 0!"
         ),
-        "code": "# Create your inventory tuple here\n"
+        "code": ""
     }
 
 
