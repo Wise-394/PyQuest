@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://b7umm8sklau0g"
+path="res://.godot/imported/tuple.dialogue-5334aadfb5860f06eded1b06ad8e1b8e.tres"
+
+[deps]
+
+source_file="res://dialog/tuple.dialogue"
+dest_files=["res://.godot/imported/tuple.dialogue-5334aadfb5860f06eded1b06ad8e1b8e.tres"]
+
+[params]
+
+defaults=true

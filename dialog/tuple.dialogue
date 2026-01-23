@@ -1,0 +1,81 @@
+~ start
+starfish: Welcome back, coder! ⭐ Today we're diving into [b]tuples[/b]—a special way to store multiple items together that stay protected and never change.
+starfish: Tuples are like treasure chests in a game: once you lock them, the items inside stay exactly as they are. No adding, no removing, no swapping!
+starfish: In Python, tuples use [b]parentheses ()[/b] instead of square brackets. They're perfect for data that should remain constant, like coordinates, RGB colors, or quest requirements.
+starfish: By the end of this lesson, you'll know when to use tuples, how to access their items, and why they're so powerful. Ready to unlock this treasure?
+- Yes! Let's learn tuples 🎒 => teach_basics
+- I already know this. => end_dialog
+
+
+~ teach_basics
+starfish: Let's start with [b]creating a tuple[/b]. The syntax is simple: put your items inside parentheses, separated by commas.
+starfish: Here's an example: [b]inventory = ('sword', 'potion', 'shield')[/b]
+starfish: This creates a tuple with three items. Once created, you cannot change what's inside—no adding a fourth item, no removing the sword. It's locked!
+starfish: To access items, use [b]indexing[/b] just like with lists. Remember, counting starts at 0!
+starfish: [b]inventory[0][/b] gives you 'sword', [b]inventory[1][/b] gives you 'potion', and [b]inventory[2][/b] gives you 'shield'.
+starfish: Want to understand why tuples can't be changed?
+- Yes, explain immutability => teach_immutability
+- Continue to more features => teach_unpacking
+
+
+~ teach_immutability
+starfish: The word for "can't be changed" is [b]immutability[/b]. Once a tuple is created, it's frozen forever. This might seem limiting, but it's actually a superpower!
+starfish: Immutability means your data is [b]protected from accidents[/b]. If you pass a tuple to a function, you know it won't be modified. If you store quest requirements as a tuple, they can't be accidentally altered.
+starfish: Lists use square brackets [] and CAN be changed. Tuples use parentheses () and CANNOT be changed. Choose wisely based on what you need!
+starfish: Try this in your head: [b]items = ('key', 'map')[/b]. If you try [b]items[0] = 'compass'[/b], Python will give you an error because tuples are immutable.
+starfish: This protection makes your code safer and faster. Python can optimize tuples better because they never change!
+- That makes sense! Continue ➜ => teach_unpacking
+
+
+~ teach_unpacking
+starfish: Here's where tuples get really cool: [b]unpacking[/b]. This lets you take a tuple's values and assign them to multiple variables at once!
+starfish: Imagine you have coordinates: [b]position = (150, 200, 5)[/b] representing x, y, and floor level.
+starfish: Instead of writing:[br][b]x = position[0][/b][br][b]y = position[1][/b][br][b]floor = position[2][/b]
+starfish: You can simply write: [b]x, y, floor = position[/b]
+starfish: Python automatically takes each value from the tuple and assigns it to the matching variable. Much cleaner!
+starfish: The number of variables must match the number of items in the tuple, or Python will complain. Three items means three variables!
+- Show me a real example ➜ => teach_example
+
+
+~ teach_example
+starfish: Here's a complete example using tuple unpacking in a game scenario:
+starfish: [b]boss_location = (150, 200, 5)[/b][br][b]x, y, floor = boss_location[/b][br][b]print(f'Dragon at X: {x}, Y: {y}, Floor: {floor}')[/b]
+starfish: This prints: [b]Dragon at X: 150, Y: 200, Floor: 5[/b]
+starfish: Unpacking makes your code readable and elegant. It's commonly used when functions return multiple values!
+starfish: Ready to learn some useful tuple operations?
+- Yes, show me! => teach_operations
+
+
+~ teach_operations
+starfish: Tuples have some handy built-in operations. Let's explore the most useful ones!
+starfish: [b]len(tuple)[/b] tells you how many items are in a tuple. For example: [b]party = ('Knight', 'Wizard', 'Archer')[/b] and [b]len(party)[/b] gives you 3.
+starfish: You can loop through tuples just like lists: [b]for hero in party:[/b][br]->[b]print(hero)[/b]
+starfish: This prints each hero's name on a separate line. Simple and powerful!
+starfish: Check if an item exists: [b]'Knight' in party[/b] returns True, while [b]'Dragon' in party[/b] returns False.
+starfish: You can also combine tuples with [b]+[/b]: [b]warriors = ('Knight',)[/b] and [b]mages = ('Wizard',)[/b] then [b]party = warriors + mages[/b] creates a new tuple with both!
+- What about that comma after 'Knight'? => teach_single_item
+- I'm ready for the summary => summary
+
+
+~ teach_single_item
+starfish: Great catch! For a [b]single-item tuple[/b], you MUST include a comma after the item, even if it looks weird.
+starfish: [b]Wrong:[/b] warriors = ('Knight') — this is just a string in parentheses, not a tuple!
+starfish: [b]Correct:[/b] warriors = ('Knight',) — the comma tells Python "this is a tuple with one item."
+starfish: Without the comma, Python thinks you're just using parentheses for grouping, like in math: (5 + 3).
+starfish: It's a quirky Python rule, but once you know it, you'll never forget!
+- Got it! Show me the summary => summary
+
+
+~ summary
+starfish: Let's recap: [b]Tuples[/b] are immutable collections created with parentheses: ('item1', 'item2', 'item3').
+starfish: Access items with indexing starting at 0: tuple[0] for the first item, tuple[1] for the second, and so on.
+starfish: [b]Unpacking[/b] lets you assign tuple values to multiple variables at once: x, y, z = (1, 2, 3).
+starfish: Use [b]len()[/b] to count items, [b]for loops[/b] to iterate, [b]in[/b] to check membership, and [b]+[/b] to combine tuples.
+starfish: Tuples are faster and safer than lists when your data shouldn't change. Perfect for coordinates, colors, or fixed game data!
+starfish: You now have the power of tuples! 🎒✨ Ready to put this knowledge to the test?
+- Yes, let's practice! 💪
+- I need to review again => teach_basics
+
+
+~ end_dialog
+starfish: Keep coding, adventurer! Remember: when your data needs protection, tuples are your treasure chest! ⭐
