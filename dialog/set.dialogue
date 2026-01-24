@@ -1,0 +1,254 @@
+~ start
+starfish: Hello, traveler! Welcome to your lesson on [b]Python sets[/b]!  
+starfish: A set is like a special collection box that only keeps unique items and automatically removes duplicates!  
+starfish: What would you like to learn first?  
+- What is a set? => set_intro  
+- How is a set different from a list? => set_vs_list  
+- How do I make a set? => create_set  
+- I know the basics, show me more => main_menu  
+- I want to exit => end_dialog
+
+~ set_intro
+starfish: Great question! Let's explore sets together.  
+starfish: Imagine you're collecting rare gems. You don't want two of the same gem, right?  
+starfish: A set automatically keeps only unique items. If you try to add a duplicate, it ignores it!  
+starfish: Example: [br]gems = {'ruby', 'sapphire', 'ruby'}  
+starfish: Even though we added 'ruby' twice, the set only keeps one: {'ruby', 'sapphire'}  
+starfish: Sets are perfect when you need unique values!  
+- That's interesting! How is it different from a list? => set_vs_list  
+- Show me how to create one => create_set  
+- I want to exit => end_dialog
+
+~ set_vs_list
+starfish: Good thinking! Sets and lists are similar but have key differences:  
+starfish: [b]Lists:[/b]  
+starfish: • Keep duplicates: [1, 2, 2, 3] stays as is  
+starfish: • Remember order: Items stay in the order you added them  
+starfish: • Use brackets: my_list = [1, 2, 3]  
+starfish: [b]Sets:[/b]  
+starfish: • Remove duplicates: {1, 2, 2, 3} becomes {1, 2, 3}  
+starfish: • No guaranteed order: Items can appear in any order  
+starfish: • Use curly braces: my_set = {1, 2, 3}  
+- I see! When should I use sets? => when_to_use  
+- Show me how to create sets => create_set  
+- I want to exit => end_dialog
+
+~ when_to_use
+starfish: Sets are perfect for specific situations!  
+starfish: [b]Use sets when:[/b]  
+starfish: • You need unique values (no duplicates)  
+starfish: • You want to check if something exists (very fast!)  
+starfish: • You need to find common items between collections  
+starfish: [b]Use lists when:[/b]  
+starfish: • Order matters  
+starfish: • You need duplicates  
+starfish: • You need to access items by position  
+- Got it! How do I create a set? => create_set  
+- What can I do with sets? => main_menu  
+- I want to exit => end_dialog
+
+~ create_set
+starfish: Creating a set is easy! Here are the ways:  
+starfish: [b]Method 1:[/b] Use curly braces { }  
+starfish: [br]my_set = {'apple', 'banana', 'cherry'}  
+starfish: [b]Method 2:[/b] Use the set() function  
+starfish: [br]my_set = set(['apple', 'banana', 'cherry'])  
+starfish: [b]Method 3:[/b] Create an empty set  
+starfish: [br]empty_set = set()  
+starfish: ⚠️ Warning: {} creates an empty dictionary, NOT a set! Use set() instead.  
+- I understand! What can I do with sets? => main_menu  
+- Can I add items to a set? => add_intro  
+- I want to exit => end_dialog
+
+~ add_intro
+starfish: Absolutely! You can add items to sets, and they're smart about duplicates!  
+starfish: Use [b]add()[/b] to add a single item:  
+starfish: [br]inventory = {'sword', 'shield'}  
+starfish: [br]inventory.add('potion')  
+starfish: Now your set is: {'sword', 'shield', 'potion'}  
+starfish: Watch what happens with duplicates:  
+starfish: [br]inventory.add('sword')  
+starfish: Nothing changes! The set already has 'sword', so it ignores it.  
+- Can I add multiple items at once? => add_multiple  
+- How do I remove items? => remove_intro  
+- I want to exit => end_dialog
+
+~ add_multiple
+starfish: Yes! Use [b]update()[/b] to add multiple items:  
+starfish: [br]inventory = {'sword', 'shield'}  
+starfish: [br]inventory.update(['potion', 'map', 'sword'])  
+starfish: Now your set is: {'sword', 'shield', 'potion', 'map'}  
+starfish: Notice 'sword' wasn't added again because it already existed!  
+starfish: You can also update with another set:  
+starfish: [br]inventory.update({'compass', 'rope'})  
+- Cool! How do I remove items? => remove_intro  
+- What else can I do? => main_menu  
+- I want to exit => end_dialog
+
+~ remove_intro
+starfish: There are several ways to remove items from a set!  
+starfish: [b]remove()[/b] - Remove an item (throws error if not found):  
+starfish: [br]inventory = {'sword', 'shield', 'potion'}  
+starfish: [br]inventory.remove('shield')  
+starfish: Now: {'sword', 'potion'}  
+starfish: ⚠️ If you try: inventory.remove('helmet'), Python will give you an error!  
+- Is there a safer way to remove? => remove_safe  
+- Show me other removal methods => remove_advanced  
+- I want to exit => end_dialog
+
+~ remove_safe
+starfish: Yes! Use [b]discard()[/b] - it won't complain if the item doesn't exist:  
+starfish: [br]inventory = {'sword', 'shield', 'potion'}  
+starfish: [br]inventory.discard('helmet')  
+starfish: No error! It just does nothing if 'helmet' isn't there.  
+starfish: [br]inventory.discard('sword')  
+starfish: This works and removes 'sword': {'shield', 'potion'}  
+starfish: This is safer when you're not sure if an item exists!  
+- Are there other ways to remove items? => remove_advanced  
+- Let me explore other operations => main_menu  
+- I want to exit => end_dialog
+
+~ remove_advanced
+starfish: Here are more removal methods:  
+starfish: [b]pop()[/b] - Remove and return a random item:  
+starfish: [br]item = inventory.pop()  
+starfish: This removes one item and saves it in 'item'  
+starfish: (You don't know which one because sets aren't ordered!)  
+starfish: [b]clear()[/b] - Empty the entire set:  
+starfish: [br]inventory.clear()  
+starfish: Now your set is completely empty: set()  
+- I want to learn about set operations => operations_intro  
+- Let me practice other things => main_menu  
+- I want to exit => end_dialog
+
+~ operations_intro
+starfish: Sets have powerful operations! These are perfect for comparing collections.  
+starfish: Let's say you have two groups of adventurers:  
+starfish: [br]team_a = {'Alice', 'Bob', 'Charlie'}  
+starfish: [br]team_b = {'Bob', 'Diana', 'Eve'}  
+starfish: What would you like to learn?  
+- Find items in both sets => union_op  
+- Find common items => intersection_op  
+- Find differences => difference_op  
+- Show me all operations => all_operations  
+- I want to exit => end_dialog
+
+~ union_op
+starfish: [b]Union[/b] combines all unique items from both sets!  
+starfish: [br]team_a = {'Alice', 'Bob', 'Charlie'}  
+starfish: [br]team_b = {'Bob', 'Diana', 'Eve'}  
+starfish: [br]everyone = team_a | team_b  
+starfish: or: everyone = team_a.union(team_b)  
+starfish: Result: {'Alice', 'Bob', 'Charlie', 'Diana', 'Eve'}  
+starfish: Notice 'Bob' appears only once, even though he's in both teams!  
+- What about finding common items? => intersection_op  
+- Show me other operations => operations_intro  
+- I want to exit => end_dialog
+
+~ intersection_op
+starfish: [b]Intersection[/b] finds items that exist in BOTH sets!  
+starfish: [br]team_a = {'Alice', 'Bob', 'Charlie'}  
+starfish: [br]team_b = {'Bob', 'Diana', 'Eve'}  
+starfish: [br]common = team_a & team_b  
+starfish: or: common = team_a.intersection(team_b)  
+starfish: Result: {'Bob'}  
+starfish: Only 'Bob' is in both teams!  
+- How do I find differences? => difference_op  
+- Show me other operations => operations_intro  
+- I want to exit => end_dialog
+
+~ difference_op
+starfish: [b]Difference[/b] finds items in one set but NOT the other!  
+starfish: [br]team_a = {'Alice', 'Bob', 'Charlie'}  
+starfish: [br]team_b = {'Bob', 'Diana', 'Eve'}  
+starfish: [br]only_in_a = team_a - team_b  
+starfish: or: only_in_a = team_a.difference(team_b)  
+starfish: Result: {'Alice', 'Charlie'}  
+starfish: These are the people only in team_a!  
+starfish: You can also find symmetric difference (items in either set but not both):  
+starfish: [br]unique_to_each = team_a ^ team_b  
+starfish: Result: {'Alice', 'Charlie', 'Diana', 'Eve'}  
+- Show me all operations together => all_operations  
+- I want to practice other things => main_menu  
+- I want to exit => end_dialog
+
+~ all_operations
+starfish: Here's a summary of set operations:  
+starfish: [b]Union (|)[/b] - All items from both sets  
+starfish: [br]a | b or a.union(b)  
+starfish: [b]Intersection (&)[/b] - Items in both sets  
+starfish: [br]a & b or a.intersection(b)  
+starfish: [b]Difference (-)[/b] - Items in first set but not second  
+starfish: [br]a - b or a.difference(b)  
+starfish: [b]Symmetric Difference (^)[/b] - Items in either set but not both  
+starfish: [br]a ^ b or a.symmetric_difference(b)  
+- Can I check if something is in a set? => membership_check  
+- Let me explore other features => main_menu  
+- I want to exit => end_dialog
+
+~ membership_check
+starfish: Yes! Checking membership in sets is super fast!  
+starfish: Use the [b]in[/b] keyword:  
+starfish: [br]inventory = {'sword', 'shield', 'potion'}  
+starfish: [br]if 'sword' in inventory:  
+starfish: [br]    print("You have a sword!")  
+starfish: This prints: You have a sword!  
+starfish: [br]if 'helmet' not in inventory:  
+starfish: [br]    print("You need a helmet!")  
+starfish: This prints: You need a helmet!  
+starfish: 💡 Fun fact: Checking membership in sets is much faster than in lists!  
+- Can I check relationships between sets? => subset_check  
+- Show me other things => main_menu  
+- I want to exit => end_dialog
+
+~ subset_check
+starfish: Yes! You can check if one set is contained in another!  
+starfish: [br]basic_items = {'sword', 'shield'}  
+starfish: [br]all_items = {'sword', 'shield', 'potion', 'map'}  
+starfish: [b]Subset[/b] - Is one set contained in another?  
+starfish: [br]basic_items.issubset(all_items)  
+starfish: Returns: True (all basic items are in all_items)  
+starfish: [b]Superset[/b] - Does one set contain another?  
+starfish: [br]all_items.issuperset(basic_items)  
+starfish: Returns: True (all_items contains all basic items)  
+starfish: [b]Disjoint[/b] - Do sets have NO items in common?  
+starfish: [br]team_a.isdisjoint(team_b)  
+- I think I understand sets now! => wrap_up  
+- Let me review something else => main_menu  
+- I want to exit => end_dialog
+
+~ main_menu
+starfish: What would you like to learn or review?  
+- Creating sets => create_set  
+- Adding items to sets => add_intro  
+- Removing items from sets => remove_intro  
+- Set operations (union, intersection, etc.) => operations_intro  
+- Checking membership => membership_check  
+- I'm ready for a summary! => wrap_up  
+- I want to exit => end_dialog
+
+~ wrap_up
+starfish: Wonderful! Let's review what you learned about sets:  
+starfish: ✨ [b]Creating a set:[/b]  
+starfish: [br]my_set = {'item1', 'item2', 'item3'}  
+starfish: [br]empty_set = set()  
+starfish: 🎯 [b]Key features:[/b]  
+starfish: • Only unique items (no duplicates!)  
+starfish: • No guaranteed order  
+starfish: • Very fast membership checking  
+starfish: ➕ [b]Adding items:[/b]  
+starfish: [br]my_set.add('new item')  
+starfish: [br]my_set.update(['item1', 'item2'])  
+starfish: ➖ [b]Removing items:[/b]  
+starfish: [br]my_set.remove('item') or my_set.discard('item')  
+starfish: 🔀 [b]Set operations:[/b]  
+starfish: [br]a | b (union), a & b (intersection), a - b (difference)  
+starfish: [b]Remember:[/b] Use sets for unique values and fast lookups!  
+- I want to review something => main_menu  
+- I'm done learning! => end_dialog  
+
+~ end_dialog
+starfish: Excellent work, traveler! 🎉  
+starfish: You now know the power of Python sets. They're incredibly useful for handling unique collections!  
+starfish: Keep practicing, and you'll discover even more ways to use them. Happy coding! 💻✨  
+=> END
