@@ -1,0 +1,137 @@
+~ start
+starfish: Hello, traveler! Welcome to your lesson on [b]Python dictionaries[/b]!  
+starfish: A dictionary is like a storage chest where each item has a label (key) and a value!  
+starfish: What would you like to learn first?  
+- What is a dictionary? => dict_intro  
+- How is it different from a list? => dict_vs_list  
+- How do I create a dictionary? => create_dict  
+- I know the basics, show me more => main_menu  
+- I want to exit => end_dialog
+
+~ dict_intro
+starfish: Great question! Let's explore dictionaries together.  
+starfish: A dictionary stores data in KEY:VALUE pairs. The key is the label, the value is what's stored.  
+starfish: Example: [br]hero = {'health': 100, 'mana': 50, 'level': 5}  
+starfish: Here, 'health' is a key, and 100 is its value!  
+starfish: You access values using their keys: hero['health'] returns 100  
+- How is it different from a list? => dict_vs_list  
+- Show me how to create one => create_dict  
+- I want to exit => end_dialog
+
+~ dict_vs_list
+starfish: Good question! Here's the main difference:  
+starfish: [b]Lists:[/b] Access by position (numbers)  
+starfish: [br]my_list = [100, 50, 5]  
+starfish: [br]my_list[0]  → returns 100  
+starfish: [b]Dictionaries:[/b] Access by key name  
+starfish: [br]hero = {'health': 100, 'mana': 50, 'level': 5}  
+starfish: [br]hero['health']  → returns 100  
+starfish: Dictionaries are better when you want to label your data!  
+- Got it! How do I create a dictionary? => create_dict  
+- What can I do with dictionaries? => main_menu  
+- I want to exit => end_dialog
+
+~ create_dict
+starfish: Creating a dictionary is easy!  
+starfish: Use curly braces {} with key:value pairs:  
+starfish: [br]hero = {'health': 100, 'mana': 50, 'level': 5}  
+starfish: Notice the colon (:) between key and value!  
+starfish: Create an empty dictionary:  
+starfish: [br]empty_dict = {}  
+starfish: 💡 Keys are usually strings, values can be numbers, strings, lists, anything!  
+- How do I access values? => access_values  
+- What else can I do? => main_menu  
+- I want to exit => end_dialog
+
+~ access_values
+starfish: Accessing values is simple!  
+starfish: Use square brackets [] with the key name:  
+starfish: [br]hero = {'health': 100, 'mana': 50, 'level': 5}  
+starfish: [br]print(hero['health'])  
+starfish: This prints: 100  
+starfish: ⚠️ Warning: If the key doesn't exist, you'll get an error!  
+- How do I change values? => modify_values  
+- Can I add new items? => add_items  
+- I want to exit => end_dialog
+
+~ modify_values
+starfish: Changing values is super easy!  
+starfish: Just assign a new value to an existing key:  
+starfish: [br]inventory = {'potions': 3, 'arrows': 15}  
+starfish: [br]inventory['potions'] = 5  
+starfish: Now potions changed from 3 to 5! Print it to see:  
+starfish: [br]print(inventory)  
+starfish: Result: {'potions': 5, 'arrows': 15}  
+- Can I add new items? => add_items  
+- How do I remove items? => remove_items  
+- I want to exit => end_dialog
+
+~ add_items
+starfish: Adding new items works exactly like modifying!  
+starfish: If the key doesn't exist, it gets added automatically:  
+starfish: [br]backpack = {'sword': 1, 'shield': 1}  
+starfish: [br]backpack['map'] = 1  
+starfish: [br]print(backpack)  
+starfish: Now: {'sword': 1, 'shield': 1, 'map': 1}  
+starfish: [b]Remember:[/b]  
+starfish: • Key EXISTS → changes the value  
+starfish: • Key DOESN'T EXIST → adds new key-value pair  
+- How do I remove items? => remove_items  
+- Can I check if a key exists? => check_key  
+- I want to exit => end_dialog
+
+~ remove_items
+starfish: To remove an item, use [b]del[/b]:  
+starfish: [br]inventory = {'sword': 1, 'shield': 1, 'potion': 3}  
+starfish: [br]del inventory['shield']  
+starfish: [br]print(inventory)  
+starfish: Now: {'sword': 1, 'potion': 3}  
+starfish: To empty the entire dictionary, use [b]clear()[/b]:  
+starfish: [br]inventory.clear()  
+starfish: Now: {}  
+- Can I check if a key exists? => check_key  
+- I think I understand! => wrap_up  
+- I want to exit => end_dialog
+
+~ check_key
+starfish: Yes! Use the [b]in[/b] keyword:  
+starfish: [br]hero = {'health': 100, 'mana': 50}  
+starfish: [br]if 'health' in hero:  
+starfish: [br]    print("Hero has health!")  
+starfish: This checks if the key 'health' exists in the dictionary!  
+starfish: You can also check if it doesn't exist:  
+starfish: [br]if 'strength' not in hero:  
+starfish: [br]    print("No strength stat!")  
+- I understand dictionaries now! => wrap_up  
+- Let me review something => main_menu  
+- I want to exit => end_dialog
+
+~ main_menu
+starfish: What would you like to review?  
+- Creating dictionaries => create_dict  
+- Accessing values => access_values  
+- Changing values => modify_values  
+- Adding items => add_items  
+- Removing items => remove_items  
+- Checking if a key exists => check_key  
+- I'm ready for a summary! => wrap_up  
+- I want to exit => end_dialog
+
+~ wrap_up
+starfish: Great! Here's what you learned about dictionaries:  
+starfish: ✨ [b]Create:[/b] hero = {'health': 100, 'mana': 50}  
+starfish: 🔍 [b]Access:[/b] hero['health']  
+starfish: ✏️ [b]Change:[/b] hero['health'] = 120  
+starfish: ➕ [b]Add:[/b] hero['strength'] = 10  
+starfish: ➖ [b]Remove:[/b] del hero['mana']  
+starfish: ✅ [b]Check:[/b] if 'health' in hero:  
+starfish: [b]Remember:[/b] Dictionaries use key:value pairs for organized, labeled data!  
+starfish: Perfect for storing player stats, inventory, settings, and more!  
+- I want to review something => main_menu  
+- I'm done learning! => end_dialog  
+
+~ end_dialog
+starfish: Excellent work, traveler! 🎉  
+starfish: You now know how to use Python dictionaries!  
+starfish: Keep practicing and happy coding! 💻✨  
+=> END

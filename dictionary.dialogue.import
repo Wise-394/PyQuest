@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bgbhiid38nx6k"
+path="res://.godot/imported/dictionary.dialogue-04acff78c6fd4d055a65cd8a79cefde9.tres"
+
+[deps]
+
+source_file="res://dictionary.dialogue"
+dest_files=["res://.godot/imported/dictionary.dialogue-04acff78c6fd4d055a65cd8a79cefde9.tres"]
+
+[params]
+
+defaults=true
