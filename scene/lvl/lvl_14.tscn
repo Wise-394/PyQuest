@@ -101,7 +101,7 @@ rotation = -1.5707964
 
 [node name="Flag" parent="World" instance=ExtResource("4_2kubc")]
 position = Vector2(193, -830)
-level_to_go = "uid://di0sgrk2mvdre"
+level_to_go = "uid://lghoe1sml1hu"
 
 [node name="enemy" type="Node" parent="World"]
 

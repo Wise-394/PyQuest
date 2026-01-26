@@ -119,7 +119,7 @@ curve = SubResource("Curve2D_dk453")
 
 [node name="Flag" parent="world" instance=ExtResource("5_qr4af")]
 position = Vector2(-77, -494)
-level_to_go = "uid://di0sgrk2mvdre"
+level_to_go = "uid://dk8ikl8uudd6k"
 
 [node name="enemy" type="Node" parent="world"]
 
