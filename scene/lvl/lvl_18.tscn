@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://7am8ralce3gf" path="res://scene/dialog_node/dialog.tscn" id="6_iexv8"]
 [ext_resource type="Resource" uid="uid://dl3vhdwa3r61t" path="res://dialog/class.dialogue" id="7_xtnna"]
 [ext_resource type="PackedScene" uid="uid://d00fronllv71j" path="res://scene/world/coin.tscn" id="8_iexv8"]
+[ext_resource type="PackedScene" uid="uid://cifnh8pm7c8k7" path="res://scene/character/slime.tscn" id="9_0ru02"]
 [ext_resource type="PackedScene" uid="uid://c8mm1rrfpibeu" path="res://scene/ui/zone_remaining.tscn" id="11_1qvjw"]
 [ext_resource type="PackedScene" uid="uid://44hfsfdoy30p" path="res://scene/character/healthbar.tscn" id="12_0ru02"]
 [ext_resource type="PackedScene" uid="uid://dl7srt6thlc11" path="res://scene/ui/coin_container.tscn" id="13_o51u7"]
@@ -49,10 +50,11 @@ child_nodes = [NodePath("MovingPlatform")]
 position = Vector2(-115, 27)
 curve = SubResource("Curve2D_t3l4q")
 
-[node name="CodingZone2" parent="world/CodingZone" unique_id=89260330 instance=ExtResource("2_iqveg")]
+[node name="CodingZone2" parent="world/CodingZone" unique_id=89260330 node_paths=PackedStringArray("child_nodes") instance=ExtResource("2_iqveg")]
 position = Vector2(739, -232)
 level = 18
 question_id = 2
+child_nodes = [NodePath("MovingPlatform")]
 
 [node name="MovingPlatform" parent="world/CodingZone/CodingZone2" unique_id=235082794 instance=ExtResource("3_cigaq")]
 position = Vector2(172, 64)
@@ -67,6 +69,68 @@ question_id = 3
 position = Vector2(1144, -477)
 level_to_go = "uid://di0sgrk2mvdre"
 
+[node name="coin" type="Node" parent="world" unique_id=730064577]
+
+[node name="Coin" parent="world/coin" unique_id=726325773 instance=ExtResource("8_iexv8")]
+position = Vector2(326, -408)
+
+[node name="Coin2" parent="world/coin" unique_id=947621850 instance=ExtResource("8_iexv8")]
+position = Vector2(340, -408)
+
+[node name="Coin3" parent="world/coin" unique_id=1357350186 instance=ExtResource("8_iexv8")]
+position = Vector2(354, -408)
+
+[node name="Coin4" parent="world/coin" unique_id=403306618 instance=ExtResource("8_iexv8")]
+position = Vector2(367, -408)
+
+[node name="Coin5" parent="world/coin" unique_id=656992308 instance=ExtResource("8_iexv8")]
+position = Vector2(381, -408)
+
+[node name="Coin6" parent="world/coin" unique_id=1733865032 instance=ExtResource("8_iexv8")]
+position = Vector2(395, -408)
+
+[node name="Coin7" parent="world/coin" unique_id=225974250 instance=ExtResource("8_iexv8")]
+position = Vector2(409, -408)
+
+[node name="Coin8" parent="world/coin" unique_id=1125541031 instance=ExtResource("8_iexv8")]
+position = Vector2(606, -217)
+
+[node name="Coin9" parent="world/coin" unique_id=93688866 instance=ExtResource("8_iexv8")]
+position = Vector2(621, -217)
+
+[node name="Coin10" parent="world/coin" unique_id=149095797 instance=ExtResource("8_iexv8")]
+position = Vector2(636, -217)
+
+[node name="Coin11" parent="world/coin" unique_id=29141385 instance=ExtResource("8_iexv8")]
+position = Vector2(651, -217)
+
+[node name="Coin12" parent="world/coin" unique_id=970659543 instance=ExtResource("8_iexv8")]
+position = Vector2(669, -217)
+
+[node name="Coin13" parent="world/coin" unique_id=2038470626 instance=ExtResource("8_iexv8")]
+position = Vector2(1000, -188)
+
+[node name="Coin14" parent="world/coin" unique_id=1649434275 instance=ExtResource("8_iexv8")]
+position = Vector2(1000, -206)
+
+[node name="Coin15" parent="world/coin" unique_id=941703343 instance=ExtResource("8_iexv8")]
+position = Vector2(1000, -225)
+
+[node name="Coin16" parent="world/coin" unique_id=1294317134 instance=ExtResource("8_iexv8")]
+position = Vector2(1000, -242)
+
+[node name="Coin17" parent="world/coin" unique_id=129480807 instance=ExtResource("8_iexv8")]
+position = Vector2(1100, -629)
+
+[node name="Coin18" parent="world/coin" unique_id=684207073 instance=ExtResource("8_iexv8")]
+position = Vector2(1117, -629)
+
+[node name="Coin19" parent="world/coin" unique_id=462563944 instance=ExtResource("8_iexv8")]
+position = Vector2(1134, -627)
+
+[node name="Coin20" parent="world/coin" unique_id=18249473 instance=ExtResource("8_iexv8")]
+position = Vector2(1151, -626)
+
 [node name="Starfish" parent="world" unique_id=1063411681 node_paths=PackedStringArray("dialog") instance=ExtResource("5_8wf0o")]
 position = Vector2(285, -221)
 dialog = NodePath("DialogScene")
@@ -74,67 +138,17 @@ dialog = NodePath("DialogScene")
 [node name="DialogScene" parent="world/Starfish" unique_id=697086906 instance=ExtResource("6_iexv8")]
 dialog = ExtResource("7_xtnna")
 
-[node name="coin" type="Node" parent="world/Starfish" unique_id=730064577]
+[node name="slime" parent="world" unique_id=1652396886 instance=ExtResource("9_0ru02")]
+position = Vector2(367, -608)
 
-[node name="Coin" parent="world/Starfish/coin" unique_id=726325773 instance=ExtResource("8_iexv8")]
-position = Vector2(326, -408)
+[node name="slime2" parent="world" unique_id=1404797556 instance=ExtResource("9_0ru02")]
+position = Vector2(719, -448)
 
-[node name="Coin2" parent="world/Starfish/coin" unique_id=947621850 instance=ExtResource("8_iexv8")]
-position = Vector2(340, -408)
+[node name="slime3" parent="world" unique_id=1867353125 instance=ExtResource("9_0ru02")]
+position = Vector2(766, -624)
 
-[node name="Coin3" parent="world/Starfish/coin" unique_id=1357350186 instance=ExtResource("8_iexv8")]
-position = Vector2(354, -408)
-
-[node name="Coin4" parent="world/Starfish/coin" unique_id=403306618 instance=ExtResource("8_iexv8")]
-position = Vector2(367, -408)
-
-[node name="Coin5" parent="world/Starfish/coin" unique_id=656992308 instance=ExtResource("8_iexv8")]
-position = Vector2(381, -408)
-
-[node name="Coin6" parent="world/Starfish/coin" unique_id=1733865032 instance=ExtResource("8_iexv8")]
-position = Vector2(395, -408)
-
-[node name="Coin7" parent="world/Starfish/coin" unique_id=225974250 instance=ExtResource("8_iexv8")]
-position = Vector2(409, -408)
-
-[node name="Coin8" parent="world/Starfish/coin" unique_id=1125541031 instance=ExtResource("8_iexv8")]
-position = Vector2(606, -217)
-
-[node name="Coin9" parent="world/Starfish/coin" unique_id=93688866 instance=ExtResource("8_iexv8")]
-position = Vector2(621, -217)
-
-[node name="Coin10" parent="world/Starfish/coin" unique_id=149095797 instance=ExtResource("8_iexv8")]
-position = Vector2(636, -217)
-
-[node name="Coin11" parent="world/Starfish/coin" unique_id=29141385 instance=ExtResource("8_iexv8")]
-position = Vector2(651, -217)
-
-[node name="Coin12" parent="world/Starfish/coin" unique_id=970659543 instance=ExtResource("8_iexv8")]
-position = Vector2(669, -217)
-
-[node name="Coin13" parent="world/Starfish/coin" unique_id=2038470626 instance=ExtResource("8_iexv8")]
-position = Vector2(1000, -188)
-
-[node name="Coin14" parent="world/Starfish/coin" unique_id=1649434275 instance=ExtResource("8_iexv8")]
-position = Vector2(1000, -206)
-
-[node name="Coin15" parent="world/Starfish/coin" unique_id=941703343 instance=ExtResource("8_iexv8")]
-position = Vector2(1000, -225)
-
-[node name="Coin16" parent="world/Starfish/coin" unique_id=1294317134 instance=ExtResource("8_iexv8")]
-position = Vector2(1000, -242)
-
-[node name="Coin17" parent="world/Starfish/coin" unique_id=129480807 instance=ExtResource("8_iexv8")]
-position = Vector2(1100, -629)
-
-[node name="Coin18" parent="world/Starfish/coin" unique_id=684207073 instance=ExtResource("8_iexv8")]
-position = Vector2(1117, -629)
-
-[node name="Coin19" parent="world/Starfish/coin" unique_id=462563944 instance=ExtResource("8_iexv8")]
-position = Vector2(1134, -627)
-
-[node name="Coin20" parent="world/Starfish/coin" unique_id=18249473 instance=ExtResource("8_iexv8")]
-position = Vector2(1151, -626)
+[node name="slime4" parent="world" unique_id=1684448811 instance=ExtResource("9_0ru02")]
+position = Vector2(1346, -641)
 
 [node name="Player" parent="." unique_id=1148212507 instance=ExtResource("5_680w6")]
 position = Vector2(164, -322)
