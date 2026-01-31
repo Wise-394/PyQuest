@@ -1,0 +1,170 @@
+~ start
+starfish: Hello, traveler! Welcome to your lesson on [b]Python Classes[/b]!  
+starfish: Classes are like blueprints for creating objects - they're super powerful!  
+starfish: What would you like to learn first?  
+- What is a class? => class_intro  
+- Why should I use classes? => why_classes  
+- How do I create a class? => create_class  
+- I know the basics, show me more => main_menu  
+- I want to exit => end_dialog
+
+~ class_intro
+starfish: Great question! Let's explore classes together.  
+starfish: A class is a blueprint for creating objects. Think of it like a cookie cutter!  
+starfish: The class is the [b]cookie cutter[/b], and objects are the [b]cookies[/b] you make with it.  
+starfish: Example: [br]class Dog: [br]-> def __init__(self, name): [br]-> -> self.name = name [br]Now you can create dogs: buddy = Dog("Buddy")  
+starfish: Each dog object has its own name and can do things!  
+- Why should I use classes? => why_classes  
+- Show me how to create one => create_class  
+- I want to exit => end_dialog
+
+~ why_classes
+starfish: Classes make your code organized and powerful! [b]1. Organize related data:[/b] Keep information together (a car has brand, color, speed). [b]2. Reusability:[/b] Create many objects from one class. [b]3. Real-world modeling:[/b] Represent things like players, enemies, items! [b]4. Cleaner code:[/b] Group related functions (methods) with their data.  
+starfish: Example: Instead of separate variables player_health, player_name, player_level... Create a Player class that has all of these!  
+- How do I create a class? => create_class  
+- What's the difference between a class and an object? => class_vs_object  
+- I want to exit => end_dialog
+
+~ class_vs_object
+starfish: Important distinction! [b]Class:[/b] The blueprint/recipe/template. Defines what something IS and what it can DO. Written once. [b]Object:[/b] A specific instance created from the class. You can make many objects from one class. Each has its own data!  
+starfish: [b]Example:[/b] [br]class Dog:  ← This is the class (blueprint) [br]-> ... [br]buddy = Dog("Buddy")  ← buddy is an object [br]max = Dog("Max")  ← max is another object  
+starfish: Both are dogs, but they have different names! Think: Class = "Dog species", Objects = "specific dogs"  
+- How do I create a class? => create_class  
+- What is self? => self_explained  
+- I want to exit => end_dialog
+
+~ create_class
+starfish: Creating a class is easy! Follow these steps: [b]1. Use 'class' keyword[/b] [b]2. Class name (starts with capital letter)[/b] [b]3. Colon :[/b] [b]4. Add methods inside[/b]  
+starfish: [b]Simple example:[/b] [br]class Dog: [br]-> def __init__(self, name): [br]-> -> self.name = name [br]-> def bark(self): [br]-> -> return f"{self.name} says Woof!" [br]Create a dog: my_dog = Dog("Buddy") [br]Make it bark: my_dog.bark()  
+- What is __init__? => init_method  
+- What is self? => self_explained  
+- I want to exit => end_dialog
+
+~ init_method
+starfish: __init__ is a special method called when you create an object! Think of it as the [b]setup[/b] or [b]initialization[/b] method.  
+starfish: [br]class Dog: [br]-> def __init__(self, name, age): [br]-> -> self.name = name  ← Save the name [br]-> -> self.age = age  ← Save the age  
+starfish: When you write: buddy = Dog("Buddy", 3) Python automatically calls __init__ and passes "Buddy" and 3! The values get saved inside the object.  
+starfish: 💡 __init__ has two underscores on each side! It's pronounced "dunder init" (double underscore init)  
+- What is self? => self_explained  
+- What are attributes? => attributes  
+- I want to exit => end_dialog
+
+~ self_explained
+starfish: 'self' is how methods refer to their own object! It means "this specific object".  
+starfish: [br]class Dog: [br]-> def __init__(self, name): [br]-> -> self.name = name  ← Save to THIS dog [br]-> def bark(self): [br]-> -> return f"{self.name} says Woof!"  ← Use THIS dog's name  
+starfish: When you call: buddy.bark() Python automatically passes 'buddy' as 'self'! So self.name means "buddy's name"  
+starfish: [b]Key point:[/b] Every method needs 'self' as first parameter, But you don't pass it when calling - Python does it for you!  
+- What are attributes? => attributes  
+- What are methods? => methods  
+- I want to exit => end_dialog
+
+~ attributes
+starfish: Attributes are variables that belong to an object! They store the object's data.  
+starfish: [br]class Car: [br]-> def __init__(self, brand, color): [br]-> -> self.brand = brand  ← Attribute [br]-> -> self.color = color  ← Attribute [br]my_car = Car("Toyota", "red") [br]print(my_car.brand)  ← Access attribute  
+starfish: [b]Think of it like:[/b] Each car object has pockets for storing information! self.brand is the "brand pocket", self.color is the "color pocket"  
+starfish: 💡 Always use self.attribute_name inside the class!  
+- What are methods? => methods  
+- How do I change attributes? => change_attributes  
+- I want to exit => end_dialog
+
+~ methods
+starfish: Methods are functions that belong to a class! They define what objects can DO.  
+starfish: [br]class Dog: [br]-> def __init__(self, name): [br]-> -> self.name = name [br]-> def bark(self):  ← This is a method [br]-> -> return f"{self.name} says Woof!" [br]-> def sit(self):  ← Another method [br]-> -> return f"{self.name} sits down"  
+starfish: Call methods on objects: buddy = Dog("Buddy") [br]buddy.bark()  ← Returns "Buddy says Woof!" [br]buddy.sit()  ← Returns "Buddy sits down"  
+starfish: [b]Key difference:[/b] Function: standalone, Method: attached to a class/object  
+- How do I change attributes? => change_attributes  
+- Can methods have parameters? => method_parameters  
+- I want to exit => end_dialog
+
+~ change_attributes
+starfish: You can read and change attributes anytime!  
+starfish: [b]Reading:[/b] [br]car = Car("Honda", "blue") [br]print(car.brand)  ← Prints "Honda"  
+starfish: [b]Changing directly:[/b] [br]car.color = "red"  ← Now the car is red!  
+starfish: [b]Changing with a method:[/b] [br]class Car: [br]-> def repaint(self, new_color): [br]-> -> self.color = new_color [br]car.repaint("green")  ← Now it's green!  
+starfish: 💡 Using methods is better - they can add checks and logic!  
+- Can methods have parameters? => method_parameters  
+- Can classes remember changing values? => state_management  
+- I want to exit => end_dialog
+
+~ method_parameters
+starfish: Yes! Methods can accept parameters just like functions!  
+starfish: [br]class Calculator: [br]-> def __init__(self): [br]-> -> self.result = 0 [br]-> def add(self, number):  ← Parameter! [br]-> -> self.result += number [br]-> -> return self.result  
+starfish: Use it: calc = Calculator() [br]calc.add(5)  ← result becomes 5 [br]calc.add(3)  ← result becomes 8  
+starfish: [b]Remember:[/b] First parameter is always 'self', After that, add whatever parameters you need!  
+- Can classes remember changing values? => state_management  
+- What are multiple objects? => multiple_objects  
+- I want to exit => end_dialog
+
+~ state_management
+starfish: Yes! This is called "state" - objects remember their data!  
+starfish: [br]class Counter: [br]-> def __init__(self): [br]-> -> self.count = 0  ← Initial state [br]-> def add(self): [br]-> -> self.count += 1  ← Change state [br]-> -> return self.count  
+starfish: Watch the state change: counter = Counter() [br]counter.add()  ← count is now 1 [br]counter.add()  ← count is now 2 [br]counter.add()  ← count is now 3  
+starfish: The object remembers! This is perfect for game scores, health bars, inventory counts!  
+- What are multiple objects? => multiple_objects  
+- Can I have multiple attributes? => multiple_attributes  
+- I want to exit => end_dialog
+
+~ multiple_objects
+starfish: You can create as many objects as you want from one class!  
+starfish: [br]class Player: [br]-> def __init__(self, name, health): [br]-> -> self.name = name [br]-> -> self.health = health  
+starfish: Create multiple players: player1 = Player("Alice", 100) [br]player2 = Player("Bob", 80) [br]player3 = Player("Charlie", 90)  
+starfish: Each object is independent! player1.health = 50  ← Only Alice's health changes [br]print(player2.health)  ← Bob still has 80  
+starfish: [b]Think of it like:[/b] Same character template, different characters!  
+- Can I have multiple attributes? => multiple_attributes  
+- Can I have multiple methods? => multiple_methods  
+- I want to exit => end_dialog
+
+~ multiple_attributes
+starfish: Absolutely! Objects can store lots of information!  
+starfish: [br]class Character: [br]-> def __init__(self, name, health, mana, level): [br]-> -> self.name = name [br]-> -> self.health = health [br]-> -> self.mana = mana [br]-> -> self.level = level  
+starfish: Create a character: hero = Character("Hero", 100, 50, 1) [br]Access any attribute: print(hero.health)  ← 100 [br]print(hero.level)  ← 1  
+starfish: 💡 Group related data together! All character info in one place!  
+- Can I have multiple methods? => multiple_methods  
+- What's a complete example? => complete_example  
+- I want to exit => end_dialog
+
+~ multiple_methods
+starfish: Yes! Classes can have many methods for different actions!  
+starfish: [br]class Player: [br]-> def __init__(self, name, health): [br]-> -> self.name = name [br]-> -> self.health = health [br]-> def take_damage(self, damage): [br]-> -> self.health -= damage [br]-> def heal(self, amount): [br]-> -> self.health += amount [br]-> def is_alive(self): [br]-> -> return self.health > 0  
+starfish: Use them: player = Player("Hero", 100) [br]player.take_damage(30)  ← health = 70 [br]player.heal(20)  ← health = 90 [br]player.is_alive()  ← returns True  
+- What's a complete example? => complete_example  
+- I think I understand! => wrap_up  
+- I want to exit => end_dialog
+
+~ complete_example
+starfish: Let's see a complete class in action!  
+starfish: [br]class BankAccount: [br]-> def __init__(self, owner, balance): [br]-> -> self.owner = owner [br]-> -> self.balance = balance [br]-> def deposit(self, amount): [br]-> -> self.balance += amount [br]-> -> return self.balance [br]-> def withdraw(self, amount): [br]-> -> self.balance -= amount [br]-> -> return self.balance  
+starfish: Using it: account = BankAccount("Alice", 1000) [br]account.deposit(500)  ← balance = 1500 [br]account.withdraw(200)  ← balance = 1300 [br]print(account.owner)  ← "Alice"  
+starfish: Everything organized in one place! Data (owner, balance) and actions (deposit, withdraw) together!  
+- I understand classes now! => wrap_up  
+- Let me review something => main_menu  
+- I want to exit => end_dialog
+
+~ main_menu
+starfish: What would you like to review?  
+- What is a class? => class_intro  
+- Class vs Object => class_vs_object  
+- Creating classes => create_class  
+- The __init__ method => init_method  
+- What is self? => self_explained  
+- Attributes (data) => attributes  
+- Methods (actions) => methods  
+- Changing attributes => change_attributes  
+- State management => state_management  
+- Multiple objects => multiple_objects  
+- Complete example => complete_example  
+- I'm ready for a summary! => wrap_up  
+- I want to exit => end_dialog
+
+~ wrap_up
+starfish: Excellent! Here's what you learned about classes: 📘 [b]Class:[/b] Blueprint for creating objects 🎯 [b]Object:[/b] Specific instance from a class 🔧 [b]__init__:[/b] Setup method (runs when creating object) 👤 [b]self:[/b] Refers to "this object" 📦 [b]Attributes:[/b] Variables that store data (self.name, self.health) ⚡ [b]Methods:[/b] Functions that define actions  
+starfish: [b]Key concepts:[/b] Class = Cookie cutter, Objects = Cookies. Each object has its own data! Objects remember their state between method calls. Use self to access attributes and methods.  
+starfish: [b]Remember:[/b] Classes organize related data and functions together! Perfect for creating players, enemies, items, and more! Write the class once, create many objects!  
+- I want to review something => main_menu  
+- I'm done learning! => end_dialog  
+
+~ end_dialog
+starfish: Excellent work, traveler! 🎉  
+starfish: You now know how to create and use Python classes!  
+starfish: Start building amazing objects and keep coding! 💻✨  
+=> END
