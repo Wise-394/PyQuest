@@ -98,6 +98,6 @@ def post_user_code(request: UserCodeRequest):
 # =====================================================
 # ✅ CORRECT ANSWER (DOCUMENTATION ONLY)
 # =====================================================
-# inventory = ['magic sword', 'shield']
-# inventory.append('gold')
+# inventory = ['magic sword', 'shield', 'potion']
+# inventory.remove('potion')
 # print(inventory)
