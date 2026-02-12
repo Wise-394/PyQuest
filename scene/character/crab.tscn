@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://cx2ljcqbkehra"]
+[gd_scene format=3 uid="uid://cx2ljcqbkehra"]
 
 [ext_resource type="Texture2D" uid="uid://dk7ynn0tos83i" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 01.png" id="1_27us2"]
 [ext_resource type="Script" uid="uid://rnig7bxkab7d" path="res://script/character/crab/crab.gd" id="1_admx7"]
@@ -209,100 +209,100 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_10ces"]
 size = Vector2(219, 51)
 
-[node name="Crab" type="CharacterBody2D" groups=["enemy"]]
+[node name="Crab" type="CharacterBody2D" unique_id=215597954 groups=["enemy"]]
 collision_layer = 16
 collision_mask = 3
 script = ExtResource("1_admx7")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1622535458]
 sprite_frames = SubResource("SpriteFrames_maayw")
 animation = &"attack"
 autoplay = "idle"
 frame = 3
 frame_progress = 1.0
 
-[node name="TopHitbox" type="Area2D" parent="."]
+[node name="TopHitbox" type="Area2D" parent="." unique_id=120547608]
 collision_layer = 0
 script = ExtResource("33_nlgcd")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TopHitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopHitbox" unique_id=712001142]
 position = Vector2(1.5, -5.5)
 shape = SubResource("RectangleShape2D_nlgcd")
 
-[node name="HitBox" type="Area2D" parent="."]
+[node name="HitBox" type="Area2D" parent="." unique_id=1156155908]
 collision_layer = 0
 script = ExtResource("33_q2o5a")
 
-[node name="Collision" type="CollisionShape2D" parent="HitBox"]
+[node name="Collision" type="CollisionShape2D" parent="HitBox" unique_id=749674894]
 position = Vector2(1, 5)
 shape = SubResource("RectangleShape2D_f3puh")
 
-[node name="HurtBox" type="CollisionShape2D" parent="."]
+[node name="HurtBox" type="CollisionShape2D" parent="." unique_id=1591342947]
 position = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_sueps")
 
-[node name="Exclamation" type="AnimatedSprite2D" parent="."]
+[node name="Exclamation" type="AnimatedSprite2D" parent="." unique_id=1116224480]
 visible = false
 position = Vector2(2, -24)
 sprite_frames = SubResource("SpriteFrames_q2o5a")
 frame = 1
 frame_progress = 0.216586
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+[node name="StateMachine" type="Node" parent="." unique_id=385383053 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("17_f3puh")
 initial_state = NodePath("IdleState")
 
-[node name="IdleState" type="Node" parent="StateMachine"]
+[node name="IdleState" type="Node" parent="StateMachine" unique_id=1478469098]
 script = ExtResource("18_d6g0r")
 
-[node name="Timer" type="Timer" parent="StateMachine/IdleState"]
+[node name="Timer" type="Timer" parent="StateMachine/IdleState" unique_id=913854341]
 wait_time = 0.5
 
-[node name="MoveState" type="Node" parent="StateMachine"]
+[node name="MoveState" type="Node" parent="StateMachine" unique_id=1935226817]
 script = ExtResource("19_d6g0r")
 
-[node name="Timer" type="Timer" parent="StateMachine/MoveState"]
+[node name="Timer" type="Timer" parent="StateMachine/MoveState" unique_id=2085475205]
 
-[node name="DamagedState" type="Node" parent="StateMachine"]
+[node name="DamagedState" type="Node" parent="StateMachine" unique_id=839207765]
 script = ExtResource("20_86n2j")
 
-[node name="DeadState" type="Node" parent="StateMachine"]
+[node name="DeadState" type="Node" parent="StateMachine" unique_id=656244811]
 script = ExtResource("29_7lcgg")
 
-[node name="Timer" type="Timer" parent="StateMachine/DeadState"]
+[node name="Timer" type="Timer" parent="StateMachine/DeadState" unique_id=1876375840]
 
-[node name="FallingState" type="Node" parent="StateMachine"]
+[node name="FallingState" type="Node" parent="StateMachine" unique_id=302970254]
 script = ExtResource("30_maayw")
 
-[node name="AggroState" type="Node" parent="StateMachine"]
+[node name="AggroState" type="Node" parent="StateMachine" unique_id=1370668875]
 script = ExtResource("39_10ces")
 attack_range = 66
 
-[node name="AttackState" type="Node" parent="StateMachine"]
+[node name="AttackState" type="Node" parent="StateMachine" unique_id=1415730218]
 script = ExtResource("43_6vqjw")
 
-[node name="AnticipationState" type="Node" parent="StateMachine"]
+[node name="AnticipationState" type="Node" parent="StateMachine" unique_id=1652210911]
 script = ExtResource("44_s25gi")
 
-[node name="RaycastLeft" type="RayCast2D" parent="."]
+[node name="RaycastLeft" type="RayCast2D" parent="." unique_id=611305275]
 position = Vector2(-17, 8)
 target_position = Vector2(0, 7)
 collision_mask = 2
 
-[node name="RaycastRight" type="RayCast2D" parent="."]
+[node name="RaycastRight" type="RayCast2D" parent="." unique_id=117054266]
 position = Vector2(20, 8)
 target_position = Vector2(0, 7)
 collision_mask = 2
 
-[node name="Vision" type="Area2D" parent="."]
+[node name="Vision" type="Area2D" parent="." unique_id=1027076312]
 collision_layer = 0
 script = ExtResource("40_u7c0n")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Vision"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vision" unique_id=1032291555]
 position = Vector2(-109.5, -12.5)
 shape = SubResource("RectangleShape2D_10ces")
 
-[node name="EnemyHealthBar" parent="." instance=ExtResource("47_cmos6")]
+[node name="EnemyHealthBar" parent="." unique_id=412449344 instance=ExtResource("47_cmos6")]
 visible = false
 offset_left = -15.0
 offset_top = -17.0

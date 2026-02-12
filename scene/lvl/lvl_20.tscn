@@ -67,14 +67,17 @@ tile_map_data = PackedByteArray("AAD+////AwAEAAAAAAD+//b/AwABAAUAAAD+//X/AwAOAAA
 tile_set = ExtResource("1_nvxdt")
 
 [node name="Player" parent="." unique_id=1822507224 instance=ExtResource("2_u7kdw")]
+z_index = 1
 position = Vector2(167, -43)
 collision_mask = 2
 
 [node name="Camera2D" parent="Player" unique_id=1008980466 instance=ExtResource("3_wpaet")]
 position = Vector2(94, -61)
 
-[node name="FrostGolem" parent="." unique_id=1403621132 instance=ExtResource("4_u7kdw")]
+[node name="DeathReaper" parent="." unique_id=1403621132 node_paths=PackedStringArray("player") instance=ExtResource("4_u7kdw")]
 position = Vector2(417, -11)
+scale = Vector2(1, 1)
+player = NodePath("../Player")
 
 [node name="UI" type="Node" parent="." unique_id=1713120715]
 
