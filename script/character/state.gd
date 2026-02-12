@@ -5,7 +5,7 @@ var state_machine: StateMachine
 var character: CharacterBody2D
 var sprite: AnimatedSprite2D
 var hitbox: Area2D
-var hurtbox: CollisionShape2D
+var hurtbox: Node2D
 var coyote_time: float
 func enter():
 	pass

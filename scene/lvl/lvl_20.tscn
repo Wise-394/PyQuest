@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://d1yxhu13jwkq3" path="res://tileset/island.tres" id="1_nvxdt"]
 [ext_resource type="PackedScene" uid="uid://bnhiv8qcc5ro5" path="res://scene/character/player.tscn" id="2_u7kdw"]
 [ext_resource type="PackedScene" uid="uid://dc7ihfcrpl10v" path="res://scene/world/camera.tscn" id="3_wpaet"]
-[ext_resource type="PackedScene" uid="uid://hj30qcw4h13s" path="res://scene/character/frost_golem.tscn" id="4_u7kdw"]
+[ext_resource type="PackedScene" uid="uid://hj30qcw4h13s" path="res://scene/character/death_reaper.tscn" id="4_u7kdw"]
 [ext_resource type="PackedScene" uid="uid://c8mm1rrfpibeu" path="res://scene/ui/zone_remaining.tscn" id="5_3x65r"]
 [ext_resource type="PackedScene" uid="uid://44hfsfdoy30p" path="res://scene/character/healthbar.tscn" id="6_kg8te"]
 [ext_resource type="PackedScene" uid="uid://dl7srt6thlc11" path="res://scene/ui/coin_container.tscn" id="7_byfrw"]

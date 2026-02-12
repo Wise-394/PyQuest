@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://cifnh8pm7c8k7"]
+[gd_scene format=3 uid="uid://cifnh8pm7c8k7"]
 
 [ext_resource type="Script" uid="uid://ddhr10iomdqyw" path="res://script/character/slime/slime.gd" id="1_revoj"]
 [ext_resource type="Script" uid="uid://vbelh8wfuawd" path="res://script/character/slime/hitbox.gd" id="3_fvuxe"]
@@ -304,71 +304,71 @@ size = Vector2(24, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lk7ou"]
 size = Vector2(190, 48.5)
 
-[node name="slime" type="CharacterBody2D" groups=["enemy"]]
+[node name="slime" type="CharacterBody2D" unique_id=358344789 groups=["enemy"]]
 collision_layer = 16
 collision_mask = 3
 script = ExtResource("1_revoj")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1811493660]
 sprite_frames = SubResource("SpriteFrames_68u4i")
 animation = &"dead"
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="." unique_id=1076307147]
 collision_layer = 0
 script = ExtResource("3_fvuxe")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1935619597]
 position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_x8rlb")
 
-[node name="HurtBox" type="CollisionShape2D" parent="."]
+[node name="HurtBox" type="CollisionShape2D" parent="." unique_id=1878546554]
 position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_6ytru")
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+[node name="StateMachine" type="Node" parent="." unique_id=685279806 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("5_6ytru")
 initial_state = NodePath("IdleState")
 
-[node name="IdleState" type="Node" parent="StateMachine"]
+[node name="IdleState" type="Node" parent="StateMachine" unique_id=971378195]
 script = ExtResource("6_lk7ou")
 
-[node name="Timer" type="Timer" parent="StateMachine/IdleState"]
+[node name="Timer" type="Timer" parent="StateMachine/IdleState" unique_id=1563421392]
 wait_time = 0.5
 
-[node name="MoveState" type="Node" parent="StateMachine"]
+[node name="MoveState" type="Node" parent="StateMachine" unique_id=1860243343]
 script = ExtResource("8_fvuxe")
 
-[node name="Timer" type="Timer" parent="StateMachine/MoveState"]
+[node name="Timer" type="Timer" parent="StateMachine/MoveState" unique_id=707971509]
 wait_time = 2.0
 
-[node name="AggroState" type="Node" parent="StateMachine"]
+[node name="AggroState" type="Node" parent="StateMachine" unique_id=454473080]
 script = ExtResource("6_revoj")
 
-[node name="DamagedState" type="Node" parent="StateMachine"]
+[node name="DamagedState" type="Node" parent="StateMachine" unique_id=758777537]
 script = ExtResource("8_7pm2e")
 
-[node name="DeadState" type="Node" parent="StateMachine"]
+[node name="DeadState" type="Node" parent="StateMachine" unique_id=97403752]
 script = ExtResource("9_qavdc")
 
-[node name="RaycastLeft" type="RayCast2D" parent="."]
+[node name="RaycastLeft" type="RayCast2D" parent="." unique_id=1671632794]
 position = Vector2(-15, 10)
 target_position = Vector2(0, 7)
 collision_mask = 2
 
-[node name="RaycastRight" type="RayCast2D" parent="."]
+[node name="RaycastRight" type="RayCast2D" parent="." unique_id=2049903693]
 position = Vector2(15, 10)
 target_position = Vector2(0, 7)
 collision_mask = 2
 
-[node name="Vision" type="Area2D" parent="."]
+[node name="Vision" type="Area2D" parent="." unique_id=235277303]
 collision_layer = 0
 script = ExtResource("7_revoj")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Vision"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vision" unique_id=786692247]
 position = Vector2(-107, -7.75)
 shape = SubResource("RectangleShape2D_lk7ou")
 
-[node name="EnemyHealthBar" parent="." instance=ExtResource("10_vbjdd")]
+[node name="EnemyHealthBar" parent="." unique_id=2084670386 instance=ExtResource("10_vbjdd")]
 visible = false
 offset_left = -15.0
 offset_top = -17.0
