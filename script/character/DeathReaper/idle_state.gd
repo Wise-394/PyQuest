@@ -8,4 +8,8 @@ func enter():
 
 
 func _on_timer_timeout() -> void:
-	state_machine.change_state('walkstate')
+	var rand_num = randf()
+	if rand_num > 1:
+		state_machine.change_state('walkstate')
+	else:
+		state_machine.change_state('backawaystate')

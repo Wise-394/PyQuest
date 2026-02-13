@@ -49,6 +49,10 @@
 [ext_resource type="Script" uid="uid://dwbl7tap1c6fd" path="res://script/character/state_machine.gd" id="47_ojx4q"]
 [ext_resource type="Script" uid="uid://bhhjsbdhut43b" path="res://script/character/DeathReaper/idle_state.gd" id="48_1x82b"]
 [ext_resource type="Script" uid="uid://rlflw0pncjgt" path="res://script/character/DeathReaper/walk_state.gd" id="49_sc5a6"]
+[ext_resource type="Script" uid="uid://k1kg4wr01ydi" path="res://script/character/DeathReaper/back_away_state.gd" id="50_hqwwc"]
+[ext_resource type="Script" uid="uid://rfjmjf3cu2mh" path="res://script/character/DeathReaper/cast_state.gd" id="50_mmaf3"]
+[ext_resource type="Script" uid="uid://dn2tvybvysdyb" path="res://script/character/DeathReaper/anticipation_state.gd" id="51_wdgrw"]
+[ext_resource type="Script" uid="uid://ck2fa1ac0et7t" path="res://script/character/DeathReaper/attack_state.gd" id="52_jcsxa"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0ty2x"]
 animations = [{
@@ -61,7 +65,12 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("3_4hwm3")
+}],
+"loop": false,
+"name": &"anticipation",
+"speed": 7.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": ExtResource("4_736by")
 }, {
@@ -225,7 +234,7 @@ script = ExtResource("1_qpdb1")
 position = Vector2(-46.153847, -0.7692308)
 scale = Vector2(1.3, 1.3)
 sprite_frames = SubResource("SpriteFrames_0ty2x")
-animation = &"walk"
+animation = &"attack"
 autoplay = "idle"
 
 [node name="HurtBox" type="CollisionPolygon2D" parent="." unique_id=1399248879]
@@ -233,12 +242,12 @@ position = Vector2(-44.615387, -0.76923084)
 polygon = PackedVector2Array(43.076927, -10.769232, 26, 2, 24.666668, 11.333334, 9.333334, 14, 6.666667, 17.333334, 8.666667, 22.666668, 22, 20.666668, 37.69231, 38.46154, 28.46154, 51.538467, 34.615387, 59.230774, 59.230774, 59.230774, 63.076927, 40.769234, 73.84616, 30.000004, 74.615395, 16.923079, 50.769234, -10.769232)
 
 [node name="RayCastLeft" type="RayCast2D" parent="." unique_id=1231018778]
-position = Vector2(15.384613, 20.76923)
+position = Vector2(-41.538467, 22.307693)
 rotation = 1.5707964
 target_position = Vector2(-0.27378464, 21.536724)
 
 [node name="RayCastRight" type="RayCast2D" parent="." unique_id=420029382]
-position = Vector2(56.153854, 20.000002)
+position = Vector2(33.076923, 19.999998)
 rotation = 3.1415927
 target_position = Vector2(-21.538464, 0)
 
@@ -256,4 +265,25 @@ one_shot = true
 [node name="WalkState" type="Node" parent="FSM" unique_id=958773678]
 script = ExtResource("49_sc5a6")
 
+[node name="BackAwayState" type="Node" parent="FSM" unique_id=205842427]
+script = ExtResource("50_hqwwc")
+
+[node name="Timer" type="Timer" parent="FSM/BackAwayState" unique_id=155031583]
+one_shot = true
+
+[node name="CastState" type="Node" parent="FSM" unique_id=1390161503]
+script = ExtResource("50_mmaf3")
+
+[node name="AnticipationState" type="Node" parent="FSM" unique_id=2013716534]
+script = ExtResource("51_wdgrw")
+
+[node name="Timer" type="Timer" parent="FSM/AnticipationState" unique_id=1517816171]
+wait_time = 0.2
+one_shot = true
+
+[node name="AttackState" type="Node" parent="FSM" unique_id=548103351]
+script = ExtResource("52_jcsxa")
+
 [connection signal="timeout" from="FSM/IdleState/Timer" to="FSM/IdleState" method="_on_timer_timeout"]
+[connection signal="timeout" from="FSM/BackAwayState/Timer" to="FSM/BackAwayState" method="_on_timer_timeout"]
+[connection signal="timeout" from="FSM/AnticipationState/Timer" to="FSM/AnticipationState" method="_on_timer_timeout"]

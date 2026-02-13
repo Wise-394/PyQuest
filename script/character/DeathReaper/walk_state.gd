@@ -13,7 +13,7 @@ func update(_delta: float):
 		update_direction()
 		character.move_and_slide()
 	else:
-		print("near")
+		state_machine.change_state("anticipationstate")
 
 func update_direction():
 	if character.player.global_position.x > character.global_position.x:
