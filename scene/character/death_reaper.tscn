@@ -259,7 +259,6 @@ initial_state = NodePath("IdleState")
 script = ExtResource("48_1x82b")
 
 [node name="Timer" type="Timer" parent="FSM/IdleState" unique_id=216909461]
-wait_time = 2.0
 one_shot = true
 
 [node name="WalkState" type="Node" parent="FSM" unique_id=958773678]
@@ -278,7 +277,7 @@ script = ExtResource("50_mmaf3")
 script = ExtResource("51_wdgrw")
 
 [node name="Timer" type="Timer" parent="FSM/AnticipationState" unique_id=1517816171]
-wait_time = 0.2
+wait_time = 0.4
 one_shot = true
 
 [node name="AttackState" type="Node" parent="FSM" unique_id=548103351]

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bch1d06p2tsy6"]
 
 [ext_resource type="Texture2D" uid="uid://pb1wbp0b7gx" path="res://assets/Bringer-Of-Death/Bringer-Of-Death/Individual Sprite/Spell/Bringer-of-Death_Spell_1.png" id="1_cg0et"]
+[ext_resource type="Script" uid="uid://x35pbkegbd5f" path="res://script/character/DeathReaper/death_spell.gd" id="1_d3ty5"]
 [ext_resource type="Texture2D" uid="uid://bqpa7nt4e860h" path="res://assets/Bringer-Of-Death/Bringer-Of-Death/Individual Sprite/Spell/Bringer-of-Death_Spell_2.png" id="2_d3ty5"]
 [ext_resource type="Texture2D" uid="uid://cx8wapk01vpu5" path="res://assets/Bringer-Of-Death/Bringer-Of-Death/Individual Sprite/Spell/Bringer-of-Death_Spell_3.png" id="3_b27s7"]
 [ext_resource type="Texture2D" uid="uid://ckufaoh4338t1" path="res://assets/Bringer-Of-Death/Bringer-Of-Death/Individual Sprite/Spell/Bringer-of-Death_Spell_4.png" id="4_gb2ei"]
@@ -55,7 +56,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("16_sprnr")
 }],
-"loop": true,
+"loop": false,
 "name": &"closing",
 "speed": 5.0
 }, {
@@ -88,12 +89,19 @@ size = Vector2(30, 52)
 
 [node name="DeathSpell" type="Area2D" unique_id=2131764474]
 scale = Vector2(1.5, 1.5)
+collision_layer = 0
+monitoring = false
+monitorable = false
+script = ExtResource("1_d3ty5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=83035592]
 sprite_frames = SubResource("SpriteFrames_lppew")
-animation = &"opening"
+animation = &"attack"
 autoplay = "opening"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=842159760]
 position = Vector2(-4, 21)
 shape = SubResource("RectangleShape2D_cg0et")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
