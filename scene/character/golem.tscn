@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://uw751ei4yp7y"]
+[gd_scene format=3 uid="uid://uw751ei4yp7y"]
 
 [ext_resource type="Texture2D" uid="uid://ds2tsvr1lcx3y" path="res://assets/Mecha-stone Golem 0.1/Mecha-stone Golem 0.1/PNG sheet/Character_sheet.png" id="1_cut4e"]
 [ext_resource type="Script" uid="uid://dqphrfkgoiwtd" path="res://script/character/golem/boss.gd" id="1_lk8l6"]
@@ -464,21 +464,21 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gvivl"]
 size = Vector2(47.333336, 45)
 
-[node name="Golem" type="CharacterBody2D" groups=["enemy"]]
+[node name="Golem" type="CharacterBody2D" unique_id=1530555615 groups=["enemy"]]
 scale = Vector2(1.5, 1.5)
 collision_layer = 16
 collision_mask = 0
 script = ExtResource("1_lk8l6")
 max_health = 1500
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1202736885]
 sprite_frames = SubResource("SpriteFrames_bsp0a")
 animation = &"death"
 autoplay = "idle"
 frame = 4
 frame_progress = 1.0
 
-[node name="LaserEffect" type="AnimatedSprite2D" parent="."]
+[node name="LaserEffect" type="AnimatedSprite2D" parent="." unique_id=1807083255]
 visible = false
 z_index = 1
 position = Vector2(7.3333335, -4.666667)
@@ -487,71 +487,71 @@ sprite_frames = SubResource("SpriteFrames_5ggbb")
 frame = 7
 frame_progress = 1.0
 
-[node name="ActiveHitBox" type="Area2D" parent="."]
+[node name="ActiveHitBox" type="Area2D" parent="." unique_id=1933076916]
 collision_layer = 0
 script = ExtResource("4_vc2pi")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ActiveHitBox"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ActiveHitBox" unique_id=1320286775]
 polygon = PackedVector2Array(0.6666667, -26.666668, -6, -20.666668, -10.666667, -19.333334, -18.666668, -16, -26, 0.6666667, -26.666668, 16.666668, -22.666668, 21.333334, -18.666668, 21.333334, -12.666667, 21.333334, -2.6666667, 22, 7.3333335, 22, 14, 22, 18.666668, 21.333334, 19.333334, 18, 24.666668, 14, 22.666668, 6, 23.333334, -3.3333335, 20.666668, -16.666668, 12.666667, -19.333334, 10, -20, 7.3333335, -21.333334)
 
-[node name="HurtBox" type="CollisionShape2D" parent="."]
+[node name="HurtBox" type="CollisionShape2D" parent="." unique_id=2113045935]
 position = Vector2(-1.666667, -2.5)
 shape = SubResource("RectangleShape2D_gvivl")
 
-[node name="HitBox" type="Area2D" parent="."]
+[node name="HitBox" type="Area2D" parent="." unique_id=1096570233]
 collision_layer = 0
 script = ExtResource("4_wfbr0")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitBox"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitBox" unique_id=1902165389]
 position = Vector2(24, -1.3333334)
 scale = Vector2(-1.4532112, 2.067909)
 polygon = PackedVector2Array(2.2937708, -4.1910295, 1.8350163, 11.6059265, -9.175085, 11.928313, -7.340067, 6.4477367, -5.5050507, 5.4805765, -5.046297, 0.6447737, 0.4587536, -4.835803)
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+[node name="StateMachine" type="Node" parent="." unique_id=1843885438 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_2nrav")
 initial_state = NodePath("IdleState")
 
-[node name="IdleState" type="Node" parent="StateMachine"]
+[node name="IdleState" type="Node" parent="StateMachine" unique_id=2070582535]
 script = ExtResource("3_t3b5p")
 hover_amplitude = 10.0
 hover_speed = 1.5
 side_amplitude = 5.0
 side_speed = 1.0
 
-[node name="Timer" type="Timer" parent="StateMachine/IdleState"]
+[node name="Timer" type="Timer" parent="StateMachine/IdleState" unique_id=2035719039]
 wait_time = 1.5
 one_shot = true
 
-[node name="MoveState" type="Node" parent="StateMachine"]
+[node name="MoveState" type="Node" parent="StateMachine" unique_id=1912855802]
 script = ExtResource("5_3d6su")
 
-[node name="ImmuneState" type="Node" parent="StateMachine"]
+[node name="ImmuneState" type="Node" parent="StateMachine" unique_id=351622182]
 script = ExtResource("6_bsp0a")
 
-[node name="ArrivedSideState" type="Node" parent="StateMachine"]
+[node name="ArrivedSideState" type="Node" parent="StateMachine" unique_id=1900189159]
 script = ExtResource("7_cjctn")
 
-[node name="LaserAttackState" type="Node" parent="StateMachine"]
+[node name="LaserAttackState" type="Node" parent="StateMachine" unique_id=1464022939]
 script = ExtResource("8_y7see")
 
-[node name="Timer" type="Timer" parent="StateMachine/LaserAttackState"]
+[node name="Timer" type="Timer" parent="StateMachine/LaserAttackState" unique_id=2007068607]
 wait_time = 2.5
 one_shot = true
 
-[node name="RangeAttackState" type="Node" parent="StateMachine"]
+[node name="RangeAttackState" type="Node" parent="StateMachine" unique_id=1790542928]
 script = ExtResource("9_gvivl")
 
-[node name="ArrivedPlayerState" type="Node" parent="StateMachine"]
+[node name="ArrivedPlayerState" type="Node" parent="StateMachine" unique_id=1831168745]
 script = ExtResource("11_07gqg")
 
-[node name="MeleeAttackState" type="Node" parent="StateMachine"]
+[node name="MeleeAttackState" type="Node" parent="StateMachine" unique_id=378345517]
 script = ExtResource("12_oqwcf")
 
-[node name="AttackTimer" type="Timer" parent="StateMachine/MeleeAttackState"]
+[node name="AttackTimer" type="Timer" parent="StateMachine/MeleeAttackState" unique_id=384500548]
 wait_time = 0.5
 one_shot = true
 
-[node name="DeadState" type="Node" parent="StateMachine"]
+[node name="DeadState" type="Node" parent="StateMachine" unique_id=971435865]
 script = ExtResource("15_jyrgw")
 
 [connection signal="body_entered" from="ActiveHitBox" to="ActiveHitBox" method="_on_body_entered"]

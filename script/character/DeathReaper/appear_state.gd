@@ -17,4 +17,5 @@ func exit():
 		sprite.animation_finished.disconnect(_animation_finished)
 
 func _animation_finished():
+	hitbox.monitoring = true
 	state_machine.change_state("idlestate")

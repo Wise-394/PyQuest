@@ -9,7 +9,6 @@ func enter():
 
 func _on_timer_timeout() -> void:
 	var choices: Array = ["WALK", "CAST", "DISAPPEAR"]
-	#var choices: Array = ["DISAPPEAR"]
 	var result = choices.pick_random()
 	match result:
 		"WALK":

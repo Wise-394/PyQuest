@@ -2,6 +2,7 @@ extends State
 
 func enter():
 	init_references()
+	hitbox.monitoring = false
 	if not sprite.animation_finished.is_connected(_animation_finished):
 		sprite.animation_finished.connect(_animation_finished)
 	sprite.play("disappear")	

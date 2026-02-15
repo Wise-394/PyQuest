@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://nvxql4d8clds"]
+[gd_scene format=3 uid="uid://nvxql4d8clds"]
 
 [ext_resource type="Script" uid="uid://dn620ht8upmkw" path="res://script/world/coding_zone.gd" id="1_mv8d5"]
 [ext_resource type="Texture2D" uid="uid://g8oa5ffnlyfe" path="res://assets/custom/effects/particles.png" id="2_hmw3s"]
@@ -24,14 +24,14 @@ point_count = 2
 offsets = PackedFloat32Array(0.6092715, 0.93818986)
 colors = PackedColorArray(1, 0.23137255, 0.23137255, 1, 0.8784314, 0.65882355, 0, 1)
 
-[node name="CodingZone" type="Area2D"]
+[node name="CodingZone" type="Area2D" unique_id=1002924277]
 collision_layer = 0
 script = ExtResource("1_mv8d5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1840017011]
 shape = SubResource("RectangleShape2D_wbwxs")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1463759613]
 visible = false
 offset_left = -20.0
 offset_top = -65.0
@@ -43,7 +43,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_0qamm")
 text = "C"
 horizontal_alignment = 1
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=807250339]
 material = SubResource("CanvasItemMaterial_0qamm")
 position = Vector2(0, 17)
 amount = 32

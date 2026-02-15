@@ -49,6 +49,8 @@
 [ext_resource type="Texture2D" uid="uid://dhnj4bdd0b6v5" path="res://assets/Bringer-Of-Death/Bringer-Of-Death/Individual Sprite/Death/Bringer-of-Death_Death_10.png" id="29_dcsdl"]
 [ext_resource type="Script" uid="uid://dwbl7tap1c6fd" path="res://script/character/state_machine.gd" id="47_ojx4q"]
 [ext_resource type="Script" uid="uid://bhhjsbdhut43b" path="res://script/character/DeathReaper/idle_state.gd" id="48_1x82b"]
+[ext_resource type="Script" uid="uid://cktgj68qcdibp" path="res://script/character/DeathReaper/hitbox.gd" id="48_mpvow"]
+[ext_resource type="Script" uid="uid://byako8k55ouyv" path="res://script/character/DeathReaper/sword_hitbox.gd" id="49_37jpp"]
 [ext_resource type="Script" uid="uid://rlflw0pncjgt" path="res://script/character/DeathReaper/walk_state.gd" id="49_sc5a6"]
 [ext_resource type="Script" uid="uid://k1kg4wr01ydi" path="res://script/character/DeathReaper/back_away_state.gd" id="50_hqwwc"]
 [ext_resource type="Script" uid="uid://rfjmjf3cu2mh" path="res://script/character/DeathReaper/cast_state.gd" id="50_mmaf3"]
@@ -57,6 +59,9 @@
 [ext_resource type="Script" uid="uid://t6tur7esdlyr" path="res://script/character/DeathReaper/disappear_state.gd" id="54_0ydnl"]
 [ext_resource type="Script" uid="uid://bcqlgeyforxyt" path="res://script/character/DeathReaper/appear_state.gd" id="56_5kvsf"]
 [ext_resource type="Script" uid="uid://c8dn7lcc1txne" path="res://script/character/DeathReaper/code_state.gd" id="57_cphgh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mpvow"]
+size = Vector2(53.076897, 46.153866)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5kvsf"]
 atlas = ExtResource("5_0dorb")
@@ -288,18 +293,35 @@ script = ExtResource("1_qpdb1")
 
 [node name="PivotNode" type="Node2D" parent="." unique_id=1771858098]
 
+[node name="Sword_Hitbox" type="Area2D" parent="PivotNode" unique_id=1976594798]
+collision_layer = 0
+monitoring = false
+script = ExtResource("49_37jpp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PivotNode/Sword_Hitbox" unique_id=1906911773]
+position = Vector2(-59.615406, 33.846165)
+shape = SubResource("RectangleShape2D_mpvow")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PivotNode" unique_id=1682066112]
 position = Vector2(-46.153847, -0.7692308)
 scale = Vector2(1.3, 1.3)
 sprite_frames = SubResource("SpriteFrames_0ty2x")
-animation = &"appear"
+animation = &"attack"
 autoplay = "idle"
 frame = 6
 frame_progress = 1.0
 
+[node name="Hitbox" type="Area2D" parent="PivotNode" unique_id=1527046318]
+collision_layer = 0
+script = ExtResource("48_mpvow")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PivotNode/Hitbox" unique_id=151169218]
+polygon = PackedVector2Array(8.461539, -13.076924, -17.69231, -13.076924, -11.538463, 1.5384617, -13.846155, 11.538463, -29.230772, 13.846155, -28.46154, 20.769234, -10.000001, 17.69231, -8.461539, 14.615386, -6.1538467, 16.923079, -6.1538467, 32.307693, -9.23077, 40.000004, -9.23077, 50.769234, -13.076924, 55.38462, -13.076924, 58.461544, 13.846155, 58.461544, 15.384617, 50.000004, 13.076924, 40.000004, 22.307693, 37.69231, 28.46154, 32.307693, 30.000004, 16.923079, 22.307693, 9.23077, 11.538463, -2.3076925)
+
 [node name="HurtBox" type="CollisionPolygon2D" parent="." unique_id=1399248879]
+visible = false
 position = Vector2(-44.615387, -0.76923084)
-polygon = PackedVector2Array(43.076927, -10.769232, 26, 2, 24.666668, 11.333334, 9.333334, 14, 6.666667, 17.333334, 8.666667, 22.666668, 22, 20.666668, 37.69231, 38.46154, 28.46154, 51.538467, 34.615387, 59.230774, 59.230774, 59.230774, 63.076927, 40.769234, 73.84616, 30.000004, 74.615395, 16.923079, 50.769234, -10.769232)
+polygon = PackedVector2Array(43.076927, -10.769232, 26, 2, 24.666668, 11.333334, 9.333334, 14, 8.461536, 17.69231, 8.666667, 22.666668, 9.230766, 40.769234, 12.3076935, 56.92308, 24.615385, 59.230774, 34.615387, 59.230774, 62.307697, 59.230774, 75.38462, 46.15385, 82.30769, 29.23077, 78.46155, 15.384617, 50.769234, -10.769232)
 
 [node name="RayCastLeft" type="RayCast2D" parent="." unique_id=1231018778]
 position = Vector2(-41.538467, 22.307693)
@@ -352,6 +374,9 @@ script = ExtResource("56_5kvsf")
 [node name="CodeState" type="Node" parent="FSM" unique_id=1358377862]
 script = ExtResource("57_cphgh")
 
+[connection signal="body_entered" from="PivotNode/Sword_Hitbox" to="PivotNode/Sword_Hitbox" method="_on_body_entered"]
+[connection signal="body_exited" from="PivotNode/Sword_Hitbox" to="PivotNode/Sword_Hitbox" method="_on_body_exited"]
+[connection signal="body_entered" from="PivotNode/Hitbox" to="PivotNode/Hitbox" method="_on_body_entered"]
 [connection signal="timeout" from="FSM/IdleState/Timer" to="FSM/IdleState" method="_on_timer_timeout"]
 [connection signal="timeout" from="FSM/BackAwayState/Timer" to="FSM/BackAwayState" method="_on_timer_timeout"]
 [connection signal="timeout" from="FSM/AnticipationState/Timer" to="FSM/AnticipationState" method="_on_timer_timeout"]
