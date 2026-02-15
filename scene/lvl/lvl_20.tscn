@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://bnhiv8qcc5ro5" path="res://scene/character/player.tscn" id="2_u7kdw"]
 [ext_resource type="PackedScene" uid="uid://dc7ihfcrpl10v" path="res://scene/world/camera.tscn" id="3_wpaet"]
 [ext_resource type="PackedScene" uid="uid://hj30qcw4h13s" path="res://scene/character/death_reaper.tscn" id="4_u7kdw"]
-[ext_resource type="PackedScene" uid="uid://c8mm1rrfpibeu" path="res://scene/ui/zone_remaining.tscn" id="5_3x65r"]
 [ext_resource type="PackedScene" uid="uid://44hfsfdoy30p" path="res://scene/character/healthbar.tscn" id="6_kg8te"]
 [ext_resource type="PackedScene" uid="uid://dl7srt6thlc11" path="res://scene/ui/coin_container.tscn" id="7_byfrw"]
 [ext_resource type="PackedScene" uid="uid://lg4gs88e7o62" path="res://scene/ui/pause_button.tscn" id="8_q1rb4"]
@@ -82,18 +81,6 @@ player = NodePath("../Player")
 [node name="UI" type="Node" parent="." unique_id=1713120715]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="UI" unique_id=2106644913]
-visible = false
-
-[node name="ZoneRemaining" parent="UI/CanvasLayer" unique_id=49330345 node_paths=PackedStringArray("children") instance=ExtResource("5_3x65r")]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_right = 0.0
-offset_bottom = 42.0
-grow_horizontal = 0
-children = [null, null, null]
-metadata/_edit_use_anchors_ = true
 
 [node name="HealthBar" parent="UI/CanvasLayer" unique_id=1569498199 node_paths=PackedStringArray("character") instance=ExtResource("6_kg8te")]
 offset_left = 53.0

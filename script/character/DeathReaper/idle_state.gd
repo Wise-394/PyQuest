@@ -8,8 +8,13 @@ func enter():
 
 
 func _on_timer_timeout() -> void:
-	var rand_num = randf()
-	if rand_num > 0.4:
-		state_machine.change_state('walkstate')
-	else:
-		state_machine.change_state('backawaystate')
+	var choices: Array = ["WALK", "CAST", "DISAPPEAR"]
+	#var choices: Array = ["DISAPPEAR"]
+	var result = choices.pick_random()
+	match result:
+		"WALK":
+			state_machine.change_state("walkstate")
+		"CAST":
+			state_machine.change_state("backawaystate")
+		"DISAPPEAR":
+			state_machine.change_state("disappearstate")
