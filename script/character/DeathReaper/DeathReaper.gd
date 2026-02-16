@@ -14,13 +14,14 @@ extends CharacterBody2D
 @export var speed = 50.00
 @export var gravity := 1000
 @export var damage = 20
+
 # --- Direction / Movement ---
 var direction := -1                # Actual facing direction
 var can_change_direction := true
 
 # --- Signals ---
 signal health_changed
-
+signal finished
 # --- State ---
 var is_invulnerable := false
 var current_health = max_health
@@ -42,5 +43,4 @@ func damaged(damage_amount: int, _attacker: Node2D) -> void:
 	current_health -= damage_amount
 	health_changed.emit()
 	if current_health <= 0:
-		
 		state_machine.change_state("deadstate")

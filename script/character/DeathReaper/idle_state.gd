@@ -8,6 +8,8 @@ func enter():
 
 
 func _on_timer_timeout() -> void:
+	if not character.is_alive:
+		return
 	var roll: float = randf()
 	var result: String
 

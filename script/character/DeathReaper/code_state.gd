@@ -11,8 +11,8 @@ func enter():
 	if not instance.completed_signal.is_connected(_is_completed):
 		instance.completed_signal.connect(_is_completed)
 	instance.global_position = spawn_point
-	instance.question_id = 1
-	instance.level = 1
+	instance.level = randi_range(11,19)
+	instance.question_id = randi_range(1,3)
 	get_tree().current_scene.add_child(instance)
 
 

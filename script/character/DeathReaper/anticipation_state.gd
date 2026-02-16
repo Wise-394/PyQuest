@@ -19,4 +19,6 @@ func _animation_finished():
 
 
 func _on_timer_timeout() -> void:
+	if not character.is_alive:
+		return
 	state_machine.change_state("attackstate")

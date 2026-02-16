@@ -17,4 +17,5 @@ func exit():
 
 func _animation_finished():
 	if sprite.animation == 'disappear':
+		character.finished.emit()
 		character.queue_free()
