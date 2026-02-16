@@ -1,6 +1,6 @@
 extends State
 
-const HITBOX_ACTIVE_FRAMES := [2, 3]
+const HITBOX_ACTIVE_FRAMES := [1, 2]
 
 func enter():
 	init_references()

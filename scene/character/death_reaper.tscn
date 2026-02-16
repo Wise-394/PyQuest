@@ -59,6 +59,7 @@
 [ext_resource type="Script" uid="uid://t6tur7esdlyr" path="res://script/character/DeathReaper/disappear_state.gd" id="54_0ydnl"]
 [ext_resource type="Script" uid="uid://bcqlgeyforxyt" path="res://script/character/DeathReaper/appear_state.gd" id="56_5kvsf"]
 [ext_resource type="Script" uid="uid://c8dn7lcc1txne" path="res://script/character/DeathReaper/code_state.gd" id="57_cphgh"]
+[ext_resource type="Script" uid="uid://bmfdhbfvudxey" path="res://script/character/DeathReaper/dead_state.gd" id="60_e7kv0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mpvow"]
 size = Vector2(53.076897, 46.153866)
@@ -285,7 +286,7 @@ animations = [{
 "speed": 7.0
 }]
 
-[node name="DeathReaper" type="CharacterBody2D" unique_id=1403621132]
+[node name="DeathReaper" type="CharacterBody2D" unique_id=1403621132 groups=["enemy"]]
 scale = Vector2(1.3, 1.3)
 collision_layer = 16
 collision_mask = 2
@@ -373,6 +374,9 @@ script = ExtResource("56_5kvsf")
 
 [node name="CodeState" type="Node" parent="FSM" unique_id=1358377862]
 script = ExtResource("57_cphgh")
+
+[node name="DeadState" type="Node" parent="FSM" unique_id=427154892]
+script = ExtResource("60_e7kv0")
 
 [connection signal="body_entered" from="PivotNode/Sword_Hitbox" to="PivotNode/Sword_Hitbox" method="_on_body_entered"]
 [connection signal="body_exited" from="PivotNode/Sword_Hitbox" to="PivotNode/Sword_Hitbox" method="_on_body_exited"]

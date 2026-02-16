@@ -1,8 +1,10 @@
 extends ProgressBar
 
 @export var character: CharacterBody2D
-
+@export var txt: String
+@onready var label:Label = $Label
 func _ready() -> void:
+	label.text = txt
 	character.health_changed.connect(update_health)
 	update_health()
 

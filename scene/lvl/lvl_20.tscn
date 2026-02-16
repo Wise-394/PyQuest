@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bnhiv8qcc5ro5" path="res://scene/character/player.tscn" id="2_u7kdw"]
 [ext_resource type="PackedScene" uid="uid://dc7ihfcrpl10v" path="res://scene/world/camera.tscn" id="3_wpaet"]
 [ext_resource type="PackedScene" uid="uid://hj30qcw4h13s" path="res://scene/character/death_reaper.tscn" id="4_u7kdw"]
+[ext_resource type="PackedScene" uid="uid://txybtigns2hp" path="res://scene/character/boss_hp.tscn" id="6_byfrw"]
 [ext_resource type="PackedScene" uid="uid://44hfsfdoy30p" path="res://scene/character/healthbar.tscn" id="6_kg8te"]
 [ext_resource type="PackedScene" uid="uid://dl7srt6thlc11" path="res://scene/ui/coin_container.tscn" id="7_byfrw"]
 [ext_resource type="PackedScene" uid="uid://lg4gs88e7o62" path="res://scene/ui/pause_button.tscn" id="8_q1rb4"]
@@ -82,6 +83,17 @@ player = NodePath("../Player")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="UI" unique_id=2106644913]
 
+[node name="BossHP" parent="UI/CanvasLayer" unique_id=895361277 node_paths=PackedStringArray("character") instance=ExtResource("6_byfrw")]
+character = NodePath("../../../DeathReaper")
+txt = "Death Reaper"
+
+[node name="PauseButton" parent="UI/CanvasLayer" unique_id=983979959 instance=ExtResource("8_q1rb4")]
+offset_left = 3.0
+offset_top = 6.0
+offset_right = 53.0
+offset_bottom = 56.0
+metadata/_edit_use_anchors_ = true
+
 [node name="HealthBar" parent="UI/CanvasLayer" unique_id=1569498199 node_paths=PackedStringArray("character") instance=ExtResource("6_kg8te")]
 offset_left = 53.0
 offset_top = -15.0
@@ -95,11 +107,4 @@ offset_left = 8.0
 offset_top = 65.0
 offset_right = 133.0
 offset_bottom = 102.0
-metadata/_edit_use_anchors_ = true
-
-[node name="PauseButton" parent="UI/CanvasLayer" unique_id=983979959 instance=ExtResource("8_q1rb4")]
-offset_left = 3.0
-offset_top = 6.0
-offset_right = 53.0
-offset_bottom = 56.0
 metadata/_edit_use_anchors_ = true

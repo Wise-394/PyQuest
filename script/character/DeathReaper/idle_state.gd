@@ -8,8 +8,16 @@ func enter():
 
 
 func _on_timer_timeout() -> void:
-	var choices: Array = ["WALK", "CAST", "DISAPPEAR"]
-	var result = choices.pick_random()
+	var roll: float = randf()
+	var result: String
+
+	if roll < 0.50:
+		result = "WALK"
+	elif roll < 0.75:
+		result = "CAST"
+	else:
+		result = "DISAPPEAR"
+
 	match result:
 		"WALK":
 			state_machine.change_state("walkstate")
