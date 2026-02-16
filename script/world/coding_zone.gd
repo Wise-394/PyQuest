@@ -155,7 +155,6 @@ func _finalize(is_correct: bool) -> void:
 		particles.disable()
 		if zone_remaining:
 			zone_remaining.update_count()
-		queue_free()
 		completed_signal.emit()
 
 func _activate_children() -> void:
