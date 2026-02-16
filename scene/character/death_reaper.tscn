@@ -360,7 +360,7 @@ script = ExtResource("50_mmaf3")
 script = ExtResource("51_wdgrw")
 
 [node name="Timer" type="Timer" parent="FSM/AnticipationState" unique_id=1517816171]
-wait_time = 0.4
+wait_time = 0.2
 one_shot = true
 
 [node name="AttackState" type="Node" parent="FSM" unique_id=548103351]

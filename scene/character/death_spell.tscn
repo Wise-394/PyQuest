@@ -98,6 +98,8 @@ script = ExtResource("1_d3ty5")
 sprite_frames = SubResource("SpriteFrames_lppew")
 animation = &"attack"
 autoplay = "opening"
+frame = 5
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=842159760]
 position = Vector2(-4, 21)
