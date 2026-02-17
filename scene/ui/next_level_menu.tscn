@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://bm1rqqkjlmgt5"]
+
+[ext_resource type="Script" uid="uid://48v2yicruac1" path="res://script/ui/next_level_menu.gd" id="1_caeon"]
+[ext_resource type="Texture2D" uid="uid://dtakxc6nj1gxy" path="res://assets/custom/panels/pause_panel.png" id="1_ly8if"]
+[ext_resource type="Texture2D" uid="uid://twbtvwrx2dv3" path="res://assets/custom/next_lvl_menu/next_exit_button.png" id="2_d2kc1"]
+[ext_resource type="Texture2D" uid="uid://dc565g0dwtjmq" path="res://assets/custom/next_lvl_menu/restart_lvl_buton.png" id="3_d2kc1"]
+[ext_resource type="Texture2D" uid="uid://da63004ecc1oi" path="res://assets/custom/next_lvl_menu/next_lvl_buton.png" id="4_v0l0t"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v0l0t"]
+texture = ExtResource("1_ly8if")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_caeon"]
+texture = ExtResource("2_d2kc1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ly8if"]
+texture = ExtResource("2_d2kc1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k783e"]
+texture = ExtResource("3_d2kc1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d2kc1"]
+texture = ExtResource("3_d2kc1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dx8f3"]
+texture = ExtResource("4_v0l0t")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wi8j1"]
+texture = ExtResource("4_v0l0t")
+
+[node name="NextLevelMenu" type="Control" unique_id=1750376882]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_caeon")
+
+[node name="Panel" type="Panel" parent="." unique_id=1783237763]
+custom_minimum_size = Vector2(447.25, 160)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_v0l0t")
+
+[node name="Exit" type="Button" parent="." unique_id=1876866381]
+layout_mode = 0
+offset_left = 302.0
+offset_top = 285.0
+offset_right = 491.0
+offset_bottom = 372.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_caeon")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ly8if")
+
+[node name="restart" type="Button" parent="." unique_id=1915993339]
+layout_mode = 0
+offset_left = 513.0
+offset_top = 289.0
+offset_right = 623.0
+offset_bottom = 351.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_k783e")
+theme_override_styles/hover = SubResource("StyleBoxTexture_d2kc1")
+
+[node name="NextLevel" type="Button" parent="." unique_id=1737844600]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 289.0
+offset_right = 750.0
+offset_bottom = 351.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_dx8f3")
+theme_override_styles/hover = SubResource("StyleBoxTexture_wi8j1")
+
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="NextLevel" to="." method="_on_next_level_pressed"]

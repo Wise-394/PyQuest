@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dwv1bc5r8s2a8"]
+[gd_scene format=3 uid="uid://dwv1bc5r8s2a8"]
 
 [ext_resource type="Script" uid="uid://df8lik406i5gb" path="res://script/world/flag.gd" id="1_0vbcb"]
 [ext_resource type="Texture2D" uid="uid://sd8m3fqme5q5" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 01.png" id="1_iufgx"]
@@ -49,21 +49,21 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Flag" type="Area2D"]
+[node name="Flag" type="Area2D" unique_id=260614120]
 collision_layer = 0
 script = ExtResource("1_0vbcb")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2134173851]
 position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_jkv55")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1327921121]
 sprite_frames = SubResource("SpriteFrames_25hx8")
 animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.75772476
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=703205939]
 offset_right = 40.0
 offset_bottom = 23.0
 

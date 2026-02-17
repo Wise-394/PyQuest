@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://bnhiv8qcc5ro5"]
+[gd_scene format=3 uid="uid://bnhiv8qcc5ro5"]
 
 [ext_resource type="Script" uid="uid://c5ju0fqtma84j" path="res://script/character/player/player.gd" id="1_oh5ij"]
 [ext_resource type="Texture2D" uid="uid://d3iabltfl48bw" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/15-Attack 1/Attack 1 01.png" id="2_2k1ob"]
@@ -212,64 +212,64 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s4jxa"]
 size = Vector2(26, 25)
 
-[node name="Player" type="CharacterBody2D" groups=["player"]]
+[node name="Player" type="CharacterBody2D" unique_id=880234569 groups=["player"]]
 collision_mask = 18
 script = ExtResource("1_oh5ij")
 speed = 200.0
 air_speed = 200.0
 
-[node name="HurtBox" type="CollisionShape2D" parent="."]
+[node name="HurtBox" type="CollisionShape2D" parent="." unique_id=1987827586]
 position = Vector2(-0.5, -2)
 shape = SubResource("RectangleShape2D_q48bb")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1189302188]
 sprite_frames = SubResource("SpriteFrames_ml7e8")
 animation = &"air_attacking"
 autoplay = "idle"
 frame = 2
 frame_progress = 1.0
 
-[node name="HitBox" type="Area2D" parent="." groups=["enemy"]]
+[node name="HitBox" type="Area2D" parent="." unique_id=1830820937 groups=["enemy"]]
 collision_layer = 8
 collision_mask = 16
 script = ExtResource("30_dspxq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1486138082]
 position = Vector2(23, -0.5)
 shape = SubResource("RectangleShape2D_s4jxa")
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+[node name="StateMachine" type="Node" parent="." unique_id=1998528331 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("7_hp4bs")
 initial_state = NodePath("IdleState")
 
-[node name="IdleState" type="Node" parent="StateMachine"]
+[node name="IdleState" type="Node" parent="StateMachine" unique_id=2118042169]
 script = ExtResource("8_g2vtq")
 
-[node name="WalkState" type="Node" parent="StateMachine"]
+[node name="WalkState" type="Node" parent="StateMachine" unique_id=854692855]
 script = ExtResource("9_2fvbb")
 
-[node name="JumpState" type="Node" parent="StateMachine"]
+[node name="JumpState" type="Node" parent="StateMachine" unique_id=1716535809]
 script = ExtResource("10_ml7e8")
 
-[node name="FallingState" type="Node" parent="StateMachine"]
+[node name="FallingState" type="Node" parent="StateMachine" unique_id=1971783647]
 script = ExtResource("24_k8m7u")
 
-[node name="DamagedState" type="Node" parent="StateMachine"]
+[node name="DamagedState" type="Node" parent="StateMachine" unique_id=198808539]
 script = ExtResource("24_ov0iu")
 
-[node name="PauseState" type="Node" parent="StateMachine"]
+[node name="PauseState" type="Node" parent="StateMachine" unique_id=247384038]
 script = ExtResource("29_du2bl")
 
-[node name="AirAttackState" type="Node" parent="StateMachine"]
+[node name="AirAttackState" type="Node" parent="StateMachine" unique_id=1808622118]
 script = ExtResource("45_m1pvm")
 
-[node name="AttackingState" type="Node" parent="StateMachine"]
+[node name="AttackingState" type="Node" parent="StateMachine" unique_id=571242427]
 script = ExtResource("31_r5eyx")
 
-[node name="DeadState" type="Node" parent="StateMachine"]
+[node name="DeadState" type="Node" parent="StateMachine" unique_id=2115785052]
 script = ExtResource("43_qe7ey")
 
-[node name="Timer" type="Timer" parent="StateMachine/DeadState"]
+[node name="Timer" type="Timer" parent="StateMachine/DeadState" unique_id=1236647262]
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/DamagedState" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="HitBox" to="HitBox" method="_on_area_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://lg4gs88e7o62"]
+[gd_scene format=3 uid="uid://lg4gs88e7o62"]
 
 [ext_resource type="Script" uid="uid://milcu0u62gyw" path="res://script/ui/pause_button.gd" id="1_mswv1"]
 [ext_resource type="Texture2D" uid="uid://cojsgqpxilt2d" path="res://assets/custom/pause.png" id="1_wc8mk"]
@@ -11,7 +11,7 @@ region_rect = Rect2(2, 2, 11, 12)
 texture = ExtResource("1_wc8mk")
 region_rect = Rect2(2, 2, 11, 12)
 
-[node name="PauseButton" type="Button"]
+[node name="PauseButton" type="Button" unique_id=61299641]
 offset_top = -1.0
 offset_right = 50.0
 offset_bottom = 49.0

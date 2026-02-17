@@ -10,7 +10,7 @@ extends CharacterBody2D
 @onready var health_bar = get_node_or_null("EnemyHealthBar")
 @onready var pivot: Node2D = $PivotNode
 @export var player: CharacterBody2D
-@export var max_health = 2500
+@export var max_health = 10
 @export var speed = 50.00
 @export var gravity := 1000
 @export var damage = 20
@@ -39,7 +39,8 @@ func _initialize_state_machine() -> void:
 func damaged(damage_amount: int, _attacker: Node2D) -> void:
 	if not is_alive:
 		return
-
+	
+	print(current_health)
 	current_health -= damage_amount
 	health_changed.emit()
 	if current_health <= 0:
