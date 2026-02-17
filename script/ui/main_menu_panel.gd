@@ -5,11 +5,10 @@ extends Control
 
 
 func _on_play_button_pressed() -> void:
-	var level_selection = preload("res://scene/ui/level_selection.tscn").instantiate()
-	level_selection.back_pressed.connect(show_menu)
+	var account_menu= preload("res://scene/ui/account_menu.tscn").instantiate()
+	account_menu.back_pressed.connect(show_menu)
 	hide_menu()
-	canvas_layer.add_child(level_selection)
-	
+	canvas_layer.add_child(account_menu)
 	
 func hide_menu():
 	visible = false

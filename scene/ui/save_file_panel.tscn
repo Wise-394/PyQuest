@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://f7kwlp40h32m"]
+
+[ext_resource type="Texture2D" uid="uid://doc7e6gyqf8w" path="res://assets/custom/dialog.png" id="1_2wy0k"]
+[ext_resource type="Script" uid="uid://bm1yf4lnwuqxw" path="res://script/ui/save_file_panel.gd" id="2_3n0v1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tm4de"]
+texture = ExtResource("1_2wy0k")
+region_rect = Rect2(3, 2, 74, 14)
+
+[node name="SaveFilePanel" type="Panel" unique_id=254538850]
+offset_left = 83.0
+offset_top = 46.0
+offset_right = 536.0
+offset_bottom = 147.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_tm4de")
+script = ExtResource("2_3n0v1")
+
+[node name="PlayButton" type="Button" parent="." unique_id=150156644]
+layout_mode = 0
+offset_left = 332.0
+offset_top = 38.0
+offset_right = 412.0
+offset_bottom = 69.0
+size_flags_vertical = 8
+text = "Play"
+
+[node name="TitleLabel" type="Label" parent="." unique_id=908715557]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 19.0
+offset_right = 326.0
+offset_bottom = 42.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "No save file"
+
+[node name="LevelLabel" type="Label" parent="." unique_id=1167449935]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 42.0
+offset_right = 326.0
+offset_bottom = 65.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "level 1"
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]

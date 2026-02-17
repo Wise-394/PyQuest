@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://bt2a8fahefw46"]
+
+[ext_resource type="Script" uid="uid://b5gd3gbpha1mm" path="res://script/ui/account_menu.gd" id="1_t8xnm"]
+[ext_resource type="Texture2D" uid="uid://ci8w2oc47q458" path="res://assets/custom/lvel_menu/level_panel.png" id="1_tm4de"]
+[ext_resource type="PackedScene" uid="uid://f7kwlp40h32m" path="res://scene/ui/save_file_panel.tscn" id="2_tm4de"]
+[ext_resource type="Texture2D" uid="uid://3agspp35pyt2" path="res://assets/custom/lvel_menu/back_button.png" id="3_iithi"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iithi"]
+texture = ExtResource("1_tm4de")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t8xnm"]
+texture = ExtResource("3_iithi")
+
+[node name="AccountMenu" type="Control" unique_id=828095472]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t8xnm")
+
+[node name="Panel" type="Panel" parent="." unique_id=1069571620]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -307.5
+offset_top = -263.5
+offset_right = 307.5
+offset_bottom = 263.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_iithi")
+
+[node name="SaveFilePanel2" parent="Panel" unique_id=254538850 instance=ExtResource("2_tm4de")]
+layout_mode = 0
+offset_left = 84.5
+offset_top = 151.5
+offset_right = 537.5
+offset_bottom = 252.5
+id = 1
+
+[node name="SaveFilePanel3" parent="Panel" unique_id=1560526074 instance=ExtResource("2_tm4de")]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 259.0
+offset_right = 537.0
+offset_bottom = 360.0
+
+[node name="SaveFilePanel4" parent="Panel" unique_id=1639551553 instance=ExtResource("2_tm4de")]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 373.0
+offset_right = 537.0
+offset_bottom = 474.0
+
+[node name="SaveFilePanel" parent="Panel" unique_id=2034844937 instance=ExtResource("2_tm4de")]
+layout_mode = 1
+offset_left = 84.0
+offset_top = 40.0
+offset_right = 537.0
+offset_bottom = 141.0
+
+[node name="Button" type="Button" parent="Panel" unique_id=175326405]
+layout_mode = 0
+offset_left = -3.5
+offset_top = -14.5
+offset_right = 56.5
+offset_bottom = 54.5
+theme_override_styles/normal = SubResource("StyleBoxTexture_t8xnm")
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]

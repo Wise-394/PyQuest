@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://3b40f0aoueby"]
+[gd_scene format=3 uid="uid://3b40f0aoueby"]
 
 [ext_resource type="Texture2D" uid="uid://ci8w2oc47q458" path="res://assets/custom/lvel_menu/level_panel.png" id="1_gu58t"]
 [ext_resource type="Script" uid="uid://drs7giktrx7it" path="res://script/ui/level_selection.gd" id="1_ubboj"]
@@ -15,7 +15,7 @@ texture = ExtResource("3_au35g")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_au35g"]
 texture = ExtResource("3_au35g")
 
-[node name="LevelSelection" type="Control"]
+[node name="LevelSelection" type="Control" unique_id=1615835832]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,7 +26,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ubboj")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=507221716]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -41,7 +41,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_jhkib")
 
-[node name="LevelButton" parent="Panel" instance=ExtResource("2_au35g")]
+[node name="LevelButton" parent="Panel" unique_id=1641662479 instance=ExtResource("2_au35g")]
 layout_mode = 0
 offset_left = 50.0
 offset_top = 47.0
@@ -49,7 +49,7 @@ offset_right = 110.0
 offset_bottom = 107.0
 text = "1"
 
-[node name="LevelButton2" parent="Panel" instance=ExtResource("2_au35g")]
+[node name="LevelButton2" parent="Panel" unique_id=1997281106 instance=ExtResource("2_au35g")]
 layout_mode = 0
 offset_left = 120.0
 offset_top = 47.0
@@ -58,7 +58,7 @@ offset_bottom = 107.0
 text = "2"
 level = 2
 
-[node name="LevelButton3" parent="Panel" instance=ExtResource("2_au35g")]
+[node name="LevelButton3" parent="Panel" unique_id=789967841 instance=ExtResource("2_au35g")]
 layout_mode = 0
 offset_left = 190.0
 offset_top = 47.0
@@ -67,7 +67,7 @@ offset_bottom = 107.0
 text = "3"
 level = 3
 
-[node name="LevelButton4" parent="Panel" instance=ExtResource("2_au35g")]
+[node name="LevelButton4" parent="Panel" unique_id=735720505 instance=ExtResource("2_au35g")]
 layout_mode = 0
 offset_left = 260.0
 offset_top = 47.0
@@ -76,7 +76,7 @@ offset_bottom = 107.0
 text = "4"
 level = 4
 
-[node name="LevelButton5" parent="Panel" instance=ExtResource("2_au35g")]
+[node name="LevelButton5" parent="Panel" unique_id=1727102824 instance=ExtResource("2_au35g")]
 layout_mode = 0
 offset_left = 330.0
 offset_top = 47.0
@@ -85,7 +85,7 @@ offset_bottom = 107.0
 text = "5"
 level = 5
 
-[node name="LevelButton18" parent="Panel" instance=ExtResource("2_au35g")]
+[node name="LevelButton18" parent="Panel" unique_id=225972740 instance=ExtResource("2_au35g")]
 layout_mode = 0
 offset_left = 190.375
 offset_top = 130.0
@@ -95,7 +95,7 @@ text = "8
 "
 level = 8
 
-[node name="LevelButton19" parent="Panel" instance=ExtResource("2_au35g")]
+[node name="LevelButton19" parent="Panel" unique_id=955097773 instance=ExtResource("2_au35g")]
 layout_mode = 0
 offset_left = 260.375
 offset_top = 130.0
@@ -105,7 +105,7 @@ text = "9
 "
 level = 9
 
-[node name="LevelButton20" parent="Panel" instance=ExtResource("2_au35g")]
+[node name="LevelButton20" parent="Panel" unique_id=266609881 instance=ExtResource("2_au35g")]
 layout_mode = 0
 offset_left = 330.375
 offset_top = 130.0
@@ -115,7 +115,7 @@ text = "10
 "
 level = 10
 
-[node name="LevelButton7" parent="Panel" instance=ExtResource("2_au35g")]
+[node name="LevelButton7" parent="Panel" unique_id=1211853031 instance=ExtResource("2_au35g")]
 layout_mode = 0
 offset_left = 120.375
 offset_top = 130.0
@@ -124,7 +124,7 @@ offset_bottom = 190.0
 text = "7"
 level = 7
 
-[node name="LevelButton6" parent="Panel" instance=ExtResource("2_au35g")]
+[node name="LevelButton6" parent="Panel" unique_id=1302740086 instance=ExtResource("2_au35g")]
 layout_mode = 0
 offset_left = 50.375
 offset_top = 130.0
@@ -133,7 +133,7 @@ offset_bottom = 190.0
 text = "6"
 level = 6
 
-[node name="LevelButton9" parent="Panel" instance=ExtResource("2_au35g")]
+[node name="LevelButton9" parent="Panel" unique_id=853216304 instance=ExtResource("2_au35g")]
 layout_mode = 0
 offset_left = 120.375
 offset_top = 206.0
@@ -142,7 +142,7 @@ offset_bottom = 266.0
 text = "12"
 level = 12
 
-[node name="LevelButton10" parent="Panel" instance=ExtResource("2_au35g")]
+[node name="LevelButton10" parent="Panel" unique_id=316306958 instance=ExtResource("2_au35g")]
 layout_mode = 0
 offset_left = 190.375
 offset_top = 206.0
@@ -152,7 +152,7 @@ text = "13
 "
 level = 13
 
-[node name="LevelButton11" parent="Panel" instance=ExtResource("2_au35g")]
+[node name="LevelButton11" parent="Panel" unique_id=262275407 instance=ExtResource("2_au35g")]
 layout_mode = 0
 offset_left = 50.375
 offset_top = 206.0
@@ -162,7 +162,7 @@ text = "11
 "
 level = 11
 
-[node name="LevelButton12" parent="Panel" instance=ExtResource("2_au35g")]
+[node name="LevelButton12" parent="Panel" unique_id=11255777 instance=ExtResource("2_au35g")]
 layout_mode = 0
 offset_left = 330.375
 offset_top = 206.0
@@ -171,7 +171,7 @@ offset_bottom = 266.0
 text = "15"
 level = 15
 
-[node name="LevelButton13" parent="Panel" instance=ExtResource("2_au35g")]
+[node name="LevelButton13" parent="Panel" unique_id=1462907257 instance=ExtResource("2_au35g")]
 layout_mode = 0
 offset_left = 260.375
 offset_top = 206.0
@@ -181,7 +181,7 @@ text = "14
 "
 level = 14
 
-[node name="LevelButton14" parent="Panel" instance=ExtResource("2_au35g")]
+[node name="LevelButton14" parent="Panel" unique_id=563115705 instance=ExtResource("2_au35g")]
 layout_mode = 0
 offset_left = 50.375
 offset_top = 284.0
@@ -191,7 +191,7 @@ text = "16
 "
 level = 16
 
-[node name="LevelButton15" parent="Panel" instance=ExtResource("2_au35g")]
+[node name="LevelButton15" parent="Panel" unique_id=285723232 instance=ExtResource("2_au35g")]
 layout_mode = 0
 offset_left = 120.375
 offset_top = 284.0
@@ -201,7 +201,7 @@ text = "17
 "
 level = 17
 
-[node name="LevelButton16" parent="Panel" instance=ExtResource("2_au35g")]
+[node name="LevelButton16" parent="Panel" unique_id=1633989110 instance=ExtResource("2_au35g")]
 layout_mode = 0
 offset_left = 190.375
 offset_top = 284.0
@@ -210,7 +210,7 @@ offset_bottom = 344.0
 text = "18"
 level = 18
 
-[node name="LevelButton17" parent="Panel" instance=ExtResource("2_au35g")]
+[node name="LevelButton17" parent="Panel" unique_id=1477637324 instance=ExtResource("2_au35g")]
 layout_mode = 0
 offset_left = 260.375
 offset_top = 284.0
@@ -220,7 +220,7 @@ text = "19
 "
 level = 19
 
-[node name="LevelButton21" parent="Panel" instance=ExtResource("2_au35g")]
+[node name="LevelButton21" parent="Panel" unique_id=1556875132 instance=ExtResource("2_au35g")]
 layout_mode = 0
 offset_left = 330.375
 offset_top = 284.0
@@ -230,7 +230,7 @@ text = "20
 "
 level = 20
 
-[node name="BackButton" type="Button" parent="Panel"]
+[node name="BackButton" type="Button" parent="Panel" unique_id=390595092]
 layout_mode = 0
 offset_left = -13.625
 offset_top = -19.0

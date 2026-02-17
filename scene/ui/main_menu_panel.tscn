@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://8kp72dbgspmq"]
+[gd_scene format=3 uid="uid://8kp72dbgspmq"]
 
 [ext_resource type="Texture2D" uid="uid://hgdvc13hajif" path="res://assets/custom/panels/menu_panel.png" id="1_2mm2l"]
 [ext_resource type="Script" uid="uid://dlc2oii871v2w" path="res://script/ui/main_menu_panel.gd" id="1_8l62b"]
@@ -51,7 +51,7 @@ texture = ExtResource("8_vpdim")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d073j"]
 texture = ExtResource("7_oxyoa")
 
-[node name="MainMenuPanel" type="Control"]
+[node name="MainMenuPanel" type="Control" unique_id=257668595]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -64,7 +64,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8l62b")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=1818284612]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -79,7 +79,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_8wb42")
 
-[node name="label" type="Label" parent="Panel"]
+[node name="label" type="Label" parent="Panel" unique_id=1801737609]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -96,7 +96,7 @@ text = "PyQuest"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PlayButton" type="Button" parent="Panel"]
+[node name="PlayButton" type="Button" parent="Panel" unique_id=2062388192]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -112,7 +112,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_e5dty")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_0rvh3")
 theme_override_styles/hover = SubResource("StyleBoxTexture_k75cp")
 
-[node name="Button2" type="Button" parent="Panel"]
+[node name="Button2" type="Button" parent="Panel" unique_id=1254786608]
 layout_mode = 0
 offset_left = 241.125
 offset_top = 259.75
@@ -122,7 +122,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_xk1tq")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_85mgp")
 theme_override_styles/hover = SubResource("StyleBoxTexture_du31s")
 
-[node name="ExitButton" type="Button" parent="Panel"]
+[node name="ExitButton" type="Button" parent="Panel" unique_id=1808788726]
 layout_mode = 0
 offset_left = 348.125
 offset_top = 273.75
