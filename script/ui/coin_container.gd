@@ -3,7 +3,7 @@ extends Panel
 @onready var coin_label = $CoinLabel
 var coins_amount = 0
 func _ready() -> void:
-	coins_amount = SaveLoad.contents.coins
+	coins_amount = SaveLoad.data['coins'] as int
 	update_display()
 
 func picked_up_coins():

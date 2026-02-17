@@ -3,6 +3,7 @@ extends Control
 var level_to_go: String
 @onready var coin_label: Label = get_tree().current_scene.get_node_or_null("UI/CanvasLayer/CoinContainer/CoinLabel")
 func _on_exit_pressed() -> void:
+	save()
 	get_tree().change_scene_to_file("res://scene/lvl/main_menu.tscn")
 
 
@@ -16,12 +17,10 @@ func _on_next_level_pressed() -> void:
 
 func save() -> void:
 	if coin_label:
-		var coins_amount := int(coin_label.text)
-		SaveLoad.contents.coins = coins_amount
+		SaveLoad.data["coins"] = int(coin_label.text)
 	else:
 		push_warning("CoinLabel not found, coins not saved")
-
-	SaveLoad.save_data()
+	SaveLoad.save_slot()
 
 func next_level() -> void:
 	if level_to_go == "":

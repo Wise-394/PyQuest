@@ -10,7 +10,7 @@ const MAX_SLOTS : int    = 4
 
 # Which slot is currently loaded (-1 = none)
 var active_slot : int = -1
-
+var current_level = 0
 # The live save data. Add new fields here as the game grows.
 var data : Dictionary = {
 	"player_name"   : "Player",
