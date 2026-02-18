@@ -11,11 +11,13 @@ const MAX_SLOTS : int    = 4
 # Which slot is currently loaded (-1 = none)
 var active_slot : int = -1
 var current_level = 0
+var highest_unlocked_level = 0
 # The live save data. Add new fields here as the game grows.
 var data : Dictionary = {
 	"player_name"   : "Player",
 	"current_level" : 0,
 	"coins"         : 0,
+	"highest_unlocked_level": 0,
 }
 
 
@@ -35,6 +37,7 @@ func _default_data(player_name: String) -> Dictionary:
 		"player_name"   : player_name,
 		"current_level" : 0,
 		"coins"         : 0,
+		"highest_unlocked_level" : 0,
 	}
 
 
@@ -141,6 +144,7 @@ func get_all_slots() -> Array:
 			"player_name"   : saved.get("player_name",   "Unknown"),
 			"current_level" : saved.get("current_level", 0),
 			"coins"         : saved.get("coins",         0),
+			"highest_unlocked_level" : saved.get("highest_unlocked_level", 0)
 		})
 
 	return slots

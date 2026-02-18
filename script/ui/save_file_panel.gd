@@ -19,7 +19,7 @@ func _refresh() -> void:
 
 	if slot["exists"]:
 		title_label.text = slot["player_name"]
-		level_label.text = "Level %d" % slot["current_level"]
+		level_label.text = "Level %d" % slot["highest_unlocked_level"]
 	else:
 		title_label.text = "No Save File"
 		level_label.text = ""
