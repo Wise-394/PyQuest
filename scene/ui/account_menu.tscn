@@ -77,10 +77,10 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_t8xnm")
 
 [node name="delete" type="Button" parent="." unique_id=2004584751]
 layout_mode = 0
-offset_left = 1021.0
-offset_top = 193.0
-offset_right = 1125.0
-offset_bottom = 224.0
+offset_left = 1005.0
+offset_top = 194.0
+offset_right = 1109.0
+offset_bottom = 225.0
 text = "delete saves
 "
 script = ExtResource("5_xrsv6")
