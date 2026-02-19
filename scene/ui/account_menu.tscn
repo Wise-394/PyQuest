@@ -12,7 +12,7 @@ texture = ExtResource("1_tm4de")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t8xnm"]
 texture = ExtResource("3_iithi")
 
-[node name="AccountMenu" type="Control" unique_id=828095472]
+[node name="AccountMenu" type="Control" unique_id=828095472 node_paths=PackedStringArray("save_files")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,6 +20,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_t8xnm")
+save_files = [NodePath("Panel/SaveFilePanel2"), NodePath("Panel/SaveFilePanel3"), NodePath("Panel/SaveFilePanel4"), NodePath("Panel/SaveFilePanel")]
 
 [node name="Panel" type="Panel" parent="." unique_id=1069571620]
 layout_mode = 1

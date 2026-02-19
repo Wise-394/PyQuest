@@ -10,10 +10,10 @@ const LEVEL_SELECTION = preload("res://scene/ui/level_selection.tscn")
 
 
 func _ready() -> void:
-	_refresh()
+	refresh()
 
 
-func _refresh() -> void:
+func refresh() -> void:
 	var slots : Array      = SaveLoad.get_all_slots()
 	var slot  : Dictionary = slots[id]
 
@@ -26,6 +26,7 @@ func _refresh() -> void:
 
 
 func show_menu() -> void:
+	refresh()
 	account_menu.visible = true
 
 
