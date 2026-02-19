@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://ci8w2oc47q458" path="res://assets/custom/lvel_menu/level_panel.png" id="1_tm4de"]
 [ext_resource type="PackedScene" uid="uid://f7kwlp40h32m" path="res://scene/ui/save_file_panel.tscn" id="2_tm4de"]
 [ext_resource type="Texture2D" uid="uid://3agspp35pyt2" path="res://assets/custom/lvel_menu/back_button.png" id="3_iithi"]
-[ext_resource type="Script" uid="uid://c374ivm55x0tf" path="res://script/ui/deletesaves.gd" id="5_xrsv6"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iithi"]
 texture = ExtResource("1_tm4de")
@@ -76,15 +75,4 @@ offset_right = 56.5
 offset_bottom = 54.5
 theme_override_styles/normal = SubResource("StyleBoxTexture_t8xnm")
 
-[node name="delete" type="Button" parent="." unique_id=2004584751]
-layout_mode = 0
-offset_left = 1021.0
-offset_top = 193.0
-offset_right = 1125.0
-offset_bottom = 224.0
-text = "delete saves
-"
-script = ExtResource("5_xrsv6")
-
 [connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="delete" to="delete" method="_on_pressed"]
