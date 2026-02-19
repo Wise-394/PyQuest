@@ -1,7 +1,7 @@
 extends Panel
 
 @onready var username_textbox := $UserNameTextBox
-
+signal delete_button_pressed()
 func _ready() -> void:
 	refresh()
 
@@ -15,3 +15,10 @@ func _on_save_button_pressed() -> void:
 		username = 'Player'
 	SaveLoad.data['player_name'] = username
 	SaveLoad.save_slot()
+
+
+func _on_add_passcode_button_pressed() -> void:
+	pass # Replace with function body.
+
+func _on_delete_button_pressed() -> void:
+	delete_button_pressed.emit()
