@@ -244,9 +244,9 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_au35g")
 
 [node name="UserProfileMenu" parent="." unique_id=605145176 instance=ExtResource("5_1jxsr")]
 layout_mode = 0
-offset_left = 25.0
-offset_top = 115.0
-offset_right = 337.0
-offset_bottom = 291.0
+offset_left = 17.0
+offset_top = 111.0
+offset_right = 329.0
+offset_bottom = 316.0
 
 [connection signal="pressed" from="Panel/BackButton" to="." method="_on_back_button_pressed"]
