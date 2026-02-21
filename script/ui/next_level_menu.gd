@@ -5,12 +5,15 @@ var level: int
 
 func _on_exit_pressed() -> void:
 	save()
+	check_achievements()
+	AchievementManager.debug_print_unlocked()
 	get_tree().change_scene_to_file("res://scene/lvl/main_menu.tscn")
 
 func _on_restart_pressed() -> void:
 	get_tree().reload_current_scene()
 
 func _on_next_level_pressed() -> void:
+	AchievementManager.debug_print_unlocked()
 	call_deferred("next_level")
 
 func save() -> void:
@@ -19,8 +22,14 @@ func save() -> void:
 	else:
 		push_warning("CoinLabel not found, coins not saved")
 	level = get_level_number_from_path(level_to_go)
-	SaveLoad.data["highest_unlocked_level"] = level
+	if SaveLoad.data["highest_unlocked_level"] <= level:
+		SaveLoad.data["highest_unlocked_level"] = level
 	SaveLoad.save_slot()
+
+func check_achievements():
+	AchievementManager.on_coins_changed(SaveLoad.data['coins'])
+	AchievementManager.on_level_finished(level - 1)
+	
 
 func get_level_number_from_path(path: String) -> int:
 	var real_path = path
@@ -39,4 +48,5 @@ func next_level() -> void:
 		push_error("Next level not set!")
 		return
 	save()
+	check_achievements()
 	get_tree().change_scene_to_file(level_to_go)

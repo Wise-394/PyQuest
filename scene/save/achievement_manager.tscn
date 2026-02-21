@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b1lew55e1yr2l"]
+
+[ext_resource type="Script" uid="uid://c4wfvjbbe8n0y" path="res://script/save/achievement_manager.gd" id="1_wvkyy"]
+
+[node name="AchievementManager" type="Node" unique_id=878286469]
+script = ExtResource("1_wvkyy")

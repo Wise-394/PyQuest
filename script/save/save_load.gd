@@ -15,10 +15,10 @@ var highest_unlocked_level = 0
 # The live save data. Add new fields here as the game grows.
 var data : Dictionary = {
 	"player_name"   : "Player",
-	"current_level" : 0,
 	"coins"         : 0,
 	"highest_unlocked_level": 0,
 	"passcode" : "",
+	"unlocked_achievements" : [],
 }
 
 
@@ -36,10 +36,10 @@ func _slot_path(slot: int) -> String:
 func _default_data(player_name: String) -> Dictionary:
 	return {
 		"player_name"   : player_name,
-		"current_level" : 0,
 		"coins"         : 0,
 		"highest_unlocked_level" : 0,
 		"passcode" : "",
+		"unlocked_achievements" : [],
 	}
 
 
@@ -144,10 +144,8 @@ func get_all_slots() -> Array:
 			"exists"        : true,
 			"is_active"     : i == active_slot,
 			"player_name"   : saved.get("player_name",   "Unknown"),
-			"current_level" : saved.get("current_level", 0),
 			"coins"         : saved.get("coins",         0),
 			"highest_unlocked_level" : saved.get("highest_unlocked_level", 0),
-			"passcode" : saved.get('passcode', ''),
 		})
 
 	return slots

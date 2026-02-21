@@ -1,7 +1,8 @@
+# AchievementList.gd
 extends Node
 class_name AchievementList
 
-@export var achievements: Array[Dictionary] = [
+const achievements: Array[Dictionary] = [
 	{
 		"id": "hand_midas_1",
 		"title": "Hand of Midas I",
@@ -20,16 +21,16 @@ class_name AchievementList
 	{
 		"id": "herald",
 		"title": "Herald",
-		"description": "finish level 1",
+		"description": "Finish level 1",
 	},
 	{
 		"id": "crusader",
 		"title": "Crusader",
-		"description": "finish level 10",
+		"description": "Finish level 10",
 	},
 	{
 		"id": "Immortal",
 		"title": "Immortal",
-		"description": "finish level 20",	
+		"description": "Finish level 20",
 	}
 ]

@@ -24,6 +24,7 @@ config/icon="res://icon.svg"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 SaveLoad="*res://scene/save/save_load.tscn"
 BackendLoader="*uid://cu6h34q526pil"
+AchievementManager="*uid://b1lew55e1yr2l"
 
 [display]
 
