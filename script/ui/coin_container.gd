@@ -12,3 +12,7 @@ func picked_up_coins():
 
 func update_display():
 	coin_label.text = str(coins_amount)
+
+func update_display_using_savefile():
+	coins_amount = SaveLoad.data["coins"] as int
+	coin_label.text = str(coins_amount)

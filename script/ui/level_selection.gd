@@ -21,3 +21,8 @@ func _show_passcode_menu():
 	var instance = passcode_menu.instantiate()
 	add_child(instance)
 	
+
+
+func _on_button_pressed() -> void:
+	SaveLoad.current_level = 21
+	get_tree().change_scene_to_file("res://scene/save/loading_screen.tscn")
