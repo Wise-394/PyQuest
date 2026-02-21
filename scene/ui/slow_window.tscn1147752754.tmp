@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://cfwmgiq8a31ly"]
+
+[ext_resource type="Texture2D" uid="uid://dtakxc6nj1gxy" path="res://assets/custom/panels/pause_panel.png" id="1_b5tce"]
+[ext_resource type="Script" uid="uid://dq7crsto8426d" path="res://script/ui/slow_window.gd" id="2_3gw43"]
+[ext_resource type="Texture2D" uid="uid://c8vxf1j75m6l8" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Blue Diamond/04.png" id="2_syigi"]
+[ext_resource type="Texture2D" uid="uid://b1wgu8fg680w2" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Green Diamond/01.png" id="3_dd8fx"]
+[ext_resource type="Texture2D" uid="uid://2ilyxr1ixpcw" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Red Diamond/01.png" id="4_3gw43"]
+[ext_resource type="Texture2D" uid="uid://b601hx00u7epi" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/01.png" id="5_bw6s2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_20psj"]
+texture = ExtResource("1_b5tce")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dd8fx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_syigi")
+}],
+"loop": true,
+"name": &"blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_dd8fx")
+}],
+"loop": true,
+"name": &"green",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_3gw43")
+}],
+"loop": true,
+"name": &"red",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_bw6s2")
+}],
+"loop": true,
+"name": &"yellow",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dd8fx"]
+size = Vector2(115, 84)
+
+[node name="SlowWindow" type="Panel" unique_id=398152168]
+offset_top = 40.0
+offset_right = 103.0
+offset_bottom = 87.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_20psj")
+script = ExtResource("2_3gw43")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=250098841]
+position = Vector2(21, 22)
+sprite_frames = SubResource("SpriteFrames_dd8fx")
+animation = &"blue"
+
+[node name="AnimatedSprite2" type="AnimatedSprite2D" parent="." unique_id=1761332651]
+position = Vector2(51, 22)
+sprite_frames = SubResource("SpriteFrames_dd8fx")
+animation = &"blue"
+
+[node name="AnimatedSprite3" type="AnimatedSprite2D" parent="." unique_id=617231939]
+position = Vector2(81, 22)
+sprite_frames = SubResource("SpriteFrames_dd8fx")
+animation = &"blue"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1131630988]
+position = Vector2(3, 47)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1922787478]
+position = Vector2(48.5, 40)
+shape = SubResource("RectangleShape2D_dd8fx")
+
+[node name="SlotLabel" type="Label" parent="." unique_id=564230362]
+layout_mode = 0
+offset_left = 28.0
+offset_top = -46.0
+offset_right = 70.0
+offset_bottom = -17.0
+text = "C"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GoldLabel" type="Label" parent="SlotLabel" unique_id=1483883188]
+layout_mode = 0
+offset_left = -6.0
+offset_top = 27.0
+offset_right = 34.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 12
+text = "-15"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="SlotLabel/GoldLabel" unique_id=16091440]
+position = Vector2(36, 11)
+texture = ExtResource("5_bw6s2")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

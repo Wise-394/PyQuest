@@ -21,8 +21,6 @@ func save() -> void:
 	level = get_level_number_from_path(level_to_go)
 	SaveLoad.data["highest_unlocked_level"] = level
 	SaveLoad.save_slot()
-	print(level)
-	print(SaveLoad.data["highest_unlocked_level"])
 
 func get_level_number_from_path(path: String) -> int:
 	var real_path = path

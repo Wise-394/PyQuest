@@ -18,6 +18,7 @@ var data : Dictionary = {
 	"current_level" : 0,
 	"coins"         : 0,
 	"highest_unlocked_level": 0,
+	"passcode" : "",
 }
 
 
@@ -38,6 +39,7 @@ func _default_data(player_name: String) -> Dictionary:
 		"current_level" : 0,
 		"coins"         : 0,
 		"highest_unlocked_level" : 0,
+		"passcode" : "",
 	}
 
 
@@ -144,7 +146,8 @@ func get_all_slots() -> Array:
 			"player_name"   : saved.get("player_name",   "Unknown"),
 			"current_level" : saved.get("current_level", 0),
 			"coins"         : saved.get("coins",         0),
-			"highest_unlocked_level" : saved.get("highest_unlocked_level", 0)
+			"highest_unlocked_level" : saved.get("highest_unlocked_level", 0),
+			"passcode" : saved.get('passcode', ''),
 		})
 
 	return slots

@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://32884r2eqg63"]
+
+[ext_resource type="Texture2D" uid="uid://d2h0al4tqjfkr" path="res://assets/custom/code_editor_bg.png" id="1_fdjpc"]
+[ext_resource type="Script" uid="uid://c4hodwsay2p1o" path="res://script/ui/delete_savefile_menu.gd" id="1_rbhi7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rbhi7"]
+texture = ExtResource("1_fdjpc")
+region_rect = Rect2(5, 6, 70, 66)
+
+[node name="DeleteSavefileMenu" type="Control" unique_id=1176284953]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rbhi7")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1263152992]
+layout_mode = 0
+offset_left = -327.0
+offset_top = -161.0
+offset_right = 1429.0
+offset_bottom = 880.0
+color = Color(0, 0, 0, 0.5921569)
+
+[node name="Panel" type="Panel" parent="." unique_id=1014668428]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -96.0
+offset_right = 140.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_rbhi7")
+
+[node name="Label" type="Label" parent="Panel" unique_id=483142563]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 30.0
+offset_right = 261.0
+offset_bottom = 119.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "Are you sure you want to delete
+this savefile?
+
+this action cannot be undone"
+
+[node name="NoButton" type="Button" parent="Panel" unique_id=716648342]
+layout_mode = 0
+offset_left = 139.0
+offset_top = 139.0
+offset_right = 197.0
+offset_bottom = 180.0
+theme_override_colors/font_color = Color(1.1551381e-06, 0.66615164, 0.2865465, 1)
+text = "Cancel"
+
+[node name="YesButton" type="Button" parent="Panel" unique_id=1398978384]
+layout_mode = 0
+offset_left = 209.0
+offset_top = 139.0
+offset_right = 268.0
+offset_bottom = 180.0
+theme_override_colors/font_color = Color(1, 0, 0.08627451, 1)
+text = "Delete"
+
+[connection signal="pressed" from="Panel/NoButton" to="." method="_on_no_button_pressed"]
+[connection signal="pressed" from="Panel/YesButton" to="." method="_on_yes_button_pressed"]

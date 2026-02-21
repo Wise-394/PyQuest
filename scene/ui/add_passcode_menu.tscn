@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://dtp0em76c281a"]
+
+[ext_resource type="Script" uid="uid://dtd0cef12rju5" path="res://script/ui/add_passcode_menu.gd" id="1_60i8m"]
+[ext_resource type="Texture2D" uid="uid://d2h0al4tqjfkr" path="res://assets/custom/code_editor_bg.png" id="2_pdh2b"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rbhi7"]
+texture = ExtResource("2_pdh2b")
+region_rect = Rect2(5, 6, 70, 66)
+
+[node name="AddPasscodeMenu" type="Control" unique_id=1176284953]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_60i8m")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1263152992]
+layout_mode = 0
+offset_left = -327.0
+offset_top = -161.0
+offset_right = 1429.0
+offset_bottom = 880.0
+color = Color(0, 0, 0, 0.5921569)
+
+[node name="Panel" type="Panel" parent="." unique_id=1014668428]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -96.0
+offset_right = 140.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_rbhi7")
+
+[node name="TextEdit" type="TextEdit" parent="Panel" unique_id=1185244270]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 18.0
+offset_right = 258.0
+offset_bottom = 61.0
+theme_override_font_sizes/font_size = 24
+placeholder_text = "enter passcode"
+
+[node name="OutputLabel" type="Label" parent="Panel" unique_id=483142563]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 64.0
+offset_right = 265.0
+offset_bottom = 87.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "must be 4-10 characters only
+no spaces allowed"
+
+[node name="Cancel" type="Button" parent="Panel" unique_id=214113775]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 143.0
+offset_right = 184.0
+offset_bottom = 174.0
+text = "Cancel"
+
+[node name="Confirm" type="Button" parent="Panel" unique_id=396049410]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 144.0
+offset_right = 261.0
+offset_bottom = 175.0
+text = "Confirm"
+
+[connection signal="pressed" from="Panel/Cancel" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="Panel/Confirm" to="." method="_on_confirm_pressed"]

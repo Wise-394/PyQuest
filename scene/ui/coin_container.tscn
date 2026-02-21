@@ -1,27 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://dl7srt6thlc11"]
+[gd_scene format=3 uid="uid://dl7srt6thlc11"]
 
 [ext_resource type="Script" uid="uid://c6mq5q4va3obu" path="res://script/ui/coin_container.gd" id="1_faquy"]
 [ext_resource type="Texture2D" uid="uid://b601hx00u7epi" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/01.png" id="1_q6ym6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_10qum"]
 
-[node name="CoinContainer" type="Panel"]
+[node name="CoinContainer" type="Panel" unique_id=1934275129]
 offset_right = 125.0
 offset_bottom = 37.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_10qum")
 script = ExtResource("1_faquy")
 
-[node name="CoinLabel" type="Label" parent="."]
+[node name="CoinLabel" type="Label" parent="." unique_id=886241026]
 layout_mode = 0
 offset_left = 47.0
 offset_top = 1.0
 offset_right = 61.0
 offset_bottom = 35.0
+theme_override_colors/font_color = Color(1, 0.19215687, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "0"
 horizontal_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1132966828]
 position = Vector2(18, 18)
 scale = Vector2(3, 3)
 texture = ExtResource("1_q6ym6")

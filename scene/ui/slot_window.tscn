@@ -1,0 +1,151 @@
+[gd_scene format=3 uid="uid://cfwmgiq8a31ly"]
+
+[ext_resource type="Texture2D" uid="uid://dtakxc6nj1gxy" path="res://assets/custom/panels/pause_panel.png" id="1_b5tce"]
+[ext_resource type="Script" uid="uid://dq7crsto8426d" path="res://script/ui/slot_window.gd" id="2_3gw43"]
+[ext_resource type="Texture2D" uid="uid://c8vxf1j75m6l8" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Blue Diamond/04.png" id="2_syigi"]
+[ext_resource type="Texture2D" uid="uid://b1wgu8fg680w2" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Green Diamond/01.png" id="3_dd8fx"]
+[ext_resource type="Texture2D" uid="uid://2ilyxr1ixpcw" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Red Diamond/01.png" id="4_3gw43"]
+[ext_resource type="Texture2D" uid="uid://b601hx00u7epi" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/01.png" id="5_bw6s2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_20psj"]
+texture = ExtResource("1_b5tce")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dd8fx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_syigi")
+}],
+"loop": true,
+"name": &"blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_dd8fx")
+}],
+"loop": true,
+"name": &"green",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_3gw43")
+}],
+"loop": true,
+"name": &"red",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_bw6s2")
+}],
+"loop": true,
+"name": &"yellow",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dd8fx"]
+size = Vector2(115, 84)
+
+[sub_resource type="Gradient" id="Gradient_6ccpp"]
+offsets = PackedFloat32Array(0.49122807, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="SlotWindow" type="Panel" unique_id=398152168]
+offset_top = 40.0
+offset_right = 103.0
+offset_bottom = 87.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_20psj")
+script = ExtResource("2_3gw43")
+
+[node name="SlotSprite1" type="AnimatedSprite2D" parent="." unique_id=250098841]
+position = Vector2(21, 22)
+sprite_frames = SubResource("SpriteFrames_dd8fx")
+animation = &"green"
+
+[node name="SlotSprite2" type="AnimatedSprite2D" parent="." unique_id=1761332651]
+position = Vector2(51, 22)
+sprite_frames = SubResource("SpriteFrames_dd8fx")
+animation = &"blue"
+
+[node name="SlotSprite3" type="AnimatedSprite2D" parent="." unique_id=617231939]
+position = Vector2(81, 22)
+sprite_frames = SubResource("SpriteFrames_dd8fx")
+animation = &"blue"
+
+[node name="SlotLabel" type="Label" parent="." unique_id=564230362]
+visible = false
+layout_mode = 0
+offset_left = 6.0
+offset_top = -37.0
+offset_right = 98.0
+offset_bottom = -8.0
+theme_override_colors/font_color = Color(1, 0.19215687, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "Press 'C' to Spin"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GoldLabel" type="Label" parent="SlotLabel" unique_id=1483883188]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 16.0
+offset_right = 60.0
+offset_bottom = 39.0
+theme_override_colors/font_color = Color(1, 0.19215687, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "-1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="SlotLabel/GoldLabel" unique_id=16091440]
+position = Vector2(30, 11)
+texture = ExtResource("5_bw6s2")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1131630988]
+position = Vector2(3, 47)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1922787478]
+position = Vector2(48.5, 40)
+shape = SubResource("RectangleShape2D_dd8fx")
+
+[node name="OutputPanel" type="Panel" parent="." unique_id=408316645]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 3.0
+offset_right = 196.0
+offset_bottom = 43.0
+
+[node name="OutputLabel" type="Label" parent="OutputPanel" unique_id=185425949]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 75.0
+offset_bottom = 31.0
+theme_override_font_sizes/font_size = 8
+text = "Spin for a chance 
+to win 15 coins!"
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=199626958]
+position = Vector2(50, -2)
+emitting = false
+amount = 30
+texture = ExtResource("5_bw6s2")
+lifetime = 0.8
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(50, 1)
+direction = Vector2(0, -10)
+spread = 180.0
+gravity = Vector2(0, 200)
+initial_velocity_min = 100.0
+initial_velocity_max = 150.0
+scale_amount_min = 0.5
+scale_amount_max = 1.2
+color_ramp = SubResource("Gradient_6ccpp")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -21,8 +21,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -30.0
-offset_bottom = -30.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 2.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ubboj")
@@ -240,11 +242,20 @@ offset_bottom = 41.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_ubboj")
 theme_override_styles/hover = SubResource("StyleBoxTexture_au35g")
 
+[node name="Button" type="Button" parent="Panel" unique_id=887773092]
+layout_mode = 0
+offset_left = -122.625
+offset_top = 220.0
+offset_right = -29.625
+offset_bottom = 251.0
+text = "Minigames"
+
 [node name="UserProfileMenu" parent="." unique_id=605145176 instance=ExtResource("5_1jxsr")]
 layout_mode = 0
-offset_left = 25.0
-offset_top = 115.0
-offset_right = 337.0
-offset_bottom = 291.0
+offset_left = 17.0
+offset_top = 111.0
+offset_right = 329.0
+offset_bottom = 316.0
 
 [connection signal="pressed" from="Panel/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]

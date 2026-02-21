@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://srs55ncqup0n"]
 
 [ext_resource type="Texture2D" uid="uid://d2h0al4tqjfkr" path="res://assets/custom/code_editor_bg.png" id="1_a43yv"]
+[ext_resource type="Script" uid="uid://bjqlhp1vbudw0" path="res://script/ui/user_profile_menu.gd" id="2_7rlxg"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7rlxg"]
 texture = ExtResource("1_a43yv")
@@ -10,18 +11,30 @@ region_rect = Rect2(5, 6, 70, 66)
 offset_left = 45.0
 offset_top = 80.0
 offset_right = 357.0
-offset_bottom = 256.0
+offset_bottom = 285.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_7rlxg")
+script = ExtResource("2_7rlxg")
 
-[node name="Button" type="Button" parent="." unique_id=57685717]
+[node name="SaveButton" type="Button" parent="." unique_id=57685717]
 layout_mode = 0
-offset_left = 234.0
-offset_top = 65.0
-offset_right = 281.0
-offset_bottom = 96.0
+offset_left = 227.0
+offset_top = 116.0
+offset_right = 274.0
+offset_bottom = 147.0
 text = "SAVE"
 
-[node name="TextEdit" type="TextEdit" parent="." unique_id=1903933188]
+[node name="outputlabel" type="Label" parent="." unique_id=1826902626]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 65.0
+offset_right = 278.0
+offset_bottom = 108.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "4 to 10 characters, letters, numbers, 
+and underscores only."
+
+[node name="UserNameTextBox" type="TextEdit" parent="." unique_id=1903933188]
 layout_mode = 0
 offset_left = 30.0
 offset_top = 26.0
@@ -29,18 +42,22 @@ offset_right = 284.0
 offset_bottom = 60.0
 placeholder_text = "USERNAME"
 
-[node name="Button2" type="Button" parent="." unique_id=1689258441]
+[node name="AddPasscodeButton" type="Button" parent="." unique_id=1689258441]
 layout_mode = 0
-offset_left = 164.0
-offset_top = 131.0
-offset_right = 279.0
-offset_bottom = 162.0
+offset_left = 162.0
+offset_top = 154.0
+offset_right = 277.0
+offset_bottom = 185.0
 text = "Add Passcode"
 
-[node name="Button3" type="Button" parent="." unique_id=984228485]
+[node name="DeleteButton" type="Button" parent="." unique_id=984228485]
 layout_mode = 0
-offset_left = 30.0
-offset_top = 131.0
-offset_right = 153.0
-offset_bottom = 162.0
+offset_left = 28.0
+offset_top = 154.0
+offset_right = 151.0
+offset_bottom = 185.0
 text = "Delete Savefile"
+
+[connection signal="pressed" from="SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="AddPasscodeButton" to="." method="_on_add_passcode_button_pressed"]
+[connection signal="pressed" from="DeleteButton" to="." method="_on_delete_button_pressed"]
