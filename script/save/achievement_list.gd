@@ -29,7 +29,7 @@ const achievements: Array[Dictionary] = [
 		"description": "Finish level 10",
 	},
 	{
-		"id": "Immortal",
+		"id": "immortal",
 		"title": "Immortal",
 		"description": "Finish level 20",
 	}

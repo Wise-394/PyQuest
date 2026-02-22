@@ -26,3 +26,8 @@ func _show_passcode_menu():
 func _on_button_pressed() -> void:
 	SaveLoad.current_level = 21
 	get_tree().change_scene_to_file("res://scene/save/loading_screen.tscn")
+
+
+func _on_achievements_pressed() -> void:
+	SaveLoad.current_level = 22
+	get_tree().change_scene_to_file("res://scene/save/loading_screen.tscn")

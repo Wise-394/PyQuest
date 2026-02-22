@@ -44,7 +44,9 @@ func _default_data(player_name: String) -> Dictionary:
 
 
 # ── Single-slot operations ───────────────────────────────────
-
+func get_unlocked_achievements() -> Array:
+	return data.get("unlocked_achievements", [])
+	
 ## Load slot into memory. Returns true on success.
 func load_slot(slot: int) -> bool:
 	var path := _slot_path(slot)
