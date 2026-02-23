@@ -4,11 +4,20 @@
 [ext_resource type="TileSet" uid="uid://d1yxhu13jwkq3" path="res://tileset/island.tres" id="1_85ipt"]
 [ext_resource type="PackedScene" uid="uid://bnhiv8qcc5ro5" path="res://scene/character/player.tscn" id="2_6n4fx"]
 [ext_resource type="PackedScene" uid="uid://dc7ihfcrpl10v" path="res://scene/world/camera.tscn" id="3_ovt38"]
+[ext_resource type="Texture2D" uid="uid://b601hx00u7epi" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/01.png" id="4_20pwm"]
 [ext_resource type="PackedScene" uid="uid://dnpc83w0181ed" path="res://scene/world/sign.tscn" id="4_ovt38"]
+[ext_resource type="Texture2D" uid="uid://b1wgu8fg680w2" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Green Diamond/01.png" id="5_h4v8o"]
 [ext_resource type="PackedScene" uid="uid://44hfsfdoy30p" path="res://scene/character/healthbar.tscn" id="5_j2wam"]
+[ext_resource type="Texture2D" uid="uid://dtjlysck11cpd" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Blue Diamond/01.png" id="6_aoetn"]
 [ext_resource type="PackedScene" uid="uid://dl7srt6thlc11" path="res://scene/ui/coin_container.tscn" id="6_h4v8o"]
 [ext_resource type="PackedScene" uid="uid://lg4gs88e7o62" path="res://scene/ui/pause_button.tscn" id="7_aoetn"]
+[ext_resource type="Texture2D" uid="uid://b1hbi325bumo5" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 1/01.png" id="7_ocjur"]
 [ext_resource type="PackedScene" uid="uid://caom1rhv8v7q6" path="res://scene/world/achievement_panel.tscn" id="8_6n4fx"]
+[ext_resource type="Texture2D" uid="uid://btsdaj2afhp1a" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Big Map/Folding/01.png" id="8_prxda"]
+[ext_resource type="Texture2D" uid="uid://d0h0e38c30aj6" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 3/06.png" id="8_r73yh"]
+[ext_resource type="Texture2D" uid="uid://bbew5cqgvanh1" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Skull Effect/02.png" id="10_r73yh"]
+[ext_resource type="Texture2D" uid="uid://c7yg02i3xgtvc" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Golden Skull/01.png" id="11_recan"]
+[ext_resource type="Texture2D" uid="uid://bu4wwqp3g6k4h" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/21-Sword Idle/Sword Idle 01.png" id="12_jsm2g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ovt38"]
 texture = ExtResource("1_6n4fx")
@@ -73,42 +82,81 @@ offset_left = 145.0
 offset_top = -93.0
 offset_right = 265.0
 offset_bottom = -34.0
+sprite2d = ExtResource("4_20pwm")
 achievement_id = "hand_midas_1"
+sprite_size = Vector2(32, 32)
 
 [node name="AchievementPanel3" parent="World" unique_id=1501097585 instance=ExtResource("8_6n4fx")]
 offset_left = 272.0
 offset_top = -93.0
 offset_right = 392.0
 offset_bottom = -34.0
+sprite2d = ExtResource("5_h4v8o")
 achievement_id = "hand_midas_2"
+sprite_size = Vector2(32, 32)
 
 [node name="AchievementPanel4" parent="World" unique_id=710808580 instance=ExtResource("8_6n4fx")]
 offset_left = 398.0
 offset_top = -93.0
 offset_right = 518.0
 offset_bottom = -34.0
+sprite2d = ExtResource("6_aoetn")
 achievement_id = "hand_midas_3"
+sprite_size = Vector2(32, 32)
 
 [node name="AchievementPanel2" parent="World" unique_id=1405569233 instance=ExtResource("8_6n4fx")]
 offset_left = 145.0
 offset_top = 39.0
 offset_right = 265.0
 offset_bottom = 98.0
+sprite2d = ExtResource("7_ocjur")
 achievement_id = "herald"
+sprite_size = Vector2(32, 32)
 
 [node name="AchievementPanel5" parent="World" unique_id=497211845 instance=ExtResource("8_6n4fx")]
 offset_left = 272.0
 offset_top = 39.0
 offset_right = 392.0
 offset_bottom = 98.0
+sprite2d = ExtResource("8_r73yh")
 achievement_id = "crusader"
+sprite_size = Vector2(32, 32)
 
 [node name="AchievementPanel6" parent="World" unique_id=2003942835 instance=ExtResource("8_6n4fx")]
 offset_left = 398.0
 offset_top = 39.0
 offset_right = 518.0
 offset_bottom = 98.0
+sprite2d = ExtResource("8_prxda")
 achievement_id = "immortal"
+sprite_size = Vector2(32, 32)
+
+[node name="AchievementPanel7" parent="World" unique_id=1563004995 instance=ExtResource("8_6n4fx")]
+offset_left = 145.0
+offset_top = 169.0
+offset_right = 265.0
+offset_bottom = 228.0
+sprite2d = ExtResource("10_r73yh")
+achievement_id = "urn_of_shadow"
+sprite_size = Vector2(32, 32)
+
+[node name="AchievementPanel8" parent="World" unique_id=1501202316 instance=ExtResource("8_6n4fx")]
+offset_left = 272.0
+offset_top = 169.0
+offset_right = 392.0
+offset_bottom = 228.0
+sprite2d = ExtResource("11_recan")
+achievement_id = "spirit_vessel"
+sprite_size = Vector2(32, 32)
+
+[node name="AchievementPanel9" parent="World" unique_id=390394329 instance=ExtResource("8_6n4fx")]
+offset_left = 397.0
+offset_top = 169.0
+offset_right = 517.0
+offset_bottom = 228.0
+sprite2d = ExtResource("12_jsm2g")
+achievement_id = "culling_blade"
+sprite_size = Vector2(32, 32)
 
 [node name="Sign" parent="World" unique_id=874242411 instance=ExtResource("4_ovt38")]
 position = Vector2(-27, -27)

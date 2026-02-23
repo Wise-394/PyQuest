@@ -32,5 +32,21 @@ const achievements: Array[Dictionary] = [
 		"id": "immortal",
 		"title": "Immortal",
 		"description": "Finish level 20",
+	},
+	{
+		"id": "urn_of_shadow",
+		"title": "Urn of Shadow",
+		"description": "Kill 10 enemies",
+	},
+	{
+		"id": "spirit_vessel",
+		"title": "Spirit Vessel",
+		"description": "Kill 15 enemies",
+	},
+	{
+		"id": "culling_blade",
+		"title": "Culling Blade",
+		"description": "Kill 20 enemies",
 	}
+	
 ]
