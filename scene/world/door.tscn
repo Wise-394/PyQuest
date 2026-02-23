@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://csvgmyhiep83v"]
+
+[ext_resource type="Script" uid="uid://dgo582uf7mwti" path="res://script/world/door.gd" id="1_hb10w"]
+[ext_resource type="Texture2D" uid="uid://cythjvr5k5dc5" path="res://assets/Treasure Hunters/Pirate Ship/Sprites/Decorations/Door/Opening/01.png" id="1_j7pn7"]
+[ext_resource type="Texture2D" uid="uid://dlk7tej4jix7y" path="res://assets/Treasure Hunters/Pirate Ship/Sprites/Decorations/Door/Opening/02.png" id="2_hb10w"]
+[ext_resource type="Texture2D" uid="uid://dhckq33034asb" path="res://assets/Treasure Hunters/Pirate Ship/Sprites/Decorations/Door/Opening/03.png" id="3_o47he"]
+[ext_resource type="Texture2D" uid="uid://cylbc0xnjnu2g" path="res://assets/Treasure Hunters/Pirate Ship/Sprites/Decorations/Door/Opening/04.png" id="4_cu86c"]
+[ext_resource type="Texture2D" uid="uid://depjjeekslh4c" path="res://assets/Treasure Hunters/Pirate Ship/Sprites/Decorations/Door/Opening/05.png" id="5_o1grl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w3wlt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_j7pn7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_hb10w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_o47he")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cu86c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_o1grl")
+}],
+"loop": false,
+"name": &"Closing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_j7pn7")
+}],
+"loop": false,
+"name": &"Default",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_j7pn7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_hb10w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_o47he")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cu86c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_o1grl")
+}],
+"loop": false,
+"name": &"Opening",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1x2u"]
+size = Vector2(68, 58)
+
+[node name="Door" type="Area2D" unique_id=1276849231]
+collision_layer = 0
+script = ExtResource("1_hb10w")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1124755375]
+sprite_frames = SubResource("SpriteFrames_w3wlt")
+animation = &"Default"
+autoplay = "Default"
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=940676476]
+position = Vector2(-1, 3)
+shape = SubResource("RectangleShape2D_c1x2u")
+
+[node name="Label" type="Label" parent="." unique_id=379877547]
+visible = false
+offset_left = -18.0
+offset_top = -53.0
+offset_right = 22.0
+offset_bottom = -30.0
+text = "C"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

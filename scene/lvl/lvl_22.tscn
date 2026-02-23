@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://bbew5cqgvanh1" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Skull Effect/02.png" id="10_r73yh"]
 [ext_resource type="Texture2D" uid="uid://c7yg02i3xgtvc" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Golden Skull/01.png" id="11_recan"]
 [ext_resource type="Texture2D" uid="uid://bu4wwqp3g6k4h" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/21-Sword Idle/Sword Idle 01.png" id="12_jsm2g"]
+[ext_resource type="PackedScene" uid="uid://csvgmyhiep83v" path="res://scene/world/door.tscn" id="14_0byre"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ovt38"]
 texture = ExtResource("1_6n4fx")
@@ -161,6 +162,10 @@ sprite_size = Vector2(32, 32)
 [node name="Sign" parent="World" unique_id=874242411 instance=ExtResource("4_ovt38")]
 position = Vector2(-27, -27)
 label_text = "This shows unlocked achievements"
+
+[node name="Door" parent="World" unique_id=1276849231 instance=ExtResource("14_0byre")]
+position = Vector2(-165, -48)
+level_to_go = "uid://di0sgrk2mvdre"
 
 [node name="Player" parent="." unique_id=880234569 instance=ExtResource("2_6n4fx")]
 z_index = 100
