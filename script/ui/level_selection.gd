@@ -19,9 +19,11 @@ func _show_delete_menu():
 
 func _show_passcode_menu():
 	var instance = passcode_menu.instantiate()
+	instance.password_confirmed.connect(refresh)
 	add_child(instance)
 	
-
+func refresh():
+	user_profile_menu.refresh()
 
 func _on_button_pressed() -> void:
 	SaveLoad.current_level = 21

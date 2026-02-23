@@ -18,6 +18,7 @@ var data : Dictionary = {
 	"coins"         : 0,
 	"highest_unlocked_level": 0,
 	"passcode" : "",
+	"enemy_killed" : 0,
 	"unlocked_achievements" : [],
 }
 
@@ -39,6 +40,7 @@ func _default_data(player_name: String) -> Dictionary:
 		"coins"         : 0,
 		"highest_unlocked_level" : 0,
 		"passcode" : "",
+		"enemy_killed" : 0,
 		"unlocked_achievements" : [],
 	}
 
@@ -81,7 +83,18 @@ func load_slot(slot: int) -> bool:
 	active_slot = slot
 	return true
 
-
+## Increase enemy_killed by 1 (or custom amount) and save
+func add_enemy_killed(amount: int = 1) -> void:
+	if active_slot == -1:
+		push_error("SaveManager: no active slot — cannot add enemy kill.")
+		return
+	
+	data["enemy_killed"] = data.get("enemy_killed", 0) + amount
+	save_slot()
+	AchievementManager.on_enemy_killed_changed(
+	SaveLoad.data["enemy_killed"]
+)
+	
 ## Write the current in-memory data to the active slot.
 func save_slot() -> void:
 	if active_slot == -1:

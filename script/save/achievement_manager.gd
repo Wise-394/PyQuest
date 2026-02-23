@@ -5,7 +5,7 @@ signal achievement_unlocked(achievement: Dictionary)
 
 const COIN_ACHIEVEMENTS  = ["hand_midas_1", "hand_midas_2", "hand_midas_3"]
 const LEVEL_ACHIEVEMENTS = ["herald", "crusader", "Immortal"]
-
+const KILL_ACHIEVEMENTS = ["urn_of_shadow", "spirit_vessel", "culling_blade"]
 
 # ── Public API ───────────────────────────────────────────────
 
@@ -16,7 +16,10 @@ func on_coins_changed(total_coins: int) -> void:
 func on_level_finished(level: int) -> void:
 	for id in LEVEL_ACHIEVEMENTS:
 		_try_unlock(id, { "level_finished": level })
-
+		
+func on_enemy_killed_changed(total_kills: int) -> void:
+	for id in KILL_ACHIEVEMENTS:
+		_try_unlock(id, { "enemy_killed": total_kills })
 
 # ── Internals ────────────────────────────────────────────────
 
@@ -40,9 +43,15 @@ func _meets_condition(id: String, ctx: Dictionary) -> bool:
 		"hand_midas_1": return ctx.get("coins", 0) >= 100
 		"hand_midas_2": return ctx.get("coins", 0) >= 200
 		"hand_midas_3": return ctx.get("coins", 0) >= 300
+
 		"herald":       return ctx.get("level_finished", -1) >= 1
 		"crusader":     return ctx.get("level_finished", -1) >= 10
-		"Immortal":     return ctx.get("level_finished", -1) >= 20
+		"immortal":     return ctx.get("level_finished", -1) >= 20
+
+		"urn_of_shadow":   return ctx.get("enemy_killed", 0) >= 10
+		"spirit_vessel":   return ctx.get("enemy_killed", 0) >= 15
+		"culling_blade":   return ctx.get("enemy_killed", 0) >= 20
+
 	return false
 
 # Finds the full achievement dictionary from AchievementList by id

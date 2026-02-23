@@ -1,6 +1,8 @@
 extends Panel
 @onready var username_textbox := $UserNameTextBox
 @onready var output_label := $outputlabel
+@onready var add_passcode_button := $AddPasscodeButton
+@onready var delete_passcode_button := $DeletePasscodeButton
 signal delete_button_pressed()
 signal add_passcode_pressed()
 
@@ -10,8 +12,15 @@ const MAX_LENGTH = 10
 func _ready() -> void:
 	refresh()
 
+
 func refresh():
 	username_textbox.text = SaveLoad.data['player_name']
+	if not SaveLoad.data['passcode'] == "":
+		add_passcode_button.text = "Change Passcode"
+		delete_passcode_button.visible = true
+	else:
+		add_passcode_button.text = "Add Passcode"
+		delete_passcode_button.visible = false
 
 func _on_save_button_pressed() -> void:
 	var username = username_textbox.text
@@ -47,3 +56,10 @@ func _on_add_passcode_button_pressed() -> void:
 
 func _on_delete_button_pressed() -> void:
 	delete_button_pressed.emit()
+
+
+func _on_delete_passcode_button_pressed() -> void:
+	if not SaveLoad.data['passcode'] == "":
+		SaveLoad.data['passcode'] =  ""
+		SaveLoad.save_slot()
+		refresh()

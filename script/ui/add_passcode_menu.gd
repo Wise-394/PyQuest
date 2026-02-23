@@ -4,7 +4,7 @@ extends Control
 
 const MIN_LENGTH = 4
 const MAX_LENGTH = 10
-
+signal password_confirmed
 func _on_cancel_pressed() -> void:
 	queue_free()
 
@@ -29,4 +29,5 @@ func _on_confirm_pressed() -> void:
 
 	SaveLoad.data['passcode'] = passcode
 	SaveLoad.save_slot()
+	password_confirmed.emit()
 	queue_free()

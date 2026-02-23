@@ -25,4 +25,5 @@ func _on_animation_finished() -> void:
 		hurtbox.disabled = true
 
 func _on_timer_timeout() -> void:
+	SaveLoad.add_enemy_killed()
 	character.queue_free()

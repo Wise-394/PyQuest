@@ -32,4 +32,5 @@ func _on_animation_finished():
 		sprite.animation_finished.disconnect(_on_animation_finished)
 
 	if sprite.animation == "death":
+		SaveLoad.add_enemy_killed()
 		character.finished.emit()

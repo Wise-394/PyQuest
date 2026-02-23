@@ -17,4 +17,5 @@ func physics_update(delta: float):
 	character.move_and_slide()
 
 func _on_animation_finished():
+	SaveLoad.add_enemy_killed()
 	character.queue_free()
