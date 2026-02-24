@@ -26,7 +26,7 @@ def get_question():
             "- Adds $5 to the savings each day\n"
             "- Prints the total amount saved each day\n"
             "- Stops when the savings reach or go over $50\n"
-            "- Make sure the goal is not hardcoded and works with different values rather than 50 only"
+            "- Make sure the goal is not hardcoded and works with different values rather than 50 only\n"
         ),
         "code": (
             "goal = 50\n"
