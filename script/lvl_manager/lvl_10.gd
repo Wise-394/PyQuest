@@ -3,7 +3,7 @@ extends Node
 @onready var health_potion: PackedScene = preload("res://scene/world/health_potion.tscn")
 @onready var flag: PackedScene = preload("res://scene/world/flag.tscn")
 
-@export var level_to_go: String = "res://scene/lvl/main_menu.tscn"
+@export var level_to_go: String = "res://scene/save/loading_screen.tscn"
 @export var boss: CharacterBody2D
 
 func _ready() -> void:
@@ -11,6 +11,7 @@ func _ready() -> void:
 
 func spawn_flag():
 	var flag_instance = flag.instantiate()
+	SaveLoad.current_level = 11
 	flag_instance.level_to_go = level_to_go
 	flag_instance.global_position = Vector2(743, 71)
 	get_tree().current_scene.add_child(flag_instance)

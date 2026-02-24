@@ -7,4 +7,4 @@ func _ready() -> void:
 		save.refresh()
 
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scene/ui/main_menu.tscn")
+	get_tree().change_scene_to_file("res://scene/lvl/main_menu.tscn")

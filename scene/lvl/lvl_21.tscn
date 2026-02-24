@@ -27,6 +27,7 @@ position = Vector2(94, -61)
 
 [node name="Door" parent="World" unique_id=1276849231 instance=ExtResource("4_bvnac")]
 position = Vector2(21, -32)
+level_to_go = "uid://ddk02nqyhjepu"
 
 [node name="SlowWindow" parent="." unique_id=398152168 instance=ExtResource("4_fuy4q")]
 offset_left = 125.0

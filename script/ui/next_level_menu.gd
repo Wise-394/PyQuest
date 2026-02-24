@@ -7,7 +7,8 @@ func _on_exit_pressed() -> void:
 	save()
 	check_achievements()
 	AchievementManager.debug_print_unlocked()
-	get_tree().change_scene_to_file("res://scene/lvl/main_menu.tscn")
+	SaveLoad.current_level = 0
+	get_tree().change_scene_to_file("res://scene/save/loading_screen.tscn")
 
 func _on_restart_pressed() -> void:
 	get_tree().reload_current_scene()

@@ -3,7 +3,7 @@ extends CharacterBody2D
 # ===============================
 # EXPORTS
 # ===============================
-@export var max_health: int = 1000
+@export var max_health: int = 1500
 @export var speed: float = 50
 @export var gravity: float = 1000
 @export var damage: int = 30

@@ -7,7 +7,8 @@ func _ready() -> void:
 	label.visible = false
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("toggle_editor"):
+	if event.is_action_pressed("toggle_editor") and label.visible:
+		SaveLoad.current_level = 0
 		get_tree().change_scene_to_file(level_to_go)
 
 func _on_body_entered(body: Node2D) -> void:

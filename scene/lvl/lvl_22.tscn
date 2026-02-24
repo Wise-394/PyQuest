@@ -165,7 +165,7 @@ label_text = "This shows unlocked achievements"
 
 [node name="Door" parent="World" unique_id=1276849231 instance=ExtResource("14_0byre")]
 position = Vector2(-165, -48)
-level_to_go = "uid://di0sgrk2mvdre"
+level_to_go = "uid://ddk02nqyhjepu"
 
 [node name="Player" parent="." unique_id=880234569 instance=ExtResource("2_6n4fx")]
 z_index = 100

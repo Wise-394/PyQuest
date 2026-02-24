@@ -10,7 +10,7 @@ extends Node
 #        CONFIGURATION
 # ===============================
 @export var level_folder: String = "res://scene/lvl/"
-@export var menu_scene: String = "main_menu.tscn"
+@export var level_selection_scene: String = "level_selection.tscn"
 
 # ===============================
 #           READY
@@ -36,7 +36,7 @@ func change_scene() -> void:
 
 	# Main menu
 	if current_level == 0:
-		scene_path = level_folder + menu_scene
+		scene_path = level_folder + level_selection_scene
 	else:
 		scene_path = "%slvl_%d.tscn" % [level_folder, current_level]
 

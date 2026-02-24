@@ -25,7 +25,7 @@ func _on_play_button_pressed() -> void:
 		SaveLoad.new_slot(id, "Player")
 
 	if _is_passcode_null():
-		get_tree().change_scene_to_file("res://scene/ui/level_selection.tscn")
+		get_tree().change_scene_to_file("res://scene/lvl/level_selection.tscn")
 	else:
 		get_tree().change_scene_to_file("res://scene/ui/pass_code_window.tscn")
 
