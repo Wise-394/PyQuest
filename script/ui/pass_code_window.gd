@@ -1,14 +1,10 @@
 extends Control
 
+@onready var textbox = $CanvasLayer/PassCodeWindow/UserNameTextBox
 
-@onready var textbox = $PassCodeWindow/UserNameTextBox
-signal correct_passcode
 func _on_cancel_button_pressed() -> void:
-	queue_free()
-
+	get_tree().change_scene_to_file("res://scene/ui/account_menu.tscn")
 
 func _on_confirm_button_pressed() -> void:
-	var user_passcode = textbox.text
-	if user_passcode == SaveLoad.data['passcode']:
-		correct_passcode.emit()
-		queue_free()
+	if textbox.text == SaveLoad.data['passcode']:
+		get_tree().change_scene_to_file("res://scene/ui/level_selection.tscn")

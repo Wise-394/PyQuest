@@ -1,15 +1,78 @@
-[gd_scene format=3 uid="uid://bt2a8fahefw46"]
+[gd_scene format=4 uid="uid://bt2a8fahefw46"]
 
 [ext_resource type="Script" uid="uid://b5gd3gbpha1mm" path="res://script/ui/account_menu.gd" id="1_t8xnm"]
 [ext_resource type="Texture2D" uid="uid://ci8w2oc47q458" path="res://assets/custom/lvel_menu/level_panel.png" id="1_tm4de"]
 [ext_resource type="PackedScene" uid="uid://f7kwlp40h32m" path="res://scene/ui/save_file_panel.tscn" id="2_tm4de"]
 [ext_resource type="Texture2D" uid="uid://3agspp35pyt2" path="res://assets/custom/lvel_menu/back_button.png" id="3_iithi"]
+[ext_resource type="Texture2D" uid="uid://crjyibdncl8fo" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 01.png" id="5_bduxx"]
+[ext_resource type="Texture2D" uid="uid://ctrrihc6bo45x" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 02.png" id="6_kocvt"]
+[ext_resource type="Texture2D" uid="uid://bvwk8s1acy4d0" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 03.png" id="7_8usg3"]
+[ext_resource type="Texture2D" uid="uid://diobg73l1yjy2" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 04.png" id="8_grl6e"]
+[ext_resource type="Texture2D" uid="uid://c8fapdreqerdj" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 05.png" id="9_l1n01"]
+[ext_resource type="Texture2D" uid="uid://demyc2ifl8cg7" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 06.png" id="10_e70oq"]
+[ext_resource type="Texture2D" uid="uid://bt0xkum7onekp" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Background/BG Image.png" id="11_8ek4o"]
+[ext_resource type="Texture2D" uid="uid://h77cp18jlrqu" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 01.png" id="12_tachs"]
+[ext_resource type="Texture2D" uid="uid://c2mkd8hqvngvo" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 02.png" id="13_4ocsj"]
+[ext_resource type="Texture2D" uid="uid://dox0wb2l012pg" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 03.png" id="14_bjmcw"]
+[ext_resource type="Texture2D" uid="uid://sexbpo5s7d6b" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 04.png" id="15_qdbcu"]
+[ext_resource type="Texture2D" uid="uid://lujj13i1hoen" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Background/Big Clouds.png" id="16_xfja8"]
+[ext_resource type="Texture2D" uid="uid://oiehaxh4j7hv" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 1.png" id="17_pw6os"]
+[ext_resource type="Texture2D" uid="uid://bmpsnc2to0mlr" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 3.png" id="18_g3gt4"]
+[ext_resource type="Texture2D" uid="uid://dgsou4ybt48md" path="res://assets/custom/BG ISLANDS.png" id="19_qenae"]
+[ext_resource type="PackedScene" uid="uid://c8xl8vq78hcou" path="res://scene/world/decoration/front_regular_tree.tscn" id="20_qcmbj"]
+[ext_resource type="TileSet" uid="uid://d1yxhu13jwkq3" path="res://tileset/island.tres" id="21_q3bfe"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iithi"]
 texture = ExtResource("1_tm4de")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t8xnm"]
 texture = ExtResource("3_iithi")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lfm6l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_bduxx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kocvt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_8usg3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_grl6e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_l1n01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_e70oq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ddfl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_tachs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_4ocsj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_bjmcw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_qdbcu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="AccountMenu" type="Control" unique_id=828095472 node_paths=PackedStringArray("save_files")]
 layout_mode = 3
@@ -19,10 +82,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_t8xnm")
-save_files = [NodePath("Panel/SaveFilePanel2"), NodePath("Panel/SaveFilePanel3"), NodePath("Panel/SaveFilePanel4"), NodePath("Panel/SaveFilePanel")]
+save_files = [NodePath("CanvasLayer/Panel/SaveFilePanel2"), NodePath("CanvasLayer/Panel/SaveFilePanel3"), NodePath("CanvasLayer/Panel/SaveFilePanel4"), NodePath("CanvasLayer/Panel/SaveFilePanel")]
 
-[node name="Panel" type="Panel" parent="." unique_id=1069571620]
-layout_mode = 1
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1729190832]
+position = Vector2(443, 378)
+zoom = Vector2(2, 2)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=835058969]
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1069571620]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -36,14 +104,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_iithi")
 
-[node name="SaveFilePanel2" parent="Panel" unique_id=254538850 instance=ExtResource("2_tm4de")]
+[node name="SaveFilePanel2" parent="CanvasLayer/Panel" unique_id=254538850 instance=ExtResource("2_tm4de")]
 layout_mode = 0
 offset_left = 84.5
 offset_top = 151.5
 offset_right = 537.5
 offset_bottom = 252.5
 
-[node name="SaveFilePanel3" parent="Panel" unique_id=1560526074 instance=ExtResource("2_tm4de")]
+[node name="SaveFilePanel3" parent="CanvasLayer/Panel" unique_id=1560526074 instance=ExtResource("2_tm4de")]
 layout_mode = 0
 offset_left = 84.0
 offset_top = 259.0
@@ -51,7 +119,7 @@ offset_right = 537.0
 offset_bottom = 360.0
 id = 1
 
-[node name="SaveFilePanel4" parent="Panel" unique_id=1639551553 instance=ExtResource("2_tm4de")]
+[node name="SaveFilePanel4" parent="CanvasLayer/Panel" unique_id=1639551553 instance=ExtResource("2_tm4de")]
 layout_mode = 0
 offset_left = 84.0
 offset_top = 373.0
@@ -59,7 +127,7 @@ offset_right = 537.0
 offset_bottom = 474.0
 id = 2
 
-[node name="SaveFilePanel" parent="Panel" unique_id=2034844937 instance=ExtResource("2_tm4de")]
+[node name="SaveFilePanel" parent="CanvasLayer/Panel" unique_id=2034844937 instance=ExtResource("2_tm4de")]
 layout_mode = 1
 offset_left = 84.0
 offset_top = 40.0
@@ -67,7 +135,7 @@ offset_right = 537.0
 offset_bottom = 141.0
 id = 3
 
-[node name="Button" type="Button" parent="Panel" unique_id=175326405]
+[node name="Button" type="Button" parent="CanvasLayer/Panel" unique_id=175326405]
 layout_mode = 0
 offset_left = -3.5
 offset_top = -14.5
@@ -75,4 +143,102 @@ offset_right = 56.5
 offset_bottom = 54.5
 theme_override_styles/normal = SubResource("StyleBoxTexture_t8xnm")
 
-[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=839228531]
+position = Vector2(249, 466)
+sprite_frames = SubResource("SpriteFrames_lfm6l")
+autoplay = "default"
+
+[node name="Parallax" type="Node2D" parent="." unique_id=956496771]
+z_index = -198
+
+[node name="background" type="Parallax2D" parent="Parallax" unique_id=14724527]
+repeat_size = Vector2(1162, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax/background" unique_id=2116486847]
+position = Vector2(492.5, 378.5)
+scale = Vector2(1.7734375, 2.5078127)
+texture = ExtResource("11_8ek4o")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Parallax/background" unique_id=1926832390]
+position = Vector2(492.5, 378.5)
+scale = Vector2(1.7734375, 2.5078127)
+texture = ExtResource("11_8ek4o")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Parallax/background" unique_id=1165977702]
+position = Vector2(490.00003, 449)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_4ddfl")
+autoplay = "default"
+
+[node name="sky" type="Parallax2D" parent="Parallax" unique_id=1468038014]
+repeat_size = Vector2(680, 0)
+autoscroll = Vector2(-3, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax/sky" unique_id=1381535683]
+position = Vector2(495, 358.0625)
+scale = Vector2(1.5223212, 1.5061884)
+texture = ExtResource("16_xfja8")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Parallax/sky" unique_id=1781309136]
+position = Vector2(1175, 358)
+scale = Vector2(1.5223212, 1.5061884)
+texture = ExtResource("16_xfja8")
+
+[node name="2ndSky" type="Parallax2D" parent="Parallax" unique_id=279069841]
+repeat_size = Vector2(690, 0)
+autoscroll = Vector2(-15, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax/2ndSky" unique_id=327860652]
+position = Vector2(374, 350)
+texture = ExtResource("17_pw6os")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Parallax/2ndSky" unique_id=1642790980]
+position = Vector2(767, 257)
+texture = ExtResource("18_g3gt4")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Parallax/2ndSky" unique_id=1840457032]
+position = Vector2(542, 261)
+texture = ExtResource("17_pw6os")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Parallax/2ndSky" unique_id=707366306]
+position = Vector2(341, 262)
+texture = ExtResource("17_pw6os")
+
+[node name="Mountain" type="Parallax2D" parent="Parallax" unique_id=47156063]
+repeat_size = Vector2(690, 0)
+autoscroll = Vector2(-5, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax/Mountain" unique_id=1034598802]
+position = Vector2(348, 416)
+texture = ExtResource("19_qenae")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Parallax/Mountain" unique_id=770415302]
+position = Vector2(649, 414)
+texture = ExtResource("19_qenae")
+
+[node name="Mountain2" type="Parallax2D" parent="Parallax" unique_id=690021787]
+repeat_size = Vector2(690, 0)
+autoscroll = Vector2(-25, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax/Mountain2" unique_id=64866130]
+position = Vector2(376, 459)
+texture = ExtResource("19_qenae")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Parallax/Mountain2" unique_id=1508323782]
+position = Vector2(676, 440)
+texture = ExtResource("19_qenae")
+
+[node name="tile" type="Parallax2D" parent="Parallax" unique_id=1949511777]
+repeat_size = Vector2(900, 0)
+autoscroll = Vector2(-70, 0)
+
+[node name="BackStandingTree" parent="Parallax/tile" unique_id=774099471 instance=ExtResource("20_qcmbj")]
+z_index = 0
+position = Vector2(672, 417)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Parallax/tile" unique_id=532774968]
+position = Vector2(733, 542)
+tile_map_data = PackedByteArray("AADc//z/AAACAAAAAADc//3/AAATAAEAAADc//7/AAATAAEAAADc////AAATAAEAAADc/wAAAAATAAEAAADc/wEAAAATAAEAAADd//z/AAACAAAAAADd//3/AAATAAEAAADd//7/AAATAAEAAADd////AAATAAEAAADd/wAAAAATAAEAAADd/wEAAAATAAEAAADe//z/AAACAAAAAADe//3/AAADAAIAAADe//7/AAATAAEAAADe////AAATAAEAAADe/wAAAAATAAEAAADe/wEAAAATAAEAAADf//z/AAACAAAAAADf//3/AAABAAEAAADf//7/AAATAAEAAADf////AAATAAEAAADf/wAAAAATAAEAAADf/wEAAAATAAEAAADg//z/AAACAAAAAADg//3/AAACAAEAAADg//7/AAATAAEAAADg////AAATAAEAAADg/wAAAAATAAEAAADg/wEAAAATAAEAAADh//z/AAACAAAAAADh//3/AAADAAEAAADh//7/AAATAAEAAADh////AAATAAEAAADh/wAAAAATAAEAAADh/wEAAAATAAEAAADi//z/AAACAAAAAADi//3/AAAEAAEAAADi//7/AAATAAEAAADi////AAATAAEAAADi/wAAAAATAAEAAADi/wEAAAATAAEAAADj//z/AAACAAAAAADj//3/AAADAAIAAADj//7/AAATAAEAAADj////AAATAAEAAADj/wAAAAATAAEAAADj/wEAAAATAAEAAADk//z/AAACAAAAAADk//3/AAADAAIAAADk//7/AAATAAEAAADk////AAATAAEAAADk/wAAAAATAAEAAADk/wEAAAATAAEAAADl//z/AAACAAAAAADl//3/AAABAAEAAADl//7/AAATAAEAAADl////AAATAAEAAADl/wAAAAATAAEAAADl/wEAAAATAAEAAADm//z/AAACAAAAAADm//3/AAACAAEAAADm//7/AAATAAEAAADm////AAATAAEAAADm/wAAAAATAAEAAADm/wEAAAATAAEAAADn//z/AAACAAAAAADn//3/AAADAAEAAADn//7/AAATAAEAAADn////AAATAAEAAADn/wAAAAATAAEAAADn/wEAAAATAAEAAADo//z/AAACAAAAAADo//3/AAADAAIAAADo//7/AAATAAEAAADo////AAATAAEAAADo/wAAAAATAAEAAADo/wEAAAATAAEAAADp//z/AAACAAAAAADp//3/AAADAAIAAADp//7/AAATAAEAAADp////AAATAAEAAADp/wAAAAATAAEAAADp/wEAAAATAAEAAADq//z/AAACAAAAAADq//3/AAADAAIAAADq//7/AAATAAEAAADq////AAATAAEAAADq/wAAAAATAAEAAADq/wEAAAATAAEAAADr//z/AAACAAAAAADr//3/AAABAAEAAADr//7/AAATAAEAAADr////AAATAAEAAADr/wAAAAATAAEAAADr/wEAAAATAAEAAADs//z/AAACAAAAAADs//3/AAACAAIAAADs//7/AAATAAEAAADs////AAATAAEAAADs/wAAAAATAAEAAADs/wEAAAATAAEAAADt//z/AAACAAAAAADt//3/AAADAAIAAADt//7/AAATAAEAAADt////AAATAAEAAADt/wAAAAATAAEAAADt/wEAAAATAAEAAADu//z/AAADAAAAAADu//3/AAAEAAIAAADu//7/AAATAAEAAADu////AAATAAEAAADu/wAAAAATAAEAAADu/wEAAAATAAEAAADv//z/AAABAAAAAADv//3/AAACAAIAAADv//7/AAATAAEAAADv////AAATAAEAAADv/wAAAAATAAEAAADv/wEAAAATAAEAAADw//z/AAACAAAAAADw//3/AAADAAIAAADw//7/AAATAAEAAADw////AAATAAEAAADw/wAAAAATAAEAAADw/wEAAAATAAEAAADx//z/AAADAAAAAADx//3/AAAEAAIAAADx//7/AAATAAEAAADx////AAATAAEAAADx/wAAAAATAAEAAADx/wEAAAATAAEAAADy//z/AAAEAAAAAADy//3/AAACAAIAAADy//7/AAATAAEAAADy////AAATAAEAAADy/wAAAAATAAEAAADy/wEAAAATAAEAAADz//z/AAACAAAAAADz//3/AAADAAIAAADz//7/AAATAAEAAADz////AAATAAEAAADz/wAAAAATAAEAAADz/wEAAAATAAEAAAD0//z/AAADAAAAAAD0//3/AAACAAIAAAD0//7/AAATAAEAAAD0////AAATAAEAAAD0/wAAAAATAAEAAAD0/wEAAAATAAEAAAD1//z/AAABAAAAAAD1//3/AAADAAIAAAD1//7/AAATAAEAAAD1////AAATAAEAAAD1/wAAAAATAAEAAAD1/wEAAAATAAEAAAD2//z/AAACAAAAAAD2//3/AAACAAIAAAD2//7/AAATAAEAAAD2////AAATAAEAAAD2/wAAAAATAAEAAAD2/wEAAAATAAEAAAD3//z/AAADAAAAAAD3//3/AAADAAIAAAD3//7/AAATAAEAAAD3////AAATAAEAAAD3/wAAAAATAAEAAAD3/wEAAAATAAEAAAD4//z/AAAEAAAAAAD4//3/AAACAAIAAAD4//7/AAATAAEAAAD4////AAATAAEAAAD4/wAAAAATAAEAAAD4/wEAAAATAAEAAAD5//3/AAADAAIAAAD5//7/AAATAAEAAAD5////AAATAAEAAAD5/wAAAAATAAEAAAD5/wEAAAATAAEAAAD6//3/AAABAAMAAAD6//7/AAATAAEAAAD6////AAATAAEAAAD6/wAAAAATAAEAAAD6/wEAAAATAAEAAAD7//z/AAACAAAAAAD7//3/AAACAAMAAAD7//7/AAATAAEAAAD7////AAATAAEAAAD7/wAAAAATAAEAAAD7/wEAAAATAAEAAAD8//z/AAACAAAAAAD8//3/AAADAAMAAAD8//7/AAATAAEAAAD8////AAATAAEAAAD8/wAAAAATAAEAAAD8/wEAAAATAAEAAAD9//z/AAACAAAAAAD9//3/AAADAAIAAAD9//7/AAATAAEAAAD9////AAATAAEAAAD9/wAAAAATAAEAAAD9/wEAAAATAAEAAAD+//3/AAATAAIAAAD+//7/AAATAAEAAAD+////AAATAAEAAAD+/wAAAAATAAEAAAD+/wEAAAATAAEAAAD///z/AAACAAAAAAD///3/AAATAAEAAAD///7/AAATAAEAAAD/////AAATAAEAAAD//wAAAAATAAEAAAD//wEAAAATAAEAAAAAAPz/AAACAAAAAAAAAP3/AAACAAIAAAAAAP7/AAACAAIAAADY//z/AAACAAAAAADY//3/AAATAAEAAADY//7/AAATAAEAAADY////AAATAAEAAADY/wAAAAATAAEAAADY/wEAAAATAAEAAADZ//z/AAACAAAAAADZ//3/AAATAAEAAADZ//7/AAATAAEAAADZ////AAATAAEAAADZ/wAAAAATAAEAAADZ/wEAAAATAAEAAADa//z/AAACAAAAAADa//3/AAATAAEAAADa//7/AAATAAEAAADa////AAATAAEAAADa/wAAAAATAAEAAADa/wEAAAATAAEAAADb//z/AAACAAAAAADb//3/AAATAAEAAADb//7/AAATAAEAAADb////AAATAAEAAADb/wAAAAATAAEAAADb/wEAAAATAAEAAADc/wIAAAATAAEAAADc/wMAAAATAAEAAADc/wQAAAATAAEAAADd/wIAAAATAAEAAADd/wMAAAATAAEAAADd/wQAAAATAAEAAADe/wIAAAATAAEAAADe/wMAAAATAAEAAADe/wQAAAATAAEAAADf/wIAAAATAAEAAADf/wMAAAATAAEAAADf/wQAAAATAAEAAADg/wIAAAATAAEAAADg/wMAAAATAAEAAADg/wQAAAATAAEAAADh/wIAAAATAAEAAADh/wMAAAATAAEAAADh/wQAAAATAAEAAADi/wIAAAATAAEAAADi/wMAAAATAAEAAADi/wQAAAATAAEAAADj/wIAAAATAAEAAADj/wMAAAATAAEAAADj/wQAAAATAAEAAADk/wIAAAATAAEAAADk/wMAAAATAAEAAADk/wQAAAATAAEAAADl/wIAAAATAAEAAADl/wMAAAATAAEAAADl/wQAAAATAAEAAADm/wIAAAATAAEAAADm/wMAAAATAAEAAADm/wQAAAATAAEAAADn/wIAAAATAAEAAADn/wMAAAATAAEAAADn/wQAAAATAAEAAADo/wIAAAATAAEAAADo/wMAAAATAAEAAADo/wQAAAATAAEAAADp/wIAAAATAAEAAADp/wMAAAATAAEAAADp/wQAAAATAAEAAADq/wIAAAATAAEAAADq/wMAAAATAAEAAADq/wQAAAATAAEAAADr/wIAAAATAAEAAADr/wMAAAATAAEAAADr/wQAAAATAAEAAADs/wIAAAATAAEAAADs/wMAAAATAAEAAADs/wQAAAATAAEAAADt/wIAAAATAAEAAADt/wMAAAATAAEAAADt/wQAAAATAAEAAADu/wIAAAATAAEAAADu/wMAAAATAAEAAADu/wQAAAATAAEAAADv/wIAAAATAAEAAADv/wMAAAATAAEAAADv/wQAAAATAAEAAADw/wIAAAATAAEAAADw/wMAAAATAAEAAADw/wQAAAATAAEAAADx/wIAAAATAAEAAADx/wMAAAATAAEAAADx/wQAAAATAAEAAADy/wIAAAATAAEAAADy/wMAAAATAAEAAADy/wQAAAATAAEAAADz/wIAAAATAAEAAADz/wMAAAATAAEAAADz/wQAAAATAAEAAAD0/wIAAAATAAEAAAD0/wMAAAATAAEAAAD0/wQAAAATAAEAAAD1/wIAAAATAAEAAAD1/wMAAAATAAEAAAD1/wQAAAATAAEAAAD2/wIAAAATAAEAAAD2/wMAAAATAAEAAAD2/wQAAAATAAEAAAD3/wIAAAATAAEAAAD3/wMAAAATAAEAAAD3/wQAAAATAAEAAAD4/wIAAAATAAEAAAD4/wMAAAATAAEAAAD4/wQAAAATAAEAAAD5/wIAAAATAAEAAAD5/wMAAAATAAEAAAD5/wQAAAATAAEAAAD6/wIAAAATAAEAAAD6/wMAAAATAAEAAAD6/wQAAAATAAEAAAD7/wIAAAATAAEAAAD7/wMAAAATAAEAAAD7/wQAAAATAAEAAAD8/wIAAAATAAEAAAD8/wMAAAATAAEAAAD8/wQAAAATAAEAAAD9/wIAAAATAAEAAAD9/wMAAAATAAEAAAD9/wQAAAATAAEAAAD+/wIAAAATAAEAAAD+/wMAAAATAAEAAAD+/wQAAAATAAEAAAD//wIAAAATAAEAAAD//wMAAAATAAEAAAD//wQAAAATAAEAAAAAAP//AAACAAIAAAAAAAAAAAACAAIAAAAAAAEAAAACAAIAAAAAAAIAAAACAAIAAAAAAAMAAAACAAIAAAAAAAQAAAACAAIAAAABAPz/AAACAAAAAAD5//z/AAAVAAYAAAD+//z/AAACAAAAAAD6//z/AAACAAAAAAACAPz/AAACAAAAAAADAPz/AAACAAAAAAAEAPz/AAACAAAAAAAFAPz/AAACAAAAAAAGAPz/AAACAAAAAAAHAPz/AAACAAAAAAAIAPz/AAACAAAAAAAJAPz/AAACAAAAAAAKAPz/AAACAAAAAAALAPz/AAACAAAAAAAMAPz/AAACAAAAAAANAPz/AAACAAAAAAAOAPz/AAACAAAAAAAPAPz/AAACAAAAAAAQAPz/AAACAAAAAAARAPz/AAAFAAAAAAABAP3/AAACAAIAAAABAP7/AAACAAIAAAABAP//AAACAAIAAAABAAAAAAACAAIAAAABAAEAAAACAAIAAAABAAIAAAACAAIAAAABAAMAAAACAAIAAAABAAQAAAACAAIAAAACAP3/AAACAAIAAAACAP7/AAACAAIAAAACAP//AAACAAIAAAACAAAAAAACAAIAAAACAAEAAAACAAIAAAACAAIAAAACAAIAAAACAAMAAAACAAIAAAACAAQAAAACAAIAAAADAP3/AAACAAIAAAADAP7/AAACAAIAAAADAP//AAACAAIAAAADAAAAAAACAAIAAAADAAEAAAACAAIAAAADAAIAAAACAAIAAAADAAMAAAACAAIAAAADAAQAAAACAAIAAAAEAP3/AAACAAIAAAAEAP7/AAACAAIAAAAEAP//AAACAAIAAAAEAAAAAAACAAIAAAAEAAEAAAACAAIAAAAEAAIAAAACAAIAAAAEAAMAAAACAAIAAAAEAAQAAAACAAIAAAAFAP3/AAACAAIAAAAFAP7/AAACAAIAAAAFAP//AAACAAIAAAAFAAAAAAACAAIAAAAFAAEAAAACAAIAAAAFAAIAAAACAAIAAAAFAAMAAAACAAIAAAAFAAQAAAACAAIAAAAGAP3/AAACAAIAAAAGAP7/AAACAAIAAAAGAP//AAACAAIAAAAGAAAAAAACAAIAAAAGAAEAAAACAAIAAAAGAAIAAAACAAIAAAAGAAMAAAACAAIAAAAGAAQAAAACAAIAAAAHAP3/AAACAAIAAAAHAP7/AAACAAIAAAAHAP//AAACAAIAAAAHAAAAAAACAAIAAAAHAAEAAAACAAIAAAAHAAIAAAACAAIAAAAHAAMAAAACAAIAAAAHAAQAAAACAAIAAAAIAP3/AAACAAIAAAAIAP7/AAACAAIAAAAIAP//AAACAAIAAAAIAAAAAAACAAIAAAAIAAEAAAACAAIAAAAIAAIAAAACAAIAAAAIAAMAAAACAAIAAAAIAAQAAAACAAIAAAAJAP3/AAACAAIAAAAJAP7/AAACAAIAAAAJAP//AAACAAIAAAAJAAAAAAACAAIAAAAJAAEAAAACAAIAAAAJAAIAAAACAAIAAAAJAAMAAAACAAIAAAAJAAQAAAACAAIAAAAKAP3/AAACAAIAAAAKAP7/AAACAAIAAAAKAP//AAACAAIAAAAKAAAAAAACAAIAAAAKAAEAAAACAAIAAAAKAAIAAAACAAIAAAAKAAMAAAACAAIAAAAKAAQAAAACAAIAAAALAP3/AAACAAIAAAALAP7/AAACAAIAAAALAP//AAACAAIAAAALAAAAAAACAAIAAAALAAEAAAACAAIAAAALAAIAAAACAAIAAAALAAMAAAACAAIAAAALAAQAAAACAAIAAAAMAP3/AAACAAIAAAAMAP7/AAACAAIAAAAMAP//AAACAAIAAAAMAAAAAAACAAIAAAAMAAEAAAACAAIAAAAMAAIAAAACAAIAAAAMAAMAAAACAAIAAAAMAAQAAAACAAIAAAANAP3/AAACAAIAAAANAP7/AAACAAIAAAANAP//AAACAAIAAAANAAAAAAACAAIAAAANAAEAAAACAAIAAAANAAIAAAACAAIAAAANAAMAAAACAAIAAAANAAQAAAACAAIAAAAOAP3/AAACAAIAAAAOAP7/AAACAAIAAAAOAP//AAACAAIAAAAOAAAAAAACAAIAAAAOAAEAAAACAAIAAAAOAAIAAAACAAIAAAAOAAMAAAACAAIAAAAOAAQAAAACAAIAAAAPAP3/AAACAAIAAAAPAP7/AAACAAIAAAAPAP//AAACAAIAAAAPAAAAAAACAAIAAAAPAAEAAAACAAIAAAAPAAIAAAACAAIAAAAPAAMAAAACAAIAAAAPAAQAAAACAAIAAAAQAP3/AAACAAIAAAAQAP7/AAACAAIAAAAQAP//AAACAAIAAAAQAAAAAAACAAIAAAAQAAEAAAACAAIAAAAQAAIAAAACAAIAAAAQAAMAAAACAAIAAAAQAAQAAAACAAIAAAARAP3/AAACAAIAAAARAP7/AAACAAIAAAARAP//AAACAAIAAAARAAAAAAACAAIAAAARAAEAAAACAAIAAAARAAIAAAACAAIAAAARAAMAAAACAAIAAAARAAQAAAACAAIAAAASAP3/AAACAAIAAAASAP7/AAACAAIAAAASAP//AAACAAIAAAASAAAAAAACAAIAAAASAAEAAAACAAIAAAASAAIAAAACAAIAAAASAAMAAAACAAIAAAASAAQAAAACAAIAAAATAP3/AAACAAIAAAATAP7/AAACAAIAAAATAP//AAACAAIAAAATAAAAAAACAAIAAAATAAEAAAACAAIAAAATAAIAAAACAAIAAAATAAMAAAACAAIAAAATAAQAAAACAAIAAAA=")
+tile_set = ExtResource("21_q3bfe")
+
+[connection signal="pressed" from="CanvasLayer/Panel/Button" to="." method="_on_button_pressed"]
