@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://3agspp35pyt2" path="res://assets/custom/lvel_menu/back_button.png" id="3_au35g"]
 [ext_resource type="PackedScene" uid="uid://srs55ncqup0n" path="res://scene/ui/user_profile_menu.tscn" id="5_1jxsr"]
 [ext_resource type="Texture2D" uid="uid://crjyibdncl8fo" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 01.png" id="6_1f7xq"]
+[ext_resource type="Texture2D" uid="uid://bskjb4ggf36sm" path="res://assets/custom/buttons/shop_button.png" id="6_n6nt7"]
 [ext_resource type="Texture2D" uid="uid://ctrrihc6bo45x" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 02.png" id="7_2uncl"]
 [ext_resource type="Texture2D" uid="uid://bvwk8s1acy4d0" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 03.png" id="8_edqay"]
 [ext_resource type="Texture2D" uid="uid://diobg73l1yjy2" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 04.png" id="9_3si3o"]
@@ -32,6 +33,14 @@ texture = ExtResource("3_au35g")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_au35g"]
 texture = ExtResource("3_au35g")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hsqix"]
+texture = ExtResource("6_n6nt7")
+region_rect = Rect2(5, 4, 54, 25)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_flbjg"]
+texture = ExtResource("6_n6nt7")
+region_rect = Rect2(5, 4, 54, 25)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tnv7a"]
 animations = [{
@@ -325,6 +334,14 @@ offset_left = 19.0
 offset_top = 113.0
 offset_right = 331.0
 offset_bottom = 318.0
+
+[node name="ShopButton" type="Button" parent="CanvasLayer" unique_id=1218151441]
+offset_left = 835.0
+offset_top = 110.0
+offset_right = 925.0
+offset_bottom = 160.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_hsqix")
+theme_override_styles/hover = SubResource("StyleBoxTexture_flbjg")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=158133266]
 position = Vector2(443, 378)
