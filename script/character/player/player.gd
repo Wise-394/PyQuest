@@ -14,10 +14,11 @@ extends CharacterBody2D
 @export var max_health: int = 100
 
 @onready var current_health: int = max_health
-@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var sprite: AnimatedSprite2D = $Visuals/AnimatedSprite2D
 @onready var state_machine = $StateMachine
 @onready var hitbox = $HitBox
 @onready var hurtbox = $HurtBox
+@onready var visuals = $Visuals
 var coyote_timer := 0.0
 var hit_direction := 1
 var is_invulnerable := false
@@ -43,6 +44,14 @@ func _calculate_hit_direction(attacker: Node2D) -> void:
 	hit_direction = sign(global_position.x - attacker.global_position.x)
 	if hit_direction == 0:
 		hit_direction = 1
+
+func change_direction(direction: float) -> void:
+	if direction > 0:
+		visuals.scale.x = 1
+		hitbox.scale.x = 1 
+	elif direction < 0:
+		visuals.scale.x =-1
+		hitbox.scale.x = -1 
 
 func heal(amount: int) -> void:
 	current_health = min(current_health + amount, max_health)

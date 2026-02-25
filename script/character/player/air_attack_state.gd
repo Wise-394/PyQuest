@@ -65,7 +65,7 @@ func instantiate_effects():
 	var sword_effect = load(effect_path).instantiate()
 	character.add_child(sword_effect)
 	
-	var direction = -1 if sprite.flip_h else 1
+	var direction = 1 if character.visuals.scale.x > 0 else -1
 	sword_effect.position = Vector2(30 * direction, 0)
 	sword_effect.scale.x = direction
 	

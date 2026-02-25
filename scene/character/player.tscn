@@ -15,7 +15,7 @@
 [ext_resource type="Script" uid="uid://dqcm3la8w1hfw" path="res://script/character/player/air_attack_state.gd" id="45_m1pvm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q48bb"]
-size = Vector2(21, 28)
+size = Vector2(22, 27)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s4jxa"]
 size = Vector2(26, 25)
@@ -26,14 +26,18 @@ script = ExtResource("1_oh5ij")
 speed = 200.0
 air_speed = 200.0
 
-[node name="HurtBox" type="CollisionShape2D" parent="." unique_id=1987827586]
-position = Vector2(-0.5, -2)
-shape = SubResource("RectangleShape2D_q48bb")
+[node name="Visuals" type="Node2D" parent="." unique_id=610452419]
+position = Vector2(1, 0)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1189302188]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals" unique_id=1189302188]
+position = Vector2(9, -5)
 sprite_frames = ExtResource("2_dkc8g")
 animation = &"air_attacking"
 autoplay = "idle"
+
+[node name="HurtBox" type="CollisionShape2D" parent="." unique_id=1987827586]
+position = Vector2(-1, -2.5)
+shape = SubResource("RectangleShape2D_q48bb")
 
 [node name="HitBox" type="Area2D" parent="." unique_id=1830820937 groups=["enemy"]]
 collision_layer = 8
@@ -77,7 +81,7 @@ script = ExtResource("43_qe7ey")
 
 [node name="Timer" type="Timer" parent="StateMachine/DeadState" unique_id=1236647262]
 
-[connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/DamagedState" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="Visuals/AnimatedSprite2D" to="StateMachine/DamagedState" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="HitBox" to="HitBox" method="_on_area_entered"]
 [connection signal="body_entered" from="HitBox" to="HitBox" method="_on_body_entered"]
 [connection signal="timeout" from="StateMachine/DeadState/Timer" to="StateMachine/DeadState" method="_on_timer_timeout"]

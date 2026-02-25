@@ -43,7 +43,7 @@ func _check_if_stopped_walking_and_change_state(direction):
 		return
 
 func _update_sprite_direction(direction):
-	change_direction(direction) 
+	character.change_direction(direction) 
 
 func _apply_walk_speed(direction):
 	character.velocity.x = direction * character.speed
