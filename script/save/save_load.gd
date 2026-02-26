@@ -6,6 +6,7 @@ extends Node
 # ============================================================
 signal skin_equipped(skin_id: String)
 signal coins_changed(amount: int)
+signal points_changed
 
 const SAVE_DIR  : String = "user://saves/"
 const MAX_SLOTS : int    = 4
@@ -14,6 +15,7 @@ const MAX_SLOTS : int    = 4
 var active_slot : int = -1
 var current_level = 0
 var highest_unlocked_level = 0
+var current_lvl_pts = 0
 # The live save data. Add new fields here as the game grows.
 var data : Dictionary = {
 	"player_name"   : "Player",
@@ -24,6 +26,7 @@ var data : Dictionary = {
 	"unlocked_achievements" : [],
 	"unlocked_shop_items" : [],
 	"active_player_skin" : "", 
+	"level_points": {},
 }
 
 
@@ -48,6 +51,7 @@ func _default_data(player_name: String) -> Dictionary:
 		"unlocked_achievements" : [],
 		"unlocked_shop_items" : ["player_default_skin"],
 		"active_player_skin" : "", 
+		"level_points": {},
 	}
 
 
@@ -57,6 +61,10 @@ func get_unlocked_achievements() -> Array:
 
 func get_unlocked_shop_items() -> Array:
 	return data.get("unlocked_shop_items", [])
+	
+func add_points(value):
+	current_lvl_pts += value
+	points_changed.emit()
 	
 ## Load slot into memory. Returns true on success.
 func load_slot(slot: int) -> bool:

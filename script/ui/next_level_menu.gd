@@ -7,10 +7,12 @@ func _on_exit_pressed() -> void:
 	save()
 	check_achievements()
 	AchievementManager.debug_print_unlocked()
+	SaveLoad.current_lvl_pts = 0
 	SaveLoad.current_level = 0
 	get_tree().change_scene_to_file("res://scene/save/loading_screen.tscn")
 
 func _on_restart_pressed() -> void:
+	SaveLoad.current_lvl_pts = 0
 	get_tree().reload_current_scene()
 
 func _on_next_level_pressed() -> void:
@@ -29,6 +31,7 @@ func save() -> void:
 		if level != -1 and SaveLoad.data["highest_unlocked_level"] <= level:
 			SaveLoad.data["highest_unlocked_level"] = level
 
+	SaveLoad.current_lvl_pts = 0
 	SaveLoad.save_slot()
 
 func check_achievements():

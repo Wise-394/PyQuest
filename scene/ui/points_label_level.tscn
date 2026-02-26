@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bn1njb5nuubl"]
+
+[ext_resource type="Script" uid="uid://dvssi3r75huet" path="res://script/ui/points_label_level.gd" id="1_osoha"]
+
+[node name="PointsLabelLevel" type="Label" unique_id=1502072289]
+offset_right = 211.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(1, 0.19215687, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "0"
+script = ExtResource("1_osoha")

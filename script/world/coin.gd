@@ -7,4 +7,5 @@ func _on_body_entered(body: Node2D) -> void:
 func picked_up():
 	var coin_label = get_tree().current_scene.get_node("UI/CanvasLayer/CoinContainer")
 	coin_label.picked_up_coins() 
+	SaveLoad.add_points(10)
 	queue_free()

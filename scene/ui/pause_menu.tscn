@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://myi2m1lyb6h8"]
+[gd_scene format=3 uid="uid://myi2m1lyb6h8"]
 
 [ext_resource type="Script" uid="uid://bfqq4qmxetd0r" path="res://script/ui/pause_menu.gd" id="1_7efnt"]
 [ext_resource type="Texture2D" uid="uid://dtakxc6nj1gxy" path="res://assets/custom/panels/pause_panel.png" id="1_v5dk4"]
@@ -20,7 +20,7 @@ texture = ExtResource("3_h3wej")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vc3p6"]
 texture = ExtResource("3_h3wej")
 
-[node name="PauseMenu" type="Control"]
+[node name="PauseMenu" type="Control" unique_id=2121607820]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -30,7 +30,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7efnt")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=1543212509]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -45,7 +45,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_jo6ex")
 
-[node name="ResumeButton" type="Button" parent="."]
+[node name="ResumeButton" type="Button" parent="." unique_id=1277823424]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -61,7 +61,7 @@ grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_h3wej")
 theme_override_styles/hover = SubResource("StyleBoxTexture_qpmux")
 
-[node name="ExitButton" type="Button" parent="."]
+[node name="ExitButton" type="Button" parent="." unique_id=1021620853]
 layout_mode = 0
 offset_left = 650.0
 offset_top = 294.0

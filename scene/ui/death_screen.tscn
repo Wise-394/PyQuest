@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d3a3pwga4gqw0"]
+[gd_scene format=3 uid="uid://d3a3pwga4gqw0"]
 
 [ext_resource type="Script" uid="uid://62v8u7hu3hcu" path="res://script/ui/death_screen.gd" id="1_yhcf2"]
 [ext_resource type="Texture2D" uid="uid://dtakxc6nj1gxy" path="res://assets/custom/panels/pause_panel.png" id="2_d1os3"]
@@ -20,7 +20,7 @@ texture = ExtResource("4_rpgmn")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vc3p6"]
 texture = ExtResource("4_rpgmn")
 
-[node name="DeathScreen" type="Control"]
+[node name="DeathScreen" type="Control" unique_id=664820304]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -30,7 +30,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yhcf2")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=107975295]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -45,7 +45,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_jo6ex")
 
-[node name="RestartButton" type="Button" parent="."]
+[node name="RestartButton" type="Button" parent="." unique_id=2133534561]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -61,7 +61,7 @@ grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_h3wej")
 theme_override_styles/hover = SubResource("StyleBoxTexture_qpmux")
 
-[node name="ExitButton" type="Button" parent="."]
+[node name="ExitButton" type="Button" parent="." unique_id=1005722509]
 layout_mode = 0
 offset_left = 650.0
 offset_top = 294.0
@@ -70,7 +70,7 @@ offset_bottom = 375.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_7efnt")
 theme_override_styles/hover = SubResource("StyleBoxTexture_vc3p6")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1598165028]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://daco4ljgy6n54"]
+[gd_scene format=3 uid="uid://daco4ljgy6n54"]
 
 [ext_resource type="Texture2D" uid="uid://c6v1sgcbababr" path="res://assets/custom/lvel_menu/leevl_button.png" id="1_l6mqp"]
 [ext_resource type="Script" uid="uid://c2n46acetig0i" path="res://script/ui/level_button.gd" id="2_cl5cr"]
@@ -11,7 +11,7 @@ region_rect = Rect2(0, 0, 14, 14)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ubboj"]
 texture = ExtResource("1_l6mqp")
 
-[node name="LevelButton" type="Button"]
+[node name="LevelButton" type="Button" unique_id=486008824]
 offset_right = 60.0
 offset_bottom = 60.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
