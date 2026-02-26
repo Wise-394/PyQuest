@@ -11,12 +11,14 @@
 [ext_resource type="Resource" uid="uid://bng43kqxt2awu" path="res://dialog/arithmetic_operators.dialogue" id="8_v0urs"]
 [ext_resource type="PackedScene" uid="uid://bnhiv8qcc5ro5" path="res://scene/character/player.tscn" id="9_mdo62"]
 [ext_resource type="PackedScene" uid="uid://nvxql4d8clds" path="res://scene/world/coding_zone.tscn" id="9_ngoiu"]
+[ext_resource type="PackedScene" uid="uid://c8xl8vq78hcou" path="res://scene/world/decoration/front_regular_tree.tscn" id="9_v0urs"]
 [ext_resource type="PackedScene" uid="uid://dc7ihfcrpl10v" path="res://scene/world/camera.tscn" id="10_isk03"]
 [ext_resource type="PackedScene" uid="uid://c8mm1rrfpibeu" path="res://scene/ui/zone_remaining.tscn" id="11_5ufl4"]
 [ext_resource type="PackedScene" uid="uid://44hfsfdoy30p" path="res://scene/character/healthbar.tscn" id="12_1j3qy"]
 [ext_resource type="PackedScene" uid="uid://dl7srt6thlc11" path="res://scene/ui/coin_container.tscn" id="13_nm0q4"]
 [ext_resource type="PackedScene" uid="uid://lg4gs88e7o62" path="res://scene/ui/pause_button.tscn" id="14_tfqug"]
 [ext_resource type="PackedScene" uid="uid://chv6oqvx3a4j8" path="res://scene/world/parallax_bg.tscn" id="15_4rreb"]
+[ext_resource type="PackedScene" uid="uid://bn1njb5nuubl" path="res://scene/ui/points_label_level.tscn" id="18_1bvdd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ll6f"]
 size = Vector2(47.5, 50)
@@ -138,6 +140,9 @@ dialog = NodePath("DialogScene")
 
 [node name="DialogScene" parent="World/Starfish" unique_id=1653220454 instance=ExtResource("7_mq0ay")]
 dialog = ExtResource("8_v0urs")
+
+[node name="BackStandingTree" parent="World" unique_id=1277450235 instance=ExtResource("9_v0urs")]
+position = Vector2(-128, -269)
 
 [node name="CodingZone" type="Node" parent="." unique_id=889497735]
 
@@ -267,6 +272,13 @@ offset_left = 3.0
 offset_top = 6.0
 offset_right = 53.0
 offset_bottom = 56.0
+
+[node name="PointsLabelLevel" parent="UI/CanvasLayer" unique_id=1502072289 instance=ExtResource("18_1bvdd")]
+offset_left = 16.0
+offset_top = 102.0
+offset_right = 227.0
+offset_bottom = 166.0
+max_pts_lvl = 250
 
 [node name="parallax_bg" parent="." unique_id=331734774 instance=ExtResource("15_4rreb")]
 

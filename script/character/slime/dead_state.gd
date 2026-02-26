@@ -18,4 +18,5 @@ func physics_update(delta: float):
 
 func _on_animation_finished():
 	SaveLoad.add_enemy_killed()
+	SaveLoad.add_points(20)
 	character.queue_free()

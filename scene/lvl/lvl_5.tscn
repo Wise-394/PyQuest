@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://nvxql4d8clds" path="res://scene/world/coding_zone.tscn" id="13_fx6fq"]
 [ext_resource type="PackedScene" uid="uid://bwrop6cmmut7u" path="res://scene/world/moving_platform.tscn" id="14_c6bl2"]
 [ext_resource type="PackedScene" uid="uid://dwv1bc5r8s2a8" path="res://scene/world/flag.tscn" id="15_c6bl2"]
+[ext_resource type="PackedScene" uid="uid://bn1njb5nuubl" path="res://scene/ui/points_label_level.tscn" id="20_u0ewx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c6bl2"]
 size = Vector2(45, 50)
@@ -213,5 +214,12 @@ offset_top = 6.0
 offset_right = 53.0
 offset_bottom = 56.0
 metadata/_edit_use_anchors_ = true
+
+[node name="PointsLabelLevel" parent="UI/CanvasLayer" unique_id=1502072289 instance=ExtResource("20_u0ewx")]
+offset_left = 18.0
+offset_top = 102.0
+offset_right = 229.0
+offset_bottom = 166.0
+max_pts_lvl = 250
 
 [editable path="CodingZone/CodingZone2"]

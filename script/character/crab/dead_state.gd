@@ -26,4 +26,5 @@ func _on_animation_finished() -> void:
 
 func _on_timer_timeout() -> void:
 	SaveLoad.add_enemy_killed()
+	SaveLoad.add_points(20)
 	character.queue_free()

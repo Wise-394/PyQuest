@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cx2ljcqbkehra" path="res://scene/character/crab.tscn" id="8_2l883"]
 [ext_resource type="PackedScene" uid="uid://chv6oqvx3a4j8" path="res://scene/world/parallax_bg.tscn" id="8_4urrm"]
 [ext_resource type="PackedScene" uid="uid://c3r52si75dmo7" path="res://scene/world/dead_zone.tscn" id="9_2l883"]
+[ext_resource type="PackedScene" uid="uid://bn1njb5nuubl" path="res://scene/ui/points_label_level.tscn" id="15_2t8yb"]
 
 [node name="lvl_19" type="Node" unique_id=1210110364]
 
@@ -134,6 +135,13 @@ offset_top = 6.0
 offset_right = 53.0
 offset_bottom = 56.0
 metadata/_edit_use_anchors_ = true
+
+[node name="PointsLabelLevel" parent="UI/CanvasLayer" unique_id=1502072289 instance=ExtResource("15_2t8yb")]
+offset_left = 13.0
+offset_top = 101.0
+offset_right = 224.0
+offset_bottom = 165.0
+max_pts_lvl = 250
 
 [node name="parallax_bg" parent="." unique_id=789396789 instance=ExtResource("8_4urrm")]
 

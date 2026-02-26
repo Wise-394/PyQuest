@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://chv6oqvx3a4j8" path="res://scene/world/parallax_bg.tscn" id="9_huyj0"]
 [ext_resource type="PackedScene" uid="uid://7am8ralce3gf" path="res://scene/dialog_node/dialog.tscn" id="10_l1a34"]
 [ext_resource type="Resource" uid="uid://bx7oqlvpn3d78" path="res://dialog/listy.dialogue" id="11_l1a34"]
+[ext_resource type="PackedScene" uid="uid://bn1njb5nuubl" path="res://scene/ui/points_label_level.tscn" id="18_fbkaj"]
 
 [sub_resource type="Curve2D" id="Curve2D_xu8i0"]
 _data = {
@@ -195,5 +196,12 @@ offset_top = 6.0
 offset_right = 53.0
 offset_bottom = 56.0
 metadata/_edit_use_anchors_ = true
+
+[node name="PointsLabelLevel" parent="UI/CanvasLayer" unique_id=1502072289 instance=ExtResource("18_fbkaj")]
+offset_left = 12.0
+offset_top = 101.0
+offset_right = 223.0
+offset_bottom = 165.0
+max_pts_lvl = 250
 
 [node name="parallax_bg" parent="." unique_id=1746872619 instance=ExtResource("9_huyj0")]

@@ -33,4 +33,5 @@ func _on_animation_finished():
 
 	if sprite.animation == "death":
 		SaveLoad.add_enemy_killed()
+		SaveLoad.add_points(200)
 		character.finished.emit()

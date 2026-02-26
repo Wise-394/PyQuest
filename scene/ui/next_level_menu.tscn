@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dc565g0dwtjmq" path="res://assets/custom/next_lvl_menu/restart_lvl_buton.png" id="3_d2kc1"]
 [ext_resource type="Texture2D" uid="uid://da63004ecc1oi" path="res://assets/custom/next_lvl_menu/next_lvl_buton.png" id="4_v0l0t"]
 [ext_resource type="Script" uid="uid://bnkcqc0ifq3yg" path="res://script/ui/points_label_final.gd" id="6_k783e"]
+[ext_resource type="Texture2D" uid="uid://dm65sbf2txx8h" path="res://assets/custom/Star.png" id="7_dx8f3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v0l0t"]
 texture = ExtResource("1_ly8if")
@@ -27,6 +28,105 @@ texture = ExtResource("4_v0l0t")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wi8j1"]
 texture = ExtResource("4_v0l0t")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wi8j1"]
+atlas = ExtResource("7_dx8f3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prveo"]
+atlas = ExtResource("7_dx8f3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnux7"]
+atlas = ExtResource("7_dx8f3")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_331e2"]
+atlas = ExtResource("7_dx8f3")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlakc"]
+atlas = ExtResource("7_dx8f3")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ediv"]
+atlas = ExtResource("7_dx8f3")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6ybx"]
+atlas = ExtResource("7_dx8f3")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8afhf"]
+atlas = ExtResource("7_dx8f3")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0c5up"]
+atlas = ExtResource("7_dx8f3")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdtix"]
+atlas = ExtResource("7_dx8f3")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rj1qt"]
+atlas = ExtResource("7_dx8f3")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pfli"]
+atlas = ExtResource("7_dx8f3")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1kn1"]
+atlas = ExtResource("7_dx8f3")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_twjiq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wi8j1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prveo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qnux7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_331e2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlakc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ediv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6ybx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8afhf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0c5up")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdtix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rj1qt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1pfli")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1kn1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [node name="NextLevelMenu" type="Control" unique_id=1750376882]
 layout_mode = 3
@@ -82,16 +182,37 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_wi8j1")
 
 [node name="PointsLabelFinal" type="Label" parent="." unique_id=1674792998]
 layout_mode = 0
-offset_left = 354.0
-offset_top = 161.0
-offset_right = 774.0
-offset_bottom = 243.0
+offset_left = 372.0
+offset_top = 55.0
+offset_right = 792.0
+offset_bottom = 137.0
 theme_override_colors/font_color = Color(1, 0.19215687, 0, 1)
 theme_override_font_sizes/font_size = 48
 text = "00000"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("6_k783e")
+
+[node name="Star1" type="AnimatedSprite2D" parent="PointsLabelFinal" unique_id=163060162]
+position = Vector2(89.25, 129)
+scale = Vector2(4.9531255, 4.7500005)
+sprite_frames = SubResource("SpriteFrames_twjiq")
+autoplay = "default"
+frame_progress = 0.7412047
+
+[node name="Star2" type="AnimatedSprite2D" parent="PointsLabelFinal" unique_id=1234237821]
+position = Vector2(213.25, 129)
+scale = Vector2(4.9531255, 4.7500005)
+sprite_frames = SubResource("SpriteFrames_twjiq")
+autoplay = "default"
+frame_progress = 0.13900909
+
+[node name="Star3" type="AnimatedSprite2D" parent="PointsLabelFinal" unique_id=867299181]
+position = Vector2(344.25, 129)
+scale = Vector2(4.9531255, 4.7500005)
+sprite_frames = SubResource("SpriteFrames_twjiq")
+autoplay = "default"
+frame_progress = 0.13900909
 
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="restart" to="." method="_on_restart_pressed"]

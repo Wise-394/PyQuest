@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bshgt457qabow" path="res://script/lvl_manager/lvl_10.gd" id="1_ngqx4"]
 [ext_resource type="PackedScene" uid="uid://bnhiv8qcc5ro5" path="res://scene/character/player.tscn" id="2_swp6o"]
 [ext_resource type="PackedScene" uid="uid://dc7ihfcrpl10v" path="res://scene/world/camera.tscn" id="3_32kyc"]
+[ext_resource type="PackedScene" uid="uid://bn1njb5nuubl" path="res://scene/ui/points_label_level.tscn" id="4_8p3yj"]
 [ext_resource type="PackedScene" uid="uid://chv6oqvx3a4j8" path="res://scene/world/parallax_bg.tscn" id="4_ngqx4"]
 [ext_resource type="PackedScene" uid="uid://44hfsfdoy30p" path="res://scene/character/healthbar.tscn" id="6_pj5wv"]
 [ext_resource type="PackedScene" uid="uid://txybtigns2hp" path="res://scene/character/boss_hp.tscn" id="6_swp6o"]
@@ -29,6 +30,13 @@ tile_set = ExtResource("1_e4ck6")
 
 [node name="boss" parent="." unique_id=409145706 instance=ExtResource("9_swp6o")]
 position = Vector2(458, 60)
+
+[node name="PointsLabelLevel" parent="boss" unique_id=1502072289 instance=ExtResource("4_8p3yj")]
+offset_left = -298.66666
+offset_top = 28.0
+offset_right = -87.66666
+offset_bottom = 92.0
+max_pts_lvl = 250
 
 [node name="Player" parent="." unique_id=1815567938 instance=ExtResource("2_swp6o")]
 position = Vector2(178, 133)

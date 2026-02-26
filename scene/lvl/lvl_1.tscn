@@ -238,6 +238,7 @@ offset_left = 14.0
 offset_top = 107.0
 offset_right = 225.0
 offset_bottom = 171.0
+max_pts_lvl = 230
 
 [node name="parallax_bg" parent="." unique_id=1725099835 instance=ExtResource("13_lcuqg")]
 

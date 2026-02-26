@@ -16,6 +16,7 @@ var active_slot : int = -1
 var current_level = 0
 var highest_unlocked_level = 0
 var current_lvl_pts = 0
+var max_lvl_pts = 0
 # The live save data. Add new fields here as the game grows.
 var data : Dictionary = {
 	"player_name"   : "Player",

@@ -116,6 +116,7 @@
 [ext_resource type="Texture2D" uid="uid://1asvaitlxr3" path="res://assets/Treasure Hunters/Pirate Ship/Sprites/Decorations/Window/Window/73.png" id="97_c1u8f"]
 [ext_resource type="Texture2D" uid="uid://dhs7r7v226o8k" path="res://assets/Treasure Hunters/Pirate Ship/Sprites/Decorations/Window/Window/74.png" id="98_djk2u"]
 [ext_resource type="Texture2D" uid="uid://ctmx4mwi7bxg2" path="res://assets/Treasure Hunters/Pirate Ship/Sprites/Decorations/Window/Window Light/01.png" id="99_4tcoj"]
+[ext_resource type="PackedScene" uid="uid://bn1njb5nuubl" path="res://scene/ui/points_label_level.tscn" id="117_o345q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_byfrw"]
 texture = ExtResource("1_kg8te")
@@ -721,3 +722,10 @@ offset_top = 65.0
 offset_right = 133.0
 offset_bottom = 102.0
 metadata/_edit_use_anchors_ = true
+
+[node name="PointsLabelLevel" parent="UI/CanvasLayer" unique_id=1502072289 instance=ExtResource("117_o345q")]
+offset_left = 13.0
+offset_top = 100.0
+offset_right = 224.0
+offset_bottom = 164.0
+max_pts_lvl = 250
