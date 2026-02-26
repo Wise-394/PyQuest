@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://44hfsfdoy30p" path="res://scene/character/healthbar.tscn" id="7_kudym"]
 [ext_resource type="PackedScene" uid="uid://dl7srt6thlc11" path="res://scene/ui/coin_container.tscn" id="8_5vtek"]
 [ext_resource type="PackedScene" uid="uid://lg4gs88e7o62" path="res://scene/ui/pause_button.tscn" id="9_ueycn"]
+[ext_resource type="PackedScene" uid="uid://c3r52si75dmo7" path="res://scene/world/dead_zone.tscn" id="10_357wk"]
 
 [node name="Lobby" type="Node" unique_id=280547394]
 
@@ -72,3 +73,6 @@ offset_top = 6.0
 offset_right = 53.0
 offset_bottom = 56.0
 metadata/_edit_use_anchors_ = true
+
+[node name="DeadZone" parent="." unique_id=388322907 instance=ExtResource("10_357wk")]
+position = Vector2(-245, 161)

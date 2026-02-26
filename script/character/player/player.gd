@@ -5,60 +5,99 @@ extends CharacterBody2D
 @export var air_speed: float = 350
 @export var jump_strength: float = 400
 @export var damage: float = 35
-
 @export_group("Physics")
 @export var gravity: float = 1000
 @export var cayote_time: float = 0.2
-
 @export_group("Health")
 @export var max_health: int = 100
-
 @onready var current_health: int = max_health
 @onready var sprite: AnimatedSprite2D = $Visuals/AnimatedSprite2D
 @onready var state_machine = $StateMachine
 @onready var hitbox = $HitBox
 @onready var hurtbox = $HurtBox
 @onready var visuals = $Visuals
+
 var coyote_timer := 0.0
 var hit_direction := 1
 var is_invulnerable := false
 var is_alive = true
+
 signal health_changed
+
+
+# ───────────────────────────── lifecycle ─────────────────────────────
 
 func _ready() -> void:
 	_initialize_state_machine()
 	hitbox.monitoring = false
+	_apply_active_skin()
+	SaveLoad.skin_equipped.connect(_on_skin_equipped)
+
+
+# ───────────────────────────── skin ──────────────────────────────────
+
+func _on_skin_equipped(skin_id: String) -> void:
+	_load_skin(skin_id)
+
+
+func _apply_active_skin() -> void:
+	var skin_id : String = SaveLoad.data.get("active_player_skin", "")
+	if skin_id.is_empty():
+		return
+	_load_skin(skin_id)
+
+
+func _load_skin(skin_id: String) -> void:
+	var item := ShopList.get_item(skin_id)
+	if item.is_empty():
+		return
+	var path : String = item.get("file_path", "")
+	if path.is_empty():
+		return
+	var frames = load(path)
+	if frames is SpriteFrames:
+		sprite.sprite_frames = frames
+	else:
+		push_warning("Player: file at '%s' is not a SpriteFrames resource." % path)
+
+
+# ───────────────────────────── combat ────────────────────────────────
 
 func character_damaged(damage_to_reduce: int, attacker: Node2D) -> void:
 	if is_invulnerable:
 		return
-	
 	_calculate_hit_direction(attacker)
 	_apply_damage(damage_to_reduce)
 
-func _initialize_state_machine() -> void:
-	if state_machine and state_machine.initial_state:
-		state_machine.change_state(state_machine.initial_state.name.to_lower())
 
 func _calculate_hit_direction(attacker: Node2D) -> void:
 	hit_direction = sign(global_position.x - attacker.global_position.x)
 	if hit_direction == 0:
 		hit_direction = 1
 
+
+func _apply_damage(damage_to_reduce: int) -> void:
+	current_health -= damage_to_reduce
+	health_changed.emit()
+	state_machine.change_state("damagedstate")
+
+
+# ───────────────────────────── misc ──────────────────────────────────
+
+func _initialize_state_machine() -> void:
+	if state_machine and state_machine.initial_state:
+		state_machine.change_state(state_machine.initial_state.name.to_lower())
+
+
 func change_direction(direction: float) -> void:
 	if direction > 0:
 		visuals.scale.x = 1
-		hitbox.scale.x = 1 
+		hitbox.scale.x  = 1
 	elif direction < 0:
-		visuals.scale.x =-1
-		hitbox.scale.x = -1 
+		visuals.scale.x = -1
+		hitbox.scale.x  = -1
+
 
 func heal(amount: int) -> void:
 	current_health = min(current_health + amount, max_health)
 	health_changed.emit()
-	
-func _apply_damage(damage_to_reduce: int) -> void:
-	current_health -= damage_to_reduce
-	health_changed.emit()
-	
-	state_machine.change_state("damagedstate")

@@ -23,10 +23,8 @@ func _ready() -> void:
 	sprite.texture       = sprite_img
 	toggle_label.visible = false
 	_bob_origin          = sprite.position
-
 	_apply_item_data()
 	check_unlock()
-
 	if is_locked:
 		locked_state()
 	else:
@@ -40,9 +38,13 @@ func _process(_delta: float) -> void:
 	sprite.position = _bob_origin + Vector2(0.0, offset)
 
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("toggle_editor") and toggle_label.visible and is_locked:
+func _unhandled_input(event: InputEvent) -> void:
+	if not event.is_action_pressed("toggle_editor") or not toggle_label.visible:
+		return
+	if is_locked:
 		buy_item()
+	else:
+		equip()
 
 
 # ───────────────────────────── shop data ─────────────────────────────
@@ -78,7 +80,7 @@ func locked_state() -> void:
 
 
 func unlocked_state() -> void:
-	_bobbing               = false
+	_bobbing                = false
 	item_cost_label.visible = false
 	icon_item_cost.visible  = false
 
@@ -87,28 +89,28 @@ func unlocked_state() -> void:
 
 func buy_item() -> void:
 	var cost := get_cost()
-
 	if cost == -1:
 		push_warning("ShopItem: cannot buy '%s', item data missing." % item_id)
 		return
-
-	var current_coins : int = SaveLoad.data.get("coins", 0)
-
-	if current_coins < cost:
+	if SaveLoad.data.get("coins", 0) < cost:
 		_on_not_enough_coins()
 		return
-
-	# Deduct coins and unlock
 	SaveLoad.data["coins"] -= cost
 	SaveLoad.data["unlocked_shop_items"].append(item_id)
 	SaveLoad.save_slot()
-
+	SaveLoad.coins_changed.emit(SaveLoad.data["coins"])  # ← add this
 	is_locked = false
 	unlocked_state()
+	equip()
+
+
+func equip() -> void:
+	SaveLoad.data["active_player_skin"] = item_id
+	SaveLoad.save_slot()
+	SaveLoad.skin_equipped.emit(item_id)
 
 
 func _on_not_enough_coins() -> void:
-	# Placeholder — swap for an animation, sound, or UI popup later
 	push_warning("ShopItem: not enough coins to buy '%s'." % item_id)
 
 

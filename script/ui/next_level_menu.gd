@@ -22,9 +22,13 @@ func save() -> void:
 		SaveLoad.data["coins"] = int(coin_label.text)
 	else:
 		push_warning("CoinLabel not found, coins not saved")
-	level = get_level_number_from_path(level_to_go)
-	if SaveLoad.data["highest_unlocked_level"] <= level:
-		SaveLoad.data["highest_unlocked_level"] = level
+
+	if level_to_go != "":
+		level = get_level_number_from_path(level_to_go)
+
+		if level != -1 and SaveLoad.data["highest_unlocked_level"] <= level:
+			SaveLoad.data["highest_unlocked_level"] = level
+
 	SaveLoad.save_slot()
 
 func check_achievements():

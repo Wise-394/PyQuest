@@ -12,7 +12,6 @@ offset_top = -75.0
 offset_right = 104.0
 offset_bottom = -23.0
 script = ExtResource("1_vm8pd")
-item_id = null
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=320050012]
 position = Vector2(32, 25)

@@ -4,6 +4,8 @@ extends Node
 #  SaveManager — handles up to MAX_SLOTS JSON save files
 #  stored in user://saves/slot_0.json … slot_3.json
 # ============================================================
+signal skin_equipped(skin_id: String)
+signal coins_changed(amount: int)
 
 const SAVE_DIR  : String = "user://saves/"
 const MAX_SLOTS : int    = 4

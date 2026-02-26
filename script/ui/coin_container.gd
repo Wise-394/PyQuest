@@ -2,8 +2,14 @@ extends Panel
 
 @onready var coin_label = $CoinLabel
 var coins_amount = 0
+
 func _ready() -> void:
-	coins_amount = SaveLoad.data['coins'] as int
+	coins_amount = SaveLoad.data["coins"] as int
+	update_display()
+	SaveLoad.coins_changed.connect(_on_coins_changed)
+
+func _on_coins_changed(amount: int) -> void:
+	coins_amount = amount
 	update_display()
 
 func picked_up_coins():
