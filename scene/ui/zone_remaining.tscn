@@ -1,10 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8mm1rrfpibeu"]
+[gd_scene format=3 uid="uid://c8mm1rrfpibeu"]
 
 [ext_resource type="Script" uid="uid://c6au7hcebds5n" path="res://script/ui/zone_remaining.gd" id="1_ylt1w"]
 
-[node name="ZoneRemaining" type="Label"]
+[node name="ZoneRemaining" type="Label" unique_id=1860109364]
 offset_right = 40.0
 offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 0.19215687, 0, 1)
 theme_override_font_sizes/font_size = 46
 text = "0"
 horizontal_alignment = 1

@@ -79,6 +79,17 @@ offset_bottom = 351.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_dx8f3")
 theme_override_styles/hover = SubResource("StyleBoxTexture_wi8j1")
 
+[node name="PointsLabel" type="Label" parent="." unique_id=1674792998]
+layout_mode = 0
+offset_left = 354.0
+offset_top = 161.0
+offset_right = 774.0
+offset_bottom = 243.0
+theme_override_font_sizes/font_size = 48
+text = "00000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="NextLevel" to="." method="_on_next_level_pressed"]
