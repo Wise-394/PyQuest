@@ -5,7 +5,7 @@ extends Panel
 # ----------------------------- 
 const SPIN_INTERVAL := 0.08
 const SPIN_DELAY := 0.2
-const WIN_REWARD := 15
+const WIN_REWARD := 10000
 const SPIN_RANGE := Vector2i(6, 15)
 
 const ANIMATIONS := ["blue", "green", "red", "yellow"]
@@ -13,8 +13,7 @@ const ANIMATIONS := ["blue", "green", "red", "yellow"]
 # ----------------------------- 
 # EXPORTS
 # ----------------------------- 
-@export var spin_cost: int = 1
-
+@export var spin_cost: int = 0
 # ----------------------------- 
 # NODES
 # ----------------------------- 

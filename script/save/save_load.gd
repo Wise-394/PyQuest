@@ -20,6 +20,8 @@ var data : Dictionary = {
 	"passcode" : "",
 	"enemy_killed" : 0,
 	"unlocked_achievements" : [],
+	"unlocked_shop_items" : [],
+	"active_player_skin" : "", 
 }
 
 
@@ -42,12 +44,17 @@ func _default_data(player_name: String) -> Dictionary:
 		"passcode" : "",
 		"enemy_killed" : 0,
 		"unlocked_achievements" : [],
+		"unlocked_shop_items" : ["player_default_skin"],
+		"active_player_skin" : "", 
 	}
 
 
 # ── Single-slot operations ───────────────────────────────────
 func get_unlocked_achievements() -> Array:
 	return data.get("unlocked_achievements", [])
+
+func get_unlocked_shop_items() -> Array:
+	return data.get("unlocked_shop_items", [])
 	
 ## Load slot into memory. Returns true on success.
 func load_slot(slot: int) -> bool:

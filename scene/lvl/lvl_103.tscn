@@ -5,8 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://csvgmyhiep83v" path="res://scene/world/door.tscn" id="3_ogsne"]
 [ext_resource type="PackedScene" uid="uid://bnhiv8qcc5ro5" path="res://scene/character/player.tscn" id="4_rk4yc"]
 [ext_resource type="PackedScene" uid="uid://dc7ihfcrpl10v" path="res://scene/world/camera.tscn" id="5_ay383"]
-[ext_resource type="Texture2D" uid="uid://dx1dmvil77cdl" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/clothes/red.png" id="6_gph53"]
-[ext_resource type="Texture2D" uid="uid://cklund1s67i0n" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/clothes/light_blue.png" id="7_ogsne"]
+[ext_resource type="PackedScene" uid="uid://j4nsvow7tdci" path="res://scene/world/shop_item_panel.tscn" id="6_gph53"]
+[ext_resource type="Texture2D" uid="uid://dx1dmvil77cdl" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/clothes/red.png" id="7_ogsne"]
+[ext_resource type="Texture2D" uid="uid://cklund1s67i0n" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/clothes/light_blue.png" id="8_rk4yc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o65fb"]
 texture = ExtResource("1_y7uje")
@@ -71,7 +72,7 @@ level_to_go = "uid://c35f8m3agkrc3"
 
 [node name="Player" parent="." unique_id=880234569 instance=ExtResource("4_rk4yc")]
 z_index = 1
-position = Vector2(108, -73)
+position = Vector2(-173, -90)
 collision_mask = 2
 
 [node name="Camera2D" parent="Player" unique_id=917216541 instance=ExtResource("5_ay383")]
@@ -79,32 +80,12 @@ position = Vector2(94, -61)
 
 [node name="Items" type="Node" parent="." unique_id=691424267]
 
-[node name="Panel" type="Panel" parent="Items" unique_id=2134256322]
-offset_left = 38.0
-offset_top = -75.0
-offset_right = 104.0
-offset_bottom = -23.0
+[node name="ShopItemPanel" parent="Items" unique_id=1962880931 instance=ExtResource("6_gph53")]
+item_id = "player_red_skin"
+sprite_img = ExtResource("7_ogsne")
 
-[node name="Sprite2D" type="Sprite2D" parent="Items/Panel" unique_id=387752807]
-position = Vector2(32, 25)
-texture = ExtResource("6_gph53")
-
-[node name="Panel2" type="Panel" parent="Items" unique_id=805615584]
-offset_left = 147.0
-offset_top = -75.0
-offset_right = 213.0
-offset_bottom = -23.0
-
-[node name="Sprite2D" type="Sprite2D" parent="Items/Panel2" unique_id=17989541]
-position = Vector2(32, 25)
-texture = ExtResource("7_ogsne")
-
-[node name="Panel3" type="Panel" parent="Items" unique_id=1904039396]
-offset_left = 264.0
-offset_top = -75.0
-offset_right = 330.0
-offset_bottom = -23.0
-
-[node name="Sprite2D" type="Sprite2D" parent="Items/Panel3" unique_id=843417541]
-position = Vector2(32, 25)
-texture = ExtResource("6_gph53")
+[node name="ShopItemPanel2" parent="Items" unique_id=309977132 instance=ExtResource("6_gph53")]
+offset_left = 134.0
+offset_right = 200.0
+item_id = "player_blue_skin"
+sprite_img = ExtResource("8_rk4yc")
