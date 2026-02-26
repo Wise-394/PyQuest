@@ -76,6 +76,9 @@ is_explanation = true
 position = Vector2(-7.4375, 0)
 shape = SubResource("RectangleShape2D_t73ix")
 
+[node name="InteractSprite" parent="World/CodingZone/CodingZone2" index="2" unique_id=1499591860]
+position = Vector2(-6.999999, -48)
+
 [node name="MovingPlatform" parent="World/CodingZone/CodingZone2" unique_id=1310789698 instance=ExtResource("3_22wlu")]
 position = Vector2(75, -150)
 curve = SubResource("Curve2D_hv10n")

@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dc565g0dwtjmq" path="res://assets/custom/next_lvl_menu/restart_lvl_buton.png" id="3_d2kc1"]
 [ext_resource type="Texture2D" uid="uid://da63004ecc1oi" path="res://assets/custom/next_lvl_menu/next_lvl_buton.png" id="4_v0l0t"]
 [ext_resource type="Script" uid="uid://bnkcqc0ifq3yg" path="res://script/ui/points_label_final.gd" id="6_k783e"]
+[ext_resource type="Texture2D" uid="uid://kp7hdvpf6c2q" path="res://assets/custom/next_lvl_menu/banner.png" id="6_wi8j1"]
 [ext_resource type="Texture2D" uid="uid://dm65sbf2txx8h" path="res://assets/custom/Star.png" id="7_dx8f3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v0l0t"]
@@ -145,48 +146,57 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -212.625
+offset_top = 0.75
+offset_right = 234.625
+offset_bottom = 160.75
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_v0l0t")
 
 [node name="Exit" type="Button" parent="." unique_id=1876866381]
 layout_mode = 0
-offset_left = 302.0
-offset_top = 285.0
-offset_right = 491.0
-offset_bottom = 372.0
+offset_left = 313.0
+offset_top = 365.75
+offset_right = 502.0
+offset_bottom = 452.75
 theme_override_styles/normal = SubResource("StyleBoxTexture_caeon")
 theme_override_styles/hover = SubResource("StyleBoxTexture_ly8if")
 
 [node name="restart" type="Button" parent="." unique_id=1915993339]
 layout_mode = 0
-offset_left = 513.0
-offset_top = 289.0
-offset_right = 623.0
-offset_bottom = 351.0
+offset_left = 524.0
+offset_top = 369.75
+offset_right = 634.0
+offset_bottom = 431.75
 theme_override_styles/normal = SubResource("StyleBoxTexture_k783e")
 theme_override_styles/hover = SubResource("StyleBoxTexture_d2kc1")
 
 [node name="NextLevel" type="Button" parent="." unique_id=1737844600]
 layout_mode = 0
-offset_left = 640.0
-offset_top = 289.0
-offset_right = 750.0
-offset_bottom = 351.0
+offset_left = 651.0
+offset_top = 369.75
+offset_right = 761.0
+offset_bottom = 431.75
 theme_override_styles/normal = SubResource("StyleBoxTexture_dx8f3")
 theme_override_styles/hover = SubResource("StyleBoxTexture_wi8j1")
 
+[node name="Banner" type="Sprite2D" parent="." unique_id=2010734510]
+z_index = 1
+position = Vector2(590, 251.75)
+scale = Vector2(7.2460318, 7.369565)
+texture = ExtResource("6_wi8j1")
+
 [node name="PointsLabelFinal" type="Label" parent="." unique_id=1674792998]
+z_index = 1
 layout_mode = 0
-offset_left = 372.0
-offset_top = 55.0
-offset_right = 792.0
-offset_bottom = 137.0
-theme_override_colors/font_color = Color(1, 0.19215687, 0, 1)
+offset_left = 375.0
+offset_top = 227.75
+offset_right = 795.0
+offset_bottom = 309.75
+theme_override_colors/font_color = Color(0.8666667, 0.56078434, 0.38039216, 1)
+theme_override_colors/font_outline_color = Color(0.2, 0.19607843, 0.23921569, 1)
+theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 48
 text = "00000"
 horizontal_alignment = 1
@@ -194,21 +204,24 @@ vertical_alignment = 1
 script = ExtResource("6_k783e")
 
 [node name="Star1" type="AnimatedSprite2D" parent="PointsLabelFinal" unique_id=163060162]
-position = Vector2(89.25, 129)
+z_as_relative = false
+position = Vector2(112, -70)
 scale = Vector2(4.9531255, 4.7500005)
 sprite_frames = SubResource("SpriteFrames_twjiq")
 autoplay = "default"
 frame_progress = 0.7412047
 
 [node name="Star2" type="AnimatedSprite2D" parent="PointsLabelFinal" unique_id=1234237821]
-position = Vector2(213.25, 129)
+z_as_relative = false
+position = Vector2(213.25, -45.999992)
 scale = Vector2(4.9531255, 4.7500005)
 sprite_frames = SubResource("SpriteFrames_twjiq")
 autoplay = "default"
 frame_progress = 0.13900909
 
 [node name="Star3" type="AnimatedSprite2D" parent="PointsLabelFinal" unique_id=867299181]
-position = Vector2(344.25, 129)
+z_as_relative = false
+position = Vector2(315, -70)
 scale = Vector2(4.9531255, 4.7500005)
 sprite_frames = SubResource("SpriteFrames_twjiq")
 autoplay = "default"

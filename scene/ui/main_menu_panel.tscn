@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bgu3ltqq7j3ih" path="res://assets/custom/main_menu/play_button_pressed.png" id="4_fyiab"]
 [ext_resource type="Texture2D" uid="uid://dn8rixbooc3iv" path="res://assets/custom/main_menu/info_button.png" id="5_8sqco"]
 [ext_resource type="Texture2D" uid="uid://iqpuujwlhlv6" path="res://assets/custom/main_menu/info_button_pressed.png" id="6_geqxg"]
+[ext_resource type="Texture2D" uid="uid://h7brqx17gmkj" path="res://assets/custom/main_menu/play_button-hover.png" id="6_n8vtd"]
 [ext_resource type="Texture2D" uid="uid://dbx6nlhdn7xe7" path="res://assets/custom/main_menu/exit_button.png" id="7_oxyoa"]
 [ext_resource type="Texture2D" uid="uid://cbhebc3dtedwr" path="res://assets/custom/main_menu/exit_button_pressed.png" id="8_vpdim"]
 
@@ -27,7 +28,7 @@ texture = ExtResource("4_fyiab")
 region_rect = Rect2(11, 10, 28, 28)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k75cp"]
-texture = ExtResource("3_n8vtd")
+texture = ExtResource("6_n8vtd")
 region_rect = Rect2(11, 10, 28, 28)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xk1tq"]
@@ -89,7 +90,9 @@ offset_top = 59.75
 offset_right = 131.875
 offset_bottom = 170.5
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.8666667, 0.56078434, 0.38039216, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxTexture_k3dtv")
 text = "PyQuest"

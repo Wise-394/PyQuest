@@ -167,6 +167,9 @@ question_id = 2
 position = Vector2(19.5, 0)
 shape = SubResource("RectangleShape2D_c6bl2")
 
+[node name="InteractSprite" parent="CodingZone/CodingZone2" index="2" unique_id=1499591860]
+position = Vector2(20.999998, -42)
+
 [node name="CodingZone1" parent="CodingZone" unique_id=1234541084 node_paths=PackedStringArray("child_nodes") instance=ExtResource("13_fx6fq")]
 position = Vector2(328, -234)
 level = 5

@@ -3,12 +3,10 @@
 [ext_resource type="Script" uid="uid://dn620ht8upmkw" path="res://script/world/coding_zone.gd" id="1_mv8d5"]
 [ext_resource type="Texture2D" uid="uid://g8oa5ffnlyfe" path="res://assets/custom/effects/particles.png" id="2_hmw3s"]
 [ext_resource type="Script" uid="uid://b14spvc3x8l8t" path="res://script/world/zone_particles.gd" id="3_0qamm"]
+[ext_resource type="Texture2D" uid="uid://c5an6vyve3chh" path="res://assets/custom/interac.png" id="4_ldr88"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wbwxs"]
 size = Vector2(105.75, 50)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0qamm"]
-bg_color = Color(0, 0, 0, 0.3529412)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0qamm"]
 particles_animation = true
@@ -22,7 +20,7 @@ point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_4uqks"]
 offsets = PackedFloat32Array(0.6092715, 0.93818986)
-colors = PackedColorArray(1, 0.23137255, 0.23137255, 1, 0.8784314, 0.65882355, 0, 1)
+colors = PackedColorArray(0.8666667, 0.56078434, 0.38039216, 1, 0.8784314, 0.078431375, 0, 1)
 
 [node name="CodingZone" type="Area2D" unique_id=1002924277]
 collision_layer = 0
@@ -30,18 +28,6 @@ script = ExtResource("1_mv8d5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1840017011]
 shape = SubResource("RectangleShape2D_wbwxs")
-
-[node name="Label" type="Label" parent="." unique_id=1463759613]
-visible = false
-offset_left = -20.0
-offset_top = -65.0
-offset_right = 20.0
-offset_bottom = -42.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxFlat_0qamm")
-text = "C"
-horizontal_alignment = 1
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=807250339]
 material = SubResource("CanvasItemMaterial_0qamm")
@@ -63,6 +49,11 @@ color_ramp = SubResource("Gradient_4uqks")
 anim_offset_max = 1.0
 script = ExtResource("3_0qamm")
 max_distance = 450.0
+
+[node name="InteractSprite" type="Sprite2D" parent="." unique_id=1499591860]
+position = Vector2(2.3841858e-07, -52)
+scale = Vector2(1.7, 1.6363635)
+texture = ExtResource("4_ldr88")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

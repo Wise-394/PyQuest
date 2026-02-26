@@ -45,7 +45,7 @@ extends Area2D
 @export var child_nodes: Array[Node]
 @export var is_explanation: bool = false
 
-@onready var label: Label = $Label
+@onready var interact_sprite := $InteractSprite
 @onready var player: CharacterBody2D = get_tree().current_scene.get_node("Player")
 @onready var canvas_layer: CanvasLayer = get_tree().current_scene.get_node("UI/CanvasLayer")
 @onready var zone_remaining: Label = get_tree().current_scene.get_node_or_null("UI/CanvasLayer/ZoneRemaining")
@@ -68,7 +68,7 @@ func _ready() -> void:
 		particles.emission_rect_extents = shape.size * 0.5
 		particles.local_coords = true
 
-	label.visible = false
+	interact_sprite.visible = false
 	set_process_unhandled_input(false)
 
 # ----------------------------------------------------------
@@ -93,7 +93,7 @@ func _on_body_exited(body: Node2D) -> void:
 
 func _set_zone_active(active: bool) -> void:
 	is_player_in_range = active
-	label.visible = active
+	interact_sprite.visible = active
 	set_process_unhandled_input(active)
 
 

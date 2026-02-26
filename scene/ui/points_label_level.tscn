@@ -5,7 +5,9 @@
 [node name="PointsLabelLevel" type="Label" unique_id=1502072289]
 offset_right = 211.0
 offset_bottom = 64.0
-theme_override_colors/font_color = Color(1, 0.19215687, 0, 1)
+theme_override_colors/font_color = Color(0.8666667, 0.56078434, 0.38039216, 1)
+theme_override_colors/font_outline_color = Color(0.2, 0.19607843, 0.23921569, 1)
+theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 24
 text = "0"
 script = ExtResource("1_osoha")

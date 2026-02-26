@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b4v1ihuy8lse3"]
+[gd_scene format=3 uid="uid://b4v1ihuy8lse3"]
 
 [ext_resource type="Texture2D" uid="uid://dhi75hocsjfrh" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 01.png" id="1_qgo6y"]
 [ext_resource type="Script" uid="uid://d3gwoie2qu0i6" path="res://script/character/starfish/starfish.gd" id="1_xe086"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://devncpetvqt15" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 06.png" id="6_i4bwt"]
 [ext_resource type="Texture2D" uid="uid://b6prsewjtfmfn" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 07.png" id="7_iic68"]
 [ext_resource type="Texture2D" uid="uid://bucxo8d3cq4fn" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 08.png" id="8_j5ga1"]
+[ext_resource type="Texture2D" uid="uid://cdnosqcjmt1al" path="res://assets/custom/open_dialog.png" id="10_07sg8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0edc5"]
 animations = [{
@@ -45,31 +46,23 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_slnkg"]
 size = Vector2(59, 32)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5lsnr"]
-bg_color = Color(0, 0, 0, 0.3529412)
-
-[node name="Starfish" type="Area2D"]
+[node name="Starfish" type="Area2D" unique_id=479389174]
 collision_layer = 4
 script = ExtResource("1_xe086")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1514775989]
 sprite_frames = SubResource("SpriteFrames_0edc5")
 autoplay = "default"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1828452082]
 position = Vector2(-1.5, 0)
 shape = SubResource("RectangleShape2D_slnkg")
 
-[node name="Label" type="Label" parent="."]
+[node name="OpenDialogSprite" type="Sprite2D" parent="." unique_id=335046677]
 visible = false
-offset_left = -21.0
-offset_top = -41.0
-offset_right = 19.0
-offset_bottom = -18.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_5lsnr")
-text = "E"
-horizontal_alignment = 1
+position = Vector2(0, -29.375)
+scale = Vector2(1.5, 1.5681819)
+texture = ExtResource("10_07sg8")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

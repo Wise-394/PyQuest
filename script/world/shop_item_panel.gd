@@ -3,7 +3,7 @@ extends Panel
 @onready var sprite          := $Sprite2D
 @onready var item_name_label := $ItemNameLabel
 @onready var item_cost_label := $ItemCostLabel
-@onready var toggle_label    := $ToggleLabel
+@onready var interact_sprite := $InteractSprite
 @onready var icon_item_cost  := $IconItemCost
 
 @export var item_id    : String
@@ -21,7 +21,7 @@ var is_locked   : bool
 
 func _ready() -> void:
 	sprite.texture       = sprite_img
-	toggle_label.visible = false
+	interact_sprite.visible = false
 	_bob_origin          = sprite.position
 	_apply_item_data()
 	check_unlock()
@@ -39,7 +39,7 @@ func _process(_delta: float) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if not event.is_action_pressed("toggle_editor") or not toggle_label.visible:
+	if not event.is_action_pressed("toggle_editor") or not interact_sprite .visible:
 		return
 	if is_locked:
 		buy_item()
@@ -118,9 +118,9 @@ func _on_not_enough_coins() -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		toggle_label.visible = true
+		interact_sprite .visible = true
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		toggle_label.visible = false
+		interact_sprite .visible = false

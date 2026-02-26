@@ -4,7 +4,7 @@
 # Uses unhandled_input for better input handling
 extends Area2D
 
-@onready var label: Label = $Label
+@onready var open_sprite := $OpenDialogSprite
 @export var dialog: Node
 
 var _is_label_visible := false
@@ -39,7 +39,7 @@ func _on_body_exited(body: Node2D) -> void:
 func _set_interaction_available(value: bool) -> void:
 	# Show/hide label and enable/disable input processing
 	_is_label_visible = value
-	label.visible = value
+	open_sprite.visible = value
 	set_process_unhandled_input(value)
 
 func _open_dialog() -> void:

@@ -3,12 +3,17 @@
 [ext_resource type="Texture2D" uid="uid://ci8w2oc47q458" path="res://assets/custom/lvel_menu/level_panel.png" id="1_gu58t"]
 [ext_resource type="Script" uid="uid://drs7giktrx7it" path="res://script/ui/level_selection.gd" id="1_ubboj"]
 [ext_resource type="PackedScene" uid="uid://daco4ljgy6n54" path="res://scene/ui/level_button.tscn" id="2_au35g"]
-[ext_resource type="Texture2D" uid="uid://3agspp35pyt2" path="res://assets/custom/lvel_menu/back_button.png" id="3_au35g"]
+[ext_resource type="Texture2D" uid="uid://do61rc68nnm4r" path="res://assets/custom/buttons/Back_Button/back_button1.png" id="4_n6nt7"]
 [ext_resource type="PackedScene" uid="uid://srs55ncqup0n" path="res://scene/ui/user_profile_menu.tscn" id="5_1jxsr"]
+[ext_resource type="Texture2D" uid="uid://bldvkb8bymudv" path="res://assets/custom/buttons/Back_Button/back_button3.png" id="5_hsqix"]
+[ext_resource type="Texture2D" uid="uid://cvgpyptgkbjba" path="res://assets/custom/buttons/Back_Button/back_button2.png" id="5_n6nt7"]
 [ext_resource type="Texture2D" uid="uid://crjyibdncl8fo" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 01.png" id="6_1f7xq"]
 [ext_resource type="Texture2D" uid="uid://ctrrihc6bo45x" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 02.png" id="7_2uncl"]
+[ext_resource type="Texture2D" uid="uid://ddbko20afr4sv" path="res://assets/custom/buttons/lobby_button/lobby_button.png" id="7_flbjg"]
 [ext_resource type="Texture2D" uid="uid://bvwk8s1acy4d0" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 03.png" id="8_edqay"]
+[ext_resource type="Texture2D" uid="uid://ce4g4nqbkooie" path="res://assets/custom/buttons/lobby_button/lobby_button_pressed.png" id="8_kp23w"]
 [ext_resource type="Texture2D" uid="uid://diobg73l1yjy2" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 04.png" id="9_3si3o"]
+[ext_resource type="Texture2D" uid="uid://0lqf2vdkh5q1" path="res://assets/custom/buttons/lobby_button/lobby_button_hover.png" id="9_prnq4"]
 [ext_resource type="Texture2D" uid="uid://c8fapdreqerdj" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 05.png" id="10_xv4lr"]
 [ext_resource type="Texture2D" uid="uid://demyc2ifl8cg7" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 06.png" id="11_knivc"]
 [ext_resource type="Texture2D" uid="uid://bt0xkum7onekp" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Background/BG Image.png" id="12_qenq8"]
@@ -28,10 +33,22 @@ texture = ExtResource("1_gu58t")
 region_rect = Rect2(0, 0, 90, 90)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ubboj"]
-texture = ExtResource("3_au35g")
+texture = ExtResource("4_n6nt7")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_au35g"]
-texture = ExtResource("3_au35g")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_flbjg"]
+texture = ExtResource("5_hsqix")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hsqix"]
+texture = ExtResource("5_n6nt7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kp23w"]
+texture = ExtResource("7_flbjg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_prnq4"]
+texture = ExtResource("8_kp23w")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pl3tn"]
+texture = ExtResource("9_prnq4")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tnv7a"]
 animations = [{
@@ -304,14 +321,17 @@ offset_top = -19.0
 offset_right = 46.375
 offset_bottom = 41.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_ubboj")
-theme_override_styles/hover = SubResource("StyleBoxTexture_au35g")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_flbjg")
+theme_override_styles/hover = SubResource("StyleBoxTexture_hsqix")
 
-[node name="Minigames" type="Button" parent="CanvasLayer" unique_id=887773092]
-offset_left = 235.0
-offset_top = 330.0
-offset_right = 328.0
-offset_bottom = 361.0
-text = "Lobby"
+[node name="Lobby" type="Button" parent="CanvasLayer" unique_id=887773092]
+offset_left = 280.0
+offset_top = 322.0
+offset_right = 330.0
+offset_bottom = 372.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_kp23w")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_prnq4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_pl3tn")
 
 [node name="UserProfileMenu" parent="CanvasLayer" unique_id=605145176 instance=ExtResource("5_1jxsr")]
 offset_left = 19.0
@@ -422,4 +442,4 @@ tile_map_data = PackedByteArray("AADc//z/AAACAAAAAADc//3/AAATAAEAAADc//7/AAATAAE
 tile_set = ExtResource("22_j75k6")
 
 [connection signal="pressed" from="CanvasLayer/Panel/BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/Minigames" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Lobby" to="." method="_on_button_pressed"]

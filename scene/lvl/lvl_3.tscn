@@ -4,12 +4,10 @@
 [ext_resource type="TileSet" uid="uid://d1yxhu13jwkq3" path="res://tileset/island.tres" id="2_ngoiu"]
 [ext_resource type="PackedScene" uid="uid://dmpjs602qhkf4" path="res://scene/world/spike.tscn" id="3_mq0ay"]
 [ext_resource type="PackedScene" uid="uid://dwv1bc5r8s2a8" path="res://scene/world/flag.tscn" id="4_v0urs"]
-[ext_resource type="Script" uid="uid://dn620ht8upmkw" path="res://script/world/coding_zone.gd" id="5_1bvdd"]
-[ext_resource type="Texture2D" uid="uid://g8oa5ffnlyfe" path="res://assets/custom/effects/particles.png" id="6_gpoof"]
-[ext_resource type="Script" uid="uid://b14spvc3x8l8t" path="res://script/world/zone_particles.gd" id="7_wjjb1"]
 [ext_resource type="PackedScene" uid="uid://bwrop6cmmut7u" path="res://scene/world/moving_platform.tscn" id="8_1d5kq"]
 [ext_resource type="PackedScene" uid="uid://d00fronllv71j" path="res://scene/world/coin.tscn" id="9_jlho3"]
 [ext_resource type="PackedScene" uid="uid://bnhiv8qcc5ro5" path="res://scene/character/player.tscn" id="9_mdo62"]
+[ext_resource type="PackedScene" uid="uid://nvxql4d8clds" path="res://scene/world/coding_zone.tscn" id="9_xyepr"]
 [ext_resource type="PackedScene" uid="uid://dc7ihfcrpl10v" path="res://scene/world/camera.tscn" id="10_isk03"]
 [ext_resource type="PackedScene" uid="uid://c8mm1rrfpibeu" path="res://scene/ui/zone_remaining.tscn" id="11_5ufl4"]
 [ext_resource type="PackedScene" uid="uid://44hfsfdoy30p" path="res://scene/character/healthbar.tscn" id="12_1j3qy"]
@@ -21,57 +19,20 @@
 [ext_resource type="PackedScene" uid="uid://7am8ralce3gf" path="res://scene/dialog_node/dialog.tscn" id="18_upwjh"]
 [ext_resource type="Resource" uid="uid://cp6otowp24tui" path="res://dialog/data_types.dialogue" id="19_40815"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wbwxs"]
-size = Vector2(91, 50)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nn8yw"]
+size = Vector2(57.875, 50)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0qamm"]
-bg_color = Color(0, 0, 0, 0.3529412)
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0qamm"]
-particles_animation = true
-particles_anim_h_frames = 6
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="Curve" id="Curve_hmw3s"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.38667905), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Gradient" id="Gradient_4uqks"]
-offsets = PackedFloat32Array(0.6092715, 0.93818986)
-colors = PackedColorArray(1, 0.23137255, 0.23137255, 1, 0.8784314, 0.65882355, 0, 1)
-
-[sub_resource type="Curve2D" id="Curve2D_gp8i3"]
+[sub_resource type="Curve2D" id="Curve2D_jlho3"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 2, -1, 0, 0, 0, 0, 4, 161)
+"points": PackedVector2Array(0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 824, -2)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_1vxlm"]
+[sub_resource type="Curve2D" id="Curve2D_upwjh"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 29, -5, 0, 0, 0, 0, -406, -2, 0, 0, 0, 0, 427, -2)
+"points": PackedVector2Array(0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1, 220)
 }
-point_count = 3
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4pmkc"]
-size = Vector2(56.875, 50)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oci04"]
-bg_color = Color(0, 0, 0, 0.3529412)
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jlho3"]
-particles_animation = true
-particles_anim_h_frames = 6
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="Curve" id="Curve_upwjh"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.38667905), 0.0, 0.0, 0, 0]
 point_count = 2
-
-[sub_resource type="Gradient" id="Gradient_40815"]
-offsets = PackedFloat32Array(0.6092715, 0.93818986)
-colors = PackedColorArray(1, 0.23137255, 0.23137255, 1, 0.8784314, 0.65882355, 0, 1)
 
 [node name="Lvl3" type="Node" unique_id=1280427078]
 
@@ -119,197 +80,47 @@ level_to_go = "uid://8h17yxwjyk2m"
 
 [node name="CodingZone" type="Node" parent="World" unique_id=448133535]
 
-[node name="Q3" type="Area2D" parent="World/CodingZone" unique_id=1103196507]
-position = Vector2(-432, -212)
-collision_layer = 0
-script = ExtResource("5_1bvdd")
+[node name="Q1" parent="World/CodingZone" unique_id=1002924277 node_paths=PackedStringArray("child_nodes") instance=ExtResource("9_xyepr")]
+position = Vector2(123, 8)
 level = 3
-question_id = 3
-is_explanation = true
+question_id = 1
+child_nodes = [NodePath("../../trap/active_spike"), NodePath("../../trap/active_spike2"), NodePath("../../trap/active_spike3"), NodePath("../../trap/active_spike4"), NodePath("../../trap/active_spike5"), NodePath("../../trap/active_spike6"), NodePath("../../trap/active_spike7")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/CodingZone/Q3" unique_id=1967730631]
-position = Vector2(-13.5, 0)
-shape = SubResource("RectangleShape2D_wbwxs")
+[node name="CollisionShape2D" parent="World/CodingZone/Q1" index="0" unique_id=1840017011]
+position = Vector2(-23.9375, 0)
+shape = SubResource("RectangleShape2D_nn8yw")
 
-[node name="Label" type="Label" parent="World/CodingZone/Q3" unique_id=1407198846]
+[node name="InteractSprite" parent="World/CodingZone/Q1" index="2" unique_id=1499591860]
 visible = false
-offset_left = -20.0
-offset_top = -65.0
-offset_right = 20.0
-offset_bottom = -42.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxFlat_0qamm")
-text = "C"
-horizontal_alignment = 1
+position = Vector2(-21.999998, -35)
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="World/CodingZone/Q3" unique_id=234912208]
-material = SubResource("CanvasItemMaterial_0qamm")
-position = Vector2(-15, 20)
-amount = 32
-texture = ExtResource("6_gpoof")
-emission_shape = 3
-emission_rect_extents = Vector2(60, -10)
-direction = Vector2(0, -1)
-spread = 9.21
-gravity = Vector2(0, -1)
-initial_velocity_min = 30.0
-initial_velocity_max = 50.0
-damping_max = 45.364
-scale_amount_min = 0.5
-scale_amount_max = 0.5
-scale_amount_curve = SubResource("Curve_hmw3s")
-color_ramp = SubResource("Gradient_4uqks")
-anim_offset_max = 1.0
-script = ExtResource("7_wjjb1")
-max_distance = 450.0
-
-[node name="Q4" type="Area2D" parent="World/CodingZone" unique_id=985951411 node_paths=PackedStringArray("child_nodes")]
-position = Vector2(733, -38)
-collision_layer = 0
-script = ExtResource("5_1bvdd")
-level = 3
-question_id = 4
-child_nodes = [NodePath("MovingPlatform2")]
-is_explanation = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/CodingZone/Q4" unique_id=1319961753]
-position = Vector2(-13.5, 0)
-shape = SubResource("RectangleShape2D_wbwxs")
-
-[node name="Label" type="Label" parent="World/CodingZone/Q4" unique_id=107722678]
-visible = false
-offset_left = -20.0
-offset_top = -65.0
-offset_right = 20.0
-offset_bottom = -42.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxFlat_0qamm")
-text = "C"
-horizontal_alignment = 1
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="World/CodingZone/Q4" unique_id=2046865471]
-material = SubResource("CanvasItemMaterial_0qamm")
-position = Vector2(-15, 20)
-amount = 32
-texture = ExtResource("6_gpoof")
-emission_shape = 3
-emission_rect_extents = Vector2(60, -10)
-direction = Vector2(0, -1)
-spread = 9.21
-gravity = Vector2(0, -1)
-initial_velocity_min = 30.0
-initial_velocity_max = 50.0
-damping_max = 45.364
-scale_amount_min = 0.5
-scale_amount_max = 0.5
-scale_amount_curve = SubResource("Curve_hmw3s")
-color_ramp = SubResource("Gradient_4uqks")
-anim_offset_max = 1.0
-script = ExtResource("7_wjjb1")
-max_distance = 450.0
-
-[node name="MovingPlatform2" parent="World/CodingZone/Q4" unique_id=1455602315 instance=ExtResource("8_1d5kq")]
-position = Vector2(98, 27)
-curve = SubResource("Curve2D_gp8i3")
-
-[node name="Q2" type="Area2D" parent="World/CodingZone" unique_id=1491740415 node_paths=PackedStringArray("child_nodes")]
-position = Vector2(42, -155)
-collision_layer = 0
-script = ExtResource("5_1bvdd")
+[node name="Q2" parent="World/CodingZone" unique_id=127620761 node_paths=PackedStringArray("child_nodes") instance=ExtResource("9_xyepr")]
+position = Vector2(40, -153)
 level = 3
 question_id = 2
 child_nodes = [NodePath("MovingPlatform")]
 is_explanation = true
 
-[node name="MovingPlatform" parent="World/CodingZone/Q2" unique_id=983892029 instance=ExtResource("8_1d5kq")]
-position = Vector2(6, -64)
-curve = SubResource("Curve2D_1vxlm")
-speed = 150.0
+[node name="MovingPlatform" parent="World/CodingZone/Q2" unique_id=840373070 instance=ExtResource("8_1d5kq")]
+position = Vector2(-371, -52)
+curve = SubResource("Curve2D_jlho3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/CodingZone/Q2" unique_id=59171714]
-position = Vector2(-25.0625, 0)
-shape = SubResource("RectangleShape2D_wbwxs")
-
-[node name="Label" type="Label" parent="World/CodingZone/Q2" unique_id=1318859260]
-visible = false
-offset_left = -20.0
-offset_top = -65.0
-offset_right = 20.0
-offset_bottom = -42.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxFlat_0qamm")
-text = "C"
-horizontal_alignment = 1
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="World/CodingZone/Q2" unique_id=544686317]
-material = SubResource("CanvasItemMaterial_0qamm")
-position = Vector2(0, 17)
-amount = 32
-texture = ExtResource("6_gpoof")
-emission_shape = 3
-emission_rect_extents = Vector2(60, -10)
-direction = Vector2(0, -1)
-spread = 9.21
-gravity = Vector2(0, -1)
-initial_velocity_min = 30.0
-initial_velocity_max = 50.0
-damping_max = 45.364
-scale_amount_min = 0.5
-scale_amount_max = 0.5
-scale_amount_curve = SubResource("Curve_hmw3s")
-color_ramp = SubResource("Gradient_4uqks")
-anim_offset_max = 1.0
-script = ExtResource("7_wjjb1")
-max_distance = 450.0
-
-[node name="Q1" type="Area2D" parent="World/CodingZone" unique_id=256362928 node_paths=PackedStringArray("child_nodes")]
-position = Vector2(123, 8)
-collision_layer = 0
-script = ExtResource("5_1bvdd")
+[node name="Q3" parent="World/CodingZone" unique_id=2121975129 instance=ExtResource("9_xyepr")]
+position = Vector2(-451, -215)
 level = 3
-question_id = 1
-child_nodes = [NodePath("../../trap/active_spike"), NodePath("../../trap/active_spike2"), NodePath("../../trap/active_spike3"), NodePath("../../trap/active_spike4"), NodePath("../../trap/active_spike5"), NodePath("../../trap/active_spike6"), NodePath("../../trap/active_spike7")]
+question_id = 3
 is_explanation = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/CodingZone/Q1" unique_id=237937615]
-position = Vector2(-24.4375, 0)
-shape = SubResource("RectangleShape2D_4pmkc")
+[node name="Q4" parent="World/CodingZone" unique_id=926577952 node_paths=PackedStringArray("child_nodes") instance=ExtResource("9_xyepr")]
+position = Vector2(718, -40)
+level = 3
+question_id = 4
+child_nodes = [NodePath("MovingPlatform")]
+is_explanation = true
 
-[node name="Label" type="Label" parent="World/CodingZone/Q1" unique_id=687324040]
-visible = false
-offset_left = -43.0
-offset_top = -38.0
-offset_right = -3.0
-offset_bottom = -15.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxFlat_oci04")
-text = "C"
-horizontal_alignment = 1
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="World/CodingZone/Q1" unique_id=1567619884]
-material = SubResource("CanvasItemMaterial_jlho3")
-position = Vector2(-25, 14)
-amount = 32
-texture = ExtResource("6_gpoof")
-emission_shape = 3
-emission_rect_extents = Vector2(60, -10)
-direction = Vector2(0, -1)
-spread = 9.21
-gravity = Vector2(0, -1)
-initial_velocity_min = 30.0
-initial_velocity_max = 50.0
-damping_max = 45.364
-scale_amount_min = 0.5
-scale_amount_max = 0.5
-scale_amount_curve = SubResource("Curve_upwjh")
-color_ramp = SubResource("Gradient_40815")
-anim_offset_max = 1.0
-script = ExtResource("7_wjjb1")
-max_distance = 450.0
+[node name="MovingPlatform" parent="World/CodingZone/Q4" unique_id=580565018 instance=ExtResource("8_1d5kq")]
+position = Vector2(108, 27)
+curve = SubResource("Curve2D_upwjh")
 
 [node name="Coins" type="Node" parent="World" unique_id=1370433454]
 
@@ -380,7 +191,7 @@ offset_left = -40.0
 offset_right = 0.0
 offset_bottom = 42.0
 grow_horizontal = 0
-children = [NodePath("../../../World/CodingZone/Q3"), NodePath("../../../World/CodingZone/Q2"), NodePath("../../../World/CodingZone/Q1"), NodePath("../../../World/CodingZone/Q4")]
+children = [NodePath("../../../World/CodingZone/Q1"), NodePath("../../../World/CodingZone/Q2"), NodePath("../../../World/CodingZone/Q3"), NodePath("../../../World/CodingZone/Q4")]
 
 [node name="HealthBar" parent="UI/CanvasLayer" unique_id=1307005043 node_paths=PackedStringArray("character") instance=ExtResource("12_1j3qy")]
 offset_left = 53.0
@@ -417,11 +228,4 @@ dialog = NodePath("DialogScene")
 [node name="DialogScene" parent="Starfish" unique_id=860228270 instance=ExtResource("18_upwjh")]
 dialog = ExtResource("19_40815")
 
-[connection signal="body_entered" from="World/CodingZone/Q3" to="World/CodingZone/Q3" method="_on_body_entered"]
-[connection signal="body_exited" from="World/CodingZone/Q3" to="World/CodingZone/Q3" method="_on_body_exited"]
-[connection signal="body_entered" from="World/CodingZone/Q4" to="World/CodingZone/Q4" method="_on_body_entered"]
-[connection signal="body_exited" from="World/CodingZone/Q4" to="World/CodingZone/Q4" method="_on_body_exited"]
-[connection signal="body_entered" from="World/CodingZone/Q2" to="World/CodingZone/Q2" method="_on_body_entered"]
-[connection signal="body_exited" from="World/CodingZone/Q2" to="World/CodingZone/Q2" method="_on_body_exited"]
-[connection signal="body_entered" from="World/CodingZone/Q1" to="World/CodingZone/Q1" method="_on_body_entered"]
-[connection signal="body_exited" from="World/CodingZone/Q1" to="World/CodingZone/Q1" method="_on_body_exited"]
+[editable path="World/CodingZone/Q1"]

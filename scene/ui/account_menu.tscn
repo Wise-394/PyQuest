@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://b5gd3gbpha1mm" path="res://script/ui/account_menu.gd" id="1_t8xnm"]
 [ext_resource type="Texture2D" uid="uid://ci8w2oc47q458" path="res://assets/custom/lvel_menu/level_panel.png" id="1_tm4de"]
 [ext_resource type="PackedScene" uid="uid://f7kwlp40h32m" path="res://scene/ui/save_file_panel.tscn" id="2_tm4de"]
-[ext_resource type="Texture2D" uid="uid://3agspp35pyt2" path="res://assets/custom/lvel_menu/back_button.png" id="3_iithi"]
+[ext_resource type="Texture2D" uid="uid://do61rc68nnm4r" path="res://assets/custom/buttons/Back_Button/back_button1.png" id="4_bduxx"]
 [ext_resource type="Texture2D" uid="uid://crjyibdncl8fo" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 01.png" id="5_bduxx"]
+[ext_resource type="Texture2D" uid="uid://bldvkb8bymudv" path="res://assets/custom/buttons/Back_Button/back_button3.png" id="5_kocvt"]
+[ext_resource type="Texture2D" uid="uid://cvgpyptgkbjba" path="res://assets/custom/buttons/Back_Button/back_button2.png" id="6_8usg3"]
 [ext_resource type="Texture2D" uid="uid://ctrrihc6bo45x" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 02.png" id="6_kocvt"]
 [ext_resource type="Texture2D" uid="uid://bvwk8s1acy4d0" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 03.png" id="7_8usg3"]
 [ext_resource type="Texture2D" uid="uid://diobg73l1yjy2" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 04.png" id="8_grl6e"]
@@ -25,8 +27,14 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iithi"]
 texture = ExtResource("1_tm4de")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t8xnm"]
-texture = ExtResource("3_iithi")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kocvt"]
+texture = ExtResource("4_bduxx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8usg3"]
+texture = ExtResource("5_kocvt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_grl6e"]
+texture = ExtResource("6_8usg3")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lfm6l"]
 animations = [{
@@ -141,7 +149,9 @@ offset_left = -3.5
 offset_top = -14.5
 offset_right = 56.5
 offset_bottom = 54.5
-theme_override_styles/normal = SubResource("StyleBoxTexture_t8xnm")
+theme_override_styles/normal = SubResource("StyleBoxTexture_kocvt")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8usg3")
+theme_override_styles/hover = SubResource("StyleBoxTexture_grl6e")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=839228531]
 position = Vector2(249, 466)

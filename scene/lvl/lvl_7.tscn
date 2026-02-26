@@ -63,6 +63,9 @@ is_explanation = true
 position = Vector2(-12.4375, 0)
 shape = SubResource("RectangleShape2D_y7dm0")
 
+[node name="InteractSprite" parent="world/CodingZone/CodingZone" index="2" unique_id=1499591860]
+position = Vector2(-10.999999, -43)
+
 [node name="Spike" parent="world/CodingZone/CodingZone" unique_id=419956034 instance=ExtResource("3_y7dm0")]
 position = Vector2(-83, -9)
 

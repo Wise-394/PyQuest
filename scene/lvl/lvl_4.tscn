@@ -157,11 +157,8 @@ is_explanation = true
 position = Vector2(-21.75, 0)
 shape = SubResource("RectangleShape2D_2ll6f")
 
-[node name="Label" parent="CodingZone/CodingZone" index="1" unique_id=1463759613]
-offset_left = -40.0
-offset_top = -48.0
-offset_right = 0.0
-offset_bottom = -25.0
+[node name="InteractSprite" parent="CodingZone/CodingZone" index="2" unique_id=1499591860]
+position = Vector2(-20.999998, -40)
 
 [node name="MovingPlatform" parent="CodingZone/CodingZone" unique_id=554540098 instance=ExtResource("8_1d5kq")]
 position = Vector2(61, 37)
@@ -177,10 +174,6 @@ is_explanation = true
 position = Vector2(-0.25, 0)
 shape = SubResource("RectangleShape2D_4c0oi")
 
-[node name="Label" parent="CodingZone/CodingZone3" index="1" unique_id=1463759613]
-offset_top = -48.0
-offset_bottom = -25.0
-
 [node name="CodingZone4" parent="CodingZone" unique_id=1204324734 instance=ExtResource("9_ngoiu")]
 position = Vector2(608, -457)
 level = 4
@@ -191,10 +184,6 @@ is_explanation = true
 position = Vector2(-0.25, 0)
 shape = SubResource("RectangleShape2D_4c0oi")
 
-[node name="Label" parent="CodingZone/CodingZone4" index="1" unique_id=1463759613]
-offset_top = -48.0
-offset_bottom = -25.0
-
 [node name="CodingZone5" parent="CodingZone" unique_id=389713059 instance=ExtResource("9_ngoiu")]
 position = Vector2(177, -345)
 level = 4
@@ -204,10 +193,6 @@ is_explanation = true
 [node name="CollisionShape2D" parent="CodingZone/CodingZone5" index="0" unique_id=1840017011]
 position = Vector2(-0.25, 0)
 shape = SubResource("RectangleShape2D_4c0oi")
-
-[node name="Label" parent="CodingZone/CodingZone5" index="1" unique_id=1463759613]
-offset_top = -48.0
-offset_bottom = -25.0
 
 [node name="CodingZone2" parent="CodingZone" unique_id=588023987 node_paths=PackedStringArray("child_nodes") instance=ExtResource("9_ngoiu")]
 position = Vector2(686, -90)
@@ -220,14 +205,11 @@ is_explanation = true
 position = Vector2(-21, 0)
 shape = SubResource("RectangleShape2D_mdbna")
 
-[node name="Label" parent="CodingZone/CodingZone2" index="1" unique_id=1463759613]
-offset_left = -40.0
-offset_top = -47.0
-offset_right = 0.0
-offset_bottom = -24.0
-
-[node name="CPUParticles2D" parent="CodingZone/CodingZone2" index="2" unique_id=807250339]
+[node name="CPUParticles2D" parent="CodingZone/CodingZone2" index="1" unique_id=807250339]
 position = Vector2(-19, 20)
+
+[node name="InteractSprite" parent="CodingZone/CodingZone2" index="2" unique_id=1499591860]
+position = Vector2(-16.999998, -34)
 
 [node name="MovingPlatform2" parent="CodingZone/CodingZone2" unique_id=1098397043 instance=ExtResource("8_1d5kq")]
 position = Vector2(-100, 38)

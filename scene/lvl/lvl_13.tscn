@@ -58,11 +58,8 @@ is_explanation = true
 position = Vector2(-31, -2)
 shape = SubResource("RectangleShape2D_qr4af")
 
-[node name="Label" parent="world/CodingZone/CodingZone" index="1" unique_id=1463759613]
-offset_left = -52.0
-offset_top = -51.0
-offset_right = -12.0
-offset_bottom = -28.0
+[node name="InteractSprite" parent="world/CodingZone/CodingZone" index="2" unique_id=1499591860]
+position = Vector2(-30.999998, -65)
 
 [node name="Spike2" parent="world/CodingZone/CodingZone" unique_id=36882942 instance=ExtResource("3_ch26k")]
 position = Vector2(-29, -101)

@@ -180,13 +180,7 @@ child_nodes = [NodePath("MovingPlatform4")]
 position = Vector2(-21, 2)
 shape = SubResource("RectangleShape2D_1k0hc")
 
-[node name="Label" parent="World/CodingZone/ControllerCodeEditor" index="1" unique_id=1463759613]
-offset_left = -39.0
-offset_top = -51.0
-offset_right = 1.0
-offset_bottom = -28.0
-
-[node name="CPUParticles2D" parent="World/CodingZone/ControllerCodeEditor" index="2" unique_id=807250339]
+[node name="CPUParticles2D" parent="World/CodingZone/ControllerCodeEditor" index="1" unique_id=807250339]
 position = Vector2(-18, 25)
 
 [node name="MovingPlatform4" parent="World/CodingZone/ControllerCodeEditor" unique_id=1864891226 instance=ExtResource("1_1k0hc")]

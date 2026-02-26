@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dtakxc6nj1gxy" path="res://assets/custom/panels/pause_panel.png" id="1_v5dk4"]
 [ext_resource type="Texture2D" uid="uid://tqi6dvwkgywd" path="res://assets/custom/pause_menu/pause_play_buton.png" id="2_jo6ex"]
 [ext_resource type="Texture2D" uid="uid://cnuucikky0umr" path="res://assets/custom/pause_menu/pause_exit_button.png" id="3_h3wej"]
+[ext_resource type="Texture2D" uid="uid://3y6wbvx2ic08" path="res://assets/custom/buttons/Play_button_wide/clicked/clicked_3.png" id="4_qpmux"]
+[ext_resource type="Texture2D" uid="uid://da2t78i1d153o" path="res://assets/custom/buttons/Play_button_wide/hover/hover_2.png" id="5_qpmux"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jo6ex"]
 texture = ExtResource("1_v5dk4")
@@ -12,7 +14,10 @@ texture = ExtResource("1_v5dk4")
 texture = ExtResource("2_jo6ex")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qpmux"]
-texture = ExtResource("2_jo6ex")
+texture = ExtResource("4_qpmux")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i4j2c"]
+texture = ExtResource("5_qpmux")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7efnt"]
 texture = ExtResource("3_h3wej")
@@ -59,7 +64,8 @@ offset_bottom = 31.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_h3wej")
-theme_override_styles/hover = SubResource("StyleBoxTexture_qpmux")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qpmux")
+theme_override_styles/hover = SubResource("StyleBoxTexture_i4j2c")
 
 [node name="ExitButton" type="Button" parent="." unique_id=1021620853]
 layout_mode = 0
