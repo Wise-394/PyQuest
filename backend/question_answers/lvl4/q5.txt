@@ -1,0 +1,3 @@
+power_ups = 6
+result = power_ups * 4
+print(result)

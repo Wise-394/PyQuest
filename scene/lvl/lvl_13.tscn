@@ -202,7 +202,7 @@ dialog = NodePath("DialogScene")
 dialog = ExtResource("12_8vjrh")
 
 [node name="Player" parent="." unique_id=1273697960 instance=ExtResource("2_gidax")]
-position = Vector2(1054, -197)
+position = Vector2(3, -257)
 collision_mask = 2
 
 [node name="Camera2D" parent="Player" unique_id=745443507 instance=ExtResource("3_mamcv")]

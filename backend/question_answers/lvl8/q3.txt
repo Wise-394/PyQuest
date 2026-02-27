@@ -1,0 +1,7 @@
+age = 15
+has_permission = True
+
+if (age >= 17 ) or (age >= 13 and has_permission):
+	print("Allowed")
+else:
+	print("Not allowed")

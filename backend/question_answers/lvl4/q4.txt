@@ -1,0 +1,3 @@
+cookies = 17
+result = cookies % 5
+print(result)

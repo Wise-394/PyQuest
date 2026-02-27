@@ -1,0 +1,3 @@
+coins = 10
+item_cost = 10
+print(coins >= item_cost)

@@ -1,0 +1,2 @@
+enemy_alive = False
+print(not enemy_alive)

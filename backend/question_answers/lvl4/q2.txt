@@ -1,0 +1,3 @@
+pizza_slices = 20
+pizza_slices /= 4
+print(pizza_slices)

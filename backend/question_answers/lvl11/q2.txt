@@ -1,0 +1,3 @@
+inventory = ['sword', 'shield', 'potion']
+inventory[0] = 'magic sword'
+print(inventory)

@@ -1,0 +1,3 @@
+    has_potion = False
+    knows_spell = True
+    print(has_potion or knows_spell)

@@ -1,0 +1,3 @@
+inventory = ['magic sword', 'shield', 'potion']
+inventory.remove('potion')
+print(inventory)

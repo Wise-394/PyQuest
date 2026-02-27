@@ -64,18 +64,6 @@ position = Vector2(-555, -87)
 
 [node name="spikes" type="Node" parent="World" unique_id=533993170]
 
-[node name="Spike" parent="World/spikes" unique_id=1229922838 instance=ExtResource("4_022cq")]
-position = Vector2(241, -481)
-
-[node name="Spike2" parent="World/spikes" unique_id=1361340898 instance=ExtResource("4_022cq")]
-position = Vector2(183, -481)
-
-[node name="Spike4" parent="World/spikes" unique_id=321381999 instance=ExtResource("4_022cq")]
-position = Vector2(110, -481)
-
-[node name="Spike3" parent="World/spikes" unique_id=853777018 instance=ExtResource("4_022cq")]
-position = Vector2(34, -481)
-
 [node name="Flag" parent="World" unique_id=1148486047 instance=ExtResource("4_02kt7")]
 position = Vector2(94, -749)
 level_to_go = "uid://c3eribs41wsms"

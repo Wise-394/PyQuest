@@ -1,0 +1,3 @@
+player1_score = 50
+player2_score = 55
+print(player1_score > player2_score)

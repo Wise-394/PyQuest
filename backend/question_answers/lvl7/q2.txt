@@ -1,0 +1,7 @@
+student_score = 75
+if student_score >= 90:
+	print("Excellent")
+elif student_score >= 70:
+	print("Good")
+else:
+	print("Need Improvement")

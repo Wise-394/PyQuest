@@ -1,0 +1,10 @@
+credit_score = 720
+income = 35000
+has_cosigner = False
+
+if credit_score >= 700 and income >= 30000:
+	print("Approved")
+elif has_cosigner and income >= 20000:
+	print("Approved")
+else:
+	print("Denied")

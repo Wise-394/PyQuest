@@ -1,0 +1,4 @@
+party = ('Knight', 'Wizard', 'Archer', 'Cleric')
+print(f'Party size: {len(party)}')
+for hero in party:
+	 print(hero)

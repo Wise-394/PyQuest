@@ -1,0 +1,4 @@
+inventory = ('sword', 'potion', 'shield')
+print(inventory[0])
+print(inventory[1])
+print(inventory[2])

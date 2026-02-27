@@ -1,0 +1,7 @@
+goal = 50
+saved = 0
+daily_save = 5
+
+while goal > saved:
+	saved += daily_save
+	print(saved)

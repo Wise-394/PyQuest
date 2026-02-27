@@ -1,0 +1,3 @@
+coin = 10 
+coin = coin + 1
+print(coin)

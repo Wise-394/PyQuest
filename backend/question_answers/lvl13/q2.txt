@@ -1,0 +1,6 @@
+collected = set()
+collected.add('crystal')
+collected.add('ruby')
+collected.add('crystal')
+collected.add('emerald')
+print(collected)

@@ -1,0 +1,3 @@
+boss_location = (150, 200, 5)
+x, y, floor = boss_location
+print(f'Dragon spotted at X: {x}, Y: {y}, Floor: {floor}')

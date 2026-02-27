@@ -1,0 +1,2 @@
+unique_items = {'coin', 'coin', 'gem', 'coin', 'gem', 'key'}
+print(unique_items)

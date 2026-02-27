@@ -1,0 +1,2 @@
+more_than_10 = 11
+print(more_than_10)
