@@ -1,0 +1,154 @@
+[gd_scene format=3 uid="uid://dpybocg1lgw3b"]
+
+[ext_resource type="Texture2D" uid="uid://hgdvc13hajif" path="res://assets/custom/panels/menu_panel.png" id="1_rp6ui"]
+[ext_resource type="Texture2D" uid="uid://caid2s3ktkdg8" path="res://assets/custom/buttons/green_back/green_back_button1.png" id="2_j26xn"]
+[ext_resource type="Texture2D" uid="uid://cgu1fljkph3ce" path="res://assets/custom/buttons/green_back/green_back_button2.png" id="3_oathw"]
+[ext_resource type="Texture2D" uid="uid://drlnm5ejeikfg" path="res://assets/custom/buttons/green_back/green_back_button3.png" id="4_j26xn"]
+[ext_resource type="Texture2D" uid="uid://b13lwtoq4ychv" path="res://assets/custom/panels/panel_normal.png" id="5_oathw"]
+[ext_resource type="Texture2D" uid="uid://bxmdsvikwhdwb" path="res://assets/custom/main_menu/play_button.png" id="5_vjett"]
+[ext_resource type="Texture2D" uid="uid://bgu3ltqq7j3ih" path="res://assets/custom/main_menu/play_button_pressed.png" id="6_oti8w"]
+[ext_resource type="Texture2D" uid="uid://h7brqx17gmkj" path="res://assets/custom/main_menu/play_button-hover.png" id="7_o6ac2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vjett"]
+texture = ExtResource("1_rp6ui")
+region_rect = Rect2(18, 16, 97, 94)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f3i86"]
+texture = ExtResource("2_j26xn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oti8w"]
+texture = ExtResource("3_oathw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oathw"]
+texture = ExtResource("4_j26xn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_afqv4"]
+texture = ExtResource("5_vjett")
+region_rect = Rect2(11, 10, 28, 29)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l2dm4"]
+texture = ExtResource("6_oti8w")
+region_rect = Rect2(11, 10, 28, 28)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f4bpi"]
+texture = ExtResource("7_o6ac2")
+region_rect = Rect2(11, 10, 28, 28)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o6ac2"]
+texture = ExtResource("5_oathw")
+region_rect = Rect2(2, 2, 70, 66)
+
+[node name="LevelInfo" type="Control" unique_id=1609743705]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1036079877]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 651.0
+color = Color(0, 0, 0, 0.27450982)
+
+[node name="Panel" type="Panel" parent="." unique_id=2066958740]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.0
+offset_top = -246.75
+offset_right = 196.0
+offset_bottom = 258.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_vjett")
+
+[node name="CloseButton" type="Button" parent="Panel" unique_id=1902502499]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 4.75
+offset_right = 54.0
+offset_bottom = 59.75
+theme_override_styles/normal = SubResource("StyleBoxTexture_f3i86")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_oti8w")
+theme_override_styles/hover = SubResource("StyleBoxTexture_oathw")
+
+[node name="PlayButton" type="Button" parent="Panel" unique_id=244244072]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 376.75
+offset_right = 238.0
+offset_bottom = 446.75
+theme_override_styles/normal = SubResource("StyleBoxTexture_afqv4")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_l2dm4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_f4bpi")
+
+[node name="LevelLabel" type="Label" parent="Panel" unique_id=708735850]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 50.75
+offset_right = 354.0
+offset_bottom = 84.75
+theme_override_colors/font_color = Color(0.8666667, 0.56078434, 0.38039216, 1)
+theme_override_colors/font_outline_color = Color(0.2, 0.19607843, 0.23921569, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "Level X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TitleLabel" type="Label" parent="Panel/LevelLabel" unique_id=1580142316]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 29.0
+offset_right = 298.0
+offset_bottom = 52.0
+theme_override_colors/font_color = Color(0.8666667, 0.56078434, 0.38039216, 1)
+theme_override_colors/font_outline_color = Color(0.2, 0.19607843, 0.23921569, 1)
+theme_override_constants/outline_size = 10
+text = "Level title"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighscoreLabel" type="Label" parent="Panel" unique_id=591004933]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 103.75
+offset_right = 120.0
+offset_bottom = 123.0
+theme_override_colors/font_color = Color(0.8666667, 0.56078434, 0.38039216, 1)
+theme_override_colors/font_outline_color = Color(0.2, 0.19607843, 0.23921569, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 12
+text = "highscore:"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel" unique_id=1331654731]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 125.5
+offset_right = 342.0
+offset_bottom = 372.5
+theme_override_styles/panel = SubResource("StyleBoxTexture_o6ac2")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/ScrollContainer" unique_id=1230275932]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/ScrollContainer/MarginContainer" unique_id=1847822690]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.8666667, 0.56078434, 0.38039216, 1)
+theme_override_colors/font_outline_color = Color(0.2, 0.19607843, 0.23921569, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 12
+theme_override_font_sizes/bold_italics_font_size = 12
+theme_override_font_sizes/italics_font_size = 12
+theme_override_font_sizes/mono_font_size = 12
+text = "in this tutorial you will learn how to print in python and how to declare variables"
+fit_content = true
