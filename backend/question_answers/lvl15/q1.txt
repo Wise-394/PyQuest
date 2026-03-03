@@ -1,0 +1,3 @@
+def greet_player(player_name):
+    print(f"Welcome, {player_name}!")
+greet_player('Hero')

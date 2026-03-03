@@ -1,0 +1,2 @@
+hero = {'health': 100, 'mana': 50, 'level': 5}
+print(hero['health'])

@@ -1,0 +1,3 @@
+backpack = {'sword': 1, 'shield': 1}
+backpack['map'] = 1
+print(backpack)

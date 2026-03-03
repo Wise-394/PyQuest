@@ -1,0 +1,10 @@
+class Car:
+     def __init__(self, brand, color):
+         self.brand = brand
+         self.color = color
+     
+     def describe(self):
+         return f'This is a {self.color} {self.brand}'
+     
+     def honk(self):
+         return f'The {self.brand} goes Beep beep!'

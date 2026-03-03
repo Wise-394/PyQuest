@@ -68,7 +68,7 @@ question_id = 3
 
 [node name="Flag" parent="world" unique_id=2043103909 instance=ExtResource("4_cigaq")]
 position = Vector2(1144, -477)
-level_to_go = "uid://di0sgrk2mvdre"
+level_to_go = "uid://buygvb44p0b3o"
 
 [node name="coin" type="Node" parent="world" unique_id=730064577]
 

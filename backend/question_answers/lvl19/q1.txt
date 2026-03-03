@@ -1,0 +1,22 @@
+class ScoreTracker:
+     def __init__(self):
+         self.scores = []
+     
+     def add_score(self, score):
+         self.scores.append(score)
+     
+     def get_total(self):
+         total = 0
+         for score in self.scores:
+             total += score
+         return total
+     
+     def get_average(self):
+         if len(self.scores) == 0:
+             return 0
+         return self.get_total() / len(self.scores)
+     
+     def get_highest(self):
+         if len(self.scores) == 0:
+             return 0
+         return max(self.scores)

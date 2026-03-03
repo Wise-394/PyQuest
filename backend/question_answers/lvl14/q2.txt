@@ -1,0 +1,3 @@
+inventory = {'potions': 3, 'arrows': 15}
+inventory['potions'] = 5
+print(inventory)

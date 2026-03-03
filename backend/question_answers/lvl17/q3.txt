@@ -1,0 +1,2 @@
+def create_profile(name, age=18, country='Unknown'):
+    return f'Name: {name}, Age: {age}, Country: {country}'

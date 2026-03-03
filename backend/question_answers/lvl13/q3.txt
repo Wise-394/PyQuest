@@ -1,3 +1,4 @@
-inventory = ['magic sword', 'shield']
-inventory.append('gold')
-print(inventory)
+player1 = {'sword', 'shield', 'potion'}
+player2 = {'potion', 'bow', 'arrow'}
+all_items = player1 | player2
+print(all_items)

@@ -1,0 +1,4 @@
+def is_strong_enough(player_level, boss_level):
+	return player_level >= boss_level 
+result = is_strong_enough(10, 8)
+print(result)

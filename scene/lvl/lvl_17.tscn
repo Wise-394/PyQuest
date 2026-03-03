@@ -55,7 +55,7 @@ question_id = 2
 
 [node name="Flag" parent="World" unique_id=1115285812 instance=ExtResource("3_rfyy4")]
 position = Vector2(410, -622)
-level_to_go = "uid://di0sgrk2mvdre"
+level_to_go = "uid://b27xiotpwwf7w"
 
 [node name="enemy" type="Node" parent="World" unique_id=510236583]
 

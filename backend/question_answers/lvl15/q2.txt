@@ -1,0 +1,4 @@
+def calculate_damage(base_damage, multiplier):
+	return base_damage * multiplier
+result = calculate_damage(20, 3)
+print(result)
