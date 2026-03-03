@@ -1,0 +1,21 @@
+[b]Welcome to PyQuest[/b]
+[i]Your adventure into the world of Python begins here.[/i]
+
+[hr]
+
+Welcome, brave coder! This is [b]Level 1[/b] — your introduction to PyQuest and the foundations of how the game works.
+
+In PyQuest, you wield the power of [b]real Python code[/b] to manipulate the world around you. Every puzzle, every challenge, every door you unlock — solved with code you write yourself.
+
+[b]In this level, you will:[/b]
+[ul]
+Learn the core gameplay mechanics of PyQuest
+Discover how Python code shapes and controls the world of PyQuest
+Write your [b]very first Python program[/b] [i](if you're new — welcome!)[/i]
+[/ul]
+
+[hr]
+
+[b]📖 New to Python?[/b]
+No worries! Check out the official Python documentation to get started:
+[color=#4FC3F7][url=https://wiki.python.org/moin/BeginnersGuide]→ Your First Steps in Python 🔗[/url][/color]

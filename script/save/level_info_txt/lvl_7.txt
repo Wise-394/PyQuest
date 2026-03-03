@@ -1,0 +1,20 @@
+[b]Decision Making I[/b]
+[i]A great coder does not just execute — they decide.[/i]
+
+[hr]
+
+[b]Conditional statements[/b] allow a program to execute different blocks of code based on whether a condition evaluates to [b]True[/b] or [b]False[/b]. This is the foundation of all decision-making logic in programming.
+
+In Python, the [b]if[/b] statement is the primary tool for controlling which code path is taken during execution.
+
+[b]In this level, you will:[/b]
+[ul]
+Write [b]if[/b] statements to execute code conditionally
+Use the [b]else[/b] clause to handle the alternative code path
+Understand how Python uses indentation to define code blocks
+[/ul]
+
+[hr]
+
+[b]📖 Struggling? We got you:[/b]
+[color=#4FC3F7][url=https://docs.python.org/3/tutorial/controlflow.html#if-statements]→ Python If Statements 🔗[/url][/color]

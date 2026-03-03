@@ -1,0 +1,18 @@
+[b]Variable Introduction[/b]
+[i]Every great adventure needs a place to store its secrets.[/i]
+
+[hr]
+
+In Python, a [b]variable[/b] is a named reference to a value stored in memory. Variables allow programs to store, retrieve, and manipulate data throughout execution.
+
+Python variables are [b]dynamically typed[/b], meaning you do not need to declare a type explicitly — Python infers it automatically based on the assigned value.
+
+[b]In this level, you will:[/b]
+[ul]
+Understand what variables are and how they work in memory
+[/ul]
+
+[hr]
+
+[b]📖 Struggling? We got you:[/b]
+[color=#4FC3F7][url=https://docs.python.org/3/tutorial/introduction.html]→ Python Variables 🔗[/url][/color]

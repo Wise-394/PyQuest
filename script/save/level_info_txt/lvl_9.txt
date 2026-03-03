@@ -1,0 +1,21 @@
+[b]Looping[/b]
+[i]Why do it once when Python can do it a thousand times?[/i]
+
+[hr]
+
+[b]Loops[/b] allow a program to execute a block of code repeatedly, either for a fixed number of iterations or as long as a condition remains true. They are one of the most powerful constructs in programming.
+
+Python provides two primary loop types: the [b]for[/b] loop for iterating over a sequence, and the [b]while[/b] loop for repeating based on a condition.
+
+[b]In this level, you will:[/b]
+[ul]
+Use a [b]for[/b] loop to iterate over a range or collection
+Use a [b]while[/b] loop to repeat code based on a condition
+Control loop execution using [b]break[/b] and [b]continue[/b]
+Understand the risk of infinite loops and how to avoid them
+[/ul]
+
+[hr]
+
+[b]📖 Struggling? We got you:[/b]
+[color=#4FC3F7][url=https://docs.python.org/3/tutorial/controlflow.html#for-statements]→ Python Loops 🔗[/url][/color]

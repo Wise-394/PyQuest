@@ -1,0 +1,19 @@
+[b]Arithmetic Operators[/b]
+[i]The power of numbers is now in your hands.[/i]
+
+[hr]
+
+[b]Arithmetic operators[/b] are symbols used to perform mathematical operations on numeric values. Python supports a full set of arithmetic operators that follow standard mathematical rules of precedence.
+
+Understanding how these operators work — including edge cases like integer division and modulo — is fundamental to writing correct numerical logic in any program.
+
+[b]In this level, you will:[/b]
+[ul]
+Apply the arithmetic operators: [b]+ - * / // % **[/b]
+Use the modulo operator [b]%[/b] to retrieve the remainder of a division
+[/ul]
+
+[hr]
+
+[b]📖 Struggling? We got you:[/b]
+[color=#4FC3F7][url=https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex]→ Python Numeric Types 🔗[/url][/color]

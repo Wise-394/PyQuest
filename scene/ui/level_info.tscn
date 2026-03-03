@@ -141,11 +141,12 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_o6ac2")
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel/ScrollContainer" unique_id=1230275932]
 layout_mode = 2
-theme_override_constants/margin_left = 25
+theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 15
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel/ScrollContainer/MarginContainer" unique_id=1847822690]
-custom_minimum_size = Vector2(280, 0)
+custom_minimum_size = Vector2(280, 220)
 layout_mode = 2
 theme_override_colors/default_color = Color(0.8666667, 0.56078434, 0.38039216, 1)
 theme_override_colors/font_outline_color = Color(0.2, 0.19607843, 0.23921569, 1)
@@ -157,7 +158,6 @@ theme_override_font_sizes/italics_font_size = 12
 theme_override_font_sizes/mono_font_size = 12
 bbcode_enabled = true
 text = "in this tutorial you will learn how to print in python and how to declare variables "
-fit_content = true
 
 [node name="LevelInfoData" type="Node" parent="." unique_id=517555327]
 script = ExtResource("10_afqv4")

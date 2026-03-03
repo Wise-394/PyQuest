@@ -1,0 +1,20 @@
+[b]Comparison Operators[/b]
+[i]To move forward, you must first learn to ask the right questions.[/i]
+
+[hr]
+
+[b]Comparison operators[/b] are used to evaluate the relationship between two values. Every comparison expression returns a [b]boolean[/b] result — either [b]True[/b] or [b]False[/b] — making them essential for controlling program flow.
+
+These operators form the foundation of conditional logic, which you will build upon in later levels.
+
+[b]In this level, you will:[/b]
+[ul]
+learn comparison operators: [b]== != > < >= <=[/b]
+Compare numeric values, strings, and variables
+Understand how comparison results integrate into decision-making logic
+[/ul]
+
+[hr]
+
+[b]📖 Struggling? We got you:[/b]
+[color=#4FC3F7][url=https://docs.python.org/3/library/stdtypes.html#comparisons]→ Python Comparisons 🔗[/url][/color]

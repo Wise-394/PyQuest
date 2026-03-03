@@ -1,0 +1,20 @@
+[b]Logical Operators[/b]
+[i]True or False — sometimes the answer is more complex than it seems.[/i]
+
+[hr]
+
+[b]Logical operators[/b] allow you to combine multiple boolean values or expressions into a single condition. They are fundamental to building complex decision-making logic in Python.
+
+Python provides three logical operators: [b]and[/b], [b]or[/b], and [b]not[/b]. Each follows well-defined rules of boolean logic that determine the final outcome of a condition.
+
+[b]In this level, you will:[/b]
+[ul]
+Use [b]and[/b] to check if multiple conditions are all true
+Use [b]or[/b] to check if at least one condition is true
+Use [b]not[/b] to invert the result of a boolean expression
+[/ul]
+
+[hr]
+
+[b]📖 Struggling? We got you:[/b]
+[color=#4FC3F7][url=https://docs.python.org/3/library/stdtypes.html#boolean-operations-and-or-not]→ Python Boolean Operations 🔗[/url][/color]

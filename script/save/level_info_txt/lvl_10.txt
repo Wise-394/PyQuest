@@ -1,0 +1,22 @@
+[b]Boss Fight[/b]
+[i]Everything you have learned has led to this moment.[/i]
+
+[hr]
+
+The [b]Boss[/b] stands before you, brave coder. This is no ordinary level — it is a [b]test of everything[/b] you have mastered so far.
+
+There are no new concepts here. Only your knowledge, your logic, and your code. The Boss will challenge you with problems that demand the full use of your skills — from variables and data types, all the way to loops and decision making.
+
+[b]You are expected to know:[/b]
+[ul]
+Variables and Data Types
+Arithmetic, Comparison, and Logical Operators
+Decision Making with [b]if[/b], [b]elif[/b], and [b]else[/b]
+Looping with [b]for[/b] and [b]while[/b]
+[/ul]
+
+[hr]
+
+[b]⚔️ There is no documentation that can save you now.[/b]
+[i]Not sure you're ready? Review the past levels before stepping into battle.[/i]
+[i]Trust your code. Trust yourself. Good luck.[/i]

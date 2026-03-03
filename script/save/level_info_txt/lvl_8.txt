@@ -1,0 +1,21 @@
+[b]Decision Making II[/b]
+[i]When one condition is not enough.[/i]
+
+[hr]
+
+Building upon the [b]if[/b] statement, Python provides the [b]elif[/b] clause to handle multiple distinct conditions in sequence. This allows programs to evaluate several possibilities and respond accordingly.
+
+In this level, conditions will also make use of [b]logical[/b] and [b]comparison operators[/b] together within if statements, reflecting how real programs combine these tools to build precise decision logic.
+
+[b]In this level, you will:[/b]
+[ul]
+Use [b]elif[/b] to evaluate multiple conditions in sequence
+Construct multi-branch conditional structures using [b]if[/b], [b]elif[/b], and [b]else[/b]
+Combine [b]logical[/b] and [b]comparison operators[/b] within conditions
+Understand the order of evaluation and why condition order matters
+[/ul]
+
+[hr]
+
+[b]📖 Struggling? We got you:[/b]
+[color=#4FC3F7][url=https://docs.python.org/3/tutorial/controlflow.html#if-statements]→ Python Control Flow 🔗[/url][/color]

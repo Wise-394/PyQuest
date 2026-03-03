@@ -1,0 +1,19 @@
+[b]Variable Declaration and Data Types[/b]
+[i]Not all treasures are the same — and neither is your data.[/i]
+
+[hr]
+
+Python supports several built-in [b]data types[/b] that define the kind of value a variable holds. Choosing the correct data type is essential for writing accurate and efficient programs.
+
+The four fundamental data types in Python are [b]int[/b] (whole numbers), [b]float[/b] (decimal numbers), [b]str[/b] (text), and [b]bool[/b] (True or False).
+
+[b]In this level, you will:[/b]
+[ul]
+Declare variables using Python's core data types
+Identify the difference between [b]int[/b], [b]float[/b], [b]str[/b], and [b]bool[/b]
+[/ul]
+
+[hr]
+
+[b]📖 Struggling? We got you:[/b]
+[color=#4FC3F7][url=https://docs.python.org/3/library/stdtypes.html]→ Python Built-in Types 🔗[/url][/color]
