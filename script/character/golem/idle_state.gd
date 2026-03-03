@@ -53,4 +53,6 @@ func exit():
 	timer.stop()
 	
 func _on_timer_timeout() -> void:
+	if not character.is_alive:
+		return
 	state_machine.change_state("movestate")
