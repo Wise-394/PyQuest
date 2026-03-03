@@ -1,0 +1,19 @@
+[b]Class[/b]
+[i] now it's time to create your own class.[/i]
+
+[hr]
+
+A [b]class[/b] is a blueprint for creating objects. It is the foundation of [b]Object-Oriented Programming (OOP)[/b] in Python. Classes allow you to bundle data and behavior together into a single, reusable structure.
+
+Understanding classes is a major milestone in your journey as a Python developer.
+
+[b]In this level, you will:[/b]
+[ul]
+Define a class using the [b]class[/b] keyword
+Define and use the [b]__init__[/b] method to initialize object attributes
+[/ul]
+
+[hr]
+
+[b]📖 Struggling? We got you:[/b]
+[color=#4FC3F7][url=https://docs.python.org/3/tutorial/classes.html]→ Python Classes 🔗[/url][/color]

@@ -1,0 +1,3 @@
+inventory = ['magic sword', 'shield']
+inventory.append('gold')
+print(inventory)

@@ -1,0 +1,19 @@
+[b]Dictionary[/b]
+[i]Every answer has a key — you just need to know where to look.[/i]
+
+[hr]
+
+A [b]dictionary[/b] is an unordered collection of [b]key-value pairs[/b] in Python. Instead of accessing data by index, dictionaries allow you to retrieve values using a unique [b]key[/b] — making data lookup fast and intuitive.
+
+Dictionaries are one of the most widely used data structures in real-world Python programs.
+
+[b]In this level, you will:[/b]
+[ul]
+Create dictionaries using curly braces [b]{}[/b] with key-value pairs
+Access, add, update, and remove entries using keys
+[/ul]
+
+[hr]
+
+[b]📖 Struggling? We got you:[/b]
+[color=#4FC3F7][url=https://docs.python.org/3/tutorial/datastructures.html#dictionaries]→ Python Dictionaries 🔗[/url][/color]

@@ -1,0 +1,19 @@
+[b]Set[/b]
+[i]No duplicates. No order. Just unique values.[/i]
+
+[hr]
+
+A [b]set[/b] is an unordered collection of [b]unique[/b] items in Python. Sets automatically eliminate duplicate values, making them the ideal data structure when uniqueness is a requirement.
+
+Unlike lists and tuples, sets have no defined order and cannot be accessed by index.
+
+[b]In this level, you will:[/b]
+[ul]
+Create sets using curly braces [b]{}[/b]
+Understand that sets do not allow duplicate values
+[/ul]
+
+[hr]
+
+[b]📖 Struggling? We got you:[/b]
+[color=#4FC3F7][url=https://docs.python.org/3/tutorial/datastructures.html#sets]→ Python Sets 🔗[/url][/color]

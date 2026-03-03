@@ -1,0 +1,21 @@
+[b]Final Boss[/b]
+[i]You have come a long way, brave coder. Now prove it.[/i]
+
+[hr]
+
+The [b]Final Boss[/b] awaits. This is the ultimate test of everything you have learned since Level 11 — a battle that will demand mastery over Python's most powerful data structures and programming concepts.
+
+There are no hints. No shortcuts. Only your code stands between you and victory.
+
+[b]You are expected to know:[/b]
+[ul]
+Lists, Tuples, Sets, and Dictionaries
+Function, Default Parameters, and Scope
+Classes
+[/ul]
+
+[hr]
+
+[b]⚔️ This is your final stand.[/b]
+[i]Not confident? Review Levels 11 through 19 before stepping into battle.[/i]
+[i]Trust your code. Trust yourself. Good luck.[/i]

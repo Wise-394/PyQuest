@@ -1,0 +1,7 @@
+[b]Class II[/b]
+
+
+[hr]
+
+Building on your understanding of classes, this level introduces more advance way of using classes
+[hr]

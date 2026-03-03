@@ -1,0 +1,21 @@
+[b]Function Basics[/b]
+[i]Write it once. Use it anywhere.[/i]
+
+[hr]
+
+A [b]function[/b] is a reusable block of code that performs a specific task. Instead of writing the same logic repeatedly, functions allow you to define it once and call it whenever needed — making your code cleaner, shorter, and easier to maintain.
+
+Functions are one of the most fundamental building blocks of structured programming in Python.
+
+[b]In this level, you will:[/b]
+[ul]
+Define functions using the [b]def[/b] keyword
+Pass data into functions using [b]parameters[/b]
+Return values from functions using the [b]return[/b] statement
+Call functions and use their returned values in your program
+[/ul]
+
+[hr]
+
+[b]📖 Struggling? We got you:[/b]
+[color=#4FC3F7][url=https://docs.python.org/3/tutorial/controlflow.html#defining-functions]→ Python Functions 🔗[/url][/color]

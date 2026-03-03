@@ -11,12 +11,15 @@
 [ext_resource type="PackedScene" uid="uid://d00fronllv71j" path="res://scene/world/coin.tscn" id="9_lvwm4"]
 [ext_resource type="PackedScene" uid="uid://bnhiv8qcc5ro5" path="res://scene/character/player.tscn" id="12_qgih8"]
 [ext_resource type="PackedScene" uid="uid://dc7ihfcrpl10v" path="res://scene/world/camera.tscn" id="13_2xy76"]
+[ext_resource type="PackedScene" uid="uid://7am8ralce3gf" path="res://scene/dialog_node/dialog.tscn" id="13_hsl7t"]
+[ext_resource type="Resource" uid="uid://b7umm8sklau0g" path="res://dialog/tuple.dialogue" id="14_02kt7"]
 [ext_resource type="PackedScene" uid="uid://c8mm1rrfpibeu" path="res://scene/ui/zone_remaining.tscn" id="14_ovhk5"]
 [ext_resource type="PackedScene" uid="uid://44hfsfdoy30p" path="res://scene/character/healthbar.tscn" id="15_qb6f1"]
 [ext_resource type="PackedScene" uid="uid://bn1njb5nuubl" path="res://scene/ui/points_label_level.tscn" id="16_fw7fe"]
 [ext_resource type="PackedScene" uid="uid://dl7srt6thlc11" path="res://scene/ui/coin_container.tscn" id="16_kmmdu"]
 [ext_resource type="PackedScene" uid="uid://lg4gs88e7o62" path="res://scene/ui/pause_button.tscn" id="17_exysk"]
 [ext_resource type="PackedScene" uid="uid://chv6oqvx3a4j8" path="res://scene/world/parallax_bg.tscn" id="18_ll3s8"]
+[ext_resource type="PackedScene" uid="uid://b4v1ihuy8lse3" path="res://scene/character/starfish.tscn" id="18_ysjal"]
 
 [node name="lvl_12" type="Node" unique_id=1146773614]
 
@@ -147,6 +150,13 @@ collision_mask = 2
 
 [node name="Camera2D" parent="Player" unique_id=1883253506 instance=ExtResource("13_2xy76")]
 position = Vector2(94, -61)
+
+[node name="Starfish" parent="." unique_id=479389174 node_paths=PackedStringArray("dialog") instance=ExtResource("18_ysjal")]
+position = Vector2(-315, -237)
+dialog = NodePath("DialogScene")
+
+[node name="DialogScene" parent="Starfish" unique_id=2045005616 instance=ExtResource("13_hsl7t")]
+dialog = ExtResource("14_02kt7")
 
 [node name="UI" type="Node" parent="." unique_id=1857406632]
 

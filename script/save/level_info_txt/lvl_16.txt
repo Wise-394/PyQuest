@@ -1,0 +1,17 @@
+[b]Function Basics II[/b]
+[i]Your functions are growing stronger.[/i]
+
+[hr]
+
+With the foundation of functions established, this level dives deeper into how functions can be made more flexible and powerful. Python offers several ways to define and call functions beyond the basics — and mastering them will make your code significantly more expressive.
+
+[b]In this level, you will:[/b]
+[ul]
+Define functions with [b]default parameter values[/b]
+More advance functions
+[/ul]
+
+[hr]
+
+[b]📖 Struggling? We got you:[/b]
+[color=#4FC3F7][url=https://docs.python.org/3/tutorial/controlflow.html#more-on-defining-functions]→ Python Functions — Going Further 🔗[/url][/color]

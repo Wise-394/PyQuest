@@ -54,52 +54,52 @@ const levels: Array[Dictionary] = [
 	},
 	{
 		"level": 11,
-		"title": "",
-		"description_file": ""
+		"title": "List",
+		"description_file": "script/save/level_info_txt/lvl_11.txt"
 	},
 	{
 		"level": 12,
-		"title": "",
-		"description_file": ""
+		"title": "Tuple",
+		"description_file": "script/save/level_info_txt/lvl_12.txt"
 	},
 	{
 		"level": 13,
-		"title": "",
-		"description_file": ""
+		"title": "Set",
+		"description_file": "script/save/level_info_txt/lvl_13.txt"
 	},
 	{
 		"level": 14,
-		"title": "",
-		"description_file": ""
+		"title": "Dictionary",
+		"description_file": "script/save/level_info_txt/lvl_14.txt"
 	},
 	{
 		"level": 15,
-		"title": "",
-		"description_file": ""
+		"title": "Function Basics I",
+		"description_file": "script/save/level_info_txt/lvl_15.txt"
 	},
 	{
-		"level": 16,
-		"title": "",
-		"description_file": ""
-	},
+	"level": 16,
+	"title": "Function Basics II",
+	"description_file": "script/save/level_info_txt/lvl_16.txt"
+},
 	{
 		"level": 17,
-		"title": "",
-		"description_file": ""
+		"title": "Function Advance",
+		"description_file": "script/save/level_info_txt/lvl_17.txt"
 	},
 	{
 		"level": 18,
-		"title": "",
-		"description_file": ""
+		"title": "Class",
+		"description_file": "script/save/level_info_txt/lvl_18.txt"
 	},
 	{
 		"level": 19,
-		"title": "",
-		"description_file": ""
+		"title": "Class II",
+		"description_file": "script/save/level_info_txt/lvl_19.txt"
 	},
 	{
-		"level": 20,
-		"title": "",
-		"description_file": ""
-	},
+	"level": 20,
+	"title": "Final Boss",
+	"description_file": "script/save/level_info_txt/lvl_20.txt"
+},
 ]

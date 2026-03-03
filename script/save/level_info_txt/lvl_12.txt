@@ -1,0 +1,20 @@
+[b]Tuple[/b]
+[i]Some things are meant to stay the way they are.[/i]
+
+[hr]
+
+A [b]tuple[/b] is an ordered, [b]immutable[/b] collection of items in Python. Once a tuple is created, its contents cannot be changed. This makes tuples ideal for storing data that should remain constant throughout a program's execution.
+
+While similar to lists, tuples are faster and signal to other developers that the data is not meant to be modified.
+
+[b]In this level, you will:[/b]
+[ul]
+Create tuples using parentheses [b]()[/b]
+Access tuple items using their [b]index[/b]
+Understand the difference between a [b]tuple[/b] and a [b]list[/b]
+[/ul]
+
+[hr]
+
+[b]📖 Struggling? We got you:[/b]
+[color=#4FC3F7][url=https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences]→ Python Tuples 🔗[/url][/color]
