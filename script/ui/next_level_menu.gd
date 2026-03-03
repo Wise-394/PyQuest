@@ -24,13 +24,16 @@ func save() -> void:
 		SaveLoad.data["coins"] = int(coin_label.text)
 	else:
 		push_warning("CoinLabel not found, coins not saved")
-
 	if level_to_go != "":
 		level = get_level_number_from_path(level_to_go)
-
 		if level != -1 and SaveLoad.data["highest_unlocked_level"] <= level:
 			SaveLoad.data["highest_unlocked_level"] = level
-
+	# Save highscore for current level
+	var lp: Dictionary = SaveLoad.data.get("level_points", {})
+	var key := str(SaveLoad.current_level)
+	if SaveLoad.current_lvl_pts > lp.get(key, 0):
+		lp[key] = SaveLoad.current_lvl_pts
+		SaveLoad.data["level_points"] = lp
 	SaveLoad.current_lvl_pts = 0
 	SaveLoad.save_slot()
 

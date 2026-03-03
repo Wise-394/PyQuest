@@ -10,7 +10,8 @@ var level: int = 0
 func _ready() -> void:
 	description_label.meta_clicked.connect(_on_meta_clicked)
 	level_label.text = "Level " + str(level)
-	
+	var level_points: Dictionary = SaveLoad.data.get("level_points", {})
+	highscore_label.text = "HighScore: " + "%03d" % level_points.get(str(level), 0)
 	for lvl_data in LevelList.levels:
 		if lvl_data["level"] == level:
 			title_label.text = lvl_data["title"]
