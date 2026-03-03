@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://d0dnswl2gb57o"]
+
+[ext_resource type="Script" uid="uid://1gybe5lxev3d" path="res://multiplayer/script/multiplayer_menu.gd" id="1_cy1ad"]
+
+[node name="MultiplayerMenu" type="Control" unique_id=260196505]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cy1ad")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=983232075]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.5
+offset_top = -33.0
+offset_right = 28.5
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HostButtton" type="Button" parent="VBoxContainer" unique_id=386437571]
+layout_mode = 2
+text = "Host"
+
+[node name="PlayerButton" type="Button" parent="VBoxContainer" unique_id=1987574742]
+layout_mode = 2
+text = "Player"
+
+[connection signal="pressed" from="VBoxContainer/HostButtton" to="." method="_on_host_buttton_pressed"]
+[connection signal="pressed" from="VBoxContainer/PlayerButton" to="." method="_on_player_button_pressed"]
