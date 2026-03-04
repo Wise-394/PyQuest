@@ -71,3 +71,4 @@ offset_bottom = 632.0
 text = "Done"
 
 [connection signal="pressed" from="Panel/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="Panel/SubmitButton" to="." method="_on_submit_button_pressed"]

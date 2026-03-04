@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://cap3qf64xh41v"]
+
+[ext_resource type="Texture2D" uid="uid://b0byo7le6na22" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Big Map/Idle/01.png" id="1_dtr68"]
+[ext_resource type="Texture2D" uid="uid://bf2vcqwrxy01" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Big Map/Idle/02.png" id="2_80kut"]
+[ext_resource type="Texture2D" uid="uid://y8ytdrrtuumc" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Big Map/Idle/03.png" id="3_rmshe"]
+[ext_resource type="Texture2D" uid="uid://bfemp6itbvwi5" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Big Map/Idle/04.png" id="4_4heij"]
+[ext_resource type="Texture2D" uid="uid://chfxobctucma2" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Big Map/Idle/05.png" id="5_frb0a"]
+[ext_resource type="Texture2D" uid="uid://b2e0jyo6xxgyd" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Big Map/Idle/06.png" id="6_14gic"]
+[ext_resource type="Texture2D" uid="uid://c7ekakomlisoo" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Big Map/Idle/07.png" id="7_1x3jr"]
+[ext_resource type="Texture2D" uid="uid://k5cvtddj0cbw" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Big Map/Idle/08.png" id="8_t1cuf"]
+[ext_resource type="Texture2D" uid="uid://c8lwf13q8ykji" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Big Map/Idle/09.png" id="9_jdvg6"]
+[ext_resource type="Texture2D" uid="uid://dmcptaadl5c4j" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Big Map/Idle/10.png" id="10_x67jx"]
+[ext_resource type="Texture2D" uid="uid://bsuiledmdhlow" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Big Map/Idle/11.png" id="11_mn7u4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fn8t6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dtr68")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_80kut")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rmshe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4heij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_frb0a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_14gic")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_1x3jr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_t1cuf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_jdvg6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_x67jx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_mn7u4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gp4ep"]
+size = Vector2(38, 33)
+
+[node name="QuestionNote" type="Area2D" unique_id=670953146]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1289782620]
+sprite_frames = SubResource("SpriteFrames_fn8t6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2029250659]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_gp4ep")

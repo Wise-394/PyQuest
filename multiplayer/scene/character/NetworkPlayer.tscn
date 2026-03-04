@@ -27,6 +27,7 @@ properties/3/spawn = true
 properties/3/replication_mode = 1
 
 [node name="NetworkPlayer" type="CharacterBody2D" unique_id=2045112857]
+z_index = 99
 collision_mask = 2
 script = ExtResource("1_oinre")
 
