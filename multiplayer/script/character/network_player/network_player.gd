@@ -14,6 +14,10 @@ extends CharacterBody2D
 @onready var hurtbox = $HurtBox
 @onready var username_label = $UserName
 @onready var camera = $Camera2D
+
+# ───────────────────────────── STATE ─────────────────────────────
+var is_question_discovered = false
+
 # ───────────────────────────── lifecycle ─────────────────────────────
 func _ready() -> void:
 	var is_local := is_multiplayer_authority()
