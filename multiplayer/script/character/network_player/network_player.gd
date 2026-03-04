@@ -7,13 +7,17 @@ const GRAVITY    := 980.0
 
 # ─── Node References ─────────────────────────────────────
 @onready var camera: Camera2D = $Camera2D
+@onready var username_label := $UserName
 
 # ─── Lifecycle ───────────────────────────────────────────
 func _ready() -> void:
-	var is_local := str(multiplayer.get_unique_id()) == name
+	var is_local := is_multiplayer_authority()
 	camera.enabled = is_local
 	set_physics_process(is_local)
 
+	var player_id := get_multiplayer_authority()
+	username_label.text = "Player " + str(player_id)
+	
 func _physics_process(delta: float) -> void:
 	_apply_gravity(delta)
 	_handle_movement()
