@@ -5,7 +5,7 @@ const BROADCAST_PORT     := 9999
 const BROADCAST_INTERVAL := 1.5
 const GAME_PORT          := 7777
 const SERVER_NAME        := "LAN Game"
-const GAME_SCENE         := "res://scenes/Game.tscn"
+const GAME_SCENE         := "res://multiplayer/scene/world/game_world.tscn"
 
 # ─── State ───────────────────────────────────────────────
 var udp             := PacketPeerUDP.new()
@@ -51,9 +51,8 @@ func _setup_as_host() -> void:
 	start_button.visible = true
 	udp.set_broadcast_enabled(true)
 	udp.bind(0)
-	print("Host broadcast started")
 
-# ─── setup as client ─────────────────────────────────────
+# ─── Setup as client ─────────────────────────────────────
 func _setup_as_client() -> void:
 	status_label.text = "Waiting for host to start..."
 	start_button.visible = false
@@ -62,14 +61,13 @@ func _setup_as_client() -> void:
 func _on_host_disconnected() -> void:
 	multiplayer.multiplayer_peer = null
 	udp.close()
-	get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
+	get_tree().change_scene_to_file("res://multiplayer/scene/multiplayer_menu.tscn")
 
 # ─── Broadcasting ─────────────────────────────────────────
 func _send_broadcast() -> void:
 	var data := JSON.stringify({ "name": SERVER_NAME, "port": GAME_PORT })
 	udp.set_dest_address("255.255.255.255", BROADCAST_PORT)
 	udp.put_packet(data.to_utf8_buffer())
-	print("Broadcasting...")
 
 # ─── Player List ─────────────────────────────────────────
 func _refresh_player_list() -> void:
@@ -100,8 +98,7 @@ func _on_peer_disconnected(id: int) -> void:
 
 # ─── Callbacks ───────────────────────────────────────────
 func _on_start_pressed() -> void:
-	rpc("_load_game")
-	_load_game()
+	_load_game.rpc()
 
 func _on_leave_pressed() -> void:
 	multiplayer.multiplayer_peer = null
