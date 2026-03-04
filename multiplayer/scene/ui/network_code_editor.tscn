@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dgm4twh0r5ljg"]
 
 [ext_resource type="Script" uid="uid://x5o0de18q6vy" path="res://script/ui/panel.gd" id="1_gn2qh"]
+[ext_resource type="Script" uid="uid://hh7g1ua3kfxv" path="res://multiplayer/script/ui/network_code_editor.gd" id="1_whoag"]
 
 [sub_resource type="CodeHighlighter" id="CodeHighlighter_gn2qh"]
 number_color = Color(1, 0.72156864, 0.42352942, 1)
@@ -24,6 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_whoag")
 
 [node name="Panel" type="Panel" parent="." unique_id=388479054]
 layout_mode = 0
@@ -98,3 +100,5 @@ offset_bottom = 594.0
 custom_minimum_size = Vector2(390, 75)
 layout_mode = 2
 text = "make an odd even function"
+
+[connection signal="pressed" from="Panel/CloseButton" to="." method="_on_close_button_pressed"]

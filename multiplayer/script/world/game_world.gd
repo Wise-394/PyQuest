@@ -49,9 +49,15 @@ func _spawn_player(id: int, spawn_index: int) -> void:
 
 # ─── Game State ──────────────────────────────────────────
 func set_question(question: String, points: String) -> void:
+	_sync_question.rpc(question, points)
+
+@rpc("authority", "call_local")
+func _sync_question(question: String, points: String) -> void:
 	question_object["question_string"]   = question
 	question_object["completion_points"] = points
-	change_state.rpc(game_state.ROUND_START as int)
+	# only host triggers the state change
+	if multiplayer.is_server():
+		change_state.rpc(game_state.ROUND_START as int)
 
 @rpc("authority", "call_local")
 func change_state(state: int) -> void:

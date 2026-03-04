@@ -14,17 +14,17 @@ extends CharacterBody2D
 @onready var hurtbox = $HurtBox
 @onready var username_label = $UserName
 @onready var camera = $Camera2D
-
+@onready var interact = $Interact
 # ───────────────────────────── STATE ─────────────────────────────
 var is_question_discovered = false
-
+var is_question_submitted = false
 # ───────────────────────────── lifecycle ─────────────────────────────
 func _ready() -> void:
 	var is_local := is_multiplayer_authority()
 	state_machine.set_process(is_local)
 	state_machine.set_physics_process(is_local)
 	state_machine.set_process_input(is_local)
-	
+	interact.visible = false
 	camera.enabled = is_local
 	if is_local:
 		_initialize_state_machine()
@@ -37,6 +37,10 @@ func _ready() -> void:
 
 
 # ───────────────────────────── misc ──────────────────────────────────
+func question_discovered(val: bool) -> void:
+	is_question_discovered = val
+	interact.visible = is_multiplayer_authority() and is_question_discovered
+	
 func _initialize_state_machine() -> void:
 	if state_machine and state_machine.initial_state:
 		state_machine.change_state(state_machine.initial_state.name.to_lower())
