@@ -2,6 +2,8 @@
 
 [ext_resource type="TileSet" uid="uid://d1yxhu13jwkq3" path="res://tileset/island.tres" id="1_64l5r"]
 [ext_resource type="Script" uid="uid://oeirepe4fydi" path="res://multiplayer/script/world/game_world.gd" id="1_dxk4j"]
+[ext_resource type="PackedScene" uid="uid://chv6oqvx3a4j8" path="res://scene/world/parallax_bg.tscn" id="3_nfdc0"]
+[ext_resource type="PackedScene" uid="uid://dwxnjjqk3thwg" path="res://multiplayer/scene/ui/question_maker_opener.tscn" id="3_ywjpb"]
 
 [node name="GameWorld" type="Node2D" unique_id=1095814408]
 script = ExtResource("1_dxk4j")
@@ -20,3 +22,13 @@ position = Vector2(723, 133)
 position = Vector2(169, 132)
 
 [node name="Players" type="Node2D" parent="." unique_id=1105604417]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1606892325]
+
+[node name="QuestionMakerOpener" parent="CanvasLayer" unique_id=500172943 instance=ExtResource("3_ywjpb")]
+offset_left = 1110.0
+offset_top = 606.0
+offset_right = 1145.0
+offset_bottom = 637.0
+
+[node name="parallax_bg" parent="." unique_id=239915655 instance=ExtResource("3_nfdc0")]

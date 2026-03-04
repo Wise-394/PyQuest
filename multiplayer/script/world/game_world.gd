@@ -7,6 +7,16 @@ const PLAYER_SCENE := preload("res://multiplayer/scene/character/NetworkPlayer.t
 @onready var players_node : Node2D = $Players
 @onready var spawn_points : Node2D = $SpawnPoints
 
+
+# ─── STATE ───────────────────────────────────────────────
+enum game_state {
+	PREQUESTION, 
+	MAKING_QUESTION, 
+	POST_QUESTION, 
+}
+
+var current_state := game_state.PREQUESTION
+
 # ─── Lifecycle ───────────────────────────────────────────
 func _ready() -> void:
 	if multiplayer.is_server():

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dwxnjjqk3thwg"]
+
+[ext_resource type="Script" uid="uid://dj38k7pf0jrvc" path="res://multiplayer/script/ui/question_maker_opener.gd" id="1_7n0ga"]
+
+[node name="QuestionMakerOpener" type="Button" unique_id=500172943]
+offset_right = 35.0
+offset_bottom = 31.0
+text = "O"
+script = ExtResource("1_7n0ga")

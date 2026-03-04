@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dngc0av1yrpyr" path="res://multiplayer/script/character/network_player/move_state.gd" id="5_b5j72"]
 [ext_resource type="Script" uid="uid://bxts5dg3a081q" path="res://multiplayer/script/character/network_player/falling_state.gd" id="6_n8k3t"]
 [ext_resource type="Script" uid="uid://cg0yvhfh57p0a" path="res://multiplayer/script/character/network_player/jump_state.gd" id="7_osucx"]
+[ext_resource type="Script" uid="uid://b781c2nam2ej3" path="res://multiplayer/script/character/network_player/pause_state.gd" id="8_lphl1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w8xri"]
 size = Vector2(23, 28)
@@ -30,6 +31,7 @@ collision_mask = 2
 script = ExtResource("1_oinre")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2091581672]
+position = Vector2(1, -66)
 enabled = false
 zoom = Vector2(2, 2)
 
@@ -71,3 +73,6 @@ script = ExtResource("6_n8k3t")
 
 [node name="JumpState" type="Node" parent="FSM" unique_id=1622416344]
 script = ExtResource("7_osucx")
+
+[node name="PauseState" type="Node" parent="FSM" unique_id=1564381517]
+script = ExtResource("8_lphl1")

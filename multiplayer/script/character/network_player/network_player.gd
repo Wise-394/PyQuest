@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export_group("Movement")
 @export var speed: float = 250
-@export var air_speed: float = 350
+@export var air_speed: float = 300
 @export var jump_strength: float = 400
 @export_group("Physics")
 @export var gravity: float = 1000
@@ -22,11 +22,15 @@ func _ready() -> void:
 	state_machine.set_process_input(is_local)
 	
 	camera.enabled = is_local
-
 	if is_local:
 		_initialize_state_machine()
 
-	username_label.text = "Player " + str(get_multiplayer_authority())
+	var id := get_multiplayer_authority()
+	if id == 1:
+		username_label.text = "Player " + str(id) + " [Host]"
+	else:
+		username_label.text = "Player " + str(id)
+
 
 # ───────────────────────────── misc ──────────────────────────────────
 func _initialize_state_machine() -> void:
