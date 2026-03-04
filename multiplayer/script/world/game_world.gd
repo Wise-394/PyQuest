@@ -25,11 +25,13 @@ func _spawn_all_players() -> void:
 func _spawn_player(id: int, spawn_index: int) -> void:
 	if players_node.has_node(str(id)):
 		return
-	var player      := PLAYER_SCENE.instantiate()
-	player.name      = str(id)
-	player.position  = spawn_points.get_child(spawn_index).position
-	player.set_multiplayer_authority(id)  # ← add this line
+	var player     := PLAYER_SCENE.instantiate()
+	player.name     = str(id)
+	player.position = spawn_points.get_child(spawn_index).position
+	player.set_multiplayer_authority(id)
 	players_node.add_child(player)
+	
+
 
 # ─── Peer Events ─────────────────────────────────────────
 func _on_peer_disconnected(id: int) -> void:

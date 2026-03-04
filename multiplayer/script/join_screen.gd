@@ -100,4 +100,4 @@ func _on_server_selected(server: Dictionary) -> void:
 
 func _on_back_pressed() -> void:
 	udp.close()
-	get_tree().change_scene_to_file("res://multiplayer/scene/lobby.tscn")
+	get_tree().change_scene_to_file("res://multiplayer/scene/multiplayer_menu.tscn")

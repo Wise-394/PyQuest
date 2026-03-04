@@ -12,13 +12,11 @@ func physics_update(_delta):
 
 
 func handle_input(_event):
-	if Input.is_action_just_pressed("jump") and character.is_on_floor():
+	if Input.is_action_just_pressed("jump"):
 		state_machine.change_state("jumpstate")
 	if Input.is_action_just_pressed("move_down") and character.is_on_floor():
 		character.position.y += 1
 		state_machine.change_state("fallingstate")
-	if Input.is_action_just_pressed("attack"):
-		state_machine.change_state("attackingstate")
 
 # ============================
 #     SUB FUNCTIONS
@@ -35,7 +33,7 @@ func _handle_movement_input():
 	var direction = Input.get_axis("move_left", "move_right")
 
 	if direction != 0:
-		state_machine.change_state("walkstate")
+		state_machine.change_state("movestate")
 		return
 	
 
