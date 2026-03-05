@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://x5o0de18q6vy" path="res://script/ui/panel.gd" id="1_gn2qh"]
 [ext_resource type="Script" uid="uid://hh7g1ua3kfxv" path="res://multiplayer/script/ui/network_code_editor.gd" id="1_whoag"]
+[ext_resource type="Script" uid="uid://mseysf2g3icb" path="res://multiplayer/script/backend/code_runner.gd" id="3_6ic7x"]
 
 [sub_resource type="CodeHighlighter" id="CodeHighlighter_gn2qh"]
 number_color = Color(1, 0.72156864, 0.42352942, 1)
@@ -69,7 +70,7 @@ offset_right = 432.0
 offset_bottom = 633.0
 text = "Submit"
 
-[node name="SubmitButton2" type="Button" parent="Panel" unique_id=1826394153]
+[node name="RunButton" type="Button" parent="Panel" unique_id=1826394153]
 layout_mode = 0
 offset_left = 23.0
 offset_top = 589.0
@@ -101,4 +102,10 @@ custom_minimum_size = Vector2(390, 75)
 layout_mode = 2
 text = "make an odd even function"
 
+[node name="CodeRunner" type="Node" parent="." unique_id=448573079]
+script = ExtResource("3_6ic7x")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="CodeRunner" unique_id=780556326]
+
 [connection signal="pressed" from="Panel/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="Panel/RunButton" to="." method="_on_run_button_pressed"]
