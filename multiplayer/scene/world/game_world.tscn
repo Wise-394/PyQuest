@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bwrop6cmmut7u" path="res://scene/world/moving_platform.tscn" id="3_yjyya"]
 [ext_resource type="PackedScene" uid="uid://dwxnjjqk3thwg" path="res://multiplayer/scene/ui/question_maker_opener.tscn" id="3_ywjpb"]
 [ext_resource type="PackedScene" uid="uid://e737qxq7j4ci" path="res://multiplayer/scene/ui/open_check_list.tscn" id="5_w6veq"]
+[ext_resource type="PackedScene" uid="uid://4a0cixh42sry" path="res://multiplayer/scene/ui/player_list.tscn" id="6_xyy5b"]
 
 [sub_resource type="Curve2D" id="Curve2D_w6veq"]
 _data = {
@@ -71,5 +72,11 @@ offset_left = 1070.0
 offset_top = 606.0
 offset_right = 1101.0
 offset_bottom = 637.0
+
+[node name="PlayerList" parent="CanvasLayer" unique_id=84475281 instance=ExtResource("6_xyy5b")]
+offset_left = 949.0
+offset_top = 1.0
+offset_right = 1149.0
+offset_bottom = 111.0
 
 [node name="parallax_bg" parent="." unique_id=239915655 instance=ExtResource("3_nfdc0")]
