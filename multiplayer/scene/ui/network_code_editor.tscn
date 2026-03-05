@@ -108,4 +108,5 @@ script = ExtResource("3_6ic7x")
 [node name="HTTPRequest" type="HTTPRequest" parent="CodeRunner" unique_id=780556326]
 
 [connection signal="pressed" from="Panel/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="Panel/SubmitButton" to="." method="_on_submit_button_pressed"]
 [connection signal="pressed" from="Panel/RunButton" to="." method="_on_run_button_pressed"]

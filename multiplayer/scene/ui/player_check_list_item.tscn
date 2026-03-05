@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bxic3f0ycvhv5"]
+
+[ext_resource type="Script" uid="uid://c6ofh5u6qesqq" path="res://multiplayer/script/ui/player_check_list_item.gd" id="1_leos6"]
+
+[node name="PlayerCheckListItem" type="HBoxContainer" unique_id=1451559013]
+custom_minimum_size = Vector2(0, 50)
+script = ExtResource("1_leos6")
+
+[node name="Label" type="Label" parent="." unique_id=1909433463]
+layout_mode = 2
+text = "Player 1"
+
+[node name="Spacer" type="Control" parent="." unique_id=166901182]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CheckButton" type="Button" parent="." unique_id=391125026]
+layout_mode = 2
+text = "Check
+"
+
+[connection signal="pressed" from="CheckButton" to="." method="_on_check_button_pressed"]

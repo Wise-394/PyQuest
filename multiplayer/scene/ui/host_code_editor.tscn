@@ -1,0 +1,170 @@
+[gd_scene format=3 uid="uid://dmwicqeq67em5"]
+
+[ext_resource type="Script" uid="uid://2ymngcff5ovh" path="res://multiplayer/script/ui/host_code_editpr.gd" id="1_0fsa4"]
+[ext_resource type="Script" uid="uid://x5o0de18q6vy" path="res://script/ui/panel.gd" id="2_u6t1q"]
+[ext_resource type="Script" uid="uid://mseysf2g3icb" path="res://multiplayer/script/backend/code_runner.gd" id="3_5i7n1"]
+
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_oxck4"]
+number_color = Color(1, 0.72156864, 0.42352942, 1)
+symbol_color = Color(0.67058825, 0.69803923, 0.7490196, 1)
+function_color = Color(0.8980392, 0.7529412, 0.48235294, 1)
+member_variable_color = Color(0.38039216, 0.6862745, 0.9372549, 1)
+keyword_colors = {
+"False": Color(0.8980392, 0.7529412, 0.48235294, 1),
+"True": Color(0.8980392, 0.7529412, 0.48235294, 1),
+"if": Color(0.7764706, 0.47058824, 0.8666667, 1)
+}
+color_regions = {
+"\" \"": Color(0.81960785, 0.6039216, 0.4, 1),
+"' '": Color(1, 0.72156864, 0.42352942, 1)
+}
+
+[node name="HostCodeEditor" type="Control" unique_id=1149544838]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0fsa4")
+
+[node name="HostCodeEditorPanel" type="Panel" parent="." unique_id=388479054]
+layout_mode = 0
+offset_right = 442.0
+offset_bottom = 641.0
+script = ExtResource("2_u6t1q")
+
+[node name="CloseButton" type="Button" parent="HostCodeEditorPanel" unique_id=1466411270]
+layout_mode = 0
+offset_left = 393.0
+offset_top = 3.0
+offset_right = 438.0
+offset_bottom = 47.0
+text = "X"
+
+[node name="RunButton" type="Button" parent="HostCodeEditorPanel" unique_id=245945817]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 589.0
+offset_right = 412.0
+offset_bottom = 633.0
+text = "Run"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HostCodeEditorPanel" unique_id=1317397466]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 130.0
+offset_right = 415.0
+offset_bottom = 500.0
+
+[node name="CodeEdit" type="CodeEdit" parent="HostCodeEditorPanel/ScrollContainer" unique_id=953318715]
+custom_minimum_size = Vector2(400, 370)
+layout_mode = 2
+theme_override_colors/selection_color = Color(0.5, 0.5, 0.5, 1)
+caret_blink = true
+syntax_highlighter = SubResource("CodeHighlighter_oxck4")
+highlight_all_occurrences = true
+highlight_current_line = true
+draw_tabs = true
+gutters_draw_line_numbers = true
+auto_brace_completion_enabled = true
+auto_brace_completion_highlight_matching = true
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="HostCodeEditorPanel" unique_id=710387421]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 42.0
+offset_right = 415.0
+offset_bottom = 123.0
+
+[node name="QuestionLabel" type="Label" parent="HostCodeEditorPanel/ScrollContainer2" unique_id=435834959]
+custom_minimum_size = Vector2(390, 80)
+layout_mode = 2
+text = "make an odd even function"
+
+[node name="ScrollContainer3" type="ScrollContainer" parent="HostCodeEditorPanel" unique_id=906475973]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 513.0
+offset_right = 414.0
+offset_bottom = 594.0
+
+[node name="OutputLabel" type="Label" parent="HostCodeEditorPanel/ScrollContainer3" unique_id=874096647]
+custom_minimum_size = Vector2(390, 75)
+layout_mode = 2
+text = "make an odd even function"
+
+[node name="CheckPanel" type="Panel" parent="." unique_id=765534842]
+custom_minimum_size = Vector2(250, 200)
+layout_mode = 0
+offset_left = 455.0
+offset_top = 437.0
+offset_right = 705.0
+offset_bottom = 637.0
+script = ExtResource("2_u6t1q")
+
+[node name="Label" type="Label" parent="CheckPanel" unique_id=1845636190]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 15.0
+offset_right = 234.0
+offset_bottom = 38.0
+text = "Is the student code correct?"
+
+[node name="CorrectButton" type="Button" parent="CheckPanel" unique_id=91500203]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 51.0
+offset_right = 119.0
+offset_bottom = 85.0
+text = "Correct"
+
+[node name="WrongButton" type="Button" parent="CheckPanel" unique_id=5930328]
+layout_mode = 0
+offset_left = 129.0
+offset_top = 51.0
+offset_right = 238.0
+offset_bottom = 85.0
+text = "Wrong"
+
+[node name="Points" type="HSlider" parent="CheckPanel" unique_id=2135666604]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 102.0
+offset_right = 183.0
+offset_bottom = 118.0
+
+[node name="PointsLabel" type="Label" parent="CheckPanel" unique_id=352665321]
+layout_mode = 0
+offset_left = 191.0
+offset_top = 99.0
+offset_right = 237.0
+offset_bottom = 122.0
+text = "0"
+
+[node name="InfoLabel" type="Label" parent="CheckPanel" unique_id=1660474694]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 122.0
+offset_right = 236.0
+offset_bottom = 145.0
+text = "points awarded if correct"
+
+[node name="SubmitButton" type="Button" parent="CheckPanel" unique_id=2057381314]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 162.0
+offset_right = 243.0
+offset_bottom = 193.0
+text = "Submit"
+
+[node name="CodeRunner" type="Node" parent="." unique_id=448573079]
+script = ExtResource("3_5i7n1")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="CodeRunner" unique_id=780556326]
+
+[connection signal="pressed" from="HostCodeEditorPanel/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="HostCodeEditorPanel/RunButton" to="." method="_on_run_button_pressed"]
+[connection signal="pressed" from="CheckPanel/CorrectButton" to="." method="_on_correct_button_pressed"]
+[connection signal="pressed" from="CheckPanel/WrongButton" to="." method="_on_wrong_button_pressed"]
+[connection signal="pressed" from="CheckPanel/SubmitButton" to="." method="_on_submit_button_pressed"]

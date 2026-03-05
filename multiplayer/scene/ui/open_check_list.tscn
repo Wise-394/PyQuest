@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://e737qxq7j4ci"]
+
+[ext_resource type="Script" uid="uid://cwnkp5j682vc4" path="res://multiplayer/script/ui/open_check_list.gd" id="1_n2wij"]
+
+[node name="OpenCheckList" type="Button" unique_id=1534889121]
+offset_right = 31.0
+offset_bottom = 31.0
+text = "C"
+script = ExtResource("1_n2wij")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

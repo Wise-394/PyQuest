@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://dki35k70mn7m6"]
+
+[ext_resource type="Script" uid="uid://vvy1ol8f608k" path="res://multiplayer/script/ui/player_check_list.gd" id="1_upwsr"]
+[ext_resource type="Script" uid="uid://x5o0de18q6vy" path="res://script/ui/panel.gd" id="2_dpbvd"]
+
+[node name="PlayerCheckList" type="Control" unique_id=1065668274]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_upwsr")
+
+[node name="Panel" type="Panel" parent="." unique_id=2118263813]
+layout_mode = 0
+offset_right = 362.0
+offset_bottom = 496.0
+script = ExtResource("2_dpbvd")
+
+[node name="CloseButton" type="Button" parent="Panel" unique_id=300433047]
+layout_mode = 0
+offset_left = 305.0
+offset_top = 1.0
+offset_right = 355.0
+offset_bottom = 46.0
+text = "X"
+
+[node name="Label" type="Label" parent="Panel" unique_id=299215752]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 15.0
+offset_right = 263.0
+offset_bottom = 38.0
+text = "list of player needs checking:"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel" unique_id=309523834]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 57.0
+offset_right = 340.0
+offset_bottom = 457.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer" unique_id=1731672658]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 2
+
+[connection signal="pressed" from="Panel/CloseButton" to="." method="_on_close_button_pressed"]
