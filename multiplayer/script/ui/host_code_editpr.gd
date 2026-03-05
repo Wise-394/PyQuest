@@ -2,14 +2,15 @@ extends Control
 
 # ─── Node References ─────────────────────────────────────
 @onready var code_edit      := $HostCodeEditorPanel/ScrollContainer/CodeEdit
-@onready var question_label : Label = $HostCodeEditorPanel/ScrollContainer2/QuestionLabel
-@onready var output_label   : Label = $HostCodeEditorPanel/ScrollContainer3/OutputLabel
-@onready var code_runner    : Node  = $CodeRunner
+@onready var question_label : Label   = $HostCodeEditorPanel/ScrollContainer2/QuestionLabel
+@onready var output_label   : Label   = $HostCodeEditorPanel/ScrollContainer3/OutputLabel
+@onready var code_runner    : Node    = $CodeRunner
 @onready var points_slider  : HSlider = $CheckPanel/Points
 @onready var correct_button : Button  = $CheckPanel/CorrectButton
 @onready var wrong_button   : Button  = $CheckPanel/WrongButton
 @onready var points_label   : Label   = $CheckPanel/PointsLabel
-@onready var info_label := $CheckPanel/InfoLabel
+@onready var info_label     : Label   = $CheckPanel/InfoLabel
+
 # ─── State ───────────────────────────────────────────────
 var player_id   : int
 var player_code : String
@@ -17,51 +18,53 @@ var is_correct  : bool = false
 
 # ─── Lifecycle ───────────────────────────────────────────
 func _ready() -> void:
-	var game_world  = get_tree().root.get_node("GameWorld")
+	var game_world := get_tree().root.get_node("GameWorld")
 	code_runner.output_received.connect(_on_output_received)
 	code_runner.request_failed.connect(_on_request_failed)
-	code_edit.text       = player_code
-	question_label.text  = game_world.question_object["question_string"]
-	var max_points       := int(game_world.question_object["completion_points"])
+	points_slider.value_changed.connect(_on_points_changed)
+
+	code_edit.text      = player_code
+	question_label.text = game_world.question_object["question_string"]
+
+	var max_points := int(game_world.question_object["completion_points"])
 	points_slider.max_value = max_points
 	points_slider.value     = max_points
-	points_slider.visible   = false
-	points_label.visible = false
-	info_label.visible = false
-	points_slider.value_changed.connect(_on_points_changed)
-	points_label.text = str(int(points_slider.value))
+	points_label.text       = str(max_points)
+
+	_set_check_panel_visible(false)
 
 # ─── Setup ───────────────────────────────────────────────
 func setup(id: int, code: String) -> void:
 	player_id   = id
 	player_code = code
 
-
 # ─── Check Panel ─────────────────────────────────────────
+func _set_check_panel_visible(show_points: bool) -> void:
+	points_slider.visible = show_points
+	points_label.visible  = show_points
+	info_label.visible    = show_points
+
 func _on_correct_button_pressed() -> void:
-	is_correct            = true
-	points_slider.visible = true
+	is_correct = true
+	_set_check_panel_visible(true)
 	correct_button.modulate = Color.GREEN
 	wrong_button.modulate   = Color.WHITE
-	points_label.visible = true
-	info_label.visible = true
 
 func _on_wrong_button_pressed() -> void:
-	is_correct            = false
-	points_slider.visible = false
+	is_correct = false
+	_set_check_panel_visible(false)
 	correct_button.modulate = Color.WHITE
 	wrong_button.modulate   = Color.RED
-	points_label.visible = false
-	info_label.visible = false
 
 func _on_points_changed(value: float) -> void:
 	points_label.text = str(int(value))
 
 func _on_submit_button_pressed() -> void:
+	var game_world := get_tree().root.get_node("GameWorld")
 	if is_correct:
-		pass
+		game_world.award_points.rpc(player_id, int(points_slider.value))
 	else:
-		pass
+		game_world.notify_rejected.rpc_id(player_id)
 	queue_free()
 
 # ─── Code Runner ─────────────────────────────────────────

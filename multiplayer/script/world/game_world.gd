@@ -11,8 +11,11 @@ const CHECKLIST_SCENE := preload("res://scene/ui/player_check_list.tscn")
 @onready var question_spawn_points : Node2D      = $QuestionSpawnPoints
 @onready var canvas_layer          : CanvasLayer = $CanvasLayer
 
+# ─── Signals ─────────────────────────────────────────────
+signal points_updated(player_id: int, points: int)
+
 # ─── State ───────────────────────────────────────────────
-var player_points   := {}
+var players         := {}  # { "id": { "name": "Player 1", "points": 0 } }
 var question_object := {
 	"question_string"   : "",
 	"completion_points" : "",
@@ -41,6 +44,10 @@ func _spawn_player(id: int, spawn_index: int) -> void:
 	player.position = player_spawn_points.get_child(spawn_index).position
 	player.set_multiplayer_authority(id)
 	players_node.add_child(player)
+	players[str(id)] = {
+		"name"  : "Player %d" % id,
+		"points": 0
+	}
 
 # ─── Checklist ───────────────────────────────────────────
 func _spawn_checklist() -> void:
@@ -85,9 +92,10 @@ func submit_answer(player_id: int, code: String) -> void:
 # ─── Points ──────────────────────────────────────────────
 @rpc("authority", "call_local")
 func award_points(player_id: int, points: int) -> void:
-	if not player_points.has(str(player_id)):
-		player_points[str(player_id)] = 0
-	player_points[str(player_id)] += points
+	if not players.has(str(player_id)):
+		return
+	players[str(player_id)]["points"] += points
+	points_updated.emit(player_id, players[str(player_id)]["points"])
 
 @rpc("authority")
 func notify_rejected(player_id: int) -> void:
@@ -95,5 +103,6 @@ func notify_rejected(player_id: int) -> void:
 
 # ─── Peer Events ─────────────────────────────────────────
 func _on_peer_disconnected(id: int) -> void:
+	players.erase(str(id))
 	if players_node.has_node(str(id)):
 		players_node.get_node(str(id)).queue_free()
