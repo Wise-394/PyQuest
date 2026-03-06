@@ -13,9 +13,12 @@ const CHECKLIST_SCENE := preload("res://scene/ui/player_check_list.tscn")
 
 # ─── Signals ─────────────────────────────────────────────
 signal points_updated(player_id: int, points: int)
+signal username_updated(player_id: int, username: String)
+signal submission_updated
 
 # ─── State ───────────────────────────────────────────────
-var players         := {}  # { "id": { "name": "Player 1", "points": 0 } }
+var players         := {}
+var checked_players : Array = []
 var question_object := {
 	"question_string"   : "",
 	"completion_points" : "",
@@ -23,6 +26,7 @@ var question_object := {
 
 # ─── Lifecycle ───────────────────────────────────────────
 func _ready() -> void:
+	multiplayer.peer_connected.connect(_on_peer_connected_server)
 	multiplayer.peer_disconnected.connect(_on_peer_disconnected)
 	if not multiplayer.is_server():
 		multiplayer.server_disconnected.connect(_on_host_disconnected)
@@ -33,7 +37,7 @@ func _ready() -> void:
 func _on_host_disconnected() -> void:
 	multiplayer.multiplayer_peer = null
 	get_tree().change_scene_to_file("res://multiplayer/scene/ui/disconnection_notice.tscn")
-	
+
 # ─── Spawning ────────────────────────────────────────────
 func _spawn_all_players() -> void:
 	var ids := multiplayer.get_peers()
@@ -51,9 +55,39 @@ func _spawn_player(id: int, spawn_index: int) -> void:
 	player.set_multiplayer_authority(id)
 	players_node.add_child(player)
 	players[str(id)] = {
-		"name"  : "Player %d" % id,
-		"points": 0
+		"username": "Player",
+		"points"  : 0
 	}
+	if player.is_multiplayer_authority():
+		var username = SaveLoad.data.get("player_name", "Player")
+		if multiplayer.is_server():
+			_broadcast_player_name.rpc(id, username)
+		else:
+			_sync_player_name.rpc_id(1, id, username)
+
+# ─── Username Sync ───────────────────────────────────────
+func _on_peer_connected_server(id: int) -> void:
+	if not multiplayer.is_server():
+		return
+	for player_id in players.keys():
+		var username : String = players[player_id]["username"]
+		_broadcast_player_name.rpc_id(id, int(player_id), username)
+
+@rpc("any_peer")
+func _sync_player_name(id: int, username: String) -> void:
+	if not multiplayer.is_server():
+		return
+	_broadcast_player_name.rpc(id, username)
+
+@rpc("authority", "call_local")
+func _broadcast_player_name(id: int, username: String) -> void:
+	if not players.has(str(id)):
+		return
+	players[str(id)]["username"] = username
+	var player := players_node.get_node_or_null(str(id))
+	if player:
+		player.username_label.text = username
+	username_updated.emit(id, username)
 
 # ─── Checklist ───────────────────────────────────────────
 func _spawn_checklist() -> void:
@@ -84,33 +118,26 @@ func _spawn_question_note(spawn_index: int) -> void:
 	note.name      = "QuestionNote"
 	note.position  = question_spawn_points.get_child(spawn_index).position
 	add_child(note)
-	
+
 # ─── Round Management ────────────────────────────────────
 func next_round() -> void:
 	if not multiplayer.is_server():
 		return
 	announce("Moving to the next round!")
 	_reset_round.rpc()
-	
 
 @rpc("authority", "call_local")
 func _reset_round() -> void:
-	# clear question
+	checked_players.clear()
 	question_object["question_string"]   = ""
 	question_object["completion_points"] = ""
-
-	# remove question note
 	var existing := get_node_or_null("QuestionNote")
 	if existing:
 		existing.queue_free()
-
-	# clear checklist
 	if multiplayer.is_server():
 		var checklist := canvas_layer.get_node_or_null("PlayerCheckList")
 		if checklist:
 			checklist.clear()
-
-	# reset all player states and respawn at spawn points
 	var ids := players.keys()
 	for i in ids.size():
 		var id     = ids[i]
@@ -122,6 +149,7 @@ func _reset_round() -> void:
 				var spawn_index := i % player_spawn_points.get_child_count()
 				player.position  = player_spawn_points.get_child(spawn_index).position
 
+# ─── Announcements & Chat ────────────────────────────────
 @rpc("any_peer")
 func announce(message: String) -> void:
 	if not multiplayer.is_server():
@@ -132,7 +160,8 @@ func announce(message: String) -> void:
 func chat(player_id: int, message: String) -> void:
 	if not multiplayer.is_server():
 		return
-	_show_announcement.rpc("Player %d: %s" % [player_id, message])
+	var username : String = players.get(str(player_id), {}).get("username", "Player")
+	_show_announcement.rpc("%s: %s" % [username, message])
 
 @rpc("authority", "call_local")
 func _show_announcement(message: String) -> void:
@@ -152,21 +181,29 @@ func submit_answer(player_id: int, code: String) -> void:
 	checklist.add_submission(player_id, code)
 
 # ─── Points ──────────────────────────────────────────────
+func _on_player_checked(player_id: int) -> void:
+	if not checked_players.has(player_id):
+		checked_players.append(player_id)
+	submission_updated.emit()
+
 @rpc("authority", "call_local")
 func award_points(player_id: int, points: int) -> void:
 	if not players.has(str(player_id)):
 		return
 	players[str(player_id)]["points"] += points
 	points_updated.emit(player_id, players[str(player_id)]["points"])
-	announce("Player %d's answer is correct! +%d points" % [player_id, points])
+	var username : String = players[str(player_id)]["username"]
+	announce("%s's answer is correct! +%d points" % [username, points])
 
 @rpc("authority")
 func notify_rejected(player_id: int) -> void:
-	announce("Player %d's answer is incorrect!" % player_id)
+	var username : String = players.get(str(player_id), {}).get("username", "Player")
+	announce("%s's answer is incorrect!" % username)
 
 # ─── Peer Events ─────────────────────────────────────────
 func _on_peer_disconnected(id: int) -> void:
-	announce("Player %d has left the game." % id)
+	var username : String = players.get(str(id), {}).get("username", "Player")
+	announce("%s has left the game." % username)
 	players.erase(str(id))
 	if players_node.has_node(str(id)):
 		players_node.get_node(str(id)).queue_free()

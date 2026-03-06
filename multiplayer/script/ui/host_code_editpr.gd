@@ -67,7 +67,13 @@ func _on_submit_button_pressed() -> void:
 	if is_correct:
 		game_world.award_points.rpc(player_id, int(points_slider.value))
 	else:
-		game_world.notify_rejected.rpc_id(player_id)
+		game_world.notify_rejected.rpc_id(player_id, player_id)
+	
+	game_world._on_player_checked(player_id) 
+	
+	var checklist = game_world.canvas_layer.get_node_or_null("PlayerCheckList")
+	if checklist:
+		checklist.remove_submission(player_id)
 	queue_free()
 
 # ─── Code Runner ─────────────────────────────────────────

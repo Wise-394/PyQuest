@@ -10,6 +10,7 @@ const PLAYER_LIST_ITEM := preload("res://multiplayer/scene/ui/player_list_item.t
 func _ready() -> void:
 	var game_world := get_tree().root.get_node("GameWorld")
 	game_world.points_updated.connect(_on_points_updated)
+	game_world.username_updated.connect(_on_username_updated)
 	_populate_list()
 
 # ─── List ────────────────────────────────────────────────
@@ -41,3 +42,7 @@ func _on_points_updated(player_id: int, points: int) -> void:
 	if list.has_node(str(player_id)):
 		list.get_node(str(player_id)).update_points(points)
 		_sort_by_points()
+		
+func _on_username_updated(player_id: int, username: String) -> void:
+	if list.has_node(str(player_id)):
+		list.get_node(str(player_id)).update_username(username)

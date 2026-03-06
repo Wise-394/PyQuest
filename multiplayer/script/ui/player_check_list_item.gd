@@ -12,10 +12,10 @@ var player_id   : int
 var player_code : String
 
 # ─── Setup ───────────────────────────────────────────────
-func setup(id: int, code: String) -> void:
+func setup(id: int, code: String, username: String) -> void:
 	player_id   = id
 	player_code = code
-	label.text  = "Player %d" % id
+	label.text  = username
 
 # ─── Callbacks ───────────────────────────────────────────
 func _on_check_button_pressed() -> void:

@@ -8,3 +8,7 @@ func _on_host_buttton_pressed() -> void:
 	peer.create_server(7777)
 	multiplayer.multiplayer_peer = peer
 	get_tree().change_scene_to_file("res://multiplayer/scene/lobby.tscn")
+
+
+func _on_back_pressed() -> void:
+	get_tree().change_scene_to_file("res://scene/lvl/level_selection.tscn")

@@ -6,4 +6,5 @@ func _on_body_entered(body: Node2D) -> void:
 			if not body.is_question_discovered:
 				body.question_discovered(true)
 				var game_world := get_tree().root.get_node("GameWorld")
-				game_world.announce.rpc_id(1, "Player %d found the question!" % body.get_multiplayer_authority())
+				var username   = game_world.players.get(str(body.get_multiplayer_authority()), {}).get("username", "Player")
+				game_world.announce.rpc_id(1, "%s found the question!" % username)

@@ -141,6 +141,13 @@ zoom = Vector2(2, 2)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=462302044]
 
+[node name="Back" type="Button" parent="CanvasLayer" unique_id=2573364]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 59.0
+offset_bottom = 41.0
+text = "Back"
+
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=983232075]
 anchors_preset = 8
 anchor_left = 0.5
@@ -163,5 +170,6 @@ text = "Host"
 layout_mode = 2
 text = "Player"
 
+[connection signal="pressed" from="CanvasLayer/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/HostButtton" to="." method="_on_host_buttton_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/PlayerButton" to="." method="_on_player_button_pressed"]

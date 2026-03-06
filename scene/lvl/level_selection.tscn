@@ -339,6 +339,13 @@ offset_top = 113.0
 offset_right = 331.0
 offset_bottom = 318.0
 
+[node name="LanMultiplayer" type="Button" parent="CanvasLayer" unique_id=1526615262]
+offset_left = 141.0
+offset_top = 331.0
+offset_right = 270.0
+offset_bottom = 362.0
+text = "Lan Multiplayer"
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=158133266]
 position = Vector2(443, 378)
 zoom = Vector2(2, 2)
@@ -443,3 +450,4 @@ tile_set = ExtResource("22_j75k6")
 
 [connection signal="pressed" from="CanvasLayer/Panel/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Lobby" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/LanMultiplayer" to="." method="_on_lan_multiplayer_pressed"]

@@ -8,8 +8,9 @@ const SERVER_NAME        := "LAN Game"
 const GAME_SCENE         := "res://multiplayer/scene/world/game_world.tscn"
 
 # ─── State ───────────────────────────────────────────────
-var udp             := PacketPeerUDP.new()
-var broadcast_timer := 0.0
+var udp              := PacketPeerUDP.new()
+var broadcast_timer  := 0.0
+var player_usernames := {}
 
 # ─── Node References ─────────────────────────────────────
 @onready var player_list  : VBoxContainer = $CanvasLayer/Panel/VBoxContainer/PlayerList
@@ -22,6 +23,10 @@ func _ready() -> void:
 	start_button.pressed.connect(_on_start_pressed)
 	leave_button.pressed.connect(_on_leave_pressed)
 
+	# register own username immediately
+	var username = SaveLoad.data.get("player_name", "Player")
+	player_usernames[multiplayer.get_unique_id()] = username
+
 	if multiplayer.is_server():
 		_setup_as_host()
 	else:
@@ -29,7 +34,6 @@ func _ready() -> void:
 
 	multiplayer.peer_connected.connect(_on_peer_connected)
 	multiplayer.peer_disconnected.connect(_on_peer_disconnected)
-
 	_refresh_player_list()
 
 func _exit_tree() -> void:
@@ -47,14 +51,13 @@ func _process(delta: float) -> void:
 
 # ─── Setup ───────────────────────────────────────────────
 func _setup_as_host() -> void:
-	status_label.text = "Waiting for players..."
+	status_label.text    = "Waiting for players..."
 	start_button.visible = true
 	udp.set_broadcast_enabled(true)
 	udp.bind(0)
 
-# ─── Setup as client ─────────────────────────────────────
 func _setup_as_client() -> void:
-	status_label.text = "Waiting for host to start..."
+	status_label.text    = "Waiting for host to start..."
 	start_button.visible = false
 	multiplayer.server_disconnected.connect(_on_host_disconnected)
 
@@ -63,17 +66,22 @@ func _on_host_disconnected() -> void:
 	udp.close()
 	get_tree().change_scene_to_file("res://multiplayer/scene/disconnected.tscn")
 
-# ─── Broadcasting ─────────────────────────────────────────
+# ─── Username Sync ───────────────────────────────────────
+@rpc("any_peer", "call_local")
+func _sync_username(id: int, username: String) -> void:
+	player_usernames[id] = username
+	_refresh_player_list()
+
+# ─── Broadcasting ────────────────────────────────────────
 func _get_broadcast_address() -> String:
 	for address in IP.get_local_addresses():
 		if address == "127.0.0.1" or ":" in address:
 			continue
 		if address.begins_with("172.") or address.begins_with("169.254."):
 			continue
-		if address.begins_with("192.168."): 
+		if address.begins_with("192.168."):
 			var parts := address.split(".")
 			return "%s.%s.%s.255" % [parts[0], parts[1], parts[2]]
-	# fallback to any valid address
 	for address in IP.get_local_addresses():
 		if address == "127.0.0.1" or ":" in address:
 			continue
@@ -86,8 +94,7 @@ func _get_broadcast_address() -> String:
 
 func _send_broadcast() -> void:
 	var broadcast := _get_broadcast_address()
-	print("Broadcasting to: ", broadcast)
-	var data := JSON.stringify({"name": SERVER_NAME, "port": GAME_PORT})
+	var data      := JSON.stringify({"name": SERVER_NAME, "port": GAME_PORT})
 	udp.set_dest_address(broadcast, BROADCAST_PORT)
 	udp.put_packet(data.to_utf8_buffer())
 
@@ -101,23 +108,24 @@ func _refresh_player_list() -> void:
 	_add_player_label(multiplayer.get_unique_id())
 
 func _add_player_label(id: int) -> void:
-	var label := Label.new()
-	label.text = "Player %d" % id
+	var label    := Label.new()
+	var username = player_usernames.get(id, "Player")
+	label.text    = username
 	if id == multiplayer.get_unique_id():
 		label.text += " (You)"
-	if multiplayer.is_server() and id == 1:
+	if id == 1:
 		label.text += " [Host]"
 	player_list.add_child(label)
 
 # ─── Peer Events ─────────────────────────────────────────
 func _on_peer_connected(id: int) -> void:
-	print("Player connected: ", id)
+	var username = SaveLoad.data.get("player_name", "Player")
+	_sync_username.rpc(multiplayer.get_unique_id(), username)
 	_refresh_player_list()
 
 func _on_peer_disconnected(id: int) -> void:
-	print("Player disconnected: ", id)
+	player_usernames.erase(id)
 	_refresh_player_list()
-
 
 # ─── Callbacks ───────────────────────────────────────────
 func _on_start_pressed() -> void:

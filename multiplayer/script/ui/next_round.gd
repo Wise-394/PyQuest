@@ -3,15 +3,19 @@ extends Control
 @onready var player_left_label : Label = $Panel/PlayerLeftLabel
 
 func _ready() -> void:
+	var game_world := get_tree().root.get_node("GameWorld")
+	game_world.submission_updated.connect(_refresh_count)
+	_refresh_count()
+
+func _refresh_count() -> void:
 	var game_world  := get_tree().root.get_node("GameWorld")
-	var not_checked := 0
-	for id in game_world.players.keys():
-		if id == "1":
-			continue
-		var player = game_world.players_node.get_node_or_null(id)
-		if player and not player.is_code_checked:
-			not_checked += 1
-	player_left_label.text = "there are still %d player(s)\nthat haven't submitted/checked" % not_checked
+	var total       = game_world.players.size() - 1
+	var checked     = game_world.checked_players.size()
+	var not_checked = total - checked
+	if not_checked == 0:
+		player_left_label.text = "All players have been checked!\nProceed to next round?"
+	else:
+		player_left_label.text = "there are still %d player(s)\nthat haven't been checked/Submitted" % not_checked
 
 func _on_no_button_pressed() -> void:
 	queue_free()
