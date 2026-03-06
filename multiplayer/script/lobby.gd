@@ -78,8 +78,10 @@ func _get_broadcast_address() -> String:
 	return "255.255.255.255"  # fallback
 
 func _send_broadcast() -> void:
+	var broadcast := _get_broadcast_address()
+	print("Broadcasting to: ", broadcast)
 	var data := JSON.stringify({"name": SERVER_NAME, "port": GAME_PORT})
-	udp.set_dest_address(_get_broadcast_address(), BROADCAST_PORT)
+	udp.set_dest_address(broadcast, BROADCAST_PORT)
 	udp.put_packet(data.to_utf8_buffer())
 
 # ─── Player List ─────────────────────────────────────────
