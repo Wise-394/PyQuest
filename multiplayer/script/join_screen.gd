@@ -11,10 +11,10 @@ var scan_timer := 0.0
 var scanning   := false
 
 # ─── Node References ─────────────────────────────────────
-@onready var server_list   : VBoxContainer = $VBoxContainer/ScrollContainer/ServerList
-@onready var status_label  : Label         = $VBoxContainer/StatusLabel
-@onready var refresh_button: Button        = $VBoxContainer/RefreshButton
-@onready var back_button   : Button        = $VBoxContainer/BackButton
+@onready var server_list   : VBoxContainer = $CanvasLayer/Panel/VBoxContainer/ScrollContainer/ServerList
+@onready var status_label  : Label         = $CanvasLayer/Panel/VBoxContainer/StatusLabel
+@onready var refresh_button: Button        = $CanvasLayer/Panel/VBoxContainer/RefreshButton
+@onready var back_button   : Button        = $CanvasLayer/Panel/VBoxContainer/BackButton
 
 # ─── Lifecycle ───────────────────────────────────────────
 func _ready() -> void:
