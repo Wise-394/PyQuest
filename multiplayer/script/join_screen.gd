@@ -52,6 +52,7 @@ func _finish_scan() -> void:
 
 func _read_udp_packets() -> void:
 	while udp.get_available_packet_count() > 0:
+		print("Packet received!")
 		var raw_packet := udp.get_packet()
 		var sender_ip  := udp.get_packet_ip()
 		_parse_packet(raw_packet, sender_ip)

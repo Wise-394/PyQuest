@@ -65,9 +65,10 @@ func _on_host_disconnected() -> void:
 
 # ─── Broadcasting ─────────────────────────────────────────
 func _send_broadcast() -> void:
-	var data := JSON.stringify({ "name": SERVER_NAME, "port": GAME_PORT })
-	udp.set_dest_address("255.255.255.255", BROADCAST_PORT)
+	var data := JSON.stringify({"name": SERVER_NAME, "port": GAME_PORT})
+	udp.set_dest_address("192.168.100.255", BROADCAST_PORT)
 	udp.put_packet(data.to_utf8_buffer())
+	print("Broadcast sent!")
 
 # ─── Player List ─────────────────────────────────────────
 func _refresh_player_list() -> void:
