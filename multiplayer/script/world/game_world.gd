@@ -77,6 +77,41 @@ func _spawn_question_note(spawn_index: int) -> void:
 	note.name      = "QuestionNote"
 	note.position  = question_spawn_points.get_child(spawn_index).position
 	add_child(note)
+	
+# ─── Round Management ────────────────────────────────────
+func next_round() -> void:
+	if not multiplayer.is_server():
+		return
+	_reset_round.rpc()
+
+@rpc("authority", "call_local")
+func _reset_round() -> void:
+	# clear question
+	question_object["question_string"]   = ""
+	question_object["completion_points"] = ""
+
+	# remove question note
+	var existing := get_node_or_null("QuestionNote")
+	if existing:
+		existing.queue_free()
+
+	# clear checklist
+	if multiplayer.is_server():
+		var checklist := canvas_layer.get_node_or_null("PlayerCheckList")
+		if checklist:
+			checklist.clear()
+
+	# reset all player states and respawn at spawn points
+	var ids := players.keys()
+	for i in ids.size():
+		var id     = ids[i]
+		var player := players_node.get_node_or_null(id)
+		if player:
+			player.question_discovered(false)
+			player.code_checked(false)
+			if player.is_multiplayer_authority():
+				var spawn_index := i % player_spawn_points.get_child_count()
+				player.position  = player_spawn_points.get_child(spawn_index).position
 
 # ─── Submissions ─────────────────────────────────────────
 @rpc("any_peer")

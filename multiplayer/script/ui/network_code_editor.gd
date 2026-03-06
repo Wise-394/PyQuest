@@ -21,10 +21,17 @@ func _on_close_button_pressed() -> void:
 	player.state_machine.change_state("idlestate")
 
 func _on_run_button_pressed() -> void:
+	if code_input	.text.is_empty():
+		output_label.text = "No code to run"
+		return
 	output_label.text = "Running..."
 	code_runner.run_code(code_input.text)
 
 func _on_submit_button_pressed() -> void:
+	if code_input.text.is_empty():
+		output_label.text = "code cannot be empty"
+		return
+	player.code_checked(true)
 	game_world.submit_answer.rpc_id(1, multiplayer.get_unique_id(), code_input.text)
 	player.state_machine.change_state("idlestate")
 

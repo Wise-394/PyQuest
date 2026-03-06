@@ -25,7 +25,19 @@ func _add_player(id: int) -> void:
 	list.add_child(item)
 	item.setup(id, 0)
 
+func _sort_by_points() -> void:
+	var items := list.get_children()
+	# host always goes to bottom
+	items.sort_custom(func(a, b):
+		if a.name == "1": return false
+		if b.name == "1": return true
+		return a.get_points() > b.get_points()
+	)
+	for item in items:
+		list.move_child(item, -1)
+
 # ─── Signals ─────────────────────────────────────────────
 func _on_points_updated(player_id: int, points: int) -> void:
 	if list.has_node(str(player_id)):
 		list.get_node(str(player_id)).update_points(points)
+		_sort_by_points()

@@ -17,7 +17,8 @@ extends CharacterBody2D
 @onready var interact = $Interact
 # ───────────────────────────── STATE ─────────────────────────────
 var is_question_discovered = false
-var is_question_submitted = false
+var is_code_checked = false
+
 # ───────────────────────────── lifecycle ─────────────────────────────
 func _ready() -> void:
 	var is_local := is_multiplayer_authority()
@@ -39,7 +40,11 @@ func _ready() -> void:
 # ───────────────────────────── misc ──────────────────────────────────
 func question_discovered(val: bool) -> void:
 	is_question_discovered = val
-	interact.visible = is_multiplayer_authority() and is_question_discovered
+	interact.visible = is_multiplayer_authority() and is_question_discovered and not is_code_checked
+
+func code_checked(val: bool) -> void:
+	is_code_checked = val
+	interact.visible = is_multiplayer_authority() and is_question_discovered and not is_code_checked
 	
 func _initialize_state_machine() -> void:
 	if state_machine and state_machine.initial_state:

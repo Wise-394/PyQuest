@@ -4,6 +4,7 @@ extends Control
 @onready var game_world = get_tree().root.get_node("GameWorld")
 @onready var question_editor = $Panel/ScrollContainer/QuestionEditor
 @onready var points_editor = $Panel/PointsEditor
+@onready var guide_label = $Panel/GuideLabel
 func _get_host_player() -> Node:
 	return get_tree().root.get_node("GameWorld/Players/1")
 
@@ -15,7 +16,8 @@ func _on_close_button_pressed() -> void:
 
 func _on_submit_button_pressed() -> void:
 	var player = _get_host_player()
-	if question_editor.text == null or points_editor == null:
+	if question_editor.text.is_empty() or points_editor.text.is_empty():
+		guide_label.text = "question or points cannot be empty"
 		return
 	game_world.set_question(question_editor.text, points_editor.text)
 	player.state_machine.change_state("idlestate")

@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://v7drbij68ags"]
+
+[ext_resource type="Script" uid="uid://c5x2cx2stsruy" path="res://multiplayer/script/ui/next_round.gd" id="1_gplap"]
+
+[node name="NextRound" type="Control" unique_id=956355748]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gplap")
+
+[node name="Panel" type="Panel" parent="." unique_id=1287882710]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -203.0
+offset_top = -107.0
+offset_right = 129.0
+offset_bottom = 84.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="Panel" unique_id=2077218456]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 2.0
+offset_right = 216.0
+offset_bottom = 25.0
+scale = Vector2(1.5, 1.5)
+text = "Proceed to next round?"
+
+[node name="PlayerLeftLabel" type="Label" parent="Panel" unique_id=1098925103]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 33.0
+offset_right = 258.0
+offset_bottom = 108.0
+text = "there are still x people that havent submitted"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="YesButton" type="Button" parent="Panel" unique_id=1821600446]
+layout_mode = 0
+offset_left = 258.0
+offset_top = 143.0
+offset_right = 318.0
+offset_bottom = 177.0
+text = "yes"
+
+[node name="NoButton" type="Button" parent="Panel" unique_id=864217224]
+layout_mode = 0
+offset_left = 199.0
+offset_top = 143.0
+offset_right = 251.0
+offset_bottom = 177.0
+text = "no
+"
+
+[connection signal="pressed" from="Panel/YesButton" to="." method="_on_yes_button_pressed"]
+[connection signal="pressed" from="Panel/NoButton" to="." method="_on_no_button_pressed"]

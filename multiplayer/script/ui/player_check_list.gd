@@ -22,3 +22,8 @@ func add_submission(player_id: int, code: String) -> void:
 # ─── Callbacks ───────────────────────────────────────────
 func _on_close_button_pressed() -> void:
 	visible = false
+
+func clear() -> void:
+	for child in list.get_children():
+		list.remove_child(child)
+		child.free()

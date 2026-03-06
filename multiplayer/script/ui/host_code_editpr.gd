@@ -10,7 +10,7 @@ extends Control
 @onready var wrong_button   : Button  = $CheckPanel/WrongButton
 @onready var points_label   : Label   = $CheckPanel/PointsLabel
 @onready var info_label     : Label   = $CheckPanel/InfoLabel
-
+@onready var submit_button := $CheckPanel/SubmitButton
 # ─── State ───────────────────────────────────────────────
 var player_id   : int
 var player_code : String
@@ -32,6 +32,7 @@ func _ready() -> void:
 	points_label.text       = str(max_points)
 
 	_set_check_panel_visible(false)
+	submit_button.disabled = true
 
 # ─── Setup ───────────────────────────────────────────────
 func setup(id: int, code: String) -> void:
@@ -49,12 +50,14 @@ func _on_correct_button_pressed() -> void:
 	_set_check_panel_visible(true)
 	correct_button.modulate = Color.GREEN
 	wrong_button.modulate   = Color.WHITE
+	submit_button.disabled = false
 
 func _on_wrong_button_pressed() -> void:
 	is_correct = false
 	_set_check_panel_visible(false)
 	correct_button.modulate = Color.WHITE
 	wrong_button.modulate   = Color.RED
+	submit_button.disabled = false
 
 func _on_points_changed(value: float) -> void:
 	points_label.text = str(int(value))
