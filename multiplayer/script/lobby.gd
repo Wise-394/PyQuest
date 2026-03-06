@@ -64,11 +64,23 @@ func _on_host_disconnected() -> void:
 	get_tree().change_scene_to_file("res://multiplayer/scene/disconnected.tscn")
 
 # ─── Broadcasting ─────────────────────────────────────────
+func _get_broadcast_address() -> String:
+	for address in IP.get_local_addresses():
+		# skip loopback and IPv6
+		if address == "127.0.0.1" or ":" in address:
+			continue
+		# skip WSL/virtual adapters
+		if address.begins_with("172."):
+			continue
+		var parts := address.split(".")
+		if parts.size() == 4:
+			return "%s.%s.%s.255" % [parts[0], parts[1], parts[2]]
+	return "255.255.255.255"  # fallback
+
 func _send_broadcast() -> void:
 	var data := JSON.stringify({"name": SERVER_NAME, "port": GAME_PORT})
-	udp.set_dest_address("192.168.100.255", BROADCAST_PORT)
+	udp.set_dest_address(_get_broadcast_address(), BROADCAST_PORT)
 	udp.put_packet(data.to_utf8_buffer())
-	print("Broadcast sent!")
 
 # ─── Player List ─────────────────────────────────────────
 func _refresh_player_list() -> void:
