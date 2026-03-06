@@ -66,16 +66,23 @@ func _on_host_disconnected() -> void:
 # ─── Broadcasting ─────────────────────────────────────────
 func _get_broadcast_address() -> String:
 	for address in IP.get_local_addresses():
-		# skip loopback and IPv6
 		if address == "127.0.0.1" or ":" in address:
 			continue
-		# skip WSL/virtual adapters
-		if address.begins_with("172."):
+		if address.begins_with("172.") or address.begins_with("169.254."):
+			continue
+		if address.begins_with("192.168."): 
+			var parts := address.split(".")
+			return "%s.%s.%s.255" % [parts[0], parts[1], parts[2]]
+	# fallback to any valid address
+	for address in IP.get_local_addresses():
+		if address == "127.0.0.1" or ":" in address:
+			continue
+		if address.begins_with("172.") or address.begins_with("169.254."):
 			continue
 		var parts := address.split(".")
 		if parts.size() == 4:
 			return "%s.%s.%s.255" % [parts[0], parts[1], parts[2]]
-	return "255.255.255.255"  # fallback
+	return "255.255.255.255"
 
 func _send_broadcast() -> void:
 	var broadcast := _get_broadcast_address()
