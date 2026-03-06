@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cxbks0gs8ya2v" path="res://multiplayer/script/join_screen.gd" id="1_7xt2l"]
 [ext_resource type="Texture2D" uid="uid://bt0xkum7onekp" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Background/BG Image.png" id="2_7cb7t"]
+[ext_resource type="Texture2D" uid="uid://hgdvc13hajif" path="res://assets/custom/panels/menu_panel.png" id="2_ry46d"]
 [ext_resource type="Texture2D" uid="uid://h77cp18jlrqu" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 01.png" id="3_ry46d"]
 [ext_resource type="Texture2D" uid="uid://c2mkd8hqvngvo" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 02.png" id="4_wu8ii"]
 [ext_resource type="Texture2D" uid="uid://dox0wb2l012pg" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 03.png" id="5_08adl"]
@@ -12,6 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://dgsou4ybt48md" path="res://assets/custom/BG ISLANDS.png" id="10_trq3p"]
 [ext_resource type="PackedScene" uid="uid://c8xl8vq78hcou" path="res://scene/world/decoration/front_regular_tree.tscn" id="11_5j8mu"]
 [ext_resource type="TileSet" uid="uid://d1yxhu13jwkq3" path="res://tileset/island.tres" id="12_m56wx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wu8ii"]
+texture = ExtResource("2_ry46d")
+region_rect = Rect2(18, 16, 98, 94)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i8es5"]
 animations = [{
@@ -49,34 +54,45 @@ offset_left = 431.0
 offset_top = 100.0
 offset_right = 753.0
 offset_bottom = 505.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_wu8ii")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel" unique_id=1079584688]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel" unique_id=1240924715]
 layout_mode = 0
-offset_left = 13.0
-offset_top = 8.0
-offset_right = 309.0
-offset_bottom = 382.0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 45
 
-[node name="Label" type="Label" parent="CanvasLayer/Panel/VBoxContainer" unique_id=1929759414]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel/MarginContainer" unique_id=1079584688]
+custom_minimum_size = Vector2(240, 300)
 layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer" unique_id=1929759414]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8666667, 0.56078434, 0.38039216, 1)
+theme_override_colors/font_outline_color = Color(0.2, 0.19607843, 0.23921569, 1)
+theme_override_constants/outline_size = 10
 text = "Join Game"
 horizontal_alignment = 1
 
-[node name="StatusLabel" type="Label" parent="CanvasLayer/Panel/VBoxContainer" unique_id=1616751282]
+[node name="StatusLabel" type="Label" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer" unique_id=1616751282]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.2, 0.19607843, 0.23921569, 1)
+theme_override_constants/outline_size = 10
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer" unique_id=358387553]
+custom_minimum_size = Vector2(240, 190)
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Panel/VBoxContainer" unique_id=358387553]
-custom_minimum_size = Vector2(250, 250)
+[node name="ServerList" type="VBoxContainer" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1534430805]
 layout_mode = 2
 
-[node name="ServerList" type="VBoxContainer" parent="CanvasLayer/Panel/VBoxContainer/ScrollContainer" unique_id=1534430805]
-layout_mode = 2
-
-[node name="RefreshButton" type="Button" parent="CanvasLayer/Panel/VBoxContainer" unique_id=226606795]
+[node name="RefreshButton" type="Button" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer" unique_id=226606795]
 layout_mode = 2
 text = "refresh"
 
-[node name="BackButton" type="Button" parent="CanvasLayer/Panel/VBoxContainer" unique_id=1159323315]
+[node name="BackButton" type="Button" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer" unique_id=1159323315]
 layout_mode = 2
 text = "back"
 

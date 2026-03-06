@@ -12,10 +12,10 @@ var udp             := PacketPeerUDP.new()
 var broadcast_timer := 0.0
 
 # ─── Node References ─────────────────────────────────────
-@onready var player_list  : VBoxContainer = $VBoxContainer/PlayerList
-@onready var status_label : Label         = $VBoxContainer/StatusLabel
-@onready var start_button : Button        = $VBoxContainer/StartButton
-@onready var leave_button : Button        = $VBoxContainer/LeaveButton
+@onready var player_list  : VBoxContainer = $CanvasLayer/Panel/VBoxContainer/PlayerList
+@onready var status_label : Label         = $CanvasLayer/Panel/VBoxContainer/StatusLabel
+@onready var start_button : Button        = $CanvasLayer/Panel/VBoxContainer/StartButton
+@onready var leave_button : Button        = $CanvasLayer/Panel/VBoxContainer/LeaveButton
 
 # ─── Lifecycle ───────────────────────────────────────────
 func _ready() -> void:
