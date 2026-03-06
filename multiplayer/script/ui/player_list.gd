@@ -4,7 +4,7 @@ extends Control
 const PLAYER_LIST_ITEM := preload("res://multiplayer/scene/ui/player_list_item.tscn")
 
 # ─── Node References ─────────────────────────────────────
-@onready var list : VBoxContainer = $ScrollContainer/VBoxContainer
+@onready var list : VBoxContainer = $MarginContainer/ScrollContainer/VBoxContainer
 
 # ─── Lifecycle ───────────────────────────────────────────
 func _ready() -> void:

@@ -166,6 +166,7 @@ func notify_rejected(player_id: int) -> void:
 
 # ─── Peer Events ─────────────────────────────────────────
 func _on_peer_disconnected(id: int) -> void:
+	announce("Player %d has left the game." % id)
 	players.erase(str(id))
 	if players_node.has_node(str(id)):
 		players_node.get_node(str(id)).queue_free()

@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://ca8uxd38eds5n"]
+
+[ext_resource type="Script" uid="uid://cmu6ohbsty3oi" path="res://multiplayer/script/ui/network_pause_menu.gd" id="1_0fbpu"]
+[ext_resource type="Texture2D" uid="uid://dtakxc6nj1gxy" path="res://assets/custom/panels/pause_panel.png" id="1_fxjaf"]
+[ext_resource type="Texture2D" uid="uid://tqi6dvwkgywd" path="res://assets/custom/pause_menu/pause_play_buton.png" id="2_0fbpu"]
+[ext_resource type="Texture2D" uid="uid://3y6wbvx2ic08" path="res://assets/custom/buttons/Play_button_wide/clicked/clicked_3.png" id="3_i7lfh"]
+[ext_resource type="Texture2D" uid="uid://da2t78i1d153o" path="res://assets/custom/buttons/Play_button_wide/hover/hover_2.png" id="4_kli0y"]
+[ext_resource type="Texture2D" uid="uid://cnuucikky0umr" path="res://assets/custom/pause_menu/pause_exit_button.png" id="5_08vqf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jo6ex"]
+texture = ExtResource("1_fxjaf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h3wej"]
+texture = ExtResource("2_0fbpu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qpmux"]
+texture = ExtResource("3_i7lfh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i4j2c"]
+texture = ExtResource("4_kli0y")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7efnt"]
+texture = ExtResource("5_08vqf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vc3p6"]
+texture = ExtResource("5_08vqf")
+
+[node name="NetworkPauseMenu" type="Control" unique_id=2121607820]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0fbpu")
+
+[node name="Panel" type="Panel" parent="." unique_id=1543212509]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -223.625
+offset_top = -81.125
+offset_right = 223.625
+offset_bottom = 81.125
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_jo6ex")
+
+[node name="ResumeButton" type="Button" parent="." unique_id=1277823424]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.0
+offset_top = -34.0
+offset_right = 51.5
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_h3wej")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qpmux")
+theme_override_styles/hover = SubResource("StyleBoxTexture_i4j2c")
+
+[node name="ExitButton" type="Button" parent="." unique_id=1021620853]
+layout_mode = 0
+offset_left = 650.0
+offset_top = 294.0
+offset_right = 851.0
+offset_bottom = 375.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_7efnt")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vc3p6")
+
+[connection signal="pressed" from="ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

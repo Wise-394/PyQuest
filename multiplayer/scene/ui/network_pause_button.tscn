@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dhd5xsams2fyb"]
+
+[ext_resource type="Script" uid="uid://bq1b4i0c2tt3m" path="res://multiplayer/script/ui/network_pause_button.gd" id="1_cy5d8"]
+
+[node name="PauseButton" type="Button" unique_id=1398288369]
+offset_right = 37.0
+offset_bottom = 34.0
+text = "||"
+script = ExtResource("1_cy5d8")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

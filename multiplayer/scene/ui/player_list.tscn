@@ -1,17 +1,28 @@
 [gd_scene format=3 uid="uid://4a0cixh42sry"]
 
+[ext_resource type="Texture2D" uid="uid://cmlpbmju4q6hn" path="res://assets/custom/panels/panel_dark.png" id="1_1dcyk"]
 [ext_resource type="Script" uid="uid://5tbh2t578s1m" path="res://multiplayer/script/ui/player_list.gd" id="1_fvdmv"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_djc8e"]
+texture = ExtResource("1_1dcyk")
+region_rect = Rect2(0, 0, 70, 35)
+
 [node name="PlayerList" type="Panel" unique_id=84475281]
-offset_right = 200.0
-offset_bottom = 110.0
+offset_right = 211.0
+offset_bottom = 112.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_djc8e")
 script = ExtResource("1_fvdmv")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=119578657]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=291262368]
 layout_mode = 0
-offset_right = 200.0
-offset_bottom = 104.0
+offset_right = 196.0
+offset_bottom = 97.0
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=270978091]
-custom_minimum_size = Vector2(200, 100)
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer" unique_id=119578657]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer" unique_id=270978091]
+custom_minimum_size = Vector2(170, 80)
 layout_mode = 2
