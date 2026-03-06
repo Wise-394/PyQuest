@@ -80,7 +80,7 @@ script = ExtResource("7_osucx")
 [node name="PauseState" type="Node" parent="FSM" unique_id=1564381517]
 script = ExtResource("8_lphl1")
 
-[node name="CodeState" type="Node" parent="FSM" unique_id=1534402929]
+[node name="CodeState" type="Node" parent="FSM" unique_id=1534402929 groups=["player"]]
 script = ExtResource("9_o2hij")
 
 [node name="Interact" type="Sprite2D" parent="." unique_id=1818264720]

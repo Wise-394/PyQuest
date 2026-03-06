@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://5aes1v4bcju1"]
+
+[ext_resource type="Script" uid="uid://dq1x24tt74t1i" path="res://multiplayer/script/ui/chat_text_box.gd" id="1_sttil"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sttil"]
+bg_color = Color(0.16470589, 0.16470589, 0.16470589, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.34033927, 0.34033936, 0.34033903, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+
+[node name="ChatTextBox" type="LineEdit" unique_id=1628311642]
+custom_minimum_size = Vector2(240, 30)
+offset_right = 240.0
+offset_bottom = 36.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_sttil")
+placeholder_text = "message..."
+script = ExtResource("1_sttil")

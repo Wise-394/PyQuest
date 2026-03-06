@@ -24,10 +24,16 @@ var question_object := {
 # ─── Lifecycle ───────────────────────────────────────────
 func _ready() -> void:
 	multiplayer.peer_disconnected.connect(_on_peer_disconnected)
+	if not multiplayer.is_server():
+		multiplayer.server_disconnected.connect(_on_host_disconnected)
 	if multiplayer.is_server():
 		_spawn_all_players()
 		_spawn_checklist()
 
+func _on_host_disconnected() -> void:
+	multiplayer.multiplayer_peer = null
+	get_tree().change_scene_to_file("res://multiplayer/scene/ui/disconnection_notice.tscn")
+	
 # ─── Spawning ────────────────────────────────────────────
 func _spawn_all_players() -> void:
 	var ids := multiplayer.get_peers()
@@ -59,6 +65,7 @@ func _spawn_checklist() -> void:
 # ─── Question ────────────────────────────────────────────
 func set_question(question: String, points: String) -> void:
 	_sync_question.rpc(question, points)
+	announce("A new question has been created! Find the note and solve it.")
 
 @rpc("authority", "call_local")
 func _sync_question(question: String, points: String) -> void:
@@ -82,7 +89,9 @@ func _spawn_question_note(spawn_index: int) -> void:
 func next_round() -> void:
 	if not multiplayer.is_server():
 		return
+	announce("Moving to the next round!")
 	_reset_round.rpc()
+	
 
 @rpc("authority", "call_local")
 func _reset_round() -> void:
@@ -113,6 +122,24 @@ func _reset_round() -> void:
 				var spawn_index := i % player_spawn_points.get_child_count()
 				player.position  = player_spawn_points.get_child(spawn_index).position
 
+@rpc("any_peer")
+func announce(message: String) -> void:
+	if not multiplayer.is_server():
+		return
+	_show_announcement.rpc("[SYSTEM] " + message)
+
+@rpc("any_peer")
+func chat(player_id: int, message: String) -> void:
+	if not multiplayer.is_server():
+		return
+	_show_announcement.rpc("Player %d: %s" % [player_id, message])
+
+@rpc("authority", "call_local")
+func _show_announcement(message: String) -> void:
+	var box := canvas_layer.get_node_or_null("ChatBox")
+	if box:
+		box.add_announcement(message)
+
 # ─── Submissions ─────────────────────────────────────────
 @rpc("any_peer")
 func submit_answer(player_id: int, code: String) -> void:
@@ -131,10 +158,11 @@ func award_points(player_id: int, points: int) -> void:
 		return
 	players[str(player_id)]["points"] += points
 	points_updated.emit(player_id, players[str(player_id)]["points"])
+	announce("Player %d's answer is correct! +%d points" % [player_id, points])
 
 @rpc("authority")
 func notify_rejected(player_id: int) -> void:
-	pass  # TODO: show rejection UI to player
+	announce("Player %d's answer is incorrect!" % player_id)
 
 # ─── Peer Events ─────────────────────────────────────────
 func _on_peer_disconnected(id: int) -> void:

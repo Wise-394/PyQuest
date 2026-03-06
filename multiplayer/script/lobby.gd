@@ -61,7 +61,7 @@ func _setup_as_client() -> void:
 func _on_host_disconnected() -> void:
 	multiplayer.multiplayer_peer = null
 	udp.close()
-	get_tree().change_scene_to_file("res://multiplayer/scene/multiplayer_menu.tscn")
+	get_tree().change_scene_to_file("res://multiplayer/scene/disconnected.tscn")
 
 # ─── Broadcasting ─────────────────────────────────────────
 func _send_broadcast() -> void:
@@ -95,6 +95,7 @@ func _on_peer_connected(id: int) -> void:
 func _on_peer_disconnected(id: int) -> void:
 	print("Player disconnected: ", id)
 	_refresh_player_list()
+
 
 # ─── Callbacks ───────────────────────────────────────────
 func _on_start_pressed() -> void:

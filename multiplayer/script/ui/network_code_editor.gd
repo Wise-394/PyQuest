@@ -32,6 +32,7 @@ func _on_submit_button_pressed() -> void:
 		output_label.text = "code cannot be empty"
 		return
 	player.code_checked(true)
+	game_world.announce.rpc_id(1, "Player %d has submitted their answer!" % multiplayer.get_unique_id())
 	game_world.submit_answer.rpc_id(1, multiplayer.get_unique_id(), code_input.text)
 	player.state_machine.change_state("idlestate")
 

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c3rsa3yam0s1c"]
+
+[ext_resource type="Script" uid="uid://dg1rkffekio3j" path="res://multiplayer/script/world/network_deadzone.gd" id="1_gd3hk"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6qq3m"]
+
+[node name="NetworkDeadzone" type="Area2D" unique_id=1119599733]
+collision_layer = 0
+script = ExtResource("1_gd3hk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1079382478]
+shape = SubResource("WorldBoundaryShape2D_6qq3m")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
