@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://v7drbij68ags"]
 
 [ext_resource type="Script" uid="uid://c5x2cx2stsruy" path="res://multiplayer/script/ui/next_round.gd" id="1_gplap"]
+[ext_resource type="Texture2D" uid="uid://ci8w2oc47q458" path="res://assets/custom/lvel_menu/level_panel.png" id="2_2mna1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sfde6"]
+texture = ExtResource("2_2mna1")
 
 [node name="NextRound" type="Control" unique_id=956355748]
 layout_mode = 3
@@ -18,45 +22,52 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -203.0
-offset_top = -107.0
-offset_right = 129.0
-offset_bottom = 84.0
+offset_left = -168.5
+offset_top = -102.0
+offset_right = 168.5
+offset_bottom = 102.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_sfde6")
 
 [node name="TitleLabel" type="Label" parent="Panel" unique_id=2077218456]
 layout_mode = 0
-offset_left = 35.0
-offset_top = 2.0
-offset_right = 216.0
-offset_bottom = 25.0
+offset_left = 33.0
+offset_top = 17.0
+offset_right = 214.0
+offset_bottom = 40.0
 scale = Vector2(1.5, 1.5)
+theme_override_colors/font_color = Color(0.8666667, 0.56078434, 0.38039216, 1)
+theme_override_colors/font_outline_color = Color(0.2, 0.19607843, 0.23921569, 1)
+theme_override_constants/outline_size = 10
 text = "Proceed to next round?"
 
 [node name="PlayerLeftLabel" type="Label" parent="Panel" unique_id=1098925103]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 33.0
-offset_right = 258.0
-offset_bottom = 108.0
+offset_left = 65.0
+offset_top = 54.0
+offset_right = 259.0
+offset_bottom = 129.0
+theme_override_colors/font_color = Color(0.8666667, 0.56078434, 0.38039216, 1)
+theme_override_colors/font_outline_color = Color(0.2, 0.19607843, 0.23921569, 1)
+theme_override_constants/outline_size = 10
 text = "there are still x people that havent submitted"
 horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="YesButton" type="Button" parent="Panel" unique_id=1821600446]
 layout_mode = 0
-offset_left = 258.0
+offset_left = 251.0
 offset_top = 143.0
-offset_right = 318.0
+offset_right = 311.0
 offset_bottom = 177.0
 text = "yes"
 
 [node name="NoButton" type="Button" parent="Panel" unique_id=864217224]
 layout_mode = 0
-offset_left = 199.0
+offset_left = 190.0
 offset_top = 143.0
-offset_right = 251.0
+offset_right = 242.0
 offset_bottom = 177.0
 text = "no
 "

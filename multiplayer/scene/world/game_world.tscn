@@ -7,9 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://bwrop6cmmut7u" path="res://scene/world/moving_platform.tscn" id="3_yjyya"]
 [ext_resource type="PackedScene" uid="uid://dwxnjjqk3thwg" path="res://multiplayer/scene/ui/question_maker_opener.tscn" id="3_ywjpb"]
 [ext_resource type="PackedScene" uid="uid://e737qxq7j4ci" path="res://multiplayer/scene/ui/open_check_list.tscn" id="5_w6veq"]
+[ext_resource type="Texture2D" uid="uid://b0byo7le6na22" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Big Map/Idle/01.png" id="6_pq507"]
 [ext_resource type="PackedScene" uid="uid://4a0cixh42sry" path="res://multiplayer/scene/ui/player_list.tscn" id="6_xyy5b"]
 [ext_resource type="PackedScene" uid="uid://5oocigdytet3" path="res://multiplayer/scene/ui/chat_box.tscn" id="7_el3r3"]
 [ext_resource type="PackedScene" uid="uid://5aes1v4bcju1" path="res://multiplayer/scene/ui/chat_text_box.tscn" id="8_2q66w"]
+[ext_resource type="Texture2D" uid="uid://dplegygp3qv6h" path="res://assets/Treasure Hunters/Merchant Ship/Sprites/Ship/Anchor/1.png" id="8_wfmwj"]
 [ext_resource type="PackedScene" uid="uid://dhd5xsams2fyb" path="res://multiplayer/scene/ui/network_pause_button.tscn" id="10_i6vr1"]
 
 [sub_resource type="Curve2D" id="Curve2D_w6veq"]
@@ -69,16 +71,18 @@ position = Vector2(898, 52)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1606892325]
 
 [node name="QuestionMakerOpener" parent="CanvasLayer" unique_id=500172943 instance=ExtResource("3_ywjpb")]
-offset_left = 1110.0
-offset_top = 606.0
-offset_right = 1145.0
-offset_bottom = 637.0
+offset_left = 987.0
+offset_top = 605.0
+offset_right = 1147.0
+offset_bottom = 645.0
+icon = ExtResource("6_pq507")
 
 [node name="OpenCheckList" parent="CanvasLayer" unique_id=1534889121 instance=ExtResource("5_w6veq")]
-offset_left = 1070.0
-offset_top = 606.0
-offset_right = 1101.0
-offset_bottom = 637.0
+offset_left = 966.0
+offset_top = 570.0
+offset_right = 1148.0
+offset_bottom = 601.0
+icon = ExtResource("8_wfmwj")
 
 [node name="PlayerList" parent="CanvasLayer" unique_id=84475281 instance=ExtResource("6_xyy5b")]
 offset_left = 945.0

@@ -1,8 +1,14 @@
 [gd_scene format=3 uid="uid://dmwicqeq67em5"]
 
 [ext_resource type="Script" uid="uid://2ymngcff5ovh" path="res://multiplayer/script/ui/host_code_editpr.gd" id="1_0fsa4"]
+[ext_resource type="Texture2D" uid="uid://d2h0al4tqjfkr" path="res://assets/custom/code_editor_bg.png" id="2_5i7n1"]
 [ext_resource type="Script" uid="uid://x5o0de18q6vy" path="res://script/ui/panel.gd" id="2_u6t1q"]
 [ext_resource type="Script" uid="uid://mseysf2g3icb" path="res://multiplayer/script/backend/code_runner.gd" id="3_5i7n1"]
+[ext_resource type="Texture2D" uid="uid://ci8w2oc47q458" path="res://assets/custom/lvel_menu/level_panel.png" id="4_oxck4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0wsss"]
+texture = ExtResource("2_5i7n1")
+region_rect = Rect2(5, 6, 70, 66)
 
 [sub_resource type="CodeHighlighter" id="CodeHighlighter_oxck4"]
 number_color = Color(1, 0.72156864, 0.42352942, 1)
@@ -19,6 +25,9 @@ color_regions = {
 "' '": Color(1, 0.72156864, 0.42352942, 1)
 }
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jy85k"]
+texture = ExtResource("4_oxck4")
+
 [node name="HostCodeEditor" type="Control" unique_id=1149544838]
 layout_mode = 3
 anchors_preset = 15
@@ -32,22 +41,23 @@ script = ExtResource("1_0fsa4")
 layout_mode = 0
 offset_right = 442.0
 offset_bottom = 641.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_0wsss")
 script = ExtResource("2_u6t1q")
 
 [node name="CloseButton" type="Button" parent="HostCodeEditorPanel" unique_id=1466411270]
 layout_mode = 0
-offset_left = 393.0
-offset_top = 3.0
-offset_right = 438.0
-offset_bottom = 47.0
+offset_left = 360.0
+offset_top = 13.0
+offset_right = 405.0
+offset_bottom = 57.0
 text = "X"
 
 [node name="RunButton" type="Button" parent="HostCodeEditorPanel" unique_id=245945817]
 layout_mode = 0
-offset_left = 21.0
-offset_top = 589.0
-offset_right = 412.0
-offset_bottom = 633.0
+offset_left = 22.0
+offset_top = 578.0
+offset_right = 413.0
+offset_bottom = 614.0
 text = "Run"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="HostCodeEditorPanel" unique_id=1317397466]
@@ -72,73 +82,85 @@ auto_brace_completion_highlight_matching = true
 
 [node name="ScrollContainer2" type="ScrollContainer" parent="HostCodeEditorPanel" unique_id=710387421]
 layout_mode = 0
-offset_left = 22.0
-offset_top = 42.0
+offset_left = 26.0
+offset_top = 63.0
 offset_right = 415.0
 offset_bottom = 123.0
 
 [node name="QuestionLabel" type="Label" parent="HostCodeEditorPanel/ScrollContainer2" unique_id=435834959]
-custom_minimum_size = Vector2(390, 80)
+custom_minimum_size = Vector2(350, 60)
 layout_mode = 2
-text = "make an odd even function"
+theme_override_colors/font_color = Color(0.8666667, 0.56078434, 0.38039216, 1)
+theme_override_colors/font_outline_color = Color(0.2, 0.19607843, 0.23921569, 1)
+theme_override_constants/outline_size = 10
+text = "Question"
 
 [node name="ScrollContainer3" type="ScrollContainer" parent="HostCodeEditorPanel" unique_id=906475973]
 layout_mode = 0
 offset_left = 21.0
 offset_top = 513.0
 offset_right = 414.0
-offset_bottom = 594.0
+offset_bottom = 581.0
 
 [node name="OutputLabel" type="Label" parent="HostCodeEditorPanel/ScrollContainer3" unique_id=874096647]
-custom_minimum_size = Vector2(390, 75)
+custom_minimum_size = Vector2(390, 65)
 layout_mode = 2
-text = "make an odd even function"
+theme_override_colors/font_color = Color(0.8666667, 0.56078434, 0.38039216, 1)
+theme_override_colors/font_outline_color = Color(0.2, 0.19607843, 0.23921569, 1)
+theme_override_constants/outline_size = 10
+text = "Output"
 
 [node name="CheckPanel" type="Panel" parent="." unique_id=765534842]
 custom_minimum_size = Vector2(250, 200)
 layout_mode = 0
 offset_left = 455.0
-offset_top = 437.0
-offset_right = 705.0
+offset_top = 405.0
+offset_right = 729.0
 offset_bottom = 637.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_jy85k")
 script = ExtResource("2_u6t1q")
 
 [node name="Label" type="Label" parent="CheckPanel" unique_id=1845636190]
 layout_mode = 0
 offset_left = 19.0
 offset_top = 15.0
-offset_right = 234.0
+offset_right = 257.0
 offset_bottom = 38.0
+theme_override_colors/font_color = Color(0.8666667, 0.56078434, 0.38039216, 1)
+theme_override_colors/font_outline_color = Color(0.2, 0.19607843, 0.23921569, 1)
+theme_override_constants/outline_size = 10
 text = "Is the student code correct?"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="CorrectButton" type="Button" parent="CheckPanel" unique_id=91500203]
 layout_mode = 0
-offset_left = 20.0
-offset_top = 51.0
-offset_right = 119.0
-offset_bottom = 85.0
+offset_left = 32.0
+offset_top = 50.0
+offset_right = 131.0
+offset_bottom = 84.0
 text = "Correct"
 
 [node name="WrongButton" type="Button" parent="CheckPanel" unique_id=5930328]
 layout_mode = 0
-offset_left = 129.0
-offset_top = 51.0
-offset_right = 238.0
-offset_bottom = 85.0
+offset_left = 138.0
+offset_top = 50.0
+offset_right = 247.0
+offset_bottom = 84.0
 text = "Wrong"
 
 [node name="Points" type="HSlider" parent="CheckPanel" unique_id=2135666604]
 layout_mode = 0
-offset_left = 23.0
+offset_left = 35.0
 offset_top = 102.0
-offset_right = 183.0
+offset_right = 197.0
 offset_bottom = 118.0
 
 [node name="PointsLabel" type="Label" parent="CheckPanel" unique_id=352665321]
 layout_mode = 0
-offset_left = 191.0
+offset_left = 206.0
 offset_top = 99.0
-offset_right = 237.0
+offset_right = 252.0
 offset_bottom = 122.0
 text = "0"
 
@@ -146,16 +168,21 @@ text = "0"
 layout_mode = 0
 offset_left = 23.0
 offset_top = 122.0
-offset_right = 236.0
+offset_right = 254.0
 offset_bottom = 145.0
+theme_override_colors/font_color = Color(0.8666667, 0.56078434, 0.38039216, 1)
+theme_override_colors/font_outline_color = Color(0.2, 0.19607843, 0.23921569, 1)
+theme_override_constants/outline_size = 10
 text = "points awarded if correct"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="SubmitButton" type="Button" parent="CheckPanel" unique_id=2057381314]
 layout_mode = 0
-offset_left = 180.0
-offset_top = 162.0
-offset_right = 243.0
-offset_bottom = 193.0
+offset_left = 183.0
+offset_top = 176.0
+offset_right = 246.0
+offset_bottom = 207.0
 text = "Submit"
 
 [node name="CodeRunner" type="Node" parent="." unique_id=448573079]

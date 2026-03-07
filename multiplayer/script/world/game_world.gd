@@ -15,6 +15,7 @@ const CHECKLIST_SCENE := preload("res://scene/ui/player_check_list.tscn")
 signal points_updated(player_id: int, points: int)
 signal username_updated(player_id: int, username: String)
 signal submission_updated
+signal question_updated
 
 # ─── State ───────────────────────────────────────────────
 var players         := {}
@@ -106,6 +107,7 @@ func _sync_question(question: String, points: String) -> void:
 	question_object["question_string"]   = question
 	question_object["completion_points"] = points
 	if multiplayer.is_server():
+		question_updated.emit()
 		var spawn_index := randi() % question_spawn_points.get_child_count()
 		_spawn_question_note.rpc(spawn_index)
 
@@ -135,6 +137,7 @@ func _reset_round() -> void:
 	if existing:
 		existing.queue_free()
 	if multiplayer.is_server():
+		question_updated.emit()
 		var checklist := canvas_layer.get_node_or_null("PlayerCheckList")
 		if checklist:
 			checklist.clear()

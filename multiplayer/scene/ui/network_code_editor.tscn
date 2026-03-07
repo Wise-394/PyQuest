@@ -2,7 +2,12 @@
 
 [ext_resource type="Script" uid="uid://x5o0de18q6vy" path="res://script/ui/panel.gd" id="1_gn2qh"]
 [ext_resource type="Script" uid="uid://hh7g1ua3kfxv" path="res://multiplayer/script/ui/network_code_editor.gd" id="1_whoag"]
+[ext_resource type="Texture2D" uid="uid://d2h0al4tqjfkr" path="res://assets/custom/code_editor_bg.png" id="2_lmfvl"]
 [ext_resource type="Script" uid="uid://mseysf2g3icb" path="res://multiplayer/script/backend/code_runner.gd" id="3_6ic7x"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sp4u5"]
+texture = ExtResource("2_lmfvl")
+region_rect = Rect2(5, 6, 70, 66)
 
 [sub_resource type="CodeHighlighter" id="CodeHighlighter_gn2qh"]
 number_color = Color(1, 0.72156864, 0.42352942, 1)
@@ -32,15 +37,16 @@ script = ExtResource("1_whoag")
 layout_mode = 0
 offset_right = 442.0
 offset_bottom = 641.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_sp4u5")
 script = ExtResource("1_gn2qh")
 
 [node name="CloseButton" type="Button" parent="Panel" unique_id=930592356]
 layout_mode = 0
-offset_left = 388.0
-offset_top = 2.0
-offset_right = 440.0
-offset_bottom = 37.0
-text = "x"
+offset_left = 351.0
+offset_top = 14.0
+offset_right = 403.0
+offset_bottom = 49.0
+text = "X"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel" unique_id=1317397466]
 layout_mode = 0
@@ -64,18 +70,18 @@ auto_brace_completion_highlight_matching = true
 
 [node name="SubmitButton" type="Button" parent="Panel" unique_id=1031421768]
 layout_mode = 0
-offset_left = 364.0
-offset_top = 589.0
-offset_right = 432.0
-offset_bottom = 633.0
+offset_left = 348.0
+offset_top = 575.0
+offset_right = 415.0
+offset_bottom = 613.0
 text = "Submit"
 
 [node name="RunButton" type="Button" parent="Panel" unique_id=1826394153]
 layout_mode = 0
-offset_left = 23.0
-offset_top = 589.0
-offset_right = 350.0
-offset_bottom = 633.0
+offset_left = 18.0
+offset_top = 576.0
+offset_right = 345.0
+offset_bottom = 613.0
 text = "RUN"
 
 [node name="ScrollContainer2" type="ScrollContainer" parent="Panel" unique_id=710387421]
@@ -88,6 +94,9 @@ offset_bottom = 123.0
 [node name="QuestionLabel" type="Label" parent="Panel/ScrollContainer2" unique_id=435834959]
 custom_minimum_size = Vector2(390, 80)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8666667, 0.56078434, 0.38039216, 1)
+theme_override_colors/font_outline_color = Color(0.2, 0.19607843, 0.23921569, 1)
+theme_override_constants/outline_size = 10
 text = "make an odd even function"
 
 [node name="ScrollContainer3" type="ScrollContainer" parent="Panel" unique_id=906475973]
@@ -95,12 +104,15 @@ layout_mode = 0
 offset_left = 21.0
 offset_top = 513.0
 offset_right = 414.0
-offset_bottom = 594.0
+offset_bottom = 593.0
 
 [node name="OutputLabel" type="Label" parent="Panel/ScrollContainer3" unique_id=874096647]
-custom_minimum_size = Vector2(390, 75)
+custom_minimum_size = Vector2(390, 55)
 layout_mode = 2
-text = "make an odd even function"
+theme_override_colors/font_color = Color(0.8666667, 0.56078434, 0.38039216, 1)
+theme_override_colors/font_outline_color = Color(0.2, 0.19607843, 0.23921569, 1)
+theme_override_constants/outline_size = 10
+text = "Output"
 
 [node name="CodeRunner" type="Node" parent="." unique_id=448573079]
 script = ExtResource("3_6ic7x")

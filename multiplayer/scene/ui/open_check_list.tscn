@@ -5,7 +5,7 @@
 [node name="OpenCheckList" type="Button" unique_id=1534889121]
 offset_right = 31.0
 offset_bottom = 31.0
-text = "C"
+text = "Check Player Codes"
 script = ExtResource("1_n2wij")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

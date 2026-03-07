@@ -5,5 +5,5 @@
 [node name="QuestionMakerOpener" type="Button" unique_id=500172943]
 offset_right = 35.0
 offset_bottom = 31.0
-text = "O"
+text = "Make Question"
 script = ExtResource("1_7n0ga")

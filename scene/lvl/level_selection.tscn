@@ -15,7 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://diobg73l1yjy2" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 04.png" id="9_3si3o"]
 [ext_resource type="Texture2D" uid="uid://0lqf2vdkh5q1" path="res://assets/custom/buttons/lobby_button/lobby_button_hover.png" id="9_prnq4"]
 [ext_resource type="Texture2D" uid="uid://c8fapdreqerdj" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 05.png" id="10_xv4lr"]
+[ext_resource type="Texture2D" uid="uid://2sje280trb6u" path="res://assets/custom/buttons/wide_button3.png" id="11_86g56"]
 [ext_resource type="Texture2D" uid="uid://demyc2ifl8cg7" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 06.png" id="11_knivc"]
+[ext_resource type="Texture2D" uid="uid://dmuc0kfib8dux" path="res://assets/custom/buttons/wide_button2.png" id="12_86g56"]
 [ext_resource type="Texture2D" uid="uid://bt0xkum7onekp" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Background/BG Image.png" id="12_qenq8"]
 [ext_resource type="Texture2D" uid="uid://h77cp18jlrqu" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 01.png" id="13_0c5v5"]
 [ext_resource type="Texture2D" uid="uid://c2mkd8hqvngvo" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 02.png" id="14_roy88"]
@@ -49,6 +51,15 @@ texture = ExtResource("8_kp23w")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pl3tn"]
 texture = ExtResource("9_prnq4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oa6to"]
+texture = ExtResource("11_86g56")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_swmd8"]
+texture = ExtResource("12_86g56")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a4mrb"]
+texture = ExtResource("11_86g56")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tnv7a"]
 animations = [{
@@ -340,10 +351,16 @@ offset_right = 331.0
 offset_bottom = 318.0
 
 [node name="LanMultiplayer" type="Button" parent="CanvasLayer" unique_id=1526615262]
-offset_left = 141.0
-offset_top = 331.0
-offset_right = 270.0
-offset_bottom = 362.0
+offset_left = 123.0
+offset_top = 322.0
+offset_right = 274.0
+offset_bottom = 374.0
+theme_override_colors/font_color = Color(0.8666667, 0.56078434, 0.38039216, 1)
+theme_override_colors/font_outline_color = Color(0.2, 0.19607843, 0.23921569, 1)
+theme_override_constants/outline_size = 10
+theme_override_styles/normal = SubResource("StyleBoxTexture_oa6to")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_swmd8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_a4mrb")
 text = "Lan Multiplayer"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=158133266]

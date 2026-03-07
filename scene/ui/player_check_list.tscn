@@ -2,48 +2,58 @@
 
 [ext_resource type="Script" uid="uid://vvy1ol8f608k" path="res://multiplayer/script/ui/player_check_list.gd" id="1_upwsr"]
 [ext_resource type="Script" uid="uid://x5o0de18q6vy" path="res://script/ui/panel.gd" id="2_dpbvd"]
+[ext_resource type="Texture2D" uid="uid://d2h0al4tqjfkr" path="res://assets/custom/code_editor_bg.png" id="2_xi1n2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l7o2v"]
+texture = ExtResource("2_xi1n2")
+region_rect = Rect2(5, 6, 70, 66)
 
 [node name="PlayerCheckList" type="Control" unique_id=1065668274]
-visible = false
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_left = 383.0
+offset_top = 56.0
+offset_right = 383.0
+offset_bottom = 56.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("1_upwsr")
 
 [node name="Panel" type="Panel" parent="." unique_id=2118263813]
 layout_mode = 0
 offset_right = 362.0
 offset_bottom = 496.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_l7o2v")
 script = ExtResource("2_dpbvd")
 
 [node name="CloseButton" type="Button" parent="Panel" unique_id=300433047]
 layout_mode = 0
-offset_left = 305.0
-offset_top = 1.0
-offset_right = 355.0
-offset_bottom = 46.0
+offset_left = 284.0
+offset_top = 10.0
+offset_right = 334.0
+offset_bottom = 55.0
 text = "X"
 
 [node name="Label" type="Label" parent="Panel" unique_id=299215752]
 layout_mode = 0
-offset_left = 40.0
-offset_top = 15.0
-offset_right = 263.0
-offset_bottom = 38.0
+offset_left = 31.0
+offset_top = 24.0
+offset_right = 254.0
+offset_bottom = 47.0
+theme_override_colors/font_color = Color(0.8666667, 0.56078434, 0.38039216, 1)
+theme_override_colors/font_outline_color = Color(0.2, 0.19607843, 0.23921569, 1)
+theme_override_constants/outline_size = 10
 text = "list of player needs checking:"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel" unique_id=309523834]
 layout_mode = 0
-offset_left = 14.0
-offset_top = 57.0
-offset_right = 340.0
-offset_bottom = 457.0
+offset_left = 29.0
+offset_top = 65.0
+offset_right = 329.0
+offset_bottom = 445.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer" unique_id=1731672658]
-custom_minimum_size = Vector2(300, 400)
+custom_minimum_size = Vector2(300, 380)
 layout_mode = 2
 
 [connection signal="pressed" from="Panel/CloseButton" to="." method="_on_close_button_pressed"]

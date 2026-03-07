@@ -12,6 +12,14 @@
 [ext_resource type="Texture2D" uid="uid://dgsou4ybt48md" path="res://assets/custom/BG ISLANDS.png" id="10_kvshy"]
 [ext_resource type="PackedScene" uid="uid://c8xl8vq78hcou" path="res://scene/world/decoration/front_regular_tree.tscn" id="11_dtl0b"]
 [ext_resource type="TileSet" uid="uid://d1yxhu13jwkq3" path="res://tileset/island.tres" id="12_mrphe"]
+[ext_resource type="Texture2D" uid="uid://ck1u7q2tc414x" path="res://assets/custom/buttons/wide_button/wide_button1.png" id="13_68rwh"]
+[ext_resource type="Texture2D" uid="uid://do61rc68nnm4r" path="res://assets/custom/buttons/Back_Button/back_button1.png" id="13_evxcu"]
+[ext_resource type="Texture2D" uid="uid://dmuc0kfib8dux" path="res://assets/custom/buttons/wide_button2.png" id="14_3vat7"]
+[ext_resource type="Texture2D" uid="uid://bldvkb8bymudv" path="res://assets/custom/buttons/Back_Button/back_button3.png" id="14_kvshy"]
+[ext_resource type="Texture2D" uid="uid://cygf0ib10soh" path="res://assets/custom/buttons/wide_button/wide_button3.png" id="15_3vat7"]
+[ext_resource type="Texture2D" uid="uid://cvgpyptgkbjba" path="res://assets/custom/buttons/Back_Button/back_button2.png" id="15_kvshy"]
+[ext_resource type="Texture2D" uid="uid://bu8hm11q6fxj4" path="res://assets/custom/buttons/wide_button1.png" id="16_3vat7"]
+[ext_resource type="Texture2D" uid="uid://2sje280trb6u" path="res://assets/custom/buttons/wide_button3.png" id="17_l4jq1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i8mgf"]
 animations = [{
@@ -32,6 +40,33 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mrphe"]
+texture = ExtResource("13_evxcu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i8mgf"]
+texture = ExtResource("14_kvshy")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cry5r"]
+texture = ExtResource("15_kvshy")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3vat7"]
+texture = ExtResource("13_68rwh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l4jq1"]
+texture = ExtResource("14_3vat7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mwyw2"]
+texture = ExtResource("15_3vat7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_evxcu"]
+texture = ExtResource("16_3vat7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kvshy"]
+texture = ExtResource("14_3vat7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dtl0b"]
+texture = ExtResource("17_l4jq1")
 
 [node name="MultiplayerMenu" type="Control" unique_id=260196505]
 layout_mode = 3
@@ -142,34 +177,41 @@ zoom = Vector2(2, 2)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=462302044]
 
 [node name="Back" type="Button" parent="CanvasLayer" unique_id=2573364]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 59.0
-offset_bottom = 41.0
-text = "Back"
+offset_left = 6.0
+offset_top = 9.0
+offset_right = 61.0
+offset_bottom = 62.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_mrphe")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_i8mgf")
+theme_override_styles/hover = SubResource("StyleBoxTexture_cry5r")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=983232075]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -28.5
-offset_top = -33.0
-offset_right = 28.5
-offset_bottom = 33.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-
-[node name="HostButtton" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=386437571]
-layout_mode = 2
+[node name="HostButtton" type="Button" parent="CanvasLayer" unique_id=386437571]
+custom_minimum_size = Vector2(0, 30)
+offset_left = 537.5
+offset_top = 284.0
+offset_right = 637.5
+offset_bottom = 324.0
+theme_override_colors/font_color = Color(0.8666667, 0.56078434, 0.38039216, 1)
+theme_override_colors/font_outline_color = Color(0.2, 0.19607843, 0.23921569, 1)
+theme_override_constants/outline_size = 10
+theme_override_styles/normal = SubResource("StyleBoxTexture_3vat7")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_l4jq1")
+theme_override_styles/hover = SubResource("StyleBoxTexture_mwyw2")
 text = "Host"
 
-[node name="PlayerButton" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=1987574742]
-layout_mode = 2
+[node name="PlayerButton" type="Button" parent="CanvasLayer" unique_id=1987574742]
+offset_left = 538.0
+offset_top = 338.0
+offset_right = 638.0
+offset_bottom = 378.0
+theme_override_colors/font_color = Color(0.8666667, 0.56078434, 0.38039216, 1)
+theme_override_colors/font_outline_color = Color(0.2, 0.19607843, 0.23921569, 1)
+theme_override_constants/outline_size = 10
+theme_override_styles/normal = SubResource("StyleBoxTexture_evxcu")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_kvshy")
+theme_override_styles/hover = SubResource("StyleBoxTexture_dtl0b")
 text = "Player"
 
 [connection signal="pressed" from="CanvasLayer/Back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/HostButtton" to="." method="_on_host_buttton_pressed"]
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/PlayerButton" to="." method="_on_player_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/HostButtton" to="." method="_on_host_buttton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PlayerButton" to="." method="_on_player_button_pressed"]
