@@ -14,6 +14,7 @@
 [ext_resource type="Resource" uid="uid://dferoe7tt45b2" path="res://dialog/variable.dialogue" id="11_8kumq"]
 [ext_resource type="PackedScene" uid="uid://dc7ihfcrpl10v" path="res://scene/world/camera.tscn" id="11_dnrde"]
 [ext_resource type="PackedScene" uid="uid://c8mm1rrfpibeu" path="res://scene/ui/zone_remaining.tscn" id="12_8bmi6"]
+[ext_resource type="PackedScene" uid="uid://dnpc83w0181ed" path="res://scene/world/sign.tscn" id="12_nfao3"]
 [ext_resource type="PackedScene" uid="uid://44hfsfdoy30p" path="res://scene/character/healthbar.tscn" id="13_3eq2u"]
 [ext_resource type="PackedScene" uid="uid://chv6oqvx3a4j8" path="res://scene/world/parallax_bg.tscn" id="14_o8p85"]
 [ext_resource type="PackedScene" uid="uid://dl7srt6thlc11" path="res://scene/ui/coin_container.tscn" id="15_uy5nd"]
@@ -168,6 +169,26 @@ dialog = NodePath("DialogScene")
 [node name="DialogScene" parent="World/Starfish" unique_id=1521532395 instance=ExtResource("10_uv463")]
 dialog = ExtResource("11_8kumq")
 
+[node name="Sign" parent="World" unique_id=1349757906 instance=ExtResource("12_nfao3")]
+position = Vector2(-387, -43)
+label_text = "Solve all codes to proceed to next level"
+
+[node name="Label" parent="World/Sign" index="2" unique_id=951942153]
+offset_left = -84.000015
+offset_top = -38.0
+offset_right = 138.85713
+offset_bottom = -15.0
+
+[node name="Sign2" parent="World" unique_id=909520117 instance=ExtResource("12_nfao3")]
+position = Vector2(-120, 5)
+label_text = "Top right number shows the number of code questions left"
+
+[node name="Label" parent="World/Sign2" index="2" unique_id=951942153]
+offset_left = -136.0
+offset_top = -53.0
+offset_right = 192.57141
+offset_bottom = -30.0
+
 [node name="Player" parent="." unique_id=369493585 instance=ExtResource("10_81uea")]
 position = Vector2(-299, -144)
 collision_mask = 2
@@ -218,3 +239,5 @@ max_pts_lvl = 250
 [node name="parallax_bg" parent="." unique_id=546183954 instance=ExtResource("14_o8p85")]
 
 [editable path="World/ControllerCodeEditor2"]
+[editable path="World/Sign"]
+[editable path="World/Sign2"]
