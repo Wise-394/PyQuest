@@ -22,3 +22,13 @@ func _on_timer_timeout() -> void:
 
 func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
 	get_tree().change_scene_to_file("res://scene/ui/account_menu.tscn")
+
+func _show_menu():
+	visible = true
+
+func _on_info_pressed() -> void:
+	var instance = preload("res://scene/ui/info_screen.tscn").instantiate()
+	instance.info_closed.connect(_show_menu)
+	visible = false
+	var canvas_layer = get_parent()
+	canvas_layer.add_child(instance)

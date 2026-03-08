@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://cxy7xhe86emfm"]
+
+[ext_resource type="Script" uid="uid://b87c5speehhn7" path="res://script/ui/info_screen.gd" id="1_0mqxh"]
+[ext_resource type="Texture2D" uid="uid://d2h0al4tqjfkr" path="res://assets/custom/code_editor_bg.png" id="1_npyul"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0mqxh"]
+texture = ExtResource("1_npyul")
+region_rect = Rect2(5, 6, 70, 66)
+
+[node name="InfoScreen" type="Control" unique_id=67160690]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -5.0
+offset_top = 286.0
+offset_right = -5.0
+offset_bottom = 286.0
+grow_horizontal = 2
+script = ExtResource("1_0mqxh")
+
+[node name="Panel" type="Panel" parent="." unique_id=2143235643]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -200.0
+offset_right = 150.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_0mqxh")
+
+[node name="Button" type="Button" parent="Panel" unique_id=725393696]
+layout_mode = 0
+offset_left = 249.0
+offset_top = 9.0
+offset_right = 274.0
+offset_bottom = 34.0
+text = "X"
+
+[node name="Label" type="Label" parent="Panel" unique_id=469227626]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 14.0
+offset_right = 245.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.8666667, 0.56078434, 0.38039216, 1)
+theme_override_colors/font_outline_color = Color(0.2, 0.19607843, 0.23921569, 1)
+theme_override_constants/outline_size = 10
+text = "INFO"
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel" unique_id=1053533562]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 48.0
+offset_right = 274.0
+offset_bottom = 373.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/ScrollContainer" unique_id=1686230791]
+custom_minimum_size = Vector2(250, 325)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.2, 0.19607843, 0.23921569, 1)
+bbcode_enabled = true
+text = "[center][b][color=#dd8f61]PyQuest[/color][/b]
+[i]Learn Programming Through Adventure[/i][/center]
+[center]──────────────────────────────[/center]
+[b][color=#dd8f61]ABOUT THE PROJECT[/color][/b]
+PyQuest is a thesis final project that aims to teach programming concepts through gamification. Each concept or lesson is divided into levels, using Python as the foundation.
+[center]──────────────────────────────[/center]
+[b][color=#dd8f61]HOW IT WORKS[/color][/b]
+[b]01 — Pick a Level[/b]
+Each level focuses on one core Python concept, from variables and loops to functions and data structures.
+[b]02 — Play Through It[/b]
+Solve challenges and puzzles designed around that concept. Learning happens through doing.
+[b]03 — Level Up[/b]
+Complete the level to unlock the next concept and watch your Python skills grow.
+[center]──────────────────────────────[/center]
+[b][color=#dd8f61]THE TEAM[/color][/b]
+[b]X[/b] — Researcher, Game Developer
+[b]Y[/b] — Researcher
+[b]Z[/b] — Researcher
+[center]──────────────────────────────[/center]
+[b][color=#dd8f61]TOOLS & TECHNOLOGIES[/color][/b]
+[b]Aseprite[/b] — Pixel art and animation editor
+[b]Godot Engine[/b] — Game engine
+[b]FastAPI[/b] — Python web framework
+[b]Visual Studio Code[/b] — Code editor
+[b]Git[/b] — Version control
+[b]GitHub[/b] — Repository hosting
+[center]──────────────────────────────[/center]
+[b][color=#dd8f61]ATTRIBUTIONS[/color][/b]
+The following third-party assets were used in the development of PyQuest. Full credit goes to their respective creators.
+
+[b]Treasure Hunters[/b] by Pixel Frog
+Primary asset pack used throughout the game.
+[url=https://pixelfrog-assets.itch.io/treasure-hunters]pixelfrog-assets.itch.io/treasure-hunters[/url]
+
+[b]Bringer of Death[/b] by Clembod
+Used as the Level 20 boss character.
+[url=https://clembod.itch.io/bringer-of-death-free]clembod.itch.io/bringer-of-death-free[/url]
+
+[b]Mecha Golem[/b] by DarkPixel-Kronovi
+Used as a level 10 boss in the game.
+[url=https://darkpixel-kronovi.itch.io/mecha-golem-free]darkpixel-kronovi.itch.io/mecha-golem-free[/url]
+
+[b]Slime Sprite 32x32[/b] by Vimlark
+Used as an enemy character asset.
+[url=https://vimlark.itch.io/slime-sprite-32x32]vimlark.itch.io/slime-sprite-32x32[/url]
+[center]──────────────────────────────[/center]
+"
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]

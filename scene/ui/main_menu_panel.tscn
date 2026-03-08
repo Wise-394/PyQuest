@@ -115,7 +115,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_e5dty")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_0rvh3")
 theme_override_styles/hover = SubResource("StyleBoxTexture_k75cp")
 
-[node name="Button2" type="Button" parent="Panel" unique_id=1254786608]
+[node name="Info" type="Button" parent="Panel" unique_id=1254786608]
 layout_mode = 0
 offset_left = 241.125
 offset_top = 259.75
@@ -136,4 +136,5 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_61h51")
 theme_override_styles/hover = SubResource("StyleBoxTexture_d073j")
 
 [connection signal="pressed" from="Panel/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Panel/Info" to="." method="_on_info_pressed"]
 [connection signal="pressed" from="Panel/ExitButton" to="." method="_on_exit_button_pressed"]
