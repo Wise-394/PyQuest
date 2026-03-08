@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c8mm1rrfpibeu"]
 
 [ext_resource type="Script" uid="uid://c6au7hcebds5n" path="res://script/ui/zone_remaining.gd" id="1_ylt1w"]
+[ext_resource type="Texture2D" uid="uid://b0byo7le6na22" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Big Map/Idle/01.png" id="2_c2fl1"]
 
 [node name="ZoneRemaining" type="Label" unique_id=1860109364]
 offset_right = 40.0
@@ -12,3 +13,8 @@ theme_override_font_sizes/font_size = 46
 text = "0"
 horizontal_alignment = 1
 script = ExtResource("1_ylt1w")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1881055891]
+position = Vector2(-17.5, 32.5)
+scale = Vector2(1.2333333, 1.15625)
+texture = ExtResource("2_c2fl1")

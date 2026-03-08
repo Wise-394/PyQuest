@@ -24,7 +24,6 @@ func _load_description(file_path: String) -> void:
 		return
 	
 	var full_path = "res://" + file_path
-	print("Trying to load: ", full_path)
 	
 	var file = FileAccess.open(full_path, FileAccess.READ)
 	if file:

@@ -51,10 +51,10 @@ func _on_answer_submitted(output: String, is_correct: bool, explanation: String)
 	current_explanation = explanation
 	output_label.text = output
 	if is_answer_correct:
-		close_button.modulate = Color("#2ECC40")  # green tint
-		var player: CharacterBody2D = get_tree().current_scene.get_node("Player")
+		close_button.modulate = Color("#2ECC40")
 		var instance = preload("res://scene/world/confetti_effect.tscn").instantiate()
-		player.add_child(instance)
+		get_tree().current_scene.get_node("UI/CanvasLayer").add_child(instance)
+		instance.position = get_viewport().get_visible_rect().size / 2
 		instance.emitting = true
 		
 		
