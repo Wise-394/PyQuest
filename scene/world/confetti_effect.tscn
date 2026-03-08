@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dut3jn8jxnm3m"]
+
+[ext_resource type="Texture2D" uid="uid://cbh2psiisewcl" path="res://assets/custom/effects/byte.png" id="1_5s0lk"]
+
+[node name="ConfettiEffect" type="CPUParticles2D" unique_id=251617826]
+emitting = false
+amount = 80
+texture = ExtResource("1_5s0lk")
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.85
+randomness = 0.2
+direction = Vector2(0, -1)
+spread = 90.0
+gravity = Vector2(0, 300)
+initial_velocity_min = 120.0
+initial_velocity_max = 400.0
+scale_amount_min = 0.2
+scale_amount_max = 0.5
+color = Color(0, 1, 0.21176471, 1)

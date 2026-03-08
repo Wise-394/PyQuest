@@ -8,7 +8,7 @@ signal code_editor_closed(is_correct: bool, explanation: String)
 @onready var question_label: Label = $Panel/ScrollContainer2/QuestionLabel
 @onready var output_label: Label = $Panel/ScrollContainer/OutputLabel
 @onready var question_api = $QuestionApi
-
+@onready var close_button = $Panel/Close
 # STATE
 var current_question_id := 0
 var current_level = 0
@@ -19,6 +19,7 @@ func _ready() -> void:
 	question_api.get_question_completed.connect(_on_question_loaded)
 	question_api.post_question_completed.connect(_on_answer_submitted)
 	visible = false
+	
 
 
 # ----------------------------------------------------------
@@ -49,6 +50,14 @@ func _on_answer_submitted(output: String, is_correct: bool, explanation: String)
 	is_answer_correct = is_correct
 	current_explanation = explanation
 	output_label.text = output
+	if is_answer_correct:
+		close_button.modulate = Color("#2ECC40")  # green tint
+		var player: CharacterBody2D = get_tree().current_scene.get_node("Player")
+		var instance = preload("res://scene/world/confetti_effect.tscn").instantiate()
+		player.add_child(instance)
+		instance.emitting = true
+		
+		
 
 
 # ----------------------------------------------------------
@@ -61,6 +70,7 @@ func _on_close_pressed() -> void:
 	queue_free()
 
 func _reset_state() -> void:
+	close_button.modulate = Color.WHITE
 	code_edit.text = ""
 	question_label.text = ""
 	output_label.text = ""

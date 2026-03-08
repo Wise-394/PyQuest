@@ -49,6 +49,7 @@ extends Area2D
 @onready var player: CharacterBody2D = get_tree().current_scene.get_node("Player")
 @onready var canvas_layer: CanvasLayer = get_tree().current_scene.get_node("UI/CanvasLayer")
 @onready var zone_remaining: Label = get_tree().current_scene.get_node_or_null("UI/CanvasLayer/ZoneRemaining")
+@onready var confetti := preload("res://scene/world/confetti_effect.tscn")
 @onready var particles: CPUParticles2D = $CPUParticles2D
 @onready var collision: CollisionShape2D = $CollisionShape2D
 var is_player_in_range := false
@@ -150,7 +151,7 @@ func _finalize(is_correct: bool) -> void:
 
 	if is_correct:
 		is_completed = true
-		_activate_children()
+		_activate_children()	
 		_set_zone_active(false)
 		particles.disable()
 		if zone_remaining:
