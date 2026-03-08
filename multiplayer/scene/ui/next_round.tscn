@@ -32,15 +32,17 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_sfde6")
 
 [node name="TitleLabel" type="Label" parent="Panel" unique_id=2077218456]
 layout_mode = 0
-offset_left = 33.0
-offset_top = 17.0
-offset_right = 214.0
-offset_bottom = 40.0
-scale = Vector2(1.5, 1.5)
+offset_left = 24.500011
+offset_top = 16.0
+offset_right = 507.83325
+offset_bottom = 83.0
+scale = Vector2(0.6, 0.6)
 theme_override_colors/font_color = Color(0.8666667, 0.56078434, 0.38039216, 1)
 theme_override_colors/font_outline_color = Color(0.2, 0.19607843, 0.23921569, 1)
-theme_override_constants/outline_size = 10
+theme_override_constants/outline_size = 17
+theme_override_font_sizes/font_size = 36
 text = "Proceed to next round?"
+horizontal_alignment = 1
 
 [node name="PlayerLeftLabel" type="Label" parent="Panel" unique_id=1098925103]
 layout_mode = 0

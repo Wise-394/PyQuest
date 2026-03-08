@@ -19,6 +19,7 @@ signal question_updated
 
 # ─── State ───────────────────────────────────────────────
 var players         := {}
+var is_ending_game  : bool  = false
 var checked_players : Array = []
 var question_object := {
 	"question_string"   : "",
@@ -36,6 +37,8 @@ func _ready() -> void:
 		_spawn_checklist()
 
 func _on_host_disconnected() -> void:
+	if is_ending_game:
+		return
 	multiplayer.multiplayer_peer = null
 	get_tree().change_scene_to_file("res://multiplayer/scene/ui/disconnection_notice.tscn")
 
@@ -202,7 +205,25 @@ func award_points(player_id: int, points: int) -> void:
 func notify_rejected(player_id: int) -> void:
 	var username : String = players.get(str(player_id), {}).get("username", "Player")
 	announce("%s's answer is incorrect!" % username)
+\
+# ─── Ending Game ─────────────────────────────────────────
 
+func end_game() -> void:
+	if not multiplayer.is_server():
+		return
+	_set_ending_game.rpc()
+	_change_to_leaderboard.rpc(players)
+
+@rpc("authority", "call_local")
+func _set_ending_game() -> void:
+	is_ending_game = true
+
+@rpc("authority", "call_local")
+func _change_to_leaderboard(final_players: Dictionary) -> void:
+	SaveLoad.final_scores = final_players
+	multiplayer.multiplayer_peer = null
+	get_tree().change_scene_to_file("res://multiplayer/scene/ui/leaderboards_screen.tscn")
+	
 # ─── Peer Events ─────────────────────────────────────────
 func _on_peer_disconnected(id: int) -> void:
 	var username : String = players.get(str(id), {}).get("username", "Player")

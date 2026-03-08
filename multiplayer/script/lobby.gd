@@ -115,6 +115,9 @@ func _add_player_label(id: int) -> void:
 		label.text += " (You)"
 	if id == 1:
 		label.text += " [Host]"
+	label.add_theme_color_override("font_color", Color("#dd8f61"))
+	label.add_theme_color_override("font_outline_color", Color("#33323d"))
+	label.add_theme_constant_override("outline_size", 10)
 	player_list.add_child(label)
 
 # ─── Peer Events ─────────────────────────────────────────

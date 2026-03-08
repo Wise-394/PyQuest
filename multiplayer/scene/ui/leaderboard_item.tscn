@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://c08de1b2dok4p"]
+
+[ext_resource type="Script" uid="uid://dptwxtp6vveed" path="res://multiplayer/script/ui/leaderboard_item.gd" id="1_vb0dj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rn760"]
+bg_color = Color(0.9064589, 0.6320326, 0.47391355, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.2, 0.19607843, 0.23921569, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="PLayerListItem" type="Panel" unique_id=2000670890]
+custom_minimum_size = Vector2(0, 28)
+offset_left = 5.0
+offset_top = 2.0
+offset_right = 243.0
+offset_bottom = 30.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rn760")
+script = ExtResource("1_vb0dj")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=48759644]
+custom_minimum_size = Vector2(240, 27)
+layout_mode = 0
+offset_right = 105.0
+offset_bottom = 27.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=958567793]
+layout_mode = 2
+
+[node name="PlayerLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1891428398]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8666667, 0.56078434, 0.38039216, 1)
+theme_override_colors/font_outline_color = Color(0.2, 0.19607843, 0.23921569, 1)
+theme_override_constants/outline_size = 10
+text = "PLayer"
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer" unique_id=1911132447]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PointsLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1321210766]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8666667, 0.56078434, 0.38039216, 1)
+theme_override_colors/font_outline_color = Color(0.2, 0.19607843, 0.23921569, 1)
+theme_override_constants/outline_size = 10
+text = "0"

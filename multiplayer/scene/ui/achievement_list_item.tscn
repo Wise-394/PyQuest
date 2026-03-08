@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://bchhu8y0smly6"]
+
+[node name="HBoxContainer" type="HBoxContainer" unique_id=1078566971]
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.71373457
+offset_left = 376.0
+offset_top = -11.5
+offset_right = -525.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="AchievementListItem" type="Panel" parent="." unique_id=785527404]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="AchievementListItem" unique_id=1976296280]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = -10.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+
+[node name="Player" type="Label" parent="AchievementListItem/MarginContainer" unique_id=2062842898]
+layout_mode = 2
+text = "Player"
+
+[node name="Control" type="Control" parent="AchievementListItem/MarginContainer" unique_id=1141712020]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Points" type="Label" parent="AchievementListItem/MarginContainer" unique_id=371459950]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 2

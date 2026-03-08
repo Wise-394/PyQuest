@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://5aes1v4bcju1" path="res://multiplayer/scene/ui/chat_text_box.tscn" id="8_2q66w"]
 [ext_resource type="Texture2D" uid="uid://dplegygp3qv6h" path="res://assets/Treasure Hunters/Merchant Ship/Sprites/Ship/Anchor/1.png" id="8_wfmwj"]
 [ext_resource type="PackedScene" uid="uid://dhd5xsams2fyb" path="res://multiplayer/scene/ui/network_pause_button.tscn" id="10_i6vr1"]
+[ext_resource type="PackedScene" uid="uid://yx3vg8733s4g" path="res://multiplayer/scene/ui/end_game.tscn" id="13_wfmwj"]
 
 [sub_resource type="Curve2D" id="Curve2D_w6veq"]
 _data = {
@@ -107,5 +108,11 @@ offset_left = 12.0
 offset_top = 5.0
 offset_right = 49.0
 offset_bottom = 39.0
+
+[node name="EndGame" parent="CanvasLayer" unique_id=946465733 instance=ExtResource("13_wfmwj")]
+offset_left = 1032.0
+offset_top = 533.0
+offset_right = 1147.0
+offset_bottom = 565.0
 
 [node name="parallax_bg" parent="." unique_id=239915655 instance=ExtResource("3_nfdc0")]

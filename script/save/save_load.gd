@@ -7,6 +7,7 @@ extends Node
 signal skin_equipped(skin_id: String)
 signal coins_changed(amount: int)
 signal points_changed
+var final_scores : Dictionary = {}
 
 const SAVE_DIR  : String = "user://saves/"
 const MAX_SLOTS : int    = 4

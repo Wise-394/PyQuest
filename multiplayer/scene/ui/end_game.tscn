@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://yx3vg8733s4g"]
+
+[ext_resource type="Texture2D" uid="uid://2ilyxr1ixpcw" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Red Diamond/01.png" id="1_fthw3"]
+[ext_resource type="Script" uid="uid://cb6wtp3x8t6uk" path="res://multiplayer/script/ui/end_game.gd" id="2_tbb85"]
+
+[node name="EndGame" type="Button" unique_id=946465733]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "End Game"
+icon = ExtResource("1_fthw3")
+script = ExtResource("2_tbb85")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
