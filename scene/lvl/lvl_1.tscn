@@ -15,10 +15,10 @@
 [ext_resource type="PackedScene" uid="uid://c8mm1rrfpibeu" path="res://scene/ui/zone_remaining.tscn" id="11_iboel"]
 [ext_resource type="PackedScene" uid="uid://44hfsfdoy30p" path="res://scene/character/healthbar.tscn" id="12_7ol8c"]
 [ext_resource type="PackedScene" uid="uid://c8xl8vq78hcou" path="res://scene/world/decoration/front_regular_tree.tscn" id="13_6rxhn"]
-[ext_resource type="PackedScene" uid="uid://chv6oqvx3a4j8" path="res://scene/world/parallax_bg.tscn" id="13_lcuqg"]
 [ext_resource type="PackedScene" uid="uid://dl7srt6thlc11" path="res://scene/ui/coin_container.tscn" id="15_jsdnc"]
 [ext_resource type="PackedScene" uid="uid://lg4gs88e7o62" path="res://scene/ui/pause_button.tscn" id="16_3ip8l"]
 [ext_resource type="PackedScene" uid="uid://bn1njb5nuubl" path="res://scene/ui/points_label_level.tscn" id="18_7cjbj"]
+[ext_resource type="PackedScene" uid="uid://juq6c8iwdq2r" path="res://scene/world/parallax2d_bg.tscn" id="19_7cjbj"]
 
 [sub_resource type="Curve2D" id="Curve2D_7ol8c"]
 _data = {
@@ -248,7 +248,7 @@ offset_right = 225.0
 offset_bottom = 171.0
 max_pts_lvl = 230
 
-[node name="parallax_bg" parent="." unique_id=1725099835 instance=ExtResource("13_lcuqg")]
+[node name="parallax" parent="." unique_id=1504038054 instance=ExtResource("19_7cjbj")]
 
 [editable path="World/Sign/Sign2"]
 [editable path="World/CodingZone/ControllerCodeEditor"]
