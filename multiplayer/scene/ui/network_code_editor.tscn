@@ -104,7 +104,7 @@ layout_mode = 0
 offset_left = 21.0
 offset_top = 513.0
 offset_right = 414.0
-offset_bottom = 593.0
+offset_bottom = 571.0
 
 [node name="OutputLabel" type="Label" parent="Panel/ScrollContainer3" unique_id=874096647]
 custom_minimum_size = Vector2(390, 55)
