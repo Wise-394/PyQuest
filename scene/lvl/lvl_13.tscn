@@ -18,9 +18,9 @@
 [ext_resource type="PackedScene" uid="uid://44hfsfdoy30p" path="res://scene/character/healthbar.tscn" id="13_gl4yu"]
 [ext_resource type="PackedScene" uid="uid://dl7srt6thlc11" path="res://scene/ui/coin_container.tscn" id="14_1vy0f"]
 [ext_resource type="PackedScene" uid="uid://lg4gs88e7o62" path="res://scene/ui/pause_button.tscn" id="15_dk453"]
-[ext_resource type="PackedScene" uid="uid://chv6oqvx3a4j8" path="res://scene/world/parallax_bg.tscn" id="16_8vjrh"]
 [ext_resource type="PackedScene" uid="uid://bn1njb5nuubl" path="res://scene/ui/points_label_level.tscn" id="19_ndoe3"]
 [ext_resource type="PackedScene" uid="uid://c3r52si75dmo7" path="res://scene/world/dead_zone.tscn" id="20_8vjrh"]
+[ext_resource type="PackedScene" uid="uid://juq6c8iwdq2r" path="res://scene/world/parallax2d_bg.tscn" id="21_ndoe3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qr4af"]
 size = Vector2(43.875, 50)
@@ -252,9 +252,9 @@ offset_right = 222.0
 offset_bottom = 165.0
 max_pts_lvl = 250
 
-[node name="parallax_bg" parent="." unique_id=1891252288 instance=ExtResource("16_8vjrh")]
-
 [node name="DeadZone" parent="." unique_id=471343711 instance=ExtResource("20_8vjrh")]
 position = Vector2(-157, 83)
+
+[node name="parallax" parent="." unique_id=1504038054 instance=ExtResource("21_ndoe3")]
 
 [editable path="world/CodingZone/CodingZone"]

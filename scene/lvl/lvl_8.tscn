@@ -10,13 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://bwrop6cmmut7u" path="res://scene/world/moving_platform.tscn" id="4_yhigf"]
 [ext_resource type="PackedScene" uid="uid://d00fronllv71j" path="res://scene/world/coin.tscn" id="5_2c4xo"]
 [ext_resource type="PackedScene" uid="uid://cifnh8pm7c8k7" path="res://scene/character/slime.tscn" id="5_ysyxu"]
-[ext_resource type="PackedScene" uid="uid://chv6oqvx3a4j8" path="res://scene/world/parallax_bg.tscn" id="6_xq665"]
 [ext_resource type="PackedScene" uid="uid://dwv1bc5r8s2a8" path="res://scene/world/flag.tscn" id="7_lycra"]
 [ext_resource type="PackedScene" uid="uid://c8mm1rrfpibeu" path="res://scene/ui/zone_remaining.tscn" id="7_xvlif"]
 [ext_resource type="PackedScene" uid="uid://44hfsfdoy30p" path="res://scene/character/healthbar.tscn" id="8_pqxwk"]
 [ext_resource type="PackedScene" uid="uid://dl7srt6thlc11" path="res://scene/ui/coin_container.tscn" id="9_027c4"]
 [ext_resource type="PackedScene" uid="uid://lg4gs88e7o62" path="res://scene/ui/pause_button.tscn" id="10_yhigf"]
 [ext_resource type="PackedScene" uid="uid://bn1njb5nuubl" path="res://scene/ui/points_label_level.tscn" id="17_6r1ok"]
+[ext_resource type="PackedScene" uid="uid://juq6c8iwdq2r" path="res://scene/world/parallax2d_bg.tscn" id="17_lkqii"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_027c4"]
 size = Vector2(63.875, 64)
@@ -205,8 +205,6 @@ position = Vector2(409, 17)
 [node name="slime3" parent="Enemy" unique_id=809317304 instance=ExtResource("5_ysyxu")]
 position = Vector2(-262, -112)
 
-[node name="parallax_bg" parent="." unique_id=19711256 instance=ExtResource("6_xq665")]
-
 [node name="UI" type="Node" parent="." unique_id=1714433903]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="UI" unique_id=2125985518]
@@ -250,6 +248,8 @@ offset_top = 102.0
 offset_right = 226.0
 offset_bottom = 166.0
 max_pts_lvl = 250
+
+[node name="parallax" parent="." unique_id=1504038054 instance=ExtResource("17_lkqii")]
 
 [editable path="World/CodingZone/CodingZone"]
 [editable path="World/CodingZone/CodingZone2"]

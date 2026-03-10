@@ -15,9 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://44hfsfdoy30p" path="res://scene/character/healthbar.tscn" id="12_0ru02"]
 [ext_resource type="PackedScene" uid="uid://dl7srt6thlc11" path="res://scene/ui/coin_container.tscn" id="13_o51u7"]
 [ext_resource type="PackedScene" uid="uid://lg4gs88e7o62" path="res://scene/ui/pause_button.tscn" id="14_6d134"]
-[ext_resource type="PackedScene" uid="uid://chv6oqvx3a4j8" path="res://scene/world/parallax_bg.tscn" id="15_m2fm1"]
 [ext_resource type="PackedScene" uid="uid://c3r52si75dmo7" path="res://scene/world/dead_zone.tscn" id="16_5fenr"]
 [ext_resource type="PackedScene" uid="uid://bn1njb5nuubl" path="res://scene/ui/points_label_level.tscn" id="16_o51u7"]
+[ext_resource type="PackedScene" uid="uid://juq6c8iwdq2r" path="res://scene/world/parallax2d_bg.tscn" id="18_o51u7"]
 
 [sub_resource type="Curve2D" id="Curve2D_t3l4q"]
 _data = {
@@ -202,7 +202,7 @@ offset_right = 223.0
 offset_bottom = 165.0
 max_pts_lvl = 250
 
-[node name="parallax_bg" parent="." unique_id=1868323513 instance=ExtResource("15_m2fm1")]
-
 [node name="DeadZone" parent="." unique_id=1815250695 instance=ExtResource("16_5fenr")]
 position = Vector2(144, 312)
+
+[node name="parallax" parent="." unique_id=1504038054 instance=ExtResource("18_o51u7")]

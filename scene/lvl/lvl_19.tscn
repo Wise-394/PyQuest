@@ -14,9 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://cifnh8pm7c8k7" path="res://scene/character/slime.tscn" id="7_4urrm"]
 [ext_resource type="PackedScene" uid="uid://lg4gs88e7o62" path="res://scene/ui/pause_button.tscn" id="7_r7gm5"]
 [ext_resource type="PackedScene" uid="uid://cx2ljcqbkehra" path="res://scene/character/crab.tscn" id="8_2l883"]
-[ext_resource type="PackedScene" uid="uid://chv6oqvx3a4j8" path="res://scene/world/parallax_bg.tscn" id="8_4urrm"]
 [ext_resource type="PackedScene" uid="uid://c3r52si75dmo7" path="res://scene/world/dead_zone.tscn" id="9_2l883"]
 [ext_resource type="PackedScene" uid="uid://bn1njb5nuubl" path="res://scene/ui/points_label_level.tscn" id="15_2t8yb"]
+[ext_resource type="PackedScene" uid="uid://juq6c8iwdq2r" path="res://scene/world/parallax2d_bg.tscn" id="17_2t8yb"]
 
 [node name="lvl_19" type="Node" unique_id=1210110364]
 
@@ -143,7 +143,7 @@ offset_right = 224.0
 offset_bottom = 165.0
 max_pts_lvl = 250
 
-[node name="parallax_bg" parent="." unique_id=789396789 instance=ExtResource("8_4urrm")]
-
 [node name="DeadZone" parent="." unique_id=1772703 instance=ExtResource("9_2l883")]
 position = Vector2(144, 312)
+
+[node name="parallax" parent="." unique_id=1504038054 instance=ExtResource("17_2t8yb")]

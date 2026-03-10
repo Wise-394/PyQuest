@@ -12,13 +12,13 @@
 [ext_resource type="PackedScene" uid="uid://dl7srt6thlc11" path="res://scene/ui/coin_container.tscn" id="6_mj0uy"]
 [ext_resource type="PackedScene" uid="uid://d00fronllv71j" path="res://scene/world/coin.tscn" id="7_fs0x3"]
 [ext_resource type="PackedScene" uid="uid://lg4gs88e7o62" path="res://scene/ui/pause_button.tscn" id="7_fx6fq"]
-[ext_resource type="PackedScene" uid="uid://chv6oqvx3a4j8" path="res://scene/world/parallax_bg.tscn" id="8_c6bl2"]
 [ext_resource type="PackedScene" uid="uid://b4v1ihuy8lse3" path="res://scene/character/starfish.tscn" id="8_lscxi"]
 [ext_resource type="PackedScene" uid="uid://7am8ralce3gf" path="res://scene/dialog_node/dialog.tscn" id="9_f2e2h"]
 [ext_resource type="Resource" uid="uid://cntg4gctwbn2r" path="res://dialog/comparison_operator.dialogue" id="10_u0ewx"]
 [ext_resource type="PackedScene" uid="uid://nvxql4d8clds" path="res://scene/world/coding_zone.tscn" id="13_fx6fq"]
 [ext_resource type="PackedScene" uid="uid://bwrop6cmmut7u" path="res://scene/world/moving_platform.tscn" id="14_c6bl2"]
 [ext_resource type="PackedScene" uid="uid://dwv1bc5r8s2a8" path="res://scene/world/flag.tscn" id="15_c6bl2"]
+[ext_resource type="PackedScene" uid="uid://juq6c8iwdq2r" path="res://scene/world/parallax2d_bg.tscn" id="20_kedbq"]
 [ext_resource type="PackedScene" uid="uid://bn1njb5nuubl" path="res://scene/ui/points_label_level.tscn" id="20_u0ewx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c6bl2"]
@@ -149,8 +149,6 @@ position = Vector2(-181, -55)
 [node name="Camera2D" parent="Player" unique_id=682700094 instance=ExtResource("3_d2st7")]
 position = Vector2(94, -61)
 
-[node name="parallax_bg" parent="." unique_id=1599869430 instance=ExtResource("8_c6bl2")]
-
 [node name="CodingZone" type="Node" parent="." unique_id=2109805912]
 
 [node name="CodingZone" parent="CodingZone" unique_id=1700115422 instance=ExtResource("13_fx6fq")]
@@ -224,5 +222,7 @@ offset_top = 102.0
 offset_right = 229.0
 offset_bottom = 166.0
 max_pts_lvl = 250
+
+[node name="parallax" parent="." unique_id=1504038054 instance=ExtResource("20_kedbq")]
 
 [editable path="CodingZone/CodingZone2"]

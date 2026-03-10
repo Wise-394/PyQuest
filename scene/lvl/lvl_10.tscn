@@ -6,12 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://c3r52si75dmo7" path="res://scene/world/dead_zone.tscn" id="3_8p3yj"]
 [ext_resource type="PackedScene" uid="uid://dc7ihfcrpl10v" path="res://scene/world/camera.tscn" id="3_32kyc"]
 [ext_resource type="PackedScene" uid="uid://bn1njb5nuubl" path="res://scene/ui/points_label_level.tscn" id="4_8p3yj"]
-[ext_resource type="PackedScene" uid="uid://chv6oqvx3a4j8" path="res://scene/world/parallax_bg.tscn" id="4_ngqx4"]
 [ext_resource type="PackedScene" uid="uid://44hfsfdoy30p" path="res://scene/character/healthbar.tscn" id="6_pj5wv"]
 [ext_resource type="PackedScene" uid="uid://txybtigns2hp" path="res://scene/character/boss_hp.tscn" id="6_swp6o"]
 [ext_resource type="PackedScene" uid="uid://dl7srt6thlc11" path="res://scene/ui/coin_container.tscn" id="7_twjbc"]
 [ext_resource type="PackedScene" uid="uid://lg4gs88e7o62" path="res://scene/ui/pause_button.tscn" id="8_48ef0"]
 [ext_resource type="PackedScene" uid="uid://uw751ei4yp7y" path="res://scene/character/golem.tscn" id="9_swp6o"]
+[ext_resource type="PackedScene" uid="uid://juq6c8iwdq2r" path="res://scene/world/parallax2d_bg.tscn" id="12_8p3yj"]
 
 [node name="lvl_10" type="Node" unique_id=1350074850 node_paths=PackedStringArray("boss")]
 script = ExtResource("1_ngqx4")
@@ -40,8 +40,6 @@ position = Vector2(178, 133)
 
 [node name="Camera2D" parent="Player" unique_id=534987753 instance=ExtResource("3_32kyc")]
 position = Vector2(94, -61)
-
-[node name="parallax_bg" parent="." unique_id=1113399356 instance=ExtResource("4_ngqx4")]
 
 [node name="UI" type="Node" parent="." unique_id=1677532142]
 
@@ -83,5 +81,7 @@ offset_top = 6.0
 offset_right = 53.0
 offset_bottom = 56.0
 metadata/_edit_use_anchors_ = true
+
+[node name="parallax" parent="." unique_id=1504038054 instance=ExtResource("12_8p3yj")]
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

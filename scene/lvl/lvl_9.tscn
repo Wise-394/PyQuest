@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://bnhiv8qcc5ro5" path="res://scene/character/player.tscn" id="2_qp8gw"]
 [ext_resource type="PackedScene" uid="uid://bwrop6cmmut7u" path="res://scene/world/moving_platform.tscn" id="3_22wlu"]
 [ext_resource type="PackedScene" uid="uid://dc7ihfcrpl10v" path="res://scene/world/camera.tscn" id="3_h36yc"]
-[ext_resource type="PackedScene" uid="uid://chv6oqvx3a4j8" path="res://scene/world/parallax_bg.tscn" id="4_5bt8g"]
 [ext_resource type="PackedScene" uid="uid://dmpjs602qhkf4" path="res://scene/world/spike.tscn" id="4_t73ix"]
 [ext_resource type="PackedScene" uid="uid://dwv1bc5r8s2a8" path="res://scene/world/flag.tscn" id="5_a2t68"]
 [ext_resource type="PackedScene" uid="uid://c8mm1rrfpibeu" path="res://scene/ui/zone_remaining.tscn" id="5_nqrr2"]
@@ -21,6 +20,7 @@
 [ext_resource type="Resource" uid="uid://bn55i6ui2tid4" path="res://dialog/loop.dialogue" id="12_lgtby"]
 [ext_resource type="PackedScene" uid="uid://d00fronllv71j" path="res://scene/world/coin.tscn" id="13_lgtby"]
 [ext_resource type="PackedScene" uid="uid://bn1njb5nuubl" path="res://scene/ui/points_label_level.tscn" id="21_46wvy"]
+[ext_resource type="PackedScene" uid="uid://juq6c8iwdq2r" path="res://scene/world/parallax2d_bg.tscn" id="21_hdyk4"]
 
 [sub_resource type="Curve2D" id="Curve2D_co323"]
 _data = {
@@ -234,8 +234,6 @@ position = Vector2(178, 133)
 [node name="Camera2D" parent="Player" unique_id=1307256439 instance=ExtResource("3_h36yc")]
 position = Vector2(94, -61)
 
-[node name="parallax_bg" parent="." unique_id=1393654586 instance=ExtResource("4_5bt8g")]
-
 [node name="UI" type="Node" parent="." unique_id=176817527]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="UI" unique_id=450791784]
@@ -279,5 +277,7 @@ offset_top = 102.0
 offset_right = 224.0
 offset_bottom = 166.0
 max_pts_lvl = 250
+
+[node name="parallax" parent="UI/CanvasLayer/PointsLabelLevel" unique_id=1504038054 instance=ExtResource("21_hdyk4")]
 
 [editable path="World/CodingZone/CodingZone2"]

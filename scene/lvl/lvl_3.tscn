@@ -13,9 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://44hfsfdoy30p" path="res://scene/character/healthbar.tscn" id="12_1j3qy"]
 [ext_resource type="PackedScene" uid="uid://dl7srt6thlc11" path="res://scene/ui/coin_container.tscn" id="13_nm0q4"]
 [ext_resource type="PackedScene" uid="uid://lg4gs88e7o62" path="res://scene/ui/pause_button.tscn" id="14_tfqug"]
-[ext_resource type="PackedScene" uid="uid://chv6oqvx3a4j8" path="res://scene/world/parallax_bg.tscn" id="15_4rreb"]
 [ext_resource type="PackedScene" uid="uid://b4v1ihuy8lse3" path="res://scene/character/starfish.tscn" id="16_4pmkc"]
 [ext_resource type="PackedScene" uid="uid://bn1njb5nuubl" path="res://scene/ui/points_label_level.tscn" id="16_40815"]
+[ext_resource type="PackedScene" uid="uid://juq6c8iwdq2r" path="res://scene/world/parallax2d_bg.tscn" id="18_jlho3"]
 [ext_resource type="PackedScene" uid="uid://7am8ralce3gf" path="res://scene/dialog_node/dialog.tscn" id="18_upwjh"]
 [ext_resource type="Resource" uid="uid://cp6otowp24tui" path="res://dialog/data_types.dialogue" id="19_40815"]
 
@@ -219,13 +219,13 @@ offset_right = 224.0
 offset_bottom = 164.0
 max_pts_lvl = 250
 
-[node name="parallax_bg" parent="." unique_id=1168099974 instance=ExtResource("15_4rreb")]
-
 [node name="Starfish" parent="." unique_id=463054088 node_paths=PackedStringArray("dialog") instance=ExtResource("16_4pmkc")]
 position = Vector2(409, -61)
 dialog = NodePath("DialogScene")
 
 [node name="DialogScene" parent="Starfish" unique_id=860228270 instance=ExtResource("18_upwjh")]
 dialog = ExtResource("19_40815")
+
+[node name="parallax" parent="." unique_id=1504038054 instance=ExtResource("18_jlho3")]
 
 [editable path="World/CodingZone/Q1"]

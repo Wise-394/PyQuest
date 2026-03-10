@@ -18,8 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://bn1njb5nuubl" path="res://scene/ui/points_label_level.tscn" id="16_fw7fe"]
 [ext_resource type="PackedScene" uid="uid://dl7srt6thlc11" path="res://scene/ui/coin_container.tscn" id="16_kmmdu"]
 [ext_resource type="PackedScene" uid="uid://lg4gs88e7o62" path="res://scene/ui/pause_button.tscn" id="17_exysk"]
-[ext_resource type="PackedScene" uid="uid://chv6oqvx3a4j8" path="res://scene/world/parallax_bg.tscn" id="18_ll3s8"]
 [ext_resource type="PackedScene" uid="uid://b4v1ihuy8lse3" path="res://scene/character/starfish.tscn" id="18_ysjal"]
+[ext_resource type="PackedScene" uid="uid://juq6c8iwdq2r" path="res://scene/world/parallax2d_bg.tscn" id="20_hsl7t"]
 
 [node name="lvl_12" type="Node" unique_id=1146773614]
 
@@ -202,4 +202,4 @@ offset_right = 222.0
 offset_bottom = 165.0
 max_pts_lvl = 250
 
-[node name="parallax_bg" parent="." unique_id=1475255348 instance=ExtResource("18_ll3s8")]
+[node name="parallax" parent="." unique_id=1504038054 instance=ExtResource("20_hsl7t")]

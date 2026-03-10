@@ -18,8 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://44hfsfdoy30p" path="res://scene/character/healthbar.tscn" id="12_1j3qy"]
 [ext_resource type="PackedScene" uid="uid://dl7srt6thlc11" path="res://scene/ui/coin_container.tscn" id="13_nm0q4"]
 [ext_resource type="PackedScene" uid="uid://lg4gs88e7o62" path="res://scene/ui/pause_button.tscn" id="14_tfqug"]
-[ext_resource type="PackedScene" uid="uid://chv6oqvx3a4j8" path="res://scene/world/parallax_bg.tscn" id="15_4rreb"]
 [ext_resource type="PackedScene" uid="uid://bn1njb5nuubl" path="res://scene/ui/points_label_level.tscn" id="18_1bvdd"]
+[ext_resource type="PackedScene" uid="uid://juq6c8iwdq2r" path="res://scene/world/parallax2d_bg.tscn" id="20_gpoof"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ll6f"]
 size = Vector2(47.5, 50)
@@ -282,9 +282,9 @@ offset_right = 227.0
 offset_bottom = 166.0
 max_pts_lvl = 250
 
-[node name="parallax_bg" parent="." unique_id=331734774 instance=ExtResource("15_4rreb")]
-
 [node name="Node" type="Node" parent="." unique_id=933695435]
+
+[node name="parallax" parent="." unique_id=1504038054 instance=ExtResource("20_gpoof")]
 
 [editable path="World/Sign"]
 [editable path="World/Sign2"]

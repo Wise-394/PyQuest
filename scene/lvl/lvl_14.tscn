@@ -17,10 +17,10 @@
 [ext_resource type="PackedScene" uid="uid://44hfsfdoy30p" path="res://scene/character/healthbar.tscn" id="11_5j7ae"]
 [ext_resource type="PackedScene" uid="uid://dl7srt6thlc11" path="res://scene/ui/coin_container.tscn" id="12_m7ljx"]
 [ext_resource type="PackedScene" uid="uid://lg4gs88e7o62" path="res://scene/ui/pause_button.tscn" id="13_pvjlj"]
-[ext_resource type="PackedScene" uid="uid://chv6oqvx3a4j8" path="res://scene/world/parallax_bg.tscn" id="14_jvo53"]
 [ext_resource type="PackedScene" uid="uid://c3r52si75dmo7" path="res://scene/world/dead_zone.tscn" id="15_ikucc"]
 [ext_resource type="PackedScene" uid="uid://b4v1ihuy8lse3" path="res://scene/character/starfish.tscn" id="16_5j7ae"]
 [ext_resource type="PackedScene" uid="uid://bn1njb5nuubl" path="res://scene/ui/points_label_level.tscn" id="19_7m72g"]
+[ext_resource type="PackedScene" uid="uid://juq6c8iwdq2r" path="res://scene/world/parallax2d_bg.tscn" id="21_7m72g"]
 
 [sub_resource type="Curve2D" id="Curve2D_qmlaw"]
 _data = {
@@ -237,7 +237,7 @@ offset_right = 223.0
 offset_bottom = 165.0
 max_pts_lvl = 250
 
-[node name="parallax_bg" parent="." unique_id=315203675 instance=ExtResource("14_jvo53")]
-
 [node name="DeadZone" parent="." unique_id=1695069154 instance=ExtResource("15_ikucc")]
 position = Vector2(-157, 83)
+
+[node name="parallax" parent="." unique_id=1504038054 instance=ExtResource("21_7m72g")]
