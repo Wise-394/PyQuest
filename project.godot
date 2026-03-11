@@ -28,6 +28,7 @@ AchievementManager="*uid://b1lew55e1yr2l"
 
 [display]
 
+window/size/mode=2
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_width"
 mouse_cursor/custom_image="uid://csbqcwmnjhhdv"
