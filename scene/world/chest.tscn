@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dqmhjufmdngui"]
+[gd_scene format=3 uid="uid://dqmhjufmdngui"]
 
 [ext_resource type="Texture2D" uid="uid://cffsnrpuul7s0" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Close 01.png" id="1_7ohq0"]
 [ext_resource type="Script" uid="uid://cv8p2wja7yevh" path="res://script/world/chest.gd" id="1_x0vu8"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://33tlxyw7tblk" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Open 04.png" id="9_i484i"]
 [ext_resource type="Texture2D" uid="uid://bq17l07ftmpot" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Open 05.png" id="10_hxtra"]
 [ext_resource type="Texture2D" uid="uid://o1563ytxwt56" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Open 06.png" id="11_ibnnj"]
+[ext_resource type="Texture2D" uid="uid://cdnosqcjmt1al" path="res://assets/custom/open_dialog.png" id="13_usutj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1657s"]
 animations = [{
@@ -62,32 +63,25 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bhee2"]
 size = Vector2(70, 43)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x0vu8"]
-bg_color = Color(0, 0, 0, 0.3529412)
-
-[node name="Chest" type="Area2D"]
+[node name="Chest" type="Area2D" unique_id=1291369523]
 collision_layer = 0
 script = ExtResource("1_x0vu8")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=434678245]
 sprite_frames = SubResource("SpriteFrames_1657s")
 animation = &"closed"
 autoplay = "closed"
 frame_progress = 0.9143877
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1893579702]
 position = Vector2(1, -3.5)
 shape = SubResource("RectangleShape2D_bhee2")
 
-[node name="Label" type="Label" parent="."]
+[node name="OpenDialogSprite" type="Sprite2D" parent="." unique_id=1173384316]
 visible = false
-offset_left = -18.0
-offset_top = -59.0
-offset_right = 22.0
-offset_bottom = -36.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_x0vu8")
-text = "E"
-horizontal_alignment = 1
+position = Vector2(0, -29.375)
+scale = Vector2(1.5, 1.5681819)
+texture = ExtResource("13_usutj")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

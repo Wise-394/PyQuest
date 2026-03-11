@@ -178,6 +178,7 @@ position = Vector2(-199, -519)
 position = Vector2(351, -593)
 question = " are used to store data values in key:value pairs."
 answer = Array[String](["DICTIONARY", "Dictionary", "dictionary"])
+reward = "uid://bow2mbhwh077u"
 
 [node name="Starfish" parent="." unique_id=564293217 node_paths=PackedStringArray("dialog") instance=ExtResource("16_5j7ae")]
 position = Vector2(234, -477)

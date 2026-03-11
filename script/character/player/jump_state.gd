@@ -42,5 +42,7 @@ func _apply_air_movement():
 		character.velocity.x = lerp(character.velocity.x, 0.0, 0.2)
 
 func _check_if_falling():
-	if character.velocity.y > 0:
+	if character.velocity.y > 0 and not character.is_on_floor():
 		state_machine.change_state("fallingstate")
+	elif character.is_on_floor():
+		state_machine.change_state("idlestate")  # or landstate

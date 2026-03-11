@@ -91,6 +91,7 @@ level_to_go = "uid://cy6piaava8a3j"
 position = Vector2(-588, 261)
 curve = SubResource("Curve2D_4xgpj")
 speed = 70.0
+is_active = true
 
 [node name="Coins" type="Node" parent="World" unique_id=227356635]
 
@@ -161,6 +162,7 @@ python code that is locking the chest:
 
 chest_is_locked = True"
 answer = Array[String](["chest_is_locked = false", "chest_is_locked=false"])
+reward = "uid://d00fronllv71j"
 
 [node name="Starfish" parent="World" unique_id=1138597898 node_paths=PackedStringArray("dialog") instance=ExtResource("9_p8jx7")]
 position = Vector2(-40, 19)

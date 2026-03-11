@@ -1,24 +1,21 @@
 extends Area2D
-
-@onready var label: Label = $Label
+@onready var interact: Sprite2D = $OpenDialogSprite
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var canvas_layer: CanvasLayer = get_tree().current_scene.get_node("UI/CanvasLayer")
-
 @export_multiline var question: String = "question"
 @export var answer: Array[String]
 @export_file("*.tscn") var reward: String
 const CHEST_UI = preload("res://scene/ui/chest_ui.tscn")
-
 var is_locked = true
 var is_ui_visible = false
-var is_label_visible = false
+var is_interact_visible = false
 var player: CharacterBody2D
 
 func _ready() -> void:
 	_set_interaction_available(false)
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact") and is_label_visible and not is_ui_visible:
+	if event.is_action_pressed("interact") and is_interact_visible and not is_ui_visible:
 		_open_chest()
 
 func _on_body_entered(body: Node2D) -> void:
@@ -33,7 +30,6 @@ func _on_body_exited(body: Node2D) -> void:
 func _open_chest() -> void:
 	is_ui_visible = true
 	player.state_machine.change_state("pausestate")
-	
 	var chest_instance = CHEST_UI.instantiate()
 	chest_instance.chest_closed.connect(_on_chest_closed)
 	canvas_layer.add_child(chest_instance)
@@ -45,16 +41,17 @@ func _on_chest_closed(is_correct: bool) -> void:
 		_set_interaction_available(false)
 		give_reward()
 		animated_sprite.play("open")
-	
 	is_ui_visible = false
 	player.state_machine.change_state("idlestate")
 
 func give_reward():
+	if reward == null or reward.is_empty():
+		return
 	var reward_instance = load(reward).instantiate()
 	reward_instance.position = Vector2(0, -25)
 	add_child(reward_instance)
-	
+
 func _set_interaction_available(value: bool) -> void:
-	is_label_visible = value
-	label.visible = value
+	is_interact_visible = value
+	interact.visible = value
 	set_process(value)

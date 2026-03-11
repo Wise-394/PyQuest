@@ -18,7 +18,11 @@ func _on_close_pressed() -> void:
 
 func _on_submit_pressed() -> void:
 	if _is_answer_correct(answer_input.text):
-		print("correct")
+		var instance = preload("res://scene/world/confetti_effect.tscn").instantiate()
+		get_tree().current_scene.get_node("UI/CanvasLayer").add_child(instance)
+		instance.position = get_viewport().get_visible_rect().size / 2
+		instance.emitting = true
 
 func _is_answer_correct(answer_text: String) -> bool:
-	return answer_text in correct_answers
+	var lower_input = answer_text.to_lower().strip_edges()
+	return correct_answers.any(func(a): return a.to_lower().strip_edges() == lower_input)

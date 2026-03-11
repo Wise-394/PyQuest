@@ -84,7 +84,7 @@ level_to_go = "uid://bkdcaoaxh1frw"
 position = Vector2(417, -417)
 question = "what is it called an instance created from a class."
 answer = Array[String](["object", "Object"])
-reward = "Object"
+reward = "uid://d00fronllv71j"
 
 [node name="slime" parent="World" unique_id=823422655 instance=ExtResource("7_4urrm")]
 position = Vector2(597, -208)
