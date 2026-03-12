@@ -2,7 +2,7 @@
 
 # 🐍 PyQuest
 
-### *Learn Python Through Adventure*
+### *Learn Python Through Gamification*
 
 ![Made with Godot](https://img.shields.io/badge/Made%20with-Godot%204-478CBF?style=flat&logo=godotengine&logoColor=white)
 ![Language](https://img.shields.io/badge/Language-GdScript-3776AB?style=flat&logo=godotengine&logoColor=white)
@@ -57,6 +57,13 @@ The game is a 2D side-scrolling platformer made in **Godot Engine**, with a **Fa
 ⚠️ <strong>Note:</strong> All GIFs have been greatly compressed to fit GitHub’s size limits. The graphics are reduced and <strong>do not fully reflect the in-game quality</strong>.
 </p>
 
+---
+## 🎮 Game Screenshots
+
+| ![Menu](https://github.com/user-attachments/assets/9d8a3403-94c5-45fb-907e-7ebe8e479bff) | ![Code](https://github.com/user-attachments/assets/00abc683-378b-4ba5-bfaf-b32dd72c813a) |
+|---------------------------------|---------------------------------|
+| ![Slime](https://github.com/user-attachments/assets/7a0ba828-6725-4eec-9595-071f97279cd3) | ![Achievement](https://github.com/user-attachments/assets/f753c50d-118d-4d3d-b5e5-45ccf718acd9) |
+| ![Crab](https://github.com/user-attachments/assets/72e03c7c-f64f-4cb5-a741-d39262a7ed4a) | ![Multiplayer](https://github.com/user-attachments/assets/16393cdb-69a2-4c3e-8068-bb52ce046a4b) |
 ---
 
 ## 🧠 How It Works
@@ -149,6 +156,6 @@ Questions, feedback, or bug reports?
 
 <div align="center">
 
-*PyQuest — Built as a thesis project to make learning Python feel like an adventure.*
+*PyQuest — Learn Python Through Gamification.*
 
 </div>
