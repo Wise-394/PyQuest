@@ -18,6 +18,12 @@
 
 ---
 
+[![Download PyQuest](https://img.shields.io/badge/Download-PyQuest%20on%20itch.io-fa5c5c?style=for-the-badge\&logo=itch.io)](https://wise394.itch.io/pyquest)
+
+**Get PyQuest now on itch.io!**
+
+---
+
 ## 📖 About
 
 **PyQuest** is a thesis project that fuses game design with programming education. Instead of sitting through lectures, players learn Python by *playing through it* — each level is built around a core concept, from variables and loops to functions and data structures.
@@ -25,7 +31,6 @@
 The game is a 2D side-scrolling platformer made in **Godot Engine**, with a **FastAPI** backend handling logic and progression. Learning happens through doing — and in PyQuest, doing means fighting slimes and defeating bosses.
 
 ---
-
 ## 🎮 Gameplay
 
 <p align="center">
