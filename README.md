@@ -47,7 +47,7 @@ The game is a 2D side-scrolling platformer made in **Godot Engine**, with a **Fa
 </p>
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/537186e5-72b7-4b44-a57b-150d7072124f" height="80">
+  <img src="https://github.com/user-attachments/assets/c77acaa3-2a8f-4ec4-9d49-de6160aaede3" height="80">
   <br>
   <img src="https://github.com/user-attachments/assets/b74a9b7d-a02f-4c72-bb29-8f4c22a3975c" width="500">
 </p>
