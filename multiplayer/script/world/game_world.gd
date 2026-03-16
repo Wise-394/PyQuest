@@ -205,7 +205,7 @@ func award_points(player_id: int, points: int) -> void:
 func notify_rejected(player_id: int) -> void:
 	var username : String = players.get(str(player_id), {}).get("username", "Player")
 	announce("%s's answer is incorrect!" % username)
-\
+
 # ─── Ending Game ─────────────────────────────────────────
 
 func end_game() -> void:
