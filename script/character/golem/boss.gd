@@ -31,7 +31,7 @@ extends CharacterBody2D
 # ===============================
 var is_invulnerable: bool = false
 var is_alive: bool = true
-var current_health: int = 500
+var current_health: int
 var hit_direction: int = 1
 var player: CharacterBody2D = null
 var direction = 1
@@ -82,5 +82,5 @@ func damaged(damage_amount: int, _attacker: Node2D) -> void:
 	current_health -= damage_amount
 	health_changed.emit()
 	if current_health <= 0:
-		
+		is_alive = false
 		state_machine.change_state("deadstate")

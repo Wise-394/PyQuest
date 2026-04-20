@@ -27,6 +27,10 @@ func exit():
 		zone_instance.completed_signal.disconnect(completed_zone)
 	character.active_hitbox.monitoring = true
 	character.hurtbox.disabled = false
+	if character.is_alive:
+		character.call_deferred("damaged", 300, null)
+		
+
 func _reset_bobbing():
 	bob_time = 0.0
 
@@ -49,5 +53,7 @@ func _spawn_coding_zone():
 	get_tree().current_scene.add_child(zone_instance)
 	
 func completed_zone():
+	if not character.is_alive:
+		return
 	state_machine.change_state("idlestate")
 	

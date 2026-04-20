@@ -78,7 +78,7 @@ func _pick_target() -> void:
 		target_position = player_target
 		arrival_type = ArrivalType.PLAYER
 	else:
-		if randf() < 0.4:
+		if randf() < 0.6:
 			target_position = STATIC_TARGETS[1]  # CENTER
 			arrival_type = ArrivalType.CENTER
 		else:

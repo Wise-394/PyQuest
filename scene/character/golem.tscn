@@ -526,6 +526,11 @@ script = ExtResource("5_3d6su")
 
 [node name="ImmuneState" type="Node" parent="StateMachine" unique_id=351622182]
 script = ExtResource("6_bsp0a")
+bob_amplitude = null
+bob_speed = null
+spawn_min_x = null
+spawn_max_x = null
+spawn_y = null
 
 [node name="ArrivedSideState" type="Node" parent="StateMachine" unique_id=1900189159]
 script = ExtResource("7_cjctn")
