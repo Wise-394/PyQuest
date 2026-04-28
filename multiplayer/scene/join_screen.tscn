@@ -50,17 +50,25 @@ script = ExtResource("1_7xt2l")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=245784223]
 
 [node name="Panel" type="Panel" parent="CanvasLayer" unique_id=360425023]
-offset_left = 431.0
-offset_top = 100.0
-offset_right = 753.0
-offset_bottom = 505.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -178.5
+offset_top = -227.0
+offset_right = 178.5
+offset_bottom = 227.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_wu8ii")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel" unique_id=1240924715]
 layout_mode = 0
-offset_top = -34.0
-offset_right = 280.0
-offset_bottom = 395.0
+offset_left = 17.5
+offset_top = -29.0
+offset_right = 297.5
+offset_bottom = 400.0
 theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 45
 
