@@ -13,9 +13,9 @@ func _on_timer_timeout() -> void:
 	var roll: float = randf()
 	var result: String
 
-	if roll < 0.50:
+	if roll < 0.30:
 		result = "WALK"
-	elif roll < 0.75:
+	elif roll < 0.40:
 		result = "CAST"
 	else:
 		result = "DISAPPEAR"

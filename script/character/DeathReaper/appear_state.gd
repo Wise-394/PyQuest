@@ -26,5 +26,8 @@ func update_direction():
 		character.pivot.scale.x = 1.3
 
 func _animation_finished():
+	if not character.is_alive:
+		state_machine.change_state("deadstate")
+		return
 	hitbox.monitoring = true
 	state_machine.change_state("idlestate")

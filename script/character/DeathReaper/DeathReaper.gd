@@ -40,8 +40,8 @@ func damaged(damage_amount: int, _attacker: Node2D) -> void:
 	if not is_alive:
 		return
 	
-	print(current_health)
 	current_health -= damage_amount
 	health_changed.emit()
 	if current_health <= 0:
+		is_alive = false  
 		state_machine.change_state("deadstate")

@@ -11,8 +11,6 @@ func enter():
 	if not instance.completed_signal.is_connected(_is_completed):
 		instance.completed_signal.connect(_is_completed)
 	instance.global_position = spawn_point
-	#instance.level = 1
-	#instance.question_id = 1
 	instance.level = randi_range(11,19)
 	instance.question_id = randi_range(1,3)
 	get_tree().current_scene.add_child(instance)
@@ -23,4 +21,5 @@ func exit():
 		instance.completed_signal.disconnect(_is_completed)
 
 func _is_completed():
+	character.damaged(300, null)
 	state_machine.change_state('appearstate')

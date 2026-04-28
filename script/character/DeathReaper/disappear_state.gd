@@ -17,7 +17,7 @@ func _animation_finished():
 	
 	var rand = randf()
 	
-	if rand > 0.4:
+	if rand > 0.7:
 		state_machine.change_state('appearstate')
 	else: 
 		state_machine.change_state('codestate')
