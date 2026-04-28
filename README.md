@@ -7,6 +7,7 @@
 ![Made with Godot](https://img.shields.io/badge/Made%20with-Godot%204-478CBF?style=flat&logo=godotengine&logoColor=white)
 ![Language](https://img.shields.io/badge/Language-GdScript-3776AB?style=flat&logo=godotengine&logoColor=white)
 ![Backend](https://img.shields.io/badge/Backend-FastAPI-009688?style=flat&logo=fastapi&logoColor=white)
+![Multiplayer](https://img.shields.io/badge/Multiplayer-UDP%20%2F%20LAN-orange?style=flat)
 ![License](https://img.shields.io/badge/Project-Thesis-dd8f61?style=flat)
 
 <br/>
@@ -26,11 +27,45 @@
 
 ## 📖 About
 
-**PyQuest** is a thesis project that fuses game design with programming education. Instead of sitting through lectures, players learn Python by *playing through it* — each level is built around a core concept, from variables and loops to functions and data structures.
+**PyQuest** is a thesis project that fuses game design with programming education. Instead of sitting through lectures, players learn Python by *playing through it*, each level is built around a core concept, from variables and loops to functions and data structures.
 
-The game is a 2D side-scrolling platformer made in **Godot Engine**, with a **FastAPI** backend handling logic and progression. Learning happens through doing — and in PyQuest, doing means fighting slimes and defeating bosses.
+Built in **Godot Engine 4** with a **FastAPI** backend, the game evaluates player-submitted Python code server-side in real time. It also supports **local co-op multiplayer over LAN via UDP**, letting multiple players share the same world and coding session simultaneously.
 
 ---
+
+## 🧠 How It Works
+01 — Pick a Level
+Each level focuses on one Python concept:
+variables, loops, functions, data structures, and more.
+
+02 — Play Through It
+Fight enemies and solve in-game challenges built around that concept.
+A built-in code editor lets you write and submit Python directly in-game.
+
+03 — Code Gets Evaluated
+Your submission is sent to the FastAPI backend, executed in a Python
+sandbox, and validated against test cases — all in real time.
+
+04 — Level Up
+Pass all test cases to unlock the next concept
+and watch your Python skills grow.
+
+---
+
+## ⚙️ Technical Highlights
+
+- **Finite State Machine (FSM)** — Player behavior and game flow are managed by a custom FSM built in GDScript. It handles state transitions (idle, running, attacking, dead, evaluating) and drives level progression and adaptive learning flow cleanly without tangled conditionals.
+
+- **FastAPI Backend** — A RESTful API built with FastAPI handles communication between the game client and the server. It exposes endpoints for fetching level questions and submitting answers keeping the game logic and data layer cleanly separated.
+
+- **Python Interpreter & Answer Validation** — On submission, the player's code is executed in a controlled Python subprocess sandbox and validated against per-level test cases. The result is returned as structured JSON and reflected immediately in the game world.
+
+- **In-Game Code Editor** — Players write Python directly inside the game through a built-in code editor featuring syntax highlighting and autocomplete. Pressing `C` opens the editor mid-level, letting players solve coding challenges without leaving the game.
+
+- **LAN Multiplayer** — Built on Godot's High-Level Networking API. One player hosts, others join via local IP. Player positions, health, and level state are synced in real time using RPCs (Remote Procedure Calls) for low-latency communication.
+
+---
+
 ## 🎮 Gameplay
 
 <p align="center">
@@ -59,33 +94,17 @@ The game is a 2D side-scrolling platformer made in **Godot Engine**, with a **Fa
 
 <p align="center">
 <br>
-⚠️ <strong>Note:</strong> All GIFs have been greatly compressed to fit GitHub’s size limits. The graphics are reduced and <strong>do not fully reflect the in-game quality</strong>.
+⚠️ <strong>Note:</strong> All GIFs have been greatly compressed to fit GitHub's size limits. The graphics are reduced and <strong>do not fully reflect the in-game quality</strong>.
 </p>
 
 ---
+
 ## 🎮 Game Screenshots
 
 | ![Menu](https://github.com/user-attachments/assets/9d8a3403-94c5-45fb-907e-7ebe8e479bff) | ![Code](https://github.com/user-attachments/assets/00abc683-378b-4ba5-bfaf-b32dd72c813a) |
 |---------------------------------|---------------------------------|
 | ![Slime](https://github.com/user-attachments/assets/7a0ba828-6725-4eec-9595-071f97279cd3) | ![Achievement](https://github.com/user-attachments/assets/f753c50d-118d-4d3d-b5e5-45ccf718acd9) |
 | ![Crab](https://github.com/user-attachments/assets/72e03c7c-f64f-4cb5-a741-d39262a7ed4a) | ![Multiplayer](https://github.com/user-attachments/assets/16393cdb-69a2-4c3e-8068-bb52ce046a4b) |
----
-
-## 🧠 How It Works
-
-```
-01 — Pick a Level
-     Each level focuses on one Python concept:
-     variables, loops, functions, data structures, and more.
-
-02 — Play Through It
-     Solve in-game challenges and puzzles built around that concept.
-     Learning happens through doing, not watching.
-
-03 — Level Up
-     Complete the level to unlock the next concept
-     and watch your Python skills grow.
-```
 
 ---
 
@@ -98,39 +117,22 @@ The game is a 2D side-scrolling platformer made in **Godot Engine**, with a **Fa
 | `S` | Move Down |
 | `E` | Talk |
 | `Spacebar` | Jump |
-| `C` | Open Code Editor|
+| `C` | Open Code Editor |
 | `Left Mouse Button` | Sword Attack |
 
-
 ---
 
-## ⚔️ How to Play
-
-1. Start the game and choose a level
-2. Fight through enemies and obstacles while solving Python-based challenges.
-4. Complete all 20 levels to master the Python fundamentals.
-
----
-
-## 🛠️ Development
+## 🛠️ Built With
 
 | Tool | Purpose |
 |------|---------|
-| **Godot Engine** | Game engine |
-| **FastAPI** | Python backend & logic |
-| **Aseprite** | Pixel art & animation |
-| **Visual Studio Code** | Code editor |
-| **Git & GitHub** | Version control & hosting |
+| **Godot Engine 4** | Game engine |
+| **GDScript** | Game logic, FSM, and networking |
+| **FastAPI** | REST API backend and code evaluation |
+| **Python** | Server-side code sandbox and interpreter |
+| **Aseprite** | Pixel art and animation |
+| **Git & GitHub** | Version control and hosting |
 
----
-
-## 👥 The Team
-
-| Name | Role |
-|------|------|
-| **Jhenn Rod Dumlao** | Researcher · Game Developer |
-| **Roel Fortin Jr.** | Researcher |
-| **Mark Gerald Frias** | Researcher |
 
 ---
 
