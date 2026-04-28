@@ -51,10 +51,19 @@ func _process(delta: float) -> void:
 
 # ─── Setup ───────────────────────────────────────────────
 func _setup_as_host() -> void:
-	status_label.text    = "Waiting for players..."
+	status_label.text    = "Your IP: %s" % _get_local_ip()
 	start_button.visible = true
 	udp.set_broadcast_enabled(true)
 	udp.bind(0)
+
+func _get_local_ip() -> String:
+	for address in IP.get_local_addresses():
+		if address == "127.0.0.1" or ":" in address:
+			continue
+		if address.begins_with("169.254.") or address.begins_with("172."):
+			continue
+		return address
+	return "unknown"
 
 func _setup_as_client() -> void:
 	status_label.text    = "Waiting for host to start..."

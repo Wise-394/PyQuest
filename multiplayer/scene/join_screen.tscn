@@ -58,8 +58,9 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_wu8ii")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel" unique_id=1240924715]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_top = -34.0
+offset_right = 280.0
+offset_bottom = 395.0
 theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 45
 
@@ -74,6 +75,13 @@ theme_override_colors/font_outline_color = Color(0.2, 0.19607843, 0.23921569, 1)
 theme_override_constants/outline_size = 10
 text = "Join Game"
 horizontal_alignment = 1
+
+[node name="IPInput" type="LineEdit" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer" unique_id=1596501140]
+layout_mode = 2
+
+[node name="ConnectButton" type="Button" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer" unique_id=311940230]
+layout_mode = 2
+text = "Connect"
 
 [node name="StatusLabel" type="Label" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer" unique_id=1616751282]
 layout_mode = 2
